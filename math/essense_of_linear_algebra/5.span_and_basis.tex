@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\newcommand{\comment}[1]{}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+
+\title{Span and Basis}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{What is the deal with the terms `Span' and `Basis'?}
+\subsection{Span}
+We know that any point in a 2D co-ordinate system can be represented as linear combination of $ \ihat $ and $ \jhat $.
+The span of $ \ihat $ and $ \jhat $ is just the set of all vectors that can be formed by linear combination of $ \ihat $ and $ \jhat $.
+
+Extending this \textbf{the span of any set of vectors is the set of all vectors that can be formed using linear combination of each of the vectors}. Symbolically, the span of vectors $ v_1 $ $ v_2 $ ... $ v_n $ is set of all vectors formed by $ \alpha_1 * v_1 + \alpha_2 * v_2 + ... + \alpha_n * v_n $
+
+The term span means something is similar to the normal meaning of the word span and the verb spanning itself i.e. sort of to cover.
+
+\subsection{Basis}
+Basis is defined for a set of points i.e. co-ordinate space. Basis of a co-ordinate space \textbf{is the set of linearly INdependent vectors that that have span that is exactly equal to that space or (that span that space :P)}. Notice that
+\begin{enumerate}
+  \item By using the word linearly independent we are sort of putting a restriction on number of vectors in the set
+\end{enumerate}
+
+\subsubsection{What if a co-ordinate space has no vectors that span it?}
+Well if such a case exists \textbf{then that space has some points that cannot be expressed as linear combination of any of the vectors}.
+
+But we already know that for any N dimensional co-ordinate space every point represents a vector and the relation b/w that vector and point is that by moving along each axis of co-ordinate frame by the corresponding number in the vector we arrive at the point. If we take the vectors that define the co-ordinate frame as the set of our vectors then a linear combination of that vectors with numbers in our list shall produce the point.
+
+\textbf{Therefore for any point there exists a linear combination of vectors that produces the vector representing the point.}
+
+Two conclusions derived from the hypothesis contradict each other, therefore the hypothesis is incorrect. This means that for every co-ordinate space there must exist a set of linearly independent vectors that span the space or that \textbf{every space definitely has a (at least one) basis}. It might be the case that the basis can span more than the required space, which is not really a problem according to our definition.
+
+For example consider the vector space \{(1, 2, 3), (2, 1, 3), (0, 0, 0)\}. The set of vectors \{(1, 0, 0), (0, 1, 0) and (0, 0, 1)\} can be basis for the space, but their span is R^3.
+
+\end{document}
+

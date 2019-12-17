@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tikz}
+\newcommand{\comment}[1]{}
+
+
+\title{What the fuck is a vector?}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{What is a vector?}
+Well, as the case with any definition we can always choose to make it whatever we want. :P
+But seriously many problems in the (real) world apparently can be represented and solved by using list of numbers as a fundamental tool.
+Okay! So lets begin here then. For us a \textbf{vector is just a list of numbers}. (Want to use the word sequence instead of list, but it might mean something else later on)
+
+\section{For god sake, what is `dimensionality of vector' then?}
+Well for example consider the following vectors
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ c  c  c }
+    Vector name & Value & Dimension\\
+    $ V_0 $ & () & 0\\
+    $ V_1 $ & (1) & 1\\
+    $ V_2 $ & ($\sqrt{2}$) & 1\\
+    $ V_3 $ & (-100, $\sqrt{3}$) & 2\\
+    $ V_4 $ & (0, 0.1) & 2\\
+    $ V_5 $ & (0, 0, 0) & 3\\
+    $ V_6 $ & (0, 1, 2, 3) & 4\\
+  \end{tabular}
+\caption{Dimensions of Vectors}
+\label{tab:dim}
+\end{table}
+
+For each of the above vectors its dimensionality is written in the third column.
+So for us the \textbf{dimension of a vector is just the count of numbers in the list}.
+It is same as the length/size of the list. A vector with dimension N can be called ND-vector (spoken as N dimensional vector).
+
+\section{What is the deal with co-ordinate systems and vectors?}
+Well first to summarize on co-ordinate system terminology
+\begin{enumerate}
+  \item Axis 1 + axis 2 + ... + axis N = co-ordinate frame
+  \item Frame is used to reference to points
+  \item Set of all points form a space
+  \item Frame + space = system
+  \item N = dimension of co-ordinate system
+\end{enumerate}
+We can think of \textbf{each number in vector as the signed length in each of the axes of an N dimensional co-ordinate frame}.
+This way a numerical form of vector can be used to represent a point in space of appropriate dimension and a point can be used to visualize a numerical form of vector.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \draw (-3, 0) ellipse (2cm and 1cm);
+    \draw (-3, 0) node {Numerical};
+    \draw (3, 0) ellipse (2cm and 1cm);
+    \draw (3, 0) node {Co-ordinate};
+    \draw[->] (-3, 1) -- (3, 1);
+    \draw (0, 1.5) node {visualize};
+    \draw[->] (3, -1) -- (-3, -1);
+    \draw (0, -1.5) node { represent };
+  \end{tikzpicture}
+\end{figure}
+
+
+For example a vector $ \comment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
+    \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
+    \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
+    \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \comment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+  \end{tikzpicture}
+\end{figure}
+
+Please note that
+\begin{enumerate}
+  \item There is no need to name these axes X and Y.
+  \item There is no need for the axes to be perpendicular.
+  \item No need for 1 unit along first axis to be same as 1 unit along second axis.
+  \item No need for units of first axis to be same as the second one
+\end{enumerate}
+
+\end{document}
+

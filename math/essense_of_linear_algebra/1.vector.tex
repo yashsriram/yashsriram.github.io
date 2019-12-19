@@ -15,8 +15,9 @@
 
 \section{What is a vector?}
 Well, as the case with any definition we can always choose to make it whatever we want. :P
-But seriously many problems in the (real) world apparently can be represented and solved by using list of numbers as a fundamental tool.
-Okay! So lets begin here then. For us a \textbf{vector is just a list of numbers}. (Want to use the word sequence instead of list, but it might mean something else later on)
+But in a less comical note many problems in the (real) world apparently can be represented and solved by using list of numbers as a fundamental tool.
+
+Okay! So let's define \textbf{vector as just a list of numbers}. (Want to use the word sequence instead of list, but it might mean something else later on)
 
 \section{For god sake, what is `dimensionality of vector' then?}
 Well for example consider the following vectors
@@ -41,8 +42,10 @@ For each of the above vectors its dimensionality is written in the third column.
 So for us the \textbf{dimension of a vector is just the count of numbers in the list}.
 It is same as the length/size of the list. A vector with dimension N can be called ND-vector (spoken as N dimensional vector).
 
-\section{What is the deal with co-ordinate systems and vectors?}
-Well first to summarize on co-ordinate system terminology
+\section{What is a co-ordinate system?}
+Co-ordinate system is a method to represent the concept of `space' with real numbers.
+A co-ordinate system consists of things called `axes'. The collection of `axes' is called the co-ordinate system's frame.
+For any `point' in the `space' there is one and only one way of representing 
 \begin{enumerate}
   \item Axis 1 + axis 2 + ... + axis N = co-ordinate frame
   \item Frame is used to reference to points
@@ -50,6 +53,8 @@ Well first to summarize on co-ordinate system terminology
   \item Frame + space = system
   \item N = dimension of co-ordinate system
 \end{enumerate}
+
+\section{What is the deal with co-ordinate systems and vectors?}
 We can think of \textbf{each number in vector as the signed length in each of the axes of an N dimensional co-ordinate frame}.
 This way a numerical form of vector can be used to represent a point in space of appropriate dimension and a point can be used to visualize a numerical form of vector.
 
@@ -87,6 +92,9 @@ Please note that
   \item No need for 1 unit along first axis to be same as 1 unit along second axis.
   \item No need for units of first axis to be same as the second one
 \end{enumerate}
+
+\section{Why like this?}
+Well there is no specific reason. Just that it seems natural and seems to be useful to solve many problems in the world.
 
 \end{document}
 

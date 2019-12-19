@@ -1,3 +1,3 @@
 # What is this?
-This set of documents are my thoughts on various things in my life
+This repository is a collection of my thoughts on various things in my life
 

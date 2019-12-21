@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\comment}[1]{}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+
+\title{Vectors and space}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section{A subtle assumption}
+There is \textbf{a very implicit and subtle assumption that often goes unnoticed. That is that when we convert a vector into a point we often multiply each number in the list by 1 and take the directions perpendicular to all others} . For example in 2D case $ \comment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ generally represents 3 units along $ \ihat $ and -10 units along $ \jhat $.
+
+The same vector $ \comment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ can represent 3 units along $ 2\ihat + -40\jhat $ and $ -300\ihat + 47.7\jhat $. These axes are not perpendicular, not unit length and can in generally even be parallel (linearly dependent).
+
+But still we can let the vector define lengths along these axes. (Hell we can do whatever we want with math :P.) But actually letting go of the binding b/w numbers and so called `standard axes' can be useful in certain cases and noticing this very implicit assumption is just enlightening :).
+
+\section{What if a co-ordinate space has no basis?}
+\begin{theorem}
+All co-ordinate spaces have at least one basis.
+\end{theorem}
+
+\begin{proof}
+Let's try proof by contradiction.
+Let's assume that there are some spaces which does not have a basis.
+That means that there are no vectors that span that space.
+Well if such a case exists \textbf{then that space has some points that cannot be expressed as linear combination of any of the vectors}.
+
+But we already know that for any N dimensional co-ordinate space every point represents a vector and the relation b/w that vector and point is that by moving along each axis of co-ordinate frame by the corresponding number in the vector we arrive at the point by the definition of co-ordinate system.
+
+If we take the vectors that define the co-ordinate frame as the set of our vectors then a linear combination of that vectors with numbers in our list shall produce the point.
+\textbf{Therefore for any point in any co-ordinate space there exists a linear combination of vectors that produces the vector representing the point.}
+
+Two conclusions derived from the hypothesis contradict each other, therefore the hypothesis is incorrect.
+
+This means that for every co-ordinate space there must exist a set of vectors that span the space (most simplest of all are the vectors that define co-ordinate frame) (some of them can be removed until the rest are linearly independent).In other words \textbf{every space definitely has at least one basis}. It might be the case that the basis may span more than the required space, which is not really a problem according to our definition.
+
+For example consider the vector space \{(1, 2, 3), (2, 1, 3), (0, 0, 0)\}. The set of vectors \{(1, 0, 0), (0, 1, 0) and (0, 0, 1)\} can be basis for the space, but their span is $ R^3 $.
+\end{proof}
+
+\section{Why do people say that $ \ihat $ and $ \jhat $ are `the' basis for 2D Cartesian Co-ordinate system ?}
+Well it is not false that $ \ihat $ and $ \jhat $ are `one of the' basis for 2D co-ordinate system. But it is definitely not the only one i.e. not unique basis.
+In fact there are many such basis sets for 2D co-ordinate system, infinitely many.
+
+\begin{theorem}
+Any 2D vectors that are linearly independent can be a candidate for the basis of the 2D co-ordinate space.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\end{document}

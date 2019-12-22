@@ -1,0 +1,30 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz}
+\newtheorem{theorem}{Theorem}
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\newcommand{\blockcomment}[1]{}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+
+\title{Mathematics}
+\author{Yashasvi Sriram Patkuri}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\subfile{essense_of_linear_algebra/1.vector.tex}
+\subfile{essense_of_linear_algebra/2.adding_and_scaling.tex}
+\subfile{essense_of_linear_algebra/3.linear_combination.tex}
+\subfile{essense_of_linear_algebra/4.linearly_(in)dependent.tex}
+\subfile{essense_of_linear_algebra/5.span_and_basis.tex}
+\subfile{essense_of_linear_algebra/6.vector_and_space.tex}
+
+\end{document}
+

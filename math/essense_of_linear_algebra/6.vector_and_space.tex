@@ -1,25 +1,12 @@
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{tikz}
-\newtheorem{theorem}{Theorem}
-
-\newcommand{\comment}[1]{}
-\newcommand{\ihat}{\hat{\textbf{\i}}}
-\newcommand{\jhat}{\hat{\textbf{\j}}}
-
-\title{Vectors and space}
-\author{}
+\documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\maketitle
+\chapter{Vectors and space}
 
 \section{A subtle assumption}
-There is \textbf{a very implicit and subtle assumption that often goes unnoticed. That is that when we convert a vector into a point we often multiply each number in the list by 1 and take the directions perpendicular to all others} . For example in 2D case $ \comment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ generally represents 3 units along $ \ihat $ and -10 units along $ \jhat $.
+There is \textbf{a very implicit and subtle assumption that often goes unnoticed. That is that when we convert a vector into a point we often multiply each number in the list by 1 and take the directions perpendicular to all others} . For example in 2D case $ \blockcomment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ generally represents 3 units along $ \ihat $ and -10 units along $ \jhat $.
 
-The same vector $ \comment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ can represent 3 units along $ 2\ihat + -40\jhat $ and $ -300\ihat + 47.7\jhat $. These axes are not perpendicular, not unit length and can in generally even be parallel (linearly dependent).
+The same vector $ \blockcomment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ can represent 3 units along $ 2\ihat + -40\jhat $ and $ -300\ihat + 47.7\jhat $. These axes are not perpendicular, not unit length and can in generally even be parallel (linearly dependent).
 
 But still we can let the vector define lengths along these axes. (Hell we can do whatever we want with math :P.) But actually letting go of the binding b/w numbers and so called `standard axes' can be useful in certain cases and noticing this very implicit assumption is just enlightening :).
 

@@ -1,16 +1,7 @@
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{tikz}
-\newcommand{\comment}[1]{}
-
-
-\title{What the hell is a vector?}
-\author{}
+\documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\maketitle
+\chapter{What the hell is a vector?}
 
 \section{What is a vector?}
 Well, as the case with any definition we can always choose to make it whatever we want. :P
@@ -75,7 +66,7 @@ This way a numerical form of vector can be used to represent a point in space of
 \end{figure}
 
 
-For example a vector $ \comment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
+For example a vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
 
 \begin{figure}[ht]
   \centering
@@ -83,7 +74,7 @@ For example a vector $ \comment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \
     \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
     \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
     \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
-    \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \comment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+    \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
   \end{tikzpicture}
 \end{figure}
 

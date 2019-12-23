@@ -2,24 +2,30 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{tikz}
 \newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Define}
 \usepackage{subfiles} % Best loaded last in the preamble
 
 \newcommand{\blockcomment}[1]{}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 
-\title{Mathematics}
-\author{Yashasvi Sriram Patkuri}
+\title{my perspective on mathematics}
+\author{yashasvi sriram patkuri}
 
 \begin{document}
 \maketitle
-\tableofcontents
 
+\subfile{why_this_effort.tex}
+\subfile{the_process_of_learning.tex}
+\subfile{preface.tex}
+\tableofcontents
+\subfile{what_is_math.tex}
 \subfile{essense_of_linear_algebra/1.vector.tex}
+\subfile{essense_of_linear_algebra/1.1.co-ordinate_system.tex}
 \subfile{essense_of_linear_algebra/2.adding_and_scaling.tex}
 \subfile{essense_of_linear_algebra/3.linear_combination.tex}
 \subfile{essense_of_linear_algebra/4.linearly_(in)dependent.tex}

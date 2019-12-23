@@ -1,18 +1,24 @@
 \documentclass[./main.tex]{subfiles}
 
 \begin{document}
-\chapter*{preface}
+\chapter*{how to use?}
 This is not a re-write of any book.
 This is the written form of my perspective and understanding of mathematics.
 In big picture this text is a directed acyclic graph (DAG) of statements.
 This text has the following constructs
 \begin{enumerate}
+  \item \textbf{Axiom}: A statement that is starting point in the DAG.
   \item \textbf{Definition}: A statement that is starting point in the DAG.
   \item \textbf{Theorem}: A statement that is intermediate point in the DAG.
-  \item \textbf{Proof}: A logical flow that connects statement A to B, such that if A is true only then B is true else B is false.
+  \item \textbf{Proof}: A logical flow that connects statement A to B, such that if A is true then B is true, else B is false.
 \end{enumerate}
 
 If there are circles in the statement graph, then there is a circular dependency among statements for them to be true. This makes not much sense to me and therefore DAG.
+
+The purpose of DAG is that for a given theorem, it should be able to provide all the theorems (called lemmas in this context), definitions and axioms that are required to prove it (true).
+
+Strictly speaking I don't see much difference b/w an axiom and a definition.
+But just for the sake of sanity I am gonna use those, as anyway it doesn't make anything incorrect.
 
 Definitions and theorems \textbf{always} have a reason to be considered i.e. there is a reasonable answer to the question `why the hell are we even spending time on this?' I shall try to write this for every definition.
 \end{document}

@@ -1,0 +1,29 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{tikz}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Define}
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\newcommand{\blockcomment}[1]{}
+\newcommand{\defusecase}[1]{{Why?: #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+
+\title{my experience with coding}
+\author{yashasvi sriram patkuri}
+
+\begin{document}
+\maketitle
+
+\subfile{why_this_effort.tex}
+\subfile{the_process_of_learning.tex}
+\tableofcontents
+\subfile{tips/tips.tex}
+
+\end{document}
+

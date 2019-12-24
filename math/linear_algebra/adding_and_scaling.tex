@@ -1,0 +1,40 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{vector addition}
+
+\begin{definition}
+  \label{def:vector_addition}
+
+  \textbf{In case of 2D with vectors say $ \blockcomment{Column-Vector: x,y} \begin{pmatrix} x \\ y \end{pmatrix} $ and $ \blockcomment{Column-Vector: a,b} \begin{pmatrix} a \\ b \end{pmatrix} $ the addition rule for vectors is as follows
+\[
+  \begin{pmatrix} x \\ y \\  \end{pmatrix} + \begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} x+a \\ y+b \end{pmatrix}.
+\]
+This can be extended to general N dimension vector.}
+
+  \defusecase{This is to re-enforce the notion that each of the numbers in the list (that creates the vector) is independent of all others and that each position behaves like a regular real number. This re-enforces the notion that vector is like a natural extension to the notion real numbers just that in this case multiple numbers go through the operation simultaneously.
+Otherwise there is no reason not to define the addition rule as something arbitrary like
+\[
+\blockcomment{Column-Vector: x,y} \begin{pmatrix} x \\ y \end{pmatrix} + \blockcomment{Column-Vector: a,b} \begin{pmatrix} a \\ b \end{pmatrix} = 
+\blockcomment{Column-Vector: xa + yb^2, \frac{b - y}{x + a}} \begin{pmatrix} xa + yb^2 \\  \frac{b - y}{x + a} \end{pmatrix}
+.\]
+}
+\end{definition}
+
+
+\section{vector scaling}
+
+\begin{definition}
+  \label{def:vector_scaling}
+
+  \textbf{For a real number `s' the scaling rule for vectors is as follows \[
+s * \blockcomment{Column-Vector: x, y} \begin{pmatrix} x \\  y \end{pmatrix} = \blockcomment{Column-Vector: sx, sy} \begin{pmatrix} sx \\  sy \end{pmatrix}
+.\]. The same thing can be extended to N dimensional vector.}
+
+  \defusecase{Same story. Here `a'  is called a \textbf{scalar} as it scales each number in the list. Hence the word scalar came into existence instead of just being known as a real-number or something like `multiplying factor'. Mind == Blown!!}
+
+\end{definition}
+
+\pagebreak
+\end{document}

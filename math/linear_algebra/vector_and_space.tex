@@ -1,9 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Vectors and space}
-
-\section{A subtle assumption}
+\section{Vectors and space, A subtle assumption}
 There is \textbf{a very implicit and subtle assumption that often goes unnoticed. That is that when we convert a vector into a point we often multiply each number in the list by 1 and take the directions perpendicular to all others} . For example in 2D case $ \blockcomment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ generally represents 3 units along $ \ihat $ and -10 units along $ \jhat $.
 
 The same vector $ \blockcomment{Column-Vector: 3, -10} \begin{pmatrix} 3 \\  -10 \end{pmatrix} $ can represent 3 units along $ 2\ihat + -40\jhat $ and $ -300\ihat + 47.7\jhat $. These axes are not perpendicular, not unit length and can in generally even be parallel (linearly dependent).
@@ -44,4 +42,5 @@ Any 2D vectors that are linearly independent can be a candidate for the basis of
 \begin{proof}
 \end{proof}
 
+\pagebreak
 \end{document}

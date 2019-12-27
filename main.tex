@@ -5,13 +5,16 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{amsthm}
-\usepackage{tikz}
+\usepackage{pgf, tikz}
+\usetikzlibrary{arrows, automata}
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Define}
 \usepackage{subfiles} % Best loaded last in the preamble
 
 \setcounter{secnumdepth}{0}
 \newcommand{\blockcomment}[1]{}
+\newcommand{\defname}[1]{\textbf{#1}}
+\newcommand{\defdescription}[1]{#1}
 \newcommand{\defsignificance}[1]{{Significance: #1}}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}

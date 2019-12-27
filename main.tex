@@ -10,9 +10,9 @@
 \newtheorem{definition}{Define}
 \usepackage{subfiles} % Best loaded last in the preamble
 
-% \setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{0}
 \newcommand{\blockcomment}[1]{}
-\newcommand{\defusecase}[1]{{Why?: #1}}
+\newcommand{\defsignificance}[1]{{Significance: #1}}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 
@@ -20,31 +20,19 @@
 \author{yashasvi sriram patkuri}
 
 \begin{document}
-\maketitle
 
+\maketitle
 \subfile{why_this_effort.tex}
 \subfile{the_process_of_learning.tex}
 \tableofcontents
 
-\part{my perspective on mathematics}
-\subfile{math/how_to_use.tex}
+\part{math}
+\subfile{math/structure.tex}
 \subfile{math/what_is_math.tex}
-
-\subfile{math/set/_.tex}
-\subfile{math/set/what_is_a_set.tex}
-\subfile{math/set/contin_vs_contig_sets.tex}
-
-\subfile{math/co-ordinate_system/_.tex}
-\subfile{math/co-ordinate_system/point_and_space.tex}
-\subfile{math/co-ordinate_system/co-ordinate_system.tex}
-
-\subfile{math/linear_algebra/_.tex}
-\subfile{math/linear_algebra/vector.tex}
-\subfile{math/linear_algebra/adding_and_scaling.tex}
-\subfile{math/linear_algebra/linear_combination.tex}
-\subfile{math/linear_algebra/linearly_(in)dependent.tex}
-\subfile{math/linear_algebra/span_and_basis.tex}
-\subfile{math/linear_algebra/vector_and_space.tex}
+\subfile{math/numbers.tex}
+\subfile{math/sets.tex}
+\subfile{math/geometry.tex}
+\subfile{math/linear_algebra.tex}
 
 \part{my experience with coding}
 \subfile{coding/tips.tex}

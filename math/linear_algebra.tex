@@ -1,0 +1,134 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{what the hell is a vector?}
+
+Well, as the case with any definition we can always choose to make it whatever we want. :P
+But in a less comical note many problems in the (real) world apparently can be represented and solved by using list of numbers as a fundamental tool.
+
+\begin{definition}
+  \label{def:vector}
+
+  \textbf{The vector as just a list of numbers, in which the order of numbers matter.}
+
+  \defsignificance{Provides the abstraction of a `super number'  i.e. operations on it can be seen as operations to all number simultaneously}
+\end{definition}
+
+
+\section{dimension of vector}
+\begin{definition}
+  \label{def:vector_dimension}
+
+  \textbf{The dimension of a vector [\ref{def:vector}] is just the count of numbers in the list.
+A vector with dimension N can be called ND-vector (spoken as N dimensional vector).}
+
+  \defsignificance{A natural property of vector}
+\end{definition}
+
+For each of the following vectors its dimensionality is written in the third column.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{ c  c  c }
+    Vector name & Value & Dimension\\
+    $ V_0 $ & () & 0\\
+    $ V_1 $ & (1) & 1\\
+    $ V_2 $ & ($\sqrt{2}$) & 1\\
+    $ V_3 $ & (-100, $\sqrt{3}$) & 2\\
+    $ V_4 $ & (0, 0.1) & 2\\
+    $ V_5 $ & (0, 0, 0) & 3\\
+    $ V_6 $ & (0, 1, 2, 3) & 4\\
+  \end{tabular}
+\caption{Dimensions of Vectors}
+\label{tab:dim}
+\end{table}
+
+\pagebreak
+\section{vector addition}
+
+\begin{definition}
+  \label{def:vector_addition}
+
+  \textbf{In case of 2D with vectors say $ \blockcomment{Column-Vector: x,y} \begin{pmatrix} x \\ y \end{pmatrix} $ and $ \blockcomment{Column-Vector: a,b} \begin{pmatrix} a \\ b \end{pmatrix} $ the addition rule for vectors is as follows
+\[
+  \begin{pmatrix} x \\ y \\  \end{pmatrix} + \begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} x+a \\ y+b \end{pmatrix}.
+\]
+This can be extended to general N dimension vector.}
+
+  \defsignificance{This is to re-enforce the notion that each of the numbers in the list (that creates the vector) is independent of all others and that each position behaves like a regular real number. This re-enforces the notion that vector is like a natural extension to the notion real numbers just that in this case multiple numbers go through the operation simultaneously.
+Otherwise there is no reason not to define the addition rule as something arbitrary like
+\[
+\blockcomment{Column-Vector: x,y} \begin{pmatrix} x \\ y \end{pmatrix} + \blockcomment{Column-Vector: a,b} \begin{pmatrix} a \\ b \end{pmatrix} = 
+\blockcomment{Column-Vector: xa + yb^2, \frac{b - y}{x + a}} \begin{pmatrix} xa + yb^2 \\  \frac{b - y}{x + a} \end{pmatrix}
+.\]
+}
+\end{definition}
+
+\section{vector scaling}
+
+\begin{definition}
+  \label{def:vector_scaling}
+
+  \textbf{For a real number `s' the scaling rule for vectors is as follows \[
+s * \blockcomment{Column-Vector: x, y} \begin{pmatrix} x \\  y \end{pmatrix} = \blockcomment{Column-Vector: sx, sy} \begin{pmatrix} sx \\  sy \end{pmatrix}
+.\]. The same thing can be extended to N dimensional vector.}
+
+  \defsignificance{Same story. Here `a'  is called a \textbf{scalar} as it scales each number in the list. Hence the word scalar came into existence instead of just being known as a real-number or something like `multiplying factor'. Mind == Blown!!}
+
+\end{definition}
+\pagebreak
+
+\section{What the hell is a linear combination?}
+
+\textbf{A (yet another) different way to think about vectors}
+Well consider a 2D co-ordinate system. Say we draw the vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $ in that system.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
+    \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
+    \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
+    \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+  \end{tikzpicture}
+\end{figure}
+
+We know that each number in the list (the vector) is the signed length that we need to travel to get to the point represented by the vector.
+Well we can also `think' that \textbf{each number represents the `scalar' that scales some very fundamental vectors that belong to the system and by adding the scaled versions of those vectors we get the same point}. These fundamental vectors can be thought of as extension of the definition of co-ordinate system itself, in that each axis of a co-ordinate system has one and only one vector associated with it.
+
+This idea of \textbf{scaling and adding things is known as linear combination} in general. In linear algebra the things are vectors. Most ideas in linear algebra build up on this idea of scaling and adding some fundamental vectors (i.e. linear combination of vectors). In the regular 2D co-ordinate system these vectors are $ \ihat $ and $ \jhat $.
+
+So a linear combination of $ \ihat $ and $ \jhat $ can be represented symbolically as \[
+\alpha * \ihat + \beta * \jhat
+.\] where $ \alpha $ and $ \beta $ are any real numbers.
+
+The word comes from I guess the fact that there are other types of combinations like polynomial combination, exponential combination, logarithmic combination and what not. The most simplest of them all for us humans seems to be linear combination. And we know from experience that simple is fun and often powerful.
+
+\pagebreak
+
+\section{What does `linearly dependent' and `linearly independent' mean?}
+
+A set of vectors are said to be \textbf{linearly dependent iff one of them can be expressed as a linear combination of others}. They are called linearly independent if they that cannot be done. Symbolically for a set of vectors $ v_1 $ $ v_2 $ ... $ v_n $ if we can find co-efficients $ \alpha_1 \alpha_2 ... \alpha_n $ such that \[ \alpha_1 * v_1  = \alpha_2 * v_2 + ... + \alpha_n * v_n \] then they are said to linearly dependent. If we cannot (as in there does not exist such set of co-efficients) then the set of vectors are called linearly independent.
+
+Seems like a definition that is natural and will comes in handy.
+
+\pagebreak
+
+\section{Span}
+\textbf{The span of any set of vectors (F) is the set of all vectors (S) that can be formed using linear combination of each of the vectors in (F)}. Symbolically, the span of vectors $ v_1 $ $ v_2 $ ... $ v_n $ (F) is set of all vectors formed by $ \alpha_1 * v_1 + \alpha_2 * v_2 + ... + \alpha_n * v_n $ (S) where $ \alpha_1, \alpha_2 ... \alpha_n $ are any real numbers.
+
+The term span means something is similar to the normal meaning of the word span and the verb spanning itself i.e. like sort of to cover something.
+
+\section{Basis}
+\textbf{Basis of a set of vectors (S) is the set of linearly INdependent vectors (F) that span (S) i.e. the span of (F) is a superset or exactly equal to (S)}. Notice that
+\begin{enumerate}
+  \item By using the word linearly independent we are sort of putting a restriction on number of vectors in the set
+\end{enumerate}
+
+\section{But why these definitions?}
+The idea is that from `space' or `spatial' point of view, span and basis are sort like inverse things. Given basis we can find the span, given a span we can find the basis. This sort of comes from the natural drive to generate and break down, I guess.
+
+\pagebreak
+
+\end{document}

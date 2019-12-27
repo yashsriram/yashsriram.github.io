@@ -6,12 +6,13 @@ This is not a re-write of any book.
 This is the written form of my perspective and understanding of mathematics.
 
 In big picture this text describes a directed acyclic graph (DAG).
+
 A node of the DAG is a \textbf{statement}.
+If a statement node does not have any parents it is called \textbf{axiom} otherwise it is called \textbf{theorem}. An axiom in which we name a certain thing is called \textbf{definition}.
+
 An edge of the DAG is a \textbf{proof}.
 
-If a statement node does not have any parents it is called \textbf{axiom} otherwise it is called \textbf{theorem}.
-
-A proof edge represents
+The following condition holds for the DAG.
 \begin{verbatim}
   if (all parents of statement A are true) {
     A is true
@@ -61,7 +62,7 @@ A proof edge represents
 \textbf{Acyclic} because, if there are circles in the statement graph then there is a circular dependency among statements to be true.
 This makes not much sense to me and therefore acyclic.
 
-Statements \textbf{always have a practical significance} i.e. there is a reasonable answer to the question `why the hell are we even spending time on this?' I shall try to write this for every statement.
+Statements \textbf{always have a practical significance} i.e. there is a reasonable answer to the question `why the hell are we even spending time on this?' I shall try to write this for every statement. All definitions in this text are just my convention, which will \textbf{mostly} be same as the general consensus.
 
 \pagebreak
 \end{document}

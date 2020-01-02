@@ -1,28 +1,51 @@
 \documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{tikz}
-\usepackage{hyperref}
-
-\newcommand{\comment}[1]{}
-\newcommand{\ihat}{\hat{\textbf{\i}}}
-\newcommand{\jhat}{\hat{\textbf{\j}}}
-\newcommand{\foo}[2][LOL MAXX]{
-
-  \textbf{#1} Hello world!
-
-  #2
-}
-
-\title{Scratch}
-\author{}
+\usepackage{arrayjobx}
+\usepackage{multido}
 
 \begin{document}
-\maketitle
 
-Hello this is some text.
+\newarray\IdArray
+\newarray\ContentArray
 
-\foo{dfa}
+\readarray{IdArray}{Mathematics&Number&Set&Order&Equality}
+\readarray{ContentArray}{imagination&counters&unique collection&comes before or after&same}
+
+\newcommand{\IdArraySize}{5}
+
+\begin{description}
+ \multido{\iIds=1+1}{\IdArraySize}{
+  \item[\IdArray(\iIds)] : \ContentArray(\iIds)
+ }
+\end{description}
+
+\newarray\Actors
+\readarray{Actors}{Louise Brooks&Marlene Dietrich&Clark Gable}
+\Actors(4)={\textit{\underline{Ida Lupino}}}
+\Actors(6)={\textit{\underline{Ida}}}
+\verb+\Actors(4)+ = ‘\Actors(4)’
+\verb+\Actors(5)+ = ‘\Actors(5)’
+\verb+\Actors(6)+ = ‘\Actors(6)’
+
+% Plain TeX usage
+\checkActors(1)%
+\verb+\Actors(1)+ = ‘\cachedata’
+\checkActors(5)%
+\ifemptydata
+\verb+\Actors(5)+ not defined.
+\fi
+
+% LaTeX usage
+\newcommand{\IsEmptyElement}[2]{%
+  \ifemptydata
+    #1
+  \else
+    #2
+  \fi
+  % \ifthenelse{\boolean{\ifemptydata}}{#1}{#2}
+}
+\checkActors(3)%
+\verb+\Actors(3)+ = \IsEmptyElement{not defined}{‘\cachedata’}
+\checkActors(5)%
+\verb+\Actors(5)+ = \IsEmptyElement{not defined}{‘\cachedata’}
 
 \end{document}

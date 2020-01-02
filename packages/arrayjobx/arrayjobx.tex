@@ -1,0 +1,2096 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -*- Mode: Latex -*- %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% arrayjobx.tex --- Documentation of the `arrayjobx' package from Zhuhan Jiang
+%%
+%% Author          : Denis GIROU (CNRS/IDRIS - France) <Denis.Girou@idris.fr>
+%% Created the     : Fri Jan  7 21:13:20 2000
+%% Last mod. by    : Michael Sharpe (UCSD - USA) <msharpe@ucsd.edu>
+%% Last mod. the   : Mon May 3 11:18:300 2010
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{arrayjobx}              % Arrays management
+\usepackage{fancyvrb}              % Fancy verbatims
+\usepackage[width=18cm]{geometry}  % Page layout
+\usepackage{graphics}              % Graphics LaTeX standard package
+\usepackage{ifthen}                % Convenient conditionals in LaTeX
+\usepackage{mflogo}                % For the MetaFont and MetaPost logos
+\usepackage{multido}               % General loop macro
+\usepackage{url}                   % URLs convenient typesetting
+
+% For PSTricks examples
+\newif\ifpstricks
+\IfFileExists{pstricks.sty}{%
+\pstrickstrue
+%\usepackage{pstcol}                % PSTricks package with `color' interface
+\usepackage{pst-node}              % PSTricks nodes     package
+\usepackage{pst-plot}              % PSTricks plots     package
+\usepackage{pst-grad}              % PSTricks gradients package
+%\usepackage{pst-key}               % PSTricks interface to the `keyval' package
+}{%
+\usepackage{color}
+}                % Color LaTeX standard package
+
+% Definition of new colors
+\definecolor{Khaki}       {rgb}{0.94,0.90,0.55}
+\definecolor{LemonChiffon}{rgb}{1.,0.98,0.8}
+
+% A unique string for TeX and LaTeX
+\newcommand{\AllTeX}{%
+{\rm(L\kern-.36em\raise.3ex\hbox{\sc a}\kern-.15em)%
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Package names
+\newcommand{\AlDraTeXPackage}{\textsf{(Al)Dra\TeX}}
+\newcommand{\ArrayJobPackage}{`\textsf{arrayjobx}'}
+\newcommand{\FormLettPackage}{`\textsf{formlett}'}
+\newcommand{\IfThenPackage}{`\textsf{ifthen}'}
+\newcommand{\MetaFontPackage}{\MF}
+\newcommand{\MetaPostPackage}{\MP}
+\newcommand{\MultiDoPackage}{`\textsf{multido}'}
+\newcommand{\PSTricksPackage}{\textsf{PSTricks}}
+\newcommand{\RepeatPackage}{`\textsf{repeat}'}
+
+% Aligned labels in a description environment
+\newenvironment{Description}[1]{%
+\begin{list}{nothing}{\setlength{\leftmargin}{#1}
+\setlength{\labelwidth}{\leftmargin}\setlength{\labelsep}{1mm}}}
+{\end{list}}
+
+% If PSTricks is not available
+\newcommand{\PSTricksExampleNotShown}{%
+\vspace{2mm}
+\centerline{\fbox{\textbf{Example not shown here because PSTricks is not
+                          available on this platform.}}}}
+
+% Character to define verbatim strings, with escape characters /?; (from `fancyvrb')
+\DefineShortVerb[commandchars=/?;]{\!}
+
+\VerbatimFootnotes % Allow verbatim material in footnotes (from `fancyvrb')
+
+% Some advices from Rolf Niepraschk
+\newcommand{\BS}{\texttt{\symbol{`\\}}}
+\newcommand{\Macro}[1]{\texttt{\BS#1}}
+\newcommand{\Variable}[1]{\textnormal{\textit{\(\langle\)#1\,\(\rangle\)}}}
+\newcommand{\Parameter}[1]{\texttt{\symbol{`\{}#1\symbol{`\}}}}
+
+% To format TeX macro strings
+\newcommand{\FormatTeXMacro}[1]{\Macro{#1}\hfill :}
+
+\makeatletter
+
+% Example environments
+% (do not use in them the /?; characters, that we will be used as escape characters!)
+
+% For highlighting some verbatim sequences (array names, macro names and comments)
+\def\HLReverse#1{{%
+\setlength{\fboxsep}{1pt}%
+\colorbox{black}{\textcolor{white}{\textbf{#1}}}}}
+\def\HLMacro#1{\BS{}def\HLMacro@i#1\@nil}
+\def\HLMacro@i#1def#2\@nil{{%
+\setlength{\fboxsep}{1pt}%
+\colorbox{black}{\textcolor{white}{\textbf{#2}}}}}
+\def\HLComment#1{\textit{#1}}
+
+\def\Example{\FV@Environment{}{Example}}
+\def\endExample{%
+\end{VerbatimOut}
+\Below@Example{\input{\jobname.tmp}}
+\endgroup}
+
+\def\CenterExample{\FV@Environment{}{Example}}
+\def\endCenterExample{%
+\end{VerbatimOut}%
+\begin{center}
+\Below@Example{\input{\jobname.tmp}}
+\end{center}
+\endgroup}
+
+\def\SideBySideExample{\FV@Environment{}{Example}}
+\def\endSideBySideExample{%
+\end{VerbatimOut}%
+\SideBySide@Example{\input{\jobname.tmp}}
+\endgroup}
+
+\def\FVB@Example{%
+\begingroup
+\FV@UseKeyValues
+\parindent=0pt
+\multiply\topsep by 2
+\VerbatimEnvironment
+\begin{VerbatimOut}[codes={\catcode`\Z=12}]{\jobname.tmp}}
+
+\def\Below@Example#1{%
+\VerbatimInput[gobble=0,commentchar=Z,commandchars=/?;,numbersep=3pt,
+               frame=single,numbers=left]%
+              {\jobname.tmp}
+\catcode`\Z=9\relax%
+% We suppress the effect of the highlighting macros
+\catcode`/=0\relax%
+\catcode`?=1\relax%
+\catcode`;=2\relax%
+\def\HLReverse##1{##1}%
+\def\HLMacro##1{##1}%
+\def\HLComment##1{##1}%
+#1\par}
+
+\def\SideBySide@Example#1{%
+\@tempdimb=\FV@XRightMargin
+\advance\@tempdimb -5mm
+\begin{minipage}[c]{\@tempdimb}
+  \fvset{xrightmargin=0pt}
+  \catcode`\Z=9\relax%
+  % We suppress the effect of the highlighting macros
+  \catcode`/=0\relax%
+  \catcode`?=1\relax%
+  \catcode`;=2\relax%
+  \def\HLReverse##1{##1}%
+  \def\HLMacro##1{##1}%
+  \def\HLComment##1{##1}%
+  #1
+\end{minipage}%
+\@tempdimb=\textwidth
+\advance\@tempdimb -\FV@XRightMargin
+\advance\@tempdimb 5mm
+\begin{minipage}[c]{\@tempdimb}
+  \VerbatimInput[gobble=0,commentchar=Z,commandchars=/?;,
+                 numbersep=3pt,frame=single,numbers=left,
+                 xleftmargin=5mm,xrightmargin=0pt]{\jobname.tmp}
+\end{minipage}}
+
+\makeatother
+
+% Source codes must be indented by 2 spaces
+\fvset{gobble=2,frame=single,numbers=left,numbersep=1mm}
+
+\begin{document}
+
+\title{The \ArrayJobPackage{} package\\Management of arrays in \AllTeX}
+\author{Zhuhan Jiang\\School of Computing and Mathematics\\
+        University of Western Sydney\\Sydney\\Australia\\
+        {\footnotesize email: zhuhan@scm.uws.edu.au}\\[5mm]
+        {\footnotesize (Documentation: Denis Girou%
+                       \footnote{All errors and misunderstandings are mine.}
+                       \hspace{1mm}(CNRS/IDRIS -- France) --
+                       Denis.Girou@idris.fr)}}
+\date{Version 1.04\\May 3, 2010\\
+      {\small Documentation revised May 31, 2000, edited lightly May 3, 2010 by Michael Sharpe}}
+
+\maketitle
+
+\begin{abstract}
+  This package provides array data structures in \AllTeX, in the meaning of
+the classical procedural programming languages like Fortran, Ada or C, and
+macros to manipulate them. Arrays can be mono or bi-dimensional.
+
+  This is useful for applications which require high level programming
+techniques, like algorithmic graphics programmed in \TeX. This version no longer conflicts with some macros in the {\tt amsmath} package. It should be used for all new work.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+  One of the big advantages of the \AllTeX{} system over common interactive
+software for text processing is that it offer, also, a programming language,
+which give, to people who have some knowledge in the algorithmic and
+programming fields, an exceptional flexibility and power.
+
+  Nevertheless, \TeX{} is a rather specific programming language, based on
+macro expansion, which implements a lot of unusual constructs but lacks some that are very familiar in the classical procedural languages, as
+\emph{arrays} to store and retrieve arbitrary pieces of data, stored in a
+structured way. The main reason why they were not integrated in \TeX{} was
+perhaps that arrays did not seem very useful in a language focussed on text processing (but
+\MetaFontPackage{}, for instance, does has them). Nevertheless, one of the few
+applications where this is straightforward to use them is to program a mailing
+system, where nearly the same information is to be formatted several times,
+depending of values which can be simply retrieved from an array of data. This
+was the goal of the \FormLettPackage{} package \cite{FORMLETT}, written in
+1993-1995 by Zhuhan Jiang for dealing with mass letters, invoices and similar
+tasks of some duplicative nature. It implemented a small but powerful set of
+macros to manage arrays, which have been extracted to form the present
+\ArrayJobPackage{} package. The arrays can be mono or bi-dimensional%
+\footnote{You can use more than two dimensions, but not in the meaning of the
+classical programming languages (see page \pageref{par:DataHeight})}
+and they are dynamically allocated (so we do not have to declare their
+dimension statically.)%
+\footnote{Stephan von Bechtolsheim \cite[Volume \textsc{III}, paragraph 20.3,
+page 136]{SVB93} also demonstrated such macros for array management in the
+third volume of his huge book, but it was limited to mono-dimensional
+arrays.}.
+
+  Array structures are, at the opposite of text management, often very useful
+in graphic programming. This is why the \AlDraTeXPackage{} package from Eitan
+Gurari \cite{ALDRATEX} (see also \cite{Gur94}) integrate such functionality
+(but which is bundled inside this package and could not be extracted easily
+from it), and this is also the case for the \MetaPostPackage{} package
+\cite{METAPOST} (but this one do not use \TeX{} as programming language)%
+\footnote{Another required feature, used in conjunction with the managements
+of arrays, is a generic loop mechanism. \TeX{} offer the \Macro{loop} macro
+and \LaTeX{} the \Macro{whiledo} macro of the \IfThenPackage{} package (and
+also the internal \Macro{@for}, \Macro{@whilenum}, etc. macros), but a more
+high-level structure is to be preferred, as the ones defined too in the
+\AlDraTeXPackage{} or \MetaPostPackage{} packages. We will use in our examples
+the \MultiDoPackage{} package \cite{MULTIDO}, also written by Timothy van
+Zandt, but others are available, like the \RepeatPackage{} package written by
+Victor Eijkhout \cite{REPEAT}.}. This fact explain why most of our examples in
+this documentation will concern the area of \emph{graphic programming} (here
+using the \PSTricksPackage{} package from Timothy van Zandt \cite{PSTRICKS}).
+
+\section{Command reference}
+
+\begin{Description}{4cm}
+  \item[\FormatTeXMacro{newarray}] Define a new array.
+
+       Syntax: !\newarray/Macro?/Variable?ArrayName;;!
+
+       Example: !\newarray\Values!
+
+  \item[\FormatTeXMacro{delarray}] Delete an array.
+
+       Syntax: !\delarray/Macro?/Variable?ArrayName;;!
+
+       Example: !\delarray\Values!
+
+       Remarks:
+       \begin{enumerate}
+         \item obviously, elements of a deleted array could not be accessed
+         later,
+         \item take care that the elements of a deleted array are not
+         themselves deleted.\newline
+         So, \verb+\delarray\Data \newarray\Data \Data(I)+ can produce 
+         strange behavior. Just avoid  reusing deleted arrays.
+       \end{enumerate}
+
+  \item[\FormatTeXMacro{ArrayName}] Store or get the content of the array
+  element specified by the index/indices. In the last case, the content is
+  inserted at the current point.
+
+       Syntax: !/Macro?/Variable?ArrayName;;(I)=/Parameter?/Variable?Content;;! or more
+               generally\newline
+               \hspace*{1.3cm}!/Macro?/Variable?ArrayName;;(I1,...,In)=/Parameter?/Variable?Content;;!
+               to store a value
+
+               \hspace{1.3cm}!/Macro?/Variable?ArrayName;;(I)! or more generally
+               !/Macro?/Variable?ArrayName;;(I1,...,In)! to retrieve a value
+
+       Examples: !\Data(6)={Paul Adams}!
+
+                 \hspace{1.75cm}!\Values(19)!
+
+  \item[\FormatTeXMacro{readarray}] Store consecutive values in an array,
+       starting from the indice one.
+
+       Syntax: !\readarray/Parameter?/Variable?ArrayName;;=/Parameter?/Variable?Content1;&...&/Variable?ContentM;;!
+
+       Example: !\readarray{Actors}{Louise Brooks&Marlene Dietrich&Clark Gable}!
+
+       Remarks:
+       \begin{enumerate}
+         \item the values must be separated by the \textbf{\&} character,
+         \item take care that the trailing spaces are significant, so the
+         previous definition is different from the following one:
+
+         !\readarray{Actors}{Louise Brooks & Marlene Dietrich & Clark Gable}!
+         \item you can use \AllTeX{} macros inside the values.
+       \end{enumerate}
+\end{Description}
+
+\begin{SideBySideExample}[xrightmargin=6cm]
+  \newarray\Values
+  \readarray{/HLReverse?Values;}{A&B&C&D}
+  \verb+\Values(3)+ = `\Values(3)'
+  \newarray\Actors
+  \readarray{/HLReverse?Actors;}{Louise Brooks&Marlene Dietrich&Clark Gable}
+  Z\par
+  \verb+\Actors(2)+ = `\Actors(2)'
+  \readarray{/HLReverse?Actors;}{%
+  Louise Brooks & Marlene Dietrich & Clark Gable}
+  Z\par
+  \verb+\Actors(2)+ = `\Actors(2)'
+  \Actors(4)={\textit{\underline{Ida Lupino}}}
+  Z\par
+  \verb+\Actors(4)+ = `\Actors(4)'
+\end{SideBySideExample}
+
+\vspace{3mm}
+\noindent If you really need to trim the unnecessary left and right spaces, you must
+apply a special action, like this one:
+
+\begin{Example}
+  \def\BS{\texttt{\symbol{`\\}}}
+
+  \newarray\Strings
+  \readarray{/HLReverse?Strings;}{a& b&c c  &    d dd  ddd   }
+
+  \multido{\iString=1+1}{4}{%
+    \checkStrings(\iString)%
+    \BS\texttt{Strings(\iString)}=`\cachedata'\qquad}
+
+  \makeatletter
+
+  % /HLComment?A \TrimSpaces macro adapted from Michael J. Downes <epsmjd@ams.org>;
+  % /HLComment?(posted on c.t.t. June 19, 1998);
+  % /HLComment?\number`\x reads past one following space (expanding as it goes);
+  \long\def\TrimSpaces#1{\expandafter\TrimSpaces@i\number`\^^00#1| |}
+  % /HLComment?Remove the "0" produced by \number`\^^00, and " |" at the end.;
+  \long\def\TrimSpaces@i 0#1 |{\TrimSpaces@ii\empty#1|}
+  % /HLComment?" |" was removed by \TrimSpaces@i, now remove a trailing "||" or "| |";
+  \long\def\TrimSpaces@ii #1|#2|{#1}
+
+  \makeatother 
+
+  \multido{\iString=1+1}{4}{%
+    \checkStrings(\iString)%
+    \BS\texttt{Strings(\iString)}=`\TrimSpaces{\cachedata}'\qquad}
+\end{Example}
+
+\begin{Description}{4cm}
+  \item[\FormatTeXMacro{check}] Get the content of the array element specified
+  by the indice(s) and store the result in the macro !\cachedata!
+
+       Syntax: !\check/Variable?ArrayName;(I)! or more generally
+               !\check/Variable?ArrayName;(I1,..,In)!
+
+       Example: !\checkActors(2)!
+  \item[\FormatTeXMacro{cachedata}] Macro where the content is stored after
+  a !\check! request.
+  \item[\FormatTeXMacro{ifemptydata}] True if the last \Macro{check} request
+  has given an empty result.
+\end{Description}
+
+\newarray\Values
+\readarray{Values}{A&B&C&D}
+
+\newarray\Actors
+\newarray\Dates
+\newarray\Sexes
+\readarray{Actors}{Louise Brooks&%
+                   Marlene Dietrich&%
+                   Clark Gable}
+\readarray{Dates}{1906--1985&%
+                  1902--1992&%
+                  1901--1960}
+\readarray{Sexes}{2&2&1}
+
+\begin{SideBySideExample}[xrightmargin=6cm]
+  % /HLComment?Plain TeX usage;
+  \checkValues(2)%
+  \verb+\Values(2)+ = `\cachedata'
+  Z\par
+  \checkActors(3)%
+  \verb+\Actors(3)+ = `\cachedata'
+  Z\par
+  \checkActors(5)%
+  \ifemptydata
+    \verb+\Actors(5)+ not defined.
+  \fi
+  Z\par
+  % /HLComment?LaTeX usage;
+  \newcommand{\IsEmptyElement}[2]{%
+  \ifthenelse{\boolean{emptydata}}{#1}{#2}}
+  \checkActors(3)%
+  \verb+\Actors(3)+ = \IsEmptyElement{not defined}{`\cachedata'}
+  Z\par
+  \checkActors(5)%
+  \verb+\Actors(5)+ \IsEmptyElement{not defined}{`\cachedata'}
+\end{SideBySideExample}
+
+\begin{Description}{4cm}
+  \item[\FormatTeXMacro{ifnormalindex}] See below (Default: !\normalindexfalse!).
+
+  \item[\FormatTeXMacro{dataheight}\label{par:DataHeight}] Counter containing
+  the number of elements in the first dimension, if arrays are bi-dimensional.
+
+       Syntax: !\dataheight=/Variable?Number;!
+
+       Remarks:
+       \begin{enumerate}
+         \item arrays are monodimensional when !\dataheight!~$\leq~1$,
+         \item if !\normalindexfalse! (which is the default value), we have:
+           $$\hspace{-3cm}\Macro{\Variable{ArrayName}}(I_1,...,I_n)
+             = \Macro{\Variable{ArrayName}}(I_n + (I_{n-1}-1) *
+                 \Macro{dataheight} + \cdots
+                                    + (I_1-1) * \Macro{dataheight}^{n-1})$$
+
+               and if !\normalindextrue!, we have:
+           $$\hspace{-3cm}\Macro{\Variable{ArrayName}}(I_1,...,I_n)
+             = \Macro{\Variable{ArrayName}}(I_1 + (I_2-1) *
+                 \Macro{dataheight} + \cdots
+                                    + (I_n-1) * \Macro{dataheight}^{n-1})$$
+       \end{enumerate}
+\end{Description}
+
+\begin{SideBySideExample}[xrightmargin=6cm]
+  \newarray\Letters
+  \readarray{/HLReverse?Letters;}{A&B&C&D&E&F&G&H&I&J}
+  \dataheight=5
+
+  Z\begin{tabular}{c|c|c|c|c|c|c|c|c|}
+  Z \multicolumn{1}{c}{}  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} &
+  Z \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} \\ \cline{2-6}
+  Z 1 & A & B & C & D & E \\ \cline{2-6}
+  Z 2 & F & G & H & I & J \\ \cline{2-6}
+  Z\end{tabular}
+  Z\\[2mm]
+  % /HLComment?Default is \normalindexfalse;
+  \verb+\Letters(1,2)=+`\Letters(1,2)'
+  Z\par
+  \verb+\Letters(2,1)=+`\Letters(2,1)'
+  Z\\[2mm]
+  Z\begin{tabular}{c|c|c|}
+  Z \multicolumn{1}{c}{} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} \\ \cline{2-3}
+  Z 1 & A & F \\ \cline{2-3}
+  Z 2 & B & G \\ \cline{2-3}
+  Z 3 & C & H \\ \cline{2-3}
+  Z 4 & D & I \\ \cline{2-3}
+  Z 5 & E & J \\ \cline{2-3}
+  Z\end{tabular}
+  Z\\[2mm]
+  \normalindextrue
+  \verb+\Letters(1,2)=+`\Letters(1,2)'
+  Z\par
+  \verb+\Letters(2,1)=+`\Letters(2,1)'
+\end{SideBySideExample}
+
+\begin{Description}{4cm}
+  \item[\FormatTeXMacro{ifexpandarrayelement}] Boolean macro to allow or not
+  the element to be evaluated before to be stored in the array (Default:
+  !\expandarrayelementfalse!).
+
+       Syntax: !\expandarrayelementtrue! or !\expandarrayelementfalse!
+
+       Remark: take care to the possible side effects if you store some macros
+       as values of some array elements without evaluating them, as they can
+       change of content later... (see the following examples).
+\end{Description}
+
+\begin{SideBySideExample}[xrightmargin=6cm]
+  \newarray\Data
+  \newcount\CounterP            % /HLComment?Plain TeX usage;
+  \CounterP=3
+  \newcounter{CounterL}         % /HLComment?LaTeX usage;
+  \setcounter{CounterL}{3}
+  \def\Town{Madrid}
+  \Data(1)={\the\CounterP}
+  \Data(2)={\the\value{CounterL}}
+  \Data(3)={\Town}
+
+  \expandarrayelementtrue
+  \Data(4)={\the\CounterP}
+  \Data(5)={\the\value{CounterL}}
+  \Data(6)={\Town}
+
+  \CounterP=5
+  \setcounter{CounterL}{5}
+  \def\Town{Roma}
+
+  \multido{\iData=1+1}{6}{%
+    \BS\texttt{Data(\iData)}=`\Data(\iData)'\\}
+\end{SideBySideExample}
+
+\vspace{3mm}
+\noindent Some other macros exists for mono-dimensional arrays (and only for
+them), but have little additional interest:
+
+\begin{Description}{4cm}
+  \item[\FormatTeXMacro{arrayx}] Store or get the content of the array element
+  specified by the index. In the last case, the content is inserted at the
+  current point.\footnote{The macro name \verb|\array| conflicted with macros in {\tt amsmath}, and is changed as of version 1.04. (Modification suggested by Michael Sharpe.)}
+
+       Syntax: !\arrayx/Parameter?/Variable?ArrayName;;(I)=/Parameter?/Variable?Content;;!
+               to store a value
+
+               \hspace{1.3cm}!\arrayx/Parameter?/Variable?ArrayName;;(I)! to retrieve a value
+
+       Examples: !\arrayx{Actors}(6)={Joan Crawford}!
+
+                 \hspace{1.75cm}!\arrayx{Actors}(3)!
+
+  \item[\FormatTeXMacro{clrarray}] Clear the content of the array element specified.
+  A following inquiry on this element will give an empty content.
+
+       Syntax: !\clrarray/Parameter?/Variable?ArrayName;;(I)!
+
+       Example: !\clrarray{Actors}(2)!
+
+  \item[\FormatTeXMacro{testarray}]  Get the content of the array element specified
+  by the index and store the result in the macro !\temp@macro!%
+  \footnote{In \LaTeX, this macro should be used inside a package or between
+  the \verb+\makeatletter+ $\cdots$ \verb+\makeatother+ macro pair.}.
+
+       Syntax: !\testarray/Parameter?/Variable?ArrayName;;(I)!
+
+       Example: !\testarray{Actors}(1)\typeout{Actors(1)=`\temp@macro'}!
+\end{Description}
+
+\section{Examples}
+
+\UndefineShortVerb{\!}          % We will use the ! character in the next examples
+
+  We will first show some basic and easy examples, before  looking at more
+advanced ones to solve some complex problems, which require more knowledge of
+\TeX{} programming techniques.
+
+\subsection{Basic examples}
+
+  The immediate thing for which we can use arrays is to store and retrieve
+information:
+
+\vspace{2mm}
+\begin{SideBySideExample}[xrightmargin=6cm]
+  \newarray\Actors
+  \newarray\Dates
+  \newarray\Sexes
+
+  \readarray{/HLReverse?Actors;}{Louise Brooks&Marlene Dietrich&Clark Gable}
+  \readarray{/HLReverse?Dates;}{1906--1985&1902--1992&1901--1960}
+  \readarray{/HLReverse?Sexes;}{2&2&1}
+
+  \begin{description}
+    \item[\Actors(1)] : \Dates(1)
+    \item[\Actors(2)] : \Dates(2)
+    \item[\Actors(3)] : \Dates(3)
+  \end{description}
+\end{SideBySideExample}
+
+\vspace{2mm}
+  But we can also use a general loop macro, as the one provided by the
+\MultiDoPackage{} package, for more powerful usage and a management
+independent of the number of elements:
+
+\vspace{2mm}
+\begin{SideBySideExample}[xrightmargin=6cm]
+  \newcommand{\NumberActors}{3}
+
+  \begin{description}
+    \multido{\iActor=1+1}{\NumberActors}{%
+      \item[\Actors(\iActor)] : \Dates(\iActor)}
+  \end{description}
+\end{SideBySideExample}
+
+\vspace{2mm}
+  This allow various usage in the formatting of texts. A common usage is for a
+\emph{mailing} process, when we must compose some similar letters to various
+people (as we said previously, this was the reason for which these macros were
+developed in the \FormLettPackage{} package). Here, the usage of a programming
+language allow a great flexibility, using some conditionals to format the text
+differently or even to insert different pieces of text according to the person:
+
+\newcommand{\NumberActors}{3}
+
+\begin{CenterExample}
+  \newcounter{iActor}
+
+  \newcommand{\AccordingSexe}[2]{%
+  \checkSexes(\the\value{iActor})%
+  \ifthenelse{\equal{\cachedata}{1}}{#1}{#2}}
+
+  \whiledo{\value{iActor} < \NumberActors}{%
+    \stepcounter{iActor}%
+    \fbox{%
+      \begin{minipage}{0.985\textwidth}
+        Dear \AccordingSexe{Mr}{Mrs} \Actors(\the\value{iActor}),
+
+        I would like to tell you how I admire the great \AccordingSexe{actor}{actress}
+        you are, etc.
+      \end{minipage}}\\[5mm]}
+\end{CenterExample}
+
+  Nevertheless, people who know a little \TeX{} as a programming language know
+that it behaviour is full of pitfalls... For instance, the following example,
+which format a table according to the content of entries stored in external
+arrays, can't work:
+
+\begin{Verbatim}
+  \begin{tabular}{|l|c|}
+    \hline
+    \multicolumn{1}{|c}{\textbf{Actors}} & \multicolumn{1}{|c|}{\textbf{Dates}} \\ \hline
+    \multido{\iActor=1+1}{\NumberActors}{\Actors(\iActor) & \Dates(\iActor) \\ \hline}
+  \end{tabular}
+\end{Verbatim}
+
+  This is because there is an implicit grouping of each entry in a tabular
+environment and that it do not work with the grouping of the \verb+\multido+
+loop. So, this must be program in a different way, storing all the content of
+the table before really inserting it:
+
+\begin{SideBySideExample}[xrightmargin=6cm,baselinestretch=0.9]
+  \begin{tabular}{|l|c|}
+    \hline
+    \multicolumn{1}{|c}{\textbf{Actors}} &
+      \multicolumn{1}{|c|}{\textbf{Dates}} \\ \hline
+    \let\ListActors\empty
+    \begingroup
+      \let\Actors\relax
+      \let\Dates\relax
+      \let\\\relax
+      \let\hline\relax
+      \multido{\iActor=1+1}{\NumberActors}{%
+        \xdef\ListActors{\ListActors
+          \Actors(\iActor) & \Dates(\iActor) \\ \hline}}
+    \endgroup
+    \ListActors
+  \end{tabular}
+\end{SideBySideExample}
+
+\subsubsection{Plot labels}
+
+  A basic usage in graphic programming is to use arrays to retrieve the labels
+to put on a drawing, as here to label the simple plot below. (Note the change from the original documentation. The axis labels used with \verb|\psaxes| must now be numeric, so it is necessary to bypass the automatic axis labeling.)
+\ifpstricks                     % If PSTricks is available
+\begin{CenterExample}[baselinestretch=0.9]
+  \savedata{\Data}[(1,3)(2,1)(3,2)(4,1)(5,1)(6,3),(7,2)(8,1)(9,3)(10,3)(11,1)(12,1)]
+
+  \newcommand{\PlotData}[1]{%
+  \begin{pspicture}(-0.5,-0.5)(13,4)
+    \psaxes[labels=none]{->}(13,4)
+    \dataplot[plotstyle=dots,dotstyle=o,dotsize=0.3]{\Data}
+    #1\end{pspicture}}
+  \PlotData{\psaxes[showorigin=false]{->}(13,4)}
+
+  \newarray{\Months}
+  \readarray{/HLReverse?Months;}{January&February&March&April&May&June&July&August&September&%
+  October&November&December}
+  \newarray{\Levels}
+  \readarray{/HLReverse?Levels;}{Low&Medium&High}
+  %\renewcommand{\pshlabel}[1]{\tiny\Months(#1)}
+  \PlotData{\psaxes[labels=y,showorigin=false]{->}(13,4)%
+  \multido{\i=1+1}{12}{\rput[B](\i,-12pt){\tiny\Months(\i)}}}
+  
+  %\renewcommand{\psvlabel}[1]{\small\Levels(#1)}
+  \PlotData{\multido{\i=1+1}{12}{\rput[B](\i,-12pt){\tiny\Months(\i)}}%
+  \multido{\i=1+1}{3}{\rput[r](-12pt,\i){\small\Levels(\i)}}}
+\end{CenterExample}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+\subsubsection{Checkboard drawing}
+
+  Of course, a bi-dimensional array directly allow to store the state of a
+checkboard of one of the numerous ones existing, like the reversi game that
+we will show here (in fact, the only more difficult part to understand in this
+example concern the definition of the elementary piece, but as this is not
+related at all to the usage of \ArrayJobPackage, this point can be forgotten
+by most of the readers).
+
+\ifpstricks                     % If PSTricks is available
+\begin{SideBySideExample}[xrightmargin=6cm,baselinestretch=0.89]
+  /HLMacro?\def\Black;{B}
+  /HLMacro?\def\White;{W}
+
+  /HLMacro?\def\Piece;#1#2{{%
+  \psset{unit=0.8}%
+  \pspicture(0,-0.1)(1,0.8)
+    \pscustom[fillstyle=gradient,gradmidpoint=0,gradangle=90,
+              gradbegin=#2,gradend=#1]{%
+      \psbezier(0,0.2)(0.1,-0.2)(0.9,-0.2)(1,0.2)
+      \psline(1,0.2)(1,0.5)
+      \psbezier(1,0.5)(0.9,0.9)(0.1,0.9)(0,0.5)
+      \psline(0,0.5)(0,0.2)}
+      \psbezier(0,0.5)(0.1,0.1)(0.9,0.1)(1,0.5)
+  \endpspicture}}
+
+  /HLMacro?\def\PieceBlack;{\Piece{black}{gray}}
+  /HLMacro?\def\PieceWhite;{\Piece{white}{gray}}
+
+  /HLMacro?\def\CheckboardHook;{}
+
+  \newarray\Checkboard
+
+  /HLMacro?\def\ShowCheckboard;{%
+  \dataheight=8
+  \pspicture(8,8)
+    \psgrid[subgriddiv=0,gridlabels=0](8,8)
+    \CheckboardHook
+    \multido{\iColumn=1+1,\iColumnPos=0+1}{8}{%
+      \multido{\iRow=1+1,\iRowPos=7+-1}{8}{%
+        \checkCheckboard(\iRow,\iColumn)%
+        \ifx\cachedata\Black
+          \rput(\iColumnPos.5,\iRowPos.5){\PieceBlack}
+        \else
+          \ifx\cachedata\White
+            \rput(\iColumnPos.5,\iRowPos.5){\PieceWhite}
+          \fi
+        \fi}}
+  \endpspicture}
+
+  \readarray{/HLReverse?Checkboard;}{%
+  W& &B& & & & &B&%
+   &W&B& & & & &B&%
+  W&W&B& &W& & &B&%
+  W&W&B&W&W&W&B&B&%
+  B& &W&W&W&B&W&B&%
+  B&B&W&W&W&B&W&B&%
+  B&B&B&W&W&W&W&B&%
+  W&B&B&B&B&B&B&B&%
+  }
+
+  \psset{unit=0.6}
+  \ShowCheckboard
+
+  \Checkboard(2,1)={B} % /HLComment?Black move;
+  /HLMacro?\def\CheckboardHook;{%
+  \psframe[linestyle=none,fillstyle=hlines](0,6)(1,7)}
+  % /HLComment?White pieces changed by the black move;
+  \Checkboard(3,1)={B}\Checkboard(4,1)={B}
+  \Checkboard(2,2)={B}\Checkboard(3,2)={B}
+  \vspace{1cm}
+  \ShowCheckboard
+\end{SideBySideExample}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+  Note also that, if \TeX{} is obviously not well suited to implement a
+program to \emph{really} play at a game like reversi or chess, nevertheless
+it can be used to solve internally some non trivial algorithmic problems,
+where the usage of arrays help a lot. For such example (on the coloration of
+the Truchet's tiling), see \cite{EG98}.
+
+\subsection{Advanced examples}
+
+  This section will show slightly more difficult to really complex examples,
+and is mainly for \emph{advanced users} or for people who want to be able to
+program complex tasks themselves.
+
+\subsubsection{Example with recursion usage}
+
+\begin{CenterExample}
+  \makeatletter
+
+  % /HLComment?The recursion macro used (from David Carlisle);
+  /HLMacro?\def\Recursion;#1{%
+  #1\relax
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+  \newcount\IndexRecursion
+  \IndexRecursion=\z@
+
+  /HLMacro?\def\PiFrac;#1{{%
+  \Recursion
+    {\ifnum#1>\@ne\relax}
+    {\@tempcnta=#1
+     \advance\@tempcnta\m@ne
+     \advance\IndexRecursion\@ne
+     \PiValues(\IndexRecursion)
+       +\frac{\strut\displaystyle 1}{\strut\displaystyle\PiFrac{\@tempcnta}}}
+    {\advance\IndexRecursion\@ne
+     \PiValues(\IndexRecursion)}}}
+
+  \makeatother
+
+  \newarray\PiValues
+  \readarray{/HLReverse?PiValues;}{3&7&15&1&292&1&1&1&2&1&3&1&14}
+
+  \(\pi\approx\PiFrac{/HLReverse?4;}\approx\PiFrac{/HLReverse?13;}\)
+
+  \textbf{\(\pi\) as a continued fraction}
+\end{CenterExample}
+
+\subsubsection{Structured dynamic diagrams on a grid}
+
+  A very common case is when we must use some strutured data which are to be
+drawn on a kind of abstract grid.
+
+\ifpstricks                     % If PSTricks is available
+  To draw a diagram like this one (such example illustrate the exchanges of
+data between processors when using applications on multiprocessors computers
+in parallel programming):
+
+\vspace{2mm}
+\begin{SideBySideExample}[xrightmargin=5.8cm]
+  \psset{linestyle=none,fillstyle=solid,subgriddiv=0,gridlabels=0}
+  \begin{pspicture}(-1,0)(4,4)
+   % /HLComment?Line 0;
+   \psframe[fillcolor=Khaki](0,3.1)(1,3.9)
+   \psframe[fillcolor=LemonChiffon](1,3.1)(4,3.9)
+   \rput(0,3.1){\psgrid[yunit=0.8](4,1)}
+   \rput(-0.5,3.5){P0}
+   \rput(0.5,3.5){A0}
+   % /HLComment?Line 1;
+   \psframe[fillcolor=Khaki](0,2.1)(2,2.9)
+   \psframe[fillcolor=LemonChiffon](2,2.1)(4,2.9)
+   \rput(0,2.1){\psgrid[yunit=0.8](4,1)}
+   \rput(-0.5,2.5){P1}
+   \rput(0.5,2.5){A0}\rput(1.5,2.5){A1}
+   % /HLComment?Line 2;
+   \psframe[fillcolor=Khaki](0,1.1)(3,1.9)
+   \psframe[fillcolor=LemonChiffon](3,1.1)(4,1.9)
+   \rput(0,1.1){\psgrid[yunit=0.8](4,1)}
+   \rput(-0.5,1.5){P2}
+   \rput(0.5,1.5){A0}\rput(1.5,1.5){A1}\rput(2.5,1.5){A2}
+   % /HLComment?Line 3;
+   \psframe[fillcolor=Khaki](0,0.1)(4,0.9)
+   \rput(0,0.1){\psgrid[yunit=0.8](4,1)}
+   \rput(-0.5,0.5){P3}
+   \rput(0.5,0.5){A0}\rput(1.5,0.5){A1}
+     \rput(2.5,0.5){A2}\rput(3.5,0.5){A3}
+  \end{pspicture}
+\end{SideBySideExample}
+
+\vspace{2mm}
+\noindent is easy but rather painful, as we must manage a lot of coordinates.
+Nevertheless, even if we introduce a little more abstraction level using some
+minor programming with a loop structure:
+\vspace{2mm}
+
+
+\begin{SideBySideExample}[xrightmargin=5.8cm]
+  \psset{linestyle=none,fillstyle=solid,subgriddiv=0,gridlabels=0}
+  \begin{pspicture}(-1,0)(4,4)
+   \multido{\iLoop=1+1,\iRow=0+1,\iRowPos=3+-1}{4}{%
+     \psframe[fillcolor=Khaki](0,\iRowPos.1)(\iLoop,\iRowPos.9)
+     \psframe[fillcolor=LemonChiffon]
+             (\iLoop,\iRowPos.1)(4,\iRowPos.9)
+     \rput(0,\iRowPos.1){\psgrid[yunit=0.8](4,1)}
+     \rput(-0.5,\iRowPos.5){P\iRow}
+     \multido{\iColumn=0+1,\iLabel=1+1}{\iLoop}{%
+       \rput(\iColumn.5,\iRowPos.5){A\iColumn}}}
+  \end{pspicture}
+\end{SideBySideExample}
+
+\vspace{2mm}
+\noindent we succeed to heavily reduce the number of lines of the code in this
+specific case, but we gain nothing in genericity. If we have several such
+diagrams to draw, with each that must be done differently according to the
+empty and full cells of the array, we must proceed in a completely different
+way, defining a \emph{generic object} which can obtain the different values of
+a data structure previously filled. For such tasks, the \ArrayJobPackage{}
+package allow to build very efficient and powerful tools.
+
+\begin{Verbatim}[commandchars=/?;]
+  % /HLComment?The grid;
+  /HLMacro?\def\ArrayGrid;#1#2#3{{%
+  % /HLComment?#1=array of data, #2=number of rows, #3=number of columns;
+  \psset{dimen=middle,xunit=0.8}
+  \dataheight=#3
+  \pspicture(-1,-#2)(#3,0)
+  \multido{\iRow=1+1,\iRowMinusOne=0+1}{#2}{%
+    \rput(-1,-\iRow){\LineGrid{#1}{\iRow}{\iRowMinusOne}{#3}}}
+  \endpspicture}}
+
+  % /HLComment?One line of the grid;
+  /HLMacro?\def\LineGrid;#1#2#3#4{%
+  \rput(0.5,0.4){\AttributeLabel{P#3}}
+  \multido{\iColumn=1+1}{#4}{%
+    \expandafter\csname check#1\endcsname(#2,\iColumn)%
+    \rput(\iColumn,0){%
+      \ifemptydata
+        \def\ColorBackground{\ColorBackgroundEmpty}%
+      \else
+        \ifx\cachedata\space
+          \def\ColorBackground{\ColorBackgroundEmpty}%
+        \else
+          \def\ColorBackground{\ColorBackgroundFull}%
+        \fi
+      \fi
+      \psframe[fillstyle=solid,fillcolor=\ColorBackground](1,0.8)
+      \rput(0.5,0.4){\AttributeElement{\cachedata}}}}}
+\end{Verbatim}
+
+% The grid
+\def\ArrayGrid#1#2#3{{%
+% #1=array of data, #2=number of rows, #3=number of columns
+\psset{dimen=middle,xunit=0.8}
+\dataheight=#3
+\pspicture(-1,-#2)(#3,0)
+\multido{\iRow=1+1,\iRowMinusOne=0+1}{#2}{%
+  \rput(-1,-\iRow){\LineGrid{#1}{\iRow}{\iRowMinusOne}{#3}}}
+\endpspicture}}
+
+% One line of the grid
+\def\LineGrid#1#2#3#4{%
+\rput(0.3,0.4){\AttributeLabel{P#3}}
+\multido{\iColumn=1+1}{#4}{%
+  \expandafter\csname check#1\endcsname(#2,\iColumn)%
+  \rput(\iColumn,0){%
+    \ifemptydata
+      \def\ColorBackground{\ColorBackgroundEmpty}%
+    \else
+      \ifx\cachedata\space
+        \def\ColorBackground{\ColorBackgroundEmpty}%
+      \else
+        \def\ColorBackground{\ColorBackgroundFull}%
+      \fi
+    \fi
+    \psframe[fillstyle=solid,fillcolor=\ColorBackground](1,0.8)
+    \rput(0.5,0.4){\AttributeElement{\cachedata}}}}}
+
+\begin{SideBySideExample}[xrightmargin=6cm]
+  % /HLComment?Default attributes;
+  \def\ColorBackgroundEmpty{LemonChiffon}
+  \def\ColorBackgroundFull{Khaki}
+  \def\AttributeElement#1{\textcolor{red}{#1}}
+  \def\AttributeLabel#1{\bf #1}
+
+  % /HLComment?Example 1;
+  \newarray\ArrayA
+
+  % /HLComment?Data;
+  \readarray{/HLReverse?ArrayA;}{%
+  A0&  &  &  &%
+  A0&A1&  &  &%
+  A0&A1&A2&  &%
+  A0&A1&A2&A3}
+
+  \ArrayGrid{ArrayA}{4}{4}
+\end{SideBySideExample}
+
+\newarray\ArrayA
+
+% Default attributes
+\def\ColorBackgroundEmpty{LemonChiffon}
+\def\ColorBackgroundFull{Khaki}
+\def\AttributeElement#1{\textcolor{red}{#1}}
+\def\AttributeLabel#1{\bf #1}
+
+\begin{CenterExample}[baselinestretch=0.9]
+  % /HLComment?Example 2;
+  \newarray\ArrayB
+
+  % /HLComment?Data;
+  \readarray{/HLReverse?ArrayA;}{%
+  A& & & &%
+   & & & &%
+   & & & &%
+   & & & }
+  \readarray{/HLReverse?ArrayB;}{%
+  A& & & &%
+  A& & & &%
+  A& & & &%
+  A& & & }
+
+  \ArrayGrid{ArrayA}{4}{4}\hfill\ArrayGrid{ArrayB}{4}{4}
+\end{CenterExample}
+
+\newarray\ArrayB
+
+\begin{CenterExample}[baselinestretch=0.9]
+  % /HLComment?Example 3;
+  \newarray\ArrayC
+
+  % /HLComment?Data;
+  \readarray{/HLReverse?ArrayA;}{%
+  A0&  &  &%
+  A1&  &  &%
+  A2&  &  }
+  \readarray{/HLReverse?ArrayB;}{%
+  A0&A1&A2&%
+  A0&A1&A2&%
+  A0&A1&A2}
+  \readarray{/HLReverse?ArrayC;}{%
+  A0&  &  &%
+    &A1&  &%
+    &  &A2}
+
+  % /HLComment?Attributes;
+  \def\ColorBackgroundEmpty{green}
+  \def\ColorBackgroundFull{red}
+  \def\AttributeElement#1{\footnotesize\textcolor{white}{#1}}
+  \def\AttributeLabel#1{\small\bf #1}
+
+  \psset{unit=0.7}
+  \ArrayGrid{ArrayA}{3}{3}\hfill\ArrayGrid{ArrayB}{3}{3}\hfill\ArrayGrid{ArrayC}{3}{3}
+\end{CenterExample}
+
+\begin{CenterExample}[baselinestretch=0.9]
+  % /HLComment?Example 4;
+
+  % /HLComment?Data;
+  \readarray{/HLReverse?ArrayA;}{%
+  A0&A1&A2&A3&%
+  B0&B1&B2&B3&%
+  C0&C1&C2&C3&%
+  D0&D1&D2&D3}
+  \readarray{/HLReverse?ArrayB;}{%
+  A0&B0&C0&D0&%
+  A1&B1&C1&D1&%
+  A2&B2&C2&D2&%
+  A3&B3&C3&D3}
+
+  % /HLComment?Attributes;
+  \def\AttributeElement#1{\textcolor{red}{#1}}
+  \def\AttributeLabel#1{\Large\it #1}
+
+  \ArrayGrid{ArrayA}{4}{4}\hfill\ArrayGrid{ArrayB}{4}{4}
+\end{CenterExample}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+\vspace{5mm}
+\subsubsection{Another example of a structured dynamic diagram on a grid}
+
+  The preceding technique is in fact relevant for a lot of problems. Here we
+give another example about the drawing of linked lists (but do not fail to
+note that these ones have here no internal existence).
+
+\ifpstricks                     % If PSTricks is available
+\begin{CenterExample}
+  \makeatletter
+
+  \newpsstyle{LinkedListsArrowStyle}{linecolor=red,arrowscale=2} % /HLComment?Default arrow style;
+
+  /HLMacro?\def\LinkedListsDraw;{\@ifnextchar[\LinkedListsDraw@i{\LinkedListsDraw@i[]}}
+
+  /HLMacro?\def\LinkedListsDraw@i;[#1]#2#3{{%
+  \setkeys{psset}{#1}
+  \dataheight=#3
+  %
+  \pst@cnta=#3
+  \multiply\pst@cnta\tw@
+  \advance\pst@cnta\tw@
+  \pspicture(0,-#2)(\pst@cnta,0)
+    \multido{\iRow=1+1}{#2}{%
+      \rput(0,-\iRow){%
+        \psframe(1,1)
+        \psline[dimen=middle,style=LinkedListsArrowStyle]{->}(0.5,0.5)(2,0.5)}
+      \multido{\iColumn=1+1}{#3}{%
+        \checkLinkedListsTable(\iRow,\iColumn)%
+        \ifemptydata
+        \else
+          \pst@cnta=\iColumn
+          \advance\pst@cnta\@ne
+          \pst@cntb=\@ne
+          \checkLinkedListsTable(\iRow,\pst@cnta)%
+          \ifemptydata                      % /HLComment?We test if it is empty;
+          \else
+            \ifnum\multidocount=#3          % /HLComment?We test if it is the last one;
+            \else
+              \pst@cntb=\z@
+            \fi
+          \fi
+          %
+          \pst@cnta=\iColumn
+          \multiply\pst@cnta\tw@
+          \rput(\the\pst@cnta,-\iRow){%
+            \LinkedListsDraw@ii{\LinkedListsTable(\iRow,\iColumn)}{\the\pst@cntb}}
+      \fi}}
+    \endpspicture}}%}
+
+  /HLMacro?\def\LinkedListsDraw@ii;#1#2{{%
+  \rput(0,0.1){%
+    \psset{unit=0.8}
+    \psgrid[subgriddiv=0,gridlabels=0](2,1) % /HLComment?Element;
+    \rput(0.5,0.5){#1}                      % /HLComment?Label for this element;
+    \ifnum#2=\@ne
+      \psline(1,0)(2,1)                     % /HLComment?Mark of the end of the list;
+    \else
+      \psline[style=LinkedListsArrowStyle]{->}(1.5,0.5)(2.5,0.5) % /HLComment?Link to the next element;
+    \fi}}}
+
+  \makeatother
+
+  \newarray\LinkedListsTable
+  \readarray{/HLReverse?LinkedListsTable;}{%
+  11&12&13&14&%
+  21&&&&%
+  31&32&33&&}
+
+  \LinkedListsDraw{3}{4}
+
+  \vspace{1cm}
+  \newpsstyle{LinkedListsArrowStyle}{linecolor=green,doubleline=true}
+
+  \readarray{/HLReverse?LinkedListsTable;}{%
+  a&&&&&%
+  A&B&C&D&E&%
+  0&1&2&3&4&%
+  +&$\times$&&&&}
+
+  \LinkedListsDraw{4}{5}
+\end{CenterExample}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+\subsubsection{Management of heaps and linked lists}
+
+  Here we will demonstrate a really more complex usage, but very useful.
+In fact, if the \ArrayJobPackage{} package primarily allow to manage only
+arrays, it allow a lot more with some efforts. Above it, we can implement the
+common internal data structures frequently used in programming, like heaps,
+simple or double linked lists, trees, associative arrays, etc. Here we will
+show how to define macros to build and manage heaps and simple linked lists.
+
+\ifpstricks                     % If PSTricks is available
+\vspace{1cm}                    % Poor hack to force a page break...
+\begin{CenterExample}[baselinestretch=0.98]
+  \makeatletter
+
+  /HLMacro?\def\PstDebug;{\z@}              % /HLComment?For debugging, set \def\PstDebug{1};
+
+  % /HLComment?Code for heaps management;
+  % /HLComment?-------------------------;
+
+  /HLMacro?\def\HeapMaxDepth;{100}          % /HLComment?No more than 100 elements in the heap;
+
+  \newarray\Heap
+
+  % /HLComment?Add an element at top of the heap;
+  /HLMacro?\def\HeapPush;#1{%
+  \multido{\iElem=1+1}{\HeapMaxDepth}{%
+    \checkHeap(\iElem)%
+    \ifemptydata
+      \ifnum\PstDebug=\@ne\typeout{Push Heap(\iElem)=#1}\fi% /HLComment?Debug;
+      \Heap(\iElem)={#1}%
+      \multidostop
+    \fi}}
+
+  % /HLComment?Get (in the \cachedata macro) and delete the element at top of the heap;
+  /HLMacro?\def\HeapPop;{%
+  \Multido{\iElem=\HeapMaxDepth+-1}{\HeapMaxDepth}{%
+    \checkHeap(\iElem)%
+    \ifemptydata
+    \else
+      \ifnum\PstDebug=\@ne\typeout{Delete Heap(\iElem)=\cachedata}\fi% /HLComment?Debug;
+      \Heap(\iElem)={}%
+      \multidostop
+    \fi}}
+
+  % /HLComment?Print the current state of the heap;
+  /HLMacro?\def\HeapPrint;{%
+  \checkHeap(\@ne)%
+  \ifemptydata
+    \typeout{The heap is empty!}% /HLComment?Empty heap;
+  \else
+    \multido{\iElem=\HeapMaxDepth+-1}{\HeapMaxDepth}{%
+      \checkHeap(\iElem)%
+      \ifemptydata
+      \else
+        \typeout{Heap(\iElem)=\cachedata}%
+      \fi}
+  \fi
+  \typeout{}}
+
+  % /HLComment?Draw the current state of the heap;
+  /HLMacro?\def\HeapDraw;{%
+  % /HLComment?To compute the size of the picture;
+  \Multido{\iSize=0+1}{\HeapMaxDepth}{%
+    \checkHeap(\the\multidocount)%
+    \ifemptydata
+      \multidostop
+    \fi}
+  %
+  \ifnum\iSize=\z@
+    % /HLComment?Empty heap;
+    \typeout{The heap is empty!^^J}%
+  \else
+    \pspicture(1,\iSize)
+      \psgrid[subgriddiv=0,gridlabels=0](1,\iSize)
+      \multido{\iPos=0+1}{\HeapMaxDepth}{%
+        \checkHeap(\the\multidocount)%
+        \ifemptydata
+          \multidostop
+        \else
+          \rput(0.5,\iPos.5){\cachedata}
+        \fi}
+    \endpspicture%
+  \fi}
+
+  \makeatother
+
+  \psset{unit=1.5}\footnotesize
+
+  \HeapPush{Germany}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPush{France}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPush{Italy}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPush{Spain}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPop\typeout{Popped element: `\cachedata'}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPop\typeout{Popped element: `\cachedata'}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPop\typeout{Popped element: `\cachedata'}\HeapPrint\HeapDraw
+  \hfill
+  \HeapPop\typeout{Popped element: `\cachedata'}\HeapPrint\HeapDraw
+\end{CenterExample}
+
+\begin{Example}[baselinestretch=0.95]
+  \makeatletter
+
+  /HLMacro?\def\PstDebug;{\z@}%                   /HLComment?For debugging, set \def\PstDebug{1};
+
+  % /HLComment?Code for linked lists management;
+  % /HLComment?--------------------------------;
+
+  /HLMacro?\def\LinkedListMaxDepth;{100}%         /HLComment?No more than 100 elements in the list;
+
+  \newarray\LinkedList
+
+  \dataheight=2%                        /HLComment?Two cells by element: the content and the pointer;
+
+  % /HLComment?Add an element at the end of the list;
+  % /HLComment?In fact, we define it here as a simple heap, but the difference is that;
+  % /HLComment?we will be able to get and to delete any element in it;
+  /HLMacro?\def\LinkedListAdd;#1{%
+  \edef\@tempa{\@ne}% /HLComment?Pointer initialization;
+  \multido{\iElem=2+1}{\LinkedListMaxDepth}{%
+    \checkLinkedList(\@tempa,2)%        /HLComment?We got the content of this element;
+    \ifemptydata
+      % /HLComment?No pointed element, so we will insert the new one here;
+      \LinkedList(\iElem,1)={#1}%
+      % /HLComment?We update the pointer for the last preceding element;
+      \expandarrayelementtrue%          /HLComment?We must evaluate the content of the counter;
+      \LinkedList(\@tempa,2)={\iElem}%
+      \expandarrayelementfalse
+      \ifnum\PstDebug=\@ne
+        \typeout{Add LinkedList(\@tempa)->\iElem}% /HLComment?Debug;
+        \typeout{\space\space\space\space LinkedList(\iElem)=#1}% /HLComment?Debug;
+      \fi
+      \multidostop
+    \else
+      \edef\@tempa{\cachedata}%
+    \fi}}
+
+  % /HLComment?Get (in the \cachedata macro) the next element in the list;
+  /HLMacro?\def\LinkedListGetNext;#1{%
+  \checkLinkedList(1,2)%                /HLComment?We got the pointer for the first element;
+  \edef\@tempa{\@ne}%
+  \ifx\cachedata\empty
+  \else
+    \edef\@tempc{#1}%
+    \Multido{}{\LinkedListMaxDepth}{%
+      \edef\@tempb{\@tempa}%
+      \edef\@tempa{\cachedata}%
+      \checkLinkedList(\cachedata,1)%   /HLComment?We got the pointed element;
+      \ifx\cachedata\@tempc
+        % /HLComment?This is the element for which we want the next one: we got it pointer;
+        % /HLComment?to the next element in the list, then the content of it;
+        \checkLinkedList(\@tempa,2)%
+        \ifemptydata
+          \typeout{Element `#1' has no successor!^^J}%
+        \else
+          \checkLinkedList(\cachedata,1)%
+        \fi
+        \multidostop
+      \else
+        \checkLinkedList(\@tempa,2)%    /HLComment?We got the pointer to the next element;
+        \ifemptydata
+          % /HLComment?We have reach the end of the list without finding the element;
+          \typeout{Element `#1' not found!^^J}%
+          \multidostop%                 /HLComment?No pointed element: end of the list;
+        \fi
+      \fi}
+  \fi}
+
+  % /HLComment?Delete an element in the list (the code is very close to \LinkedListGetNext);
+  /HLMacro?\def\LinkedListDelete;#1{%
+  \checkLinkedList(1,2)%                /HLComment?We got the pointer for the first element;
+  \edef\@tempa{\@ne}%
+  \ifx\cachedata\empty
+  \else
+    \edef\@tempc{#1}%
+    \multido{}{\LinkedListMaxDepth}{%
+      \edef\@tempb{\@tempa}%
+      \edef\@tempa{\cachedata}%
+      \checkLinkedList(\cachedata,1)%   /HLComment?We got the pointed element;
+      \ifx\cachedata\@tempc
+        % /HLComment?This is the element to delete: we will update the pointer of;
+        % /HLComment?the preceding element to the value of the pointer of the deleted one;
+        \checkLinkedList(\@tempa,2)%
+        \expandarrayelementtrue
+        \LinkedList(\@tempb,2)={\cachedata}%
+        \expandarrayelementfalse
+        \ifnum\PstDebug=\@ne
+          \typeout{Delete LinkedList(\@tempa)=#1}% /HLComment?Debug;
+          \typeout{\space\space\space\space\space\space\space %
+                          LinkedList(\@tempb)->\cachedata}% /HLComment?Debug;
+        \fi
+        \multidostop
+      \else
+        \checkLinkedList(\@tempa,2)%    /HLComment?We got the pointer to the next element;
+        \ifemptydata
+          % /HLComment?We have reach the end of the list without finding the element;
+          \typeout{Element `#1' not found and so not deleted!^^J}%
+          \multidostop%                 /HLComment?No pointed element: end of the list;
+        \fi
+      \fi}
+  \fi}
+
+  % /HLComment?Print the current state of the list;
+  /HLMacro?\def\LinkedListPrint;{%
+  \checkLinkedList(1,2)%                /HLComment?We got the pointer for the first element;
+  \ifx\cachedata\empty
+    % /HLComment?Empty list;
+    \typeout{The list is empty!}%
+  \else
+    \multido{}{\LinkedListMaxDepth}{%
+      \edef\@tempa{\cachedata}%
+      \checkLinkedList(\cachedata,1)%   /HLComment?We got the pointed element;
+      \typeout{LinkedList=\cachedata}%
+      \checkLinkedList(\@tempa,2)%      /HLComment?We got the pointer to the next element;
+      \ifemptydata
+        \multidostop%                   /HLComment?No pointed element: end of the list;
+      \fi}
+  \fi
+  \typeout{}}
+
+  % /HLComment?Draw the current state of the list;
+  /HLMacro?\def\LinkedListDraw;{{%
+  \psset{subgriddiv=0,gridlabels=0}
+  \checkLinkedList(1,2)%                /HLComment?We got the pointer for the first element;
+  \ifx\cachedata\empty
+    % /HLComment?Empty list;
+    \typeout{The list is empty!^^J}%
+  \else
+    % /HLComment?To compute the size of the picture;
+    \Multido{\iSize=3+3}{\LinkedListMaxDepth}{%
+      \checkLinkedList(\cachedata,2)%   /HLComment?We got the pointer to the next element;
+      \ifemptydata
+        \multidostop
+      \fi}
+    %
+    \checkLinkedList(1,2)%              /HLComment?We got the pointer for the first element;
+    \pspicture(\iSize,1.5)
+      \multido{\iPos=0+3}{\LinkedListMaxDepth}{%
+        \edef\@tempa{\cachedata}%
+        \checkLinkedList(\cachedata,1)% /HLComment?We got the pointed element;
+        \rput(\iPos,0){%
+          \psgrid(2,1)
+          \rput(0.5,0.5){\cachedata}
+          \ifnum\iPos=\z@
+          \else
+            \rput(-1.5,0.5){\psline[linecolor=red,arrowscale=2]{->}(1.5,0)}
+          \fi}
+        \checkLinkedList(\@tempa,2)%    /HLComment?We got the pointer to the next element;
+        \ifemptydata
+          \rput(\iPos,0){\psline[linecolor=red](1,0)(2,1)} % /HLComment?End of the list;
+          \multidostop%                 /HLComment?No pointed element: end of the list;
+        \fi}
+    \endpspicture%
+  \fi}}
+
+  \makeatother
+
+  \psset{unit=1.5}
+
+  \LinkedListPrint\LinkedListDraw
+
+  \LinkedListAdd{Germany}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListAdd{France}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListAdd{Italy}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListAdd{Spain}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListGetNext{France}\typeout{Next element after `France' is: `\cachedata'}%
+  \LinkedListGetNext{Germany}\typeout{Next element after `Germany is: `\cachedata'}%
+  \LinkedListGetNext{Spain}
+  \LinkedListGetNext{Unknown}
+
+  \LinkedListDelete{Unknown}
+
+  \LinkedListDelete{France}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{Germany}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{Spain}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{Italy}\LinkedListPrint\LinkedListDraw
+\end{Example}
+
+\makeatletter
+
+\def\PstDebug{\z@}%                 For debugging, set \def\PstDebug{1}
+
+\def\LinkedListMaxDepth{100}%       No more than 100 elements in the heap
+
+\newarray\LinkedList
+
+\dataheight=2%                      Two cells by element: the content and the pointer
+
+% Delete an element in the list
+\def\LinkedListDelete#1{%
+\checkLinkedList(1,2)%              We got the pointer for the first element
+\edef\@tempa{\@ne}%
+\ifx\cachedata\empty
+\else
+  \edef\@tempc{#1}%
+  \multido{}{\LinkedListMaxDepth}{%
+    \edef\@tempb{\@tempa}%
+    \edef\@tempa{\cachedata}%
+    \checkLinkedList(\cachedata,1)% We got the pointed element
+    \ifx\cachedata\@tempc
+      % This is the element to delete: we will update the pointer of
+      % the preceding element to the value of the pointer of the deleted one
+      \checkLinkedList(\@tempa,2)%
+      \expandarrayelementtrue
+      \LinkedList(\@tempb,2)={\cachedata}%
+      \expandarrayelementfalse
+      \ifnum\PstDebug=\@ne
+        \typeout{Delete LinkedList(\@tempa)=#1}%Debug
+        \typeout{\space\space\space\space\space\space\space %
+                                   LinkedList(\@tempb)->\cachedata}%Debug
+      \fi
+      \multidostop
+    \else
+      \checkLinkedList(\@tempa,2)%  We got the pointer to the next element
+      \ifemptydata
+        % We have reach the end of the list without finding the element
+        \typeout{Element `#1' not found and so not deleted!^^J}%
+        \multidostop%               No pointed element: end of the list
+      \fi
+    \fi}
+\fi}
+
+% Print the current state of the list
+\def\LinkedListPrint{%
+\checkLinkedList(1,2)%              We got the pointer for the first element
+\ifx\cachedata\empty
+  % Empty list
+  \typeout{The list is empty!}%
+\else
+  \multido{}{\LinkedListMaxDepth}{%
+    \edef\@tempa{\cachedata}%
+    \checkLinkedList(\cachedata,1)% We got the pointed element
+    \typeout{LinkedList=\cachedata}%
+    \checkLinkedList(\@tempa,2)%    We got the pointer to the next element
+    \ifemptydata
+      \multidostop%                 No pointed element: end of the list
+    \fi}
+\fi
+\typeout{}}
+
+% Draw the current state of the list
+\def\LinkedListDraw{{%
+\psset{subgriddiv=0,gridlabels=0}
+\checkLinkedList(1,2)%                We got the pointer for the first element
+\ifx\cachedata\empty
+  % Empty list
+  \typeout{The list is empty!^^J}%
+\else
+  % To compute the size of the picture
+  \Multido{\iSize=3+3}{\LinkedListMaxDepth}{%
+    \checkLinkedList(\cachedata,2)%   We got the pointer to the next element
+    \ifemptydata
+      \multidostop
+    \fi}
+  %
+  \checkLinkedList(1,2)%              We got the pointer for the first element
+  \pspicture(\iSize,1.5)
+    \multido{\iPos=0+3}{\LinkedListMaxDepth}{%
+      \edef\@tempa{\cachedata}%
+      \checkLinkedList(\cachedata,1)% We got the pointed element
+      \rput(\iPos,0){%
+        \psgrid(2,1)
+        \rput(0.5,0.5){\cachedata}
+        \ifnum\iPos=\z@
+        \else
+          \rput(-1.5,0.5){\psline[linecolor=red,arrowscale=2]{->}(1.5,0)}
+        \fi}
+      \checkLinkedList(\@tempa,2)%    We got the pointer to the next element
+      \ifemptydata
+        \rput(\iPos,0){\psline[linecolor=red](1,0)(2,1)} % End of the list
+        \multidostop%                 No pointed element: end of the list
+      \fi}
+  \endpspicture%
+\fi}}
+
+\makeatother
+
+% We clear the linked list
+\multido{\iElem=1+1}{\LinkedListMaxDepth}{%
+  \checkLinkedList(\iElem,1)%
+  \ifemptydata
+  \else
+    \LinkedList(\iElem,1)={}%
+    \LinkedList(\iElem,2)={}%
+  \fi}
+
+\vspace{2mm}
+  We can write an extended version of the inclusion of an element, where we do
+not still store each element at the end of the list, but insert it at a
+special position. For instance, we can decide to use the list to sort the
+elements, inserting a new one at it sorted position. In the next example, we
+will manage integer numbers in this way (of course, we can do the same thing
+with arbitrary strings, but it would be more difficult to program in \TeX{},
+mainly if we want to be able to use accentuated letters).
+
+\vspace{2mm}
+\begin{Example}
+  \makeatletter
+
+  % /HLComment?Add an element at the end of the list, linked in it ordered place;
+  % /HLComment?(this version work only with contents as numbers);
+  /HLMacro?\def\LinkedListSortedAdd;#1{%
+  % /HLComment?Initializations;
+  \edef\@tempa{\@ne}%
+  \edef\@tempb{\@ne}%
+  \edef\@tempc{\z@}%
+  %
+  \multido{\iElem=2+1}{\LinkedListMaxDepth}{%
+    \checkLinkedList(\@tempa,2)% /HLComment?We got the pointer of this element;
+    \ifemptydata
+      % /HLComment?No pointed element, so we will insert the new one here;
+      \LinkedList(\iElem,1)={#1}%
+      % /HLComment?We update the pointer for the last element;
+      \expandarrayelementtrue
+      \LinkedList(\@tempb,2)={\iElem}%
+      \ifnum\PstDebug=\@ne
+        \typeout{Add LinkedList(\@tempb)->\iElem}% /HLComment?Debug;
+        \typeout{\space\space\space\space LinkedList(\iElem)=#1}% /HLComment?Debug;
+      \fi
+      % /HLComment?We update the pointer of the new element to the position;
+      % /HLComment?of the next greater one, if it exist;
+      \ifnum\@tempc=\z@
+      \else
+        \LinkedList(\iElem,2)={\@tempc}%
+        \ifnum\PstDebug=\@ne
+          \typeout{Update LinkedList(\iElem)->\@tempc}% /HLComment?Debug;
+        \fi
+      \fi
+      \expandarrayelementfalse
+      \multidostop
+    \else
+      \edef\@tempa{\cachedata}%
+      \checkLinkedList(\cachedata,1)%
+      \ifnum#1<\cachedata
+        \edef\@tempc{\@tempa}% /HLComment?New element less than this one;
+      \else
+        \edef\@tempb{\@tempa}% /HLComment?New element greater or equal than this one;
+      \fi
+    \fi}}
+
+  \makeatother
+
+  \LinkedListPrint
+
+  \LinkedListSortedAdd{732}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListSortedAdd{487}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListSortedAdd{718}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListSortedAdd{962}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{487}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{732}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{500}
+
+  \LinkedListDelete{962}\LinkedListPrint\LinkedListDraw
+
+  \LinkedListDelete{718}\LinkedListPrint\LinkedListDraw
+\end{Example}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+\subsubsection{Associative arrays}
+
+  To finish, we will give a complete solution to a classical problem: to count
+the number of occurrences of the various letters in a sentence. For this, we
+will first build some macros to deal with \emph{associative} arrays, as they
+have been popularized by scripting languages like \texttt{AWK} and
+\texttt{Perl}.
+
+\begin{Example}
+  \makeatletter
+
+  % /HLComment?Internally, we use two "standard" arrays to define one associative array;
+  \newarray\AssociativeArray@Names
+  \newarray\AssociativeArray@Values
+
+  \newcount\AssociativeArrayNbValues
+  \AssociativeArrayNbValues=\z@
+
+  \newif\ifAssociativeArray@ElementFound
+
+  % /HLComment?To store one element;
+  /HLMacro?\def\AssociativeArray;(#1)=#2{%
+  \expandarrayelementtrue
+  \AssociativeArray@ElementFoundfalse
+  \edef\@tempa{#1}%
+  \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Names(\iValue)%
+    \ifx\@tempa\cachedata
+      % /HLComment?This element already exist: we replace it current value;
+      % /HLComment?\checkAssociativeArray@Values(\iValue)% Debug;
+      % /HLComment?\typeout{In #1, replace `\cachedata'\space by `#2'}% Debug;
+      \AssociativeArray@Values(\iValue)={#2}%
+      \AssociativeArray@ElementFoundtrue
+      \multidostop
+    \fi}
+  \ifAssociativeArray@ElementFound
+  \else
+    % /HLComment?New element;
+    \advance\AssociativeArrayNbValues\@ne
+    \AssociativeArray@Names(\AssociativeArrayNbValues)={#1}%
+    \AssociativeArray@Values(\AssociativeArrayNbValues)={#2}%
+  \fi}
+
+  % /HLComment?To get one element;
+  /HLMacro?\def\checkAssociativeArray;(#1){%
+  \edef\@tempa{#1}%
+  \edef\@tempb{999999}%
+  \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Names(\iValue)%
+    \ifx\@tempa\cachedata
+      % /HLComment?We have found it by name;
+      \edef\@tempb{\iValue}%
+      \multidostop
+    \fi}
+  % /HLComment?We have now to get it value;
+  \checkAssociativeArray@Values(\@tempb)}
+
+  % /HLComment?Simple macro to print all the associative array;
+  /HLMacro?\def\printAssociativeArray;{%
+  \multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Names(\iValue)%
+    \iValue: \BS\texttt{FirstNames(\cachedata)}=`\AssociativeArray@Values(\iValue)'\space}}
+
+  \makeatother
+
+  \let\FirstNames\AssociativeArray
+  \let\checkFirstNames\checkAssociativeArray
+  \let\printFirstNames\printAssociativeArray
+
+  \FirstNames(Crawford)={Joan}
+  \FirstNames(Tierney)={Gene}
+  \FirstNames(Lake)={Veronika}
+
+  \printFirstNames
+
+  \checkFirstNames(Lake)
+  \verb+\FirstNames(Lake)+=`\cachedata'
+
+  \checkFirstNames(Monroe)
+  \ifemptydata
+    \verb+\FirstNames(Monroe) undefined!+
+  \else
+    \verb+\FirstNames(Monroe)+=`\cachedata'
+  \fi
+\end{Example}
+
+\makeatletter
+
+% Internally, we use two "standard" arrays to define one associative array
+\newarray\AssociativeArray@Names
+\newarray\AssociativeArray@Values
+
+\newcount\AssociativeArrayNbValues
+\AssociativeArrayNbValues=\z@
+
+\newif\ifAssociativeArray@ElementFound
+
+% To store one element
+\def\AssociativeArray(#1)=#2{%
+\expandarrayelementtrue
+\AssociativeArray@ElementFoundfalse
+\edef\@tempa{#1}%
+\Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+  \checkAssociativeArray@Names(\iValue)%
+  \ifx\@tempa\cachedata
+    % This element already exist: we replace it current value
+    % \checkAssociativeArray@Values(\iValue)% debug
+    % \typeout{In #1, replace `\cachedata'\space by `#2'}% Debug
+    \AssociativeArray@Values(\iValue)={#2}%
+    \AssociativeArray@ElementFoundtrue
+    \multidostop
+  \fi}
+\ifAssociativeArray@ElementFound
+\else
+  % New element
+  \advance\AssociativeArrayNbValues\@ne
+  \AssociativeArray@Names(\AssociativeArrayNbValues)={#1}%
+  \AssociativeArray@Values(\AssociativeArrayNbValues)={#2}%
+\fi}
+
+% To get one element
+\def\checkAssociativeArray(#1){%
+\edef\@tempa{#1}%
+\edef\@tempb{999999}%
+\Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+  \checkAssociativeArray@Names(\iValue)%
+  \ifx\@tempa\cachedata
+    % We have found it by name
+    \edef\@tempb{\iValue}%
+    \multidostop
+  \fi}
+% We have now to get it value
+\checkAssociativeArray@Values(\@tempb)}
+
+% Simple macro to print all the associative array
+\def\printAssociativeArray{%
+\multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+  \checkAssociativeArray@Names(\iValue)%
+  \iValue: \BS\texttt{FirstNames(\cachedata)}=`\AssociativeArray@Values(\iValue)'}}
+
+\makeatother
+
+\vspace{2mm}
+  Now, we can define the macros to read a sentence, to cut it letter by letter,
+to count the occurrences of each of them, and finally to draw a summary plot of
+the results.
+
+\makeatletter                   % Problem with the \ifpstricks conditional if not set...
+
+\ifpstricks                     % If PSTricks is available
+\begin{CenterExample}
+  \makeatletter
+
+  % /HLComment?A \PerChar style macro adapted from Juergen Schlegelmilch;
+  % /HLComment?(<schlegel@Informatik.Uni-Rostock.de> - posted on c.t.t. January 27, 1998);
+  /HLMacro?\def\PerChar;#1#2{\DoPerChar#1#2\@nil}
+
+  /HLMacro?\def\DoPerChar;#1#2#3\@nil{%
+  #1#2%
+  \edef\@tempa{#3}%
+  \ifx\@tempa\empty
+  \else
+    \DoPerChar#1#3\@nil
+  \fi}
+
+  % /HLComment?The action to do for each character: we increase the counter;
+  % /HLComment?for this character by one;
+  /HLMacro?\def\ActionPerChar;#1{% /HLComment?#1=character;
+  \checkAssociativeArray(#1)%
+  \ifemptydata
+    \@tempcnta=\@ne
+  \else
+    \@tempcnta=\cachedata
+    \advance\@tempcnta\@ne
+  \fi
+  \AssociativeArray(#1)={\the\@tempcnta}}
+
+  % /HLComment?To store in an associative array the number of occurrences by characters;
+  % /HLComment?(spaces are not counted);
+  /HLMacro?\def\StatSentence;#1{% /HLComment?#1=sentence;
+  \AssociativeArrayNbValues=\z@
+  \PerChar{\ActionPerChar}{#1}}
+
+  % /HLComment?To draw a plot of the number of occurrences of the characters of a sentence;
+  /HLMacro?\def\DrawOccurrences;#1{% /HLComment?#1=sentence;
+  \StatSentence{#1}
+  %
+  \pst@cnta=\AssociativeArrayNbValues
+  \advance\pst@cnta\@ne
+  %
+  % /HLComment?To know the maximum of the numbers;
+  \pst@cntb=\z@
+  \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Values(\iValue)%
+    \ifnum\cachedata>\pst@cntb
+      \pst@cntb=\cachedata
+    \fi}
+  \advance\pst@cntb\@ne
+  %
+  % /HLComment?The drawing itself;
+  \pspicture(-0.5,-0.5)(\pst@cnta,\pst@cntb)
+    \psaxes[axesstyle=frame,labels=y](\pst@cnta,\pst@cntb)
+    \multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+      \Draw@OneOccurrence{\iValue}}
+  \endpspicture}
+
+  % /HLComment?To draw the value for one occurrence;
+  /HLMacro?\def\Draw@OneOccurrence;#1{% /HLComment?#1=Letter;
+  \checkAssociativeArray@Values(#1)%
+  \psdot(#1,\cachedata)
+  \rput[B](\iValue,-0.5){\AssociativeArray@Names(#1)}}
+
+  \makeatother
+
+  \let\Names\AssociativeArray
+  \let\checkNames\checkAssociativeArray
+
+  \psset{dotstyle=o,dotsize=0.4}
+
+  \DrawOccurrences{We are Wednesday}
+\end{CenterExample}
+
+\makeatletter
+
+%% A \PerChar style macro adapted from Juergen Schlegelmilch
+%% (<schlegel@Informatik.Uni-Rostock.de> - posted on c.t.t. Jan. 27, 1998)
+\def\PerChar#1#2{\DoPerChar#1#2\@nil}
+
+\def\DoPerChar#1#2#3\@nil{%
+#1#2%
+\edef\@tempa{#3}%
+\ifx\@tempa\empty
+\else
+  \DoPerChar#1#3\@nil
+\fi}
+
+% The action to do for each character: we increase the counter
+% for this character by one
+\def\ActionPerChar#1{% #1=character
+\checkAssociativeArray(#1)%
+\ifemptydata
+  \@tempcnta=\@ne
+\else
+  \@tempcnta=\cachedata
+  \advance\@tempcnta\@ne
+\fi
+\AssociativeArray(#1)={\the\@tempcnta}}
+
+% To store in an associative array the number of occurrences by characters
+% (spaces are not counted)
+\def\StatSentence#1{% #1=sentence
+\AssociativeArrayNbValues=\z@
+\PerChar{\ActionPerChar}{#1}}
+
+% To draw a plot of the number of occurrences of the characters of a sentence
+\def\DrawOccurrences#1{%
+\StatSentence{#1}
+%
+\pst@cnta=\AssociativeArrayNbValues
+\advance\pst@cnta\@ne
+%
+% To know the maximum of the numbers
+\pst@cntb=\z@
+\Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+  \checkAssociativeArray@Values(\iValue)%
+  \ifnum\cachedata>\pst@cntb
+    \pst@cntb=\cachedata
+  \fi}
+\advance\pst@cntb\@ne
+%
+% The drawing itself
+\pspicture(-0.5,-0.5)(\pst@cnta,\pst@cntb)
+  \psaxes[axesstyle=frame,labels=y](\pst@cnta,\pst@cntb)
+  \multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \Draw@OneOccurrence{\iValue}}
+\endpspicture}
+
+% To draw the value for one occurrence
+\def\Draw@OneOccurrence#1{%
+\checkAssociativeArray@Values(#1)%
+\psdot(#1,\cachedata)
+\rput[B](\iValue,-0.5){\AssociativeArray@Names(#1)}}
+
+\let\Names\AssociativeArray
+\let\checkNames\checkAssociativeArray
+
+\psset{dotstyle=o,dotsize=0.4}
+
+\makeatother
+
+\vspace{8mm}                    % Poor hack to force a page break...
+  We will now write another version, using another array to store indexes,
+to allow us to sort the letters found in the sentence read.
+
+\begin{CenterExample}
+  \makeatletter
+
+  % /HLComment?To get in #2 the ASCII code of the #1 character;
+  /HLMacro?\def\Character@AsciiCode;#1#2{\chardef#2=`#1\relax}
+
+  % /HLComment?A new "standard" array to store the sorted indexes;
+  \newarray\AssociativeArray@Indexes
+
+  % /HLComment?A simple macro to print the array of indexes (for debugging);
+  /HLMacro?\def\PrintIndexes;{%
+  \multido{\iIndexes=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Indexes(\iIndexes)%
+    \BS\texttt{indexes(\iIndexes)}=`\cachedata'\space}}
+
+  % /HLComment?We redefine the macro to store an element in the associative array,;
+  % /HLComment?to allow to sort it elements, using an additional array of indexes;
+  /HLMacro?\def\AssociativeArray;(#1)=#2{%
+  \expandarrayelementtrue
+  \AssociativeArray@ElementFoundfalse
+  \edef\@tempa{#1}%
+  \edef\@tempb{#2}%
+  \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Names(\iValue)%
+    \ifx\@tempa\cachedata
+      % /HLComment?This element already exist: we replace it current value;
+      % /HLComment?\checkAssociativeArray@Values(\iValue)% Debug;
+      % /HLComment?\typeout{In #1, replace `\cachedata'\space by `#2'}% Debug;
+      \AssociativeArray@Values(\iValue)={\@tempb}%
+      \AssociativeArray@ElementFoundtrue
+      \multidostop
+    \fi}
+  \ifAssociativeArray@ElementFound
+  \else
+    % /HLComment?New element: we must insert it at it sorted position;
+    \@tempcnta=\@ne
+    \expandafter\Character@AsciiCode\@tempa\@tempx
+    \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+      \checkAssociativeArray@Names(\iValue)%
+      \expandafter\Character@AsciiCode\cachedata\@tempy
+      \ifnum\@tempx<\@tempy
+        % /HLComment?The new element must be before this one: we will exchange their values;
+        \checkAssociativeArray@Indexes(\iValue)%
+        \@tempcntb=\cachedata
+        \advance\@tempcntb\@ne
+        \AssociativeArray@Indexes(\iValue)={\the\@tempcntb}%
+      \else
+        \advance\@tempcnta\@ne
+      \fi}
+    %
+    \advance\AssociativeArrayNbValues\@ne
+    \AssociativeArray@Names(\AssociativeArrayNbValues)={\@tempa}%
+    \AssociativeArray@Values(\AssociativeArrayNbValues)={\@tempb}%
+    \AssociativeArray@Indexes(\AssociativeArrayNbValues)={\the\@tempcnta}%
+  \fi}
+
+  % /HLComment?We change the way we draw each number of occurrences;
+  /HLMacro?\def\Draw@OneOccurrence;#1{%
+  \checkAssociativeArray@Indexes(#1)%
+  \pst@cnta=\cachedata
+  \checkAssociativeArray@Values(#1)%
+  \psdot(\the\pst@cnta,\cachedata)
+  \rput[B](\the\pst@cnta,-0.5){\AssociativeArray@Names(#1)}}
+
+  \makeatother
+
+  \DrawOccurrences{We are Wednesday}
+
+  \PrintIndexes
+\end{CenterExample}
+
+\makeatletter
+
+% To get in #2 the ASCII code of the #1 character
+\def\Character@AsciiCode#1#2{\chardef#2=`#1\relax}%
+
+% A new "standard" array to store the sorted indexes
+\newarray\AssociativeArray@Indexes
+
+% We redefine the macro to store an element in the associative array,
+% to allow to sort it elements, using an additional array of indexes
+\def\AssociativeArray(#1)=#2{%
+\expandarrayelementtrue
+\AssociativeArray@ElementFoundfalse
+\edef\@tempa{#1}%
+\edef\@tempb{#2}%
+\Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+  \checkAssociativeArray@Names(\iValue)%
+  \ifx\@tempa\cachedata
+    % This element already exist: we replace it current value
+    % \checkAssociativeArray@Values(\iValue)% Debug
+    % \typeout{In #1, replace `\cachedata'\space by `#2'}% Debug
+    \AssociativeArray@Values(\iValue)={\@tempb}%
+    \AssociativeArray@ElementFoundtrue
+    \multidostop
+  \fi}
+\ifAssociativeArray@ElementFound
+\else
+  % New element: we must insert it at it sorted position
+  \@tempcnta=\@ne
+  \expandafter\Character@AsciiCode\@tempa\@tempx
+  \Multido{\iValue=\@ne+\@ne}{\AssociativeArrayNbValues}{%
+    \checkAssociativeArray@Names(\iValue)%
+    \expandafter\Character@AsciiCode\cachedata\@tempy
+    \ifnum\@tempx<\@tempy
+      % The new element must be before this one: we will exchange their values
+      \checkAssociativeArray@Indexes(\iValue)%
+      \@tempcntb=\cachedata
+      \advance\@tempcntb\@ne
+      \AssociativeArray@Indexes(\iValue)={\the\@tempcntb}%
+    \else
+      \advance\@tempcnta\@ne
+    \fi}
+  %
+  \advance\AssociativeArrayNbValues\@ne
+  \AssociativeArray@Names(\AssociativeArrayNbValues)={\@tempa}%
+  \AssociativeArray@Values(\AssociativeArrayNbValues)={\@tempb}%
+  \AssociativeArray@Indexes(\AssociativeArrayNbValues)={\the\@tempcnta}%
+\fi}
+
+% We change the way we draw each number of occurrences
+\def\Draw@OneOccurrence#1{%
+\checkAssociativeArray@Indexes(#1)%
+\pst@cnta=\cachedata
+\checkAssociativeArray@Values(#1)%
+\psdot(\the\pst@cnta,\cachedata)
+\rput[B](\the\pst@cnta,-0.5){\AssociativeArray@Names(#1)}}
+
+\makeatother
+
+\begin{CenterExample}
+  \DrawOccurrences{Tuesday 8 February}
+\end{CenterExample}
+
+\noindent Now, we can easily redefine the internal macro which plot each
+occurrence, to obtain various kinds of graphics:
+
+\begin{CenterExample}
+  \makeatletter
+
+  /HLMacro?\def\Draw@OneOccurrence;#1{%
+  \checkAssociativeArray@Indexes(#1)%
+  \pst@cnta=\cachedata
+  \checkAssociativeArray@Values(#1)
+  \psline[linestyle=dotted](\the\pst@cnta,0)(\the\pst@cnta,\cachedata)
+  \psdot(\the\pst@cnta,\cachedata)
+  \rput[B](\the\pst@cnta,-0.5){\AssociativeArray@Names(#1)}}
+
+  \makeatother
+
+  \psset{xunit=0.5,dotstyle=*,dotsize=0.3}
+  \DrawOccurrences{I do not believe that it can be correct}
+\end{CenterExample}
+
+\begin{CenterExample}
+  \makeatletter
+
+  \SpecialCoor
+
+  /HLMacro?\def\Draw@OneOccurrence;#1{%
+  \checkAssociativeArray@Indexes(#1)%
+  \pst@cnta=\cachedata
+  \checkAssociativeArray@Values(#1)%
+  \pspolygon*[linecolor=red](! \the\pst@cnta\space 0.3 sub 0)
+                            (! \the\pst@cnta\space 0.3 sub \cachedata)
+                            (! \the\pst@cnta\space 0.3 add \cachedata)
+                            (! \the\pst@cnta\space 0.3 add 0)
+  \rput[B](\the\pst@cnta,-0.5){\AssociativeArray@Names(#1)}}
+
+  \makeatother
+
+  \psset{xunit=0.5,ticks=y}
+  \DrawOccurrences{I don't know a better solution than this one}
+\end{CenterExample}
+\else
+  \PSTricksExampleNotShown
+\fi                             % End \pstrickstrue
+
+\section{Thanks}
+
+  I would like to thank Rolf Niepraschk \verb+<niepraschk@ptb.de>+ to have
+carefully read a preliminary version of this document and to have sent me
+several good advices to clarify and improve some points.
+
+\begin{thebibliography}{9}
+  \bibitem{SVB93} Stephan von  \textsc{Bechtolsheim}, \emph{\TeX{} in
+  Practice}, four volumes, Springer-Verlag, New York, 1993 (see also
+  \url{CTAN: macros/tip/arraymac.tip}).
+  \bibitem{REPEAT} \RepeatPackage, by Victor \textsc{Eijkhout}, University of
+  Illinois, Urbana-Champaign, USA, \url{CTAN: macros/generic/eijkhout/repeat}
+  \bibitem{EG98} Philippe \textsc{Esperet} and Denis \textsc{Girou},
+  \emph{Coloriage du pavage dit de Truchet}, Cahiers GUTenberg, Number~31,
+  December 98, pages 5-18, in french (see
+  \url{http://www.gutenberg.eu.org/pub/GUTenberg/publicationsPS/31-girou.ps.gz}).
+  \bibitem{ALDRATEX} \AlDraTeXPackage, by Eitan M. \textsc{Gurari}, Ohio State
+  University, Columbus, USA, \url{CTAN: graphics/dratex} (see also
+  \url{http://www.cis.ohio-state.edu/~gurari/systems.html}).
+  \bibitem{Gur94} Eitan M. \textsc{Gurari}, \emph{\TeX{} and \LaTeX: Drawing
+  and Literate Programming}, McGraw-Hill, New-York, 1994.
+  \bibitem{METAPOST} \MetaPostPackage, by John D. \textsc{Hobby}, AT\&T Bell
+  Laboratories, USA, \url{CTAN: graphics/metapost} (see also
+  \url{http://cm.bell-labs.com/who/hobby/MetaPost.html}).
+  \bibitem{FORMLETT} \FormLettPackage, by Zhuhan \textsc{Jiang}, University of
+  New England, Armidale, Australia, \url{CTAN: macros/generic/formlett.sty} (see
+  also \url{http://maths.une.edu.au/~zhuhan/util.html#computer}).
+  \bibitem{MULTIDO} \MultiDoPackage, by Timothy van \textsc{Zandt}, INSEAD,
+  Fontainebleau, France, \url{CTAN: macros/generic/multido}
+  \bibitem{PSTRICKS} \PSTricksPackage, by Timothy van \textsc{Zandt}, INSEAD,
+  Fontainebleau, France, \url{CTAN: graphics/pstricks} (see also
+  \url{http://www.tug.org/applications/PSTricks}).
+\end{thebibliography}
+
+\end{document}

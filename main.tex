@@ -11,25 +11,32 @@
 \usepackage{titlesec}
 \usepackage[titles]{tocloft}
 \usepackage{hyperref}
-\usepackage{subfiles} % Best loaded last in the preamble
+\usepackage{arrayjobx}
+\usepackage{multido}
+\usepackage{subfiles} % best loaded last in the preamble
 % global settings
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=cyan,
 }
-\setcounter{secnumdepth}{0}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 \setlength{\cftbeforechapskip}{1pt}
-\titleformat{\chapter}[display]
-  {\normalfont\bfseries}{}{0pt}{\Huge}
+\setcounter{secnumdepth}{0}
 % custom commands
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Define}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\blockcomment}[1]{}
+
+\newarray\Arr
+\newcounter{ArrSize}
+
 \newcommand{\defn}[3]{
+
+  \stepcounter{ArrSize}
+  \Arr(\value{ArrSize})={#1}
+
   \begin{definition}
     \label{def:#1}
     \textbf{#1}\par
@@ -42,13 +49,12 @@
 \author{yashasvi sriram patkuri}
 
 \begin{document}
-
 \maketitle
 \subfile{why_this_effort.tex}
 \subfile{the_process_of_learning.tex}
 \tableofcontents
 
-\part{math}
+\part{mathematics}
 \subfile{math/structure.tex}
 \subfile{math/math.tex}
 \subfile{math/numbers.tex}
@@ -56,8 +62,12 @@
 \subfile{math/geometry.tex}
 % \subfile{math/linear_algebra.tex}
 
-\part{coding}
+\part{programming}
 \subfile{coding/tips.tex}
+
+\multido{\iIds=1+1}{\theArrSize}{
+  \Arr(\iIds)
+}
 
 \end{document}
 

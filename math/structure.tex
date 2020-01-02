@@ -2,19 +2,21 @@
 
 \begin{document}
 \chapter{structure}
+\section{what?}
 This is not a re-write of any book.
 This is the written form of my perspective and understanding of mathematics.
 
 In big picture this text describes a directed acyclic graph (DAG).
 
-A node of the DAG is a \textbf{statement}.
+Any node of the DAG is a \textbf{statement}.
 If a statement node does not have any parents it is called \textbf{axiom} otherwise it is called \textbf{theorem}.
-An statement in which we name a certain thing is called \textbf{definition}.
-The edges connecting to any definition from its parents have the logical meaning of just referring
+A statement in which we name a certain thing is called \textbf{definition}.
 
 An edge of the DAG is a \textbf{proof}.
+All edges that connect a node and its parents share the same proof.
+The following condition holds for the DAG, and it is illustrated in the figure \ref{fig:structure_of_text}.
 
-The following condition holds for the DAG.
+\begin{center}
 \begin{verbatim}
   if (all parents of statement A are true) {
     A is true
@@ -22,6 +24,7 @@ The following condition holds for the DAG.
     A is false
   }
 \end{verbatim}
+\end{center}
 
 \begin{figure}[h]
 	\centering
@@ -57,6 +60,7 @@ The following condition holds for the DAG.
 	\label{fig:structure_of_text}
 \end{figure}
 
+\section{why?}
 \textbf{Graph} because, the hope is that by seeing the bigger picture with connections neatly lay-ed out we might be able to find new things.
 
 \textbf{Directed} because, it is the way mathematics is developed traditionally. Also this way, given a statement, we can get all statements that should be true for the subject statement to be true.

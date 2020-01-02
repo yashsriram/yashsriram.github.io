@@ -1,23 +1,42 @@
+% class
 \documentclass[12pt]{report}
+% packages
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
-\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{pgf, tikz}
 \usetikzlibrary{arrows, automata}
+\usepackage{titlesec}
+\usepackage[titles]{tocloft}
+\usepackage{hyperref}
+\usepackage{subfiles} % Best loaded last in the preamble
+% global settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+\setcounter{secnumdepth}{0}
+\setlength{\cftbeforechapskip}{1pt}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+% custom commands
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Define}
-\usepackage{subfiles} % Best loaded last in the preamble
-
-\setcounter{secnumdepth}{0}
-\newcommand{\blockcomment}[1]{}
-\newcommand{\defname}[1]{\textbf{#1}}
-\newcommand{\defdescription}[1]{#1}
-\newcommand{\defsignificance}[1]{{Significance: #1}}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\blockcomment}[1]{}
+\newcommand{\defn}[3]{
+  \begin{definition}
+    \label{def:#1}
+    \textbf{#1}\par
+    #2\par
+    Significance: #3
+  \end{definition}
+}
 
 \title{journal}
 \author{yashasvi sriram patkuri}
@@ -35,9 +54,9 @@
 \subfile{math/numbers.tex}
 \subfile{math/sets.tex}
 \subfile{math/geometry.tex}
-\subfile{math/linear_algebra.tex}
+% \subfile{math/linear_algebra.tex}
 
-\part{my experience with coding}
+\part{coding}
 \subfile{coding/tips.tex}
 
 \end{document}

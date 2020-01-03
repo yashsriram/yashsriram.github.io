@@ -1,0 +1,34 @@
+\newarray\IdArr
+\newcounter{IdArrSize}
+\setcounter{IdArrSize}{0}
+
+\makeatletter
+
+\newcommand{\defn}[3]{
+  \stepcounter{IdArrSize}
+  \IdArr(\value{IdArrSize})={#1}
+
+  \begin{definition}
+    \label{def:#1}
+    \textbf{#1}\par
+    #2\par
+    \ifthenelse{\equal{#3}{}}{{\color{red} No significance?}}{Significance:#3}\par
+  \end{definition}
+  \@ifnextchar\bgroup{
+    Dependencies: \parsenextparent
+  }{
+    {\color{blue} Axiom}
+  }
+}
+
+\newcommand{\parsenextparent}[1]{
+  #1 [\ref{def:#1}]
+  \@ifnextchar\bgroup{
+    \parsenextparent
+  }{}
+}
+
+\makeatother
+
+\endinput
+

@@ -4,6 +4,13 @@
 
 \makeatletter
 
+\newcommand{\parsenextparent}[1]{
+  #1 [\ref{def:#1}]
+  \@ifnextchar\bgroup{
+    \parsenextparent
+  }{}
+}
+
 \newcommand{\defn}[3]{
   \stepcounter{IdArrSize}
   \IdArr(\value{IdArrSize})={#1}
@@ -20,13 +27,6 @@
   }{
     \textbf{Axiom}
   }
-}
-
-\newcommand{\parsenextparent}[1]{
-  #1 [\ref{def:#1}]
-  \@ifnextchar\bgroup{
-    \parsenextparent
-  }{}
 }
 
 \makeatother

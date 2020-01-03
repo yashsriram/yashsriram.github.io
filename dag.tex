@@ -12,12 +12,13 @@
     \label{def:#1}
     \textbf{#1}\par
     #2\par
-    \ifthenelse{\equal{#3}{}}{{\color{red} No significance?}}{Significance:#3}\par
+    \ifthenelse{\equal{#3}{}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
   \end{definition}
+
   \@ifnextchar\bgroup{
-    Dependencies: \parsenextparent
+    \textbf{Dependencies:} \parsenextparent
   }{
-    {\color{blue} Axiom}
+    \textbf{Axiom}
   }
 }
 

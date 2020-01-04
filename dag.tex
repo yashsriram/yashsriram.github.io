@@ -5,12 +5,17 @@
 \newcounter{NumRef}
 
 \makeatletter
-\newcommand{\referifexists}[1]{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}\hyperref[def:#1]{#1}}}
+
+\NewDocumentCommand{\referifexists}{m}{
+  \ifdefmacro{#1}{#1}{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}\hyperref[def:#1]{#1}}}
+  % \ifdefparam{#1}{{\color{red} def param} }{}
+  % \ifcsparam{#1}{{\color{red} cs param} }{}
+}
+
 \makeatother
 
 \NewDocumentCommand{\sentence}{>{\SplitList{ }}m}{
-  \NewDocumentCommand{\word}{ m }{\referifexists{##1}
-  }
+  \NewDocumentCommand{\word}{m}{\referifexists{##1}}
 
   \ProcessList{#1}{\word}\par
 }

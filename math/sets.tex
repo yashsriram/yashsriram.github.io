@@ -1,27 +1,19 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{what is a set?}
+\chapter{sets}
 
 \defn{Set}{
-  A set is a collection of things (also called elements) in which no two things picked without replacement from the collection are equal.
+  A set is a collection of things (also called elements) from which any two things picked without replacement are not equal.
 }{
   To represent collection of differently colored balls in an urn, etc...
-}
+}{Equality}
 
 \defn{OrderedSet}{
-  A set in which for any two elements picked without replacement, one element is higher than the other
+  An ordered set is a set where there exists an order b/w every pair of elements in it.
 }{
-  To represent collection of etc...
-}
-
-\defn{SetCardinality}{
-  The cardinality of a set or an ordered set is the number of elements in it.
-}{
-  A name for count of elements in the collection. Don't really know why they didn't call it `size' or `length'
-}{Set}{OrderedSet}
-
-\chapter{continuous vs contiguous ordered sets}
+  Useful to represent set of heights of students in a class, etc...
+}{Set,Order}
 
 \defn{ContinuousSet}{
   An ordered set which has no discrete separation b/w any two of its elements is called a continuous set.
@@ -32,7 +24,7 @@
 \defn{ContiguousSet}{
   An ordered set which has a discrete separation b/w any two of its elements is called a contiguous set.
 }{
-  To represent sets like the ordered set of 7 colors [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
+  To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
 }{OrderedSet}
 
 \end{document}

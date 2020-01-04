@@ -5,7 +5,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{mathtools}
-\usepackage{amsthm}
+\usepackage{amsthm, amsfonts}
 \usepackage{pgf, tikz}
 \usetikzlibrary{arrows, automata}
 \usepackage{titlesec}
@@ -13,7 +13,8 @@
 \usepackage{hyperref}
 \usepackage{arrayjobx}
 \usepackage{multido}
-\usepackage{ifthen}
+\usepackage{xifthen}
+\usepackage{xparse}
 \usepackage{subfiles} % best loaded last in the preamble
 % global settings
 \hypersetup{
@@ -45,18 +46,13 @@
 \subfile{math/structure.tex}
 \subfile{math/math.tex}
 \subfile{math/comparisions.tex}
-\subfile{math/numbers.tex}
 \subfile{math/sets.tex}
-\subfile{math/geometry.tex}
+\subfile{math/numbers.tex}
+% \subfile{math/geometry.tex}
 % \subfile{math/linear_algebra.tex}
 
 \part{programming}
 \subfile{coding/tips.tex}
-
-% Statement ids\par
-% \multido{\iIds=1+1}{\theIdArrSize}{
-%   \IdArr(\iIds)
-% }
 
 \end{document}
 

@@ -2,16 +2,15 @@
 \newcounter{IdArrSize}
 \setcounter{IdArrSize}{0}
 
-\makeatletter
+\NewDocumentCommand{\parents}{>{\SplitList{,}}m}{
+  \NewDocumentCommand{\parent}{ m }{
+    ##1 [\ref{def:##1}]
+  }
 
-\newcommand{\parsenextparent}[1]{
-  #1 [\ref{def:#1}]
-  \@ifnextchar\bgroup{
-    \parsenextparent
-  }{}
+  \textbf{Dependencies}: \ProcessList{#1}{\parent}\par
 }
 
-\newcommand{\defn}[3]{
+\NewDocumentCommand{\defn}{m m m m}{
   \stepcounter{IdArrSize}
   \IdArr(\value{IdArrSize})={#1}
 
@@ -19,17 +18,10 @@
     \label{def:#1}
     \textbf{#1}\par
     #2\par
-    \ifthenelse{\equal{#3}{}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
+    \ifthenelse{\isempty{#3}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
+    \ifthenelse{\isempty{#4}}{\textbf{Axiom}}{\parents{#4}}
   \end{definition}
-
-  \@ifnextchar\bgroup{
-    \textbf{Dependencies:} \parsenextparent
-  }{
-    \textbf{Axiom}
-  }
 }
-
-\makeatother
 
 \endinput
 

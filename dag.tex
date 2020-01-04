@@ -2,24 +2,30 @@
 \newcounter{IdArrSize}
 \setcounter{IdArrSize}{0}
 
-\NewDocumentCommand{\parents}{>{\SplitList{,}}m}{
-  \NewDocumentCommand{\parent}{ m }{
-    ##1 [\ref{def:##1}]
+\newcounter{NumRef}
+
+\makeatletter
+\newcommand{\referifexists}[1]{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}{\color{red} #1} [\ref{def:#1}]}}
+\makeatother
+
+\NewDocumentCommand{\sentence}{>{\SplitList{ }}m}{
+  \NewDocumentCommand{\word}{ m }{\referifexists{##1}
   }
 
-  \textbf{Dependencies}: \ProcessList{#1}{\parent}\par
+  \ProcessList{#1}{\word}\par
 }
 
-\NewDocumentCommand{\defn}{m m m m}{
+\NewDocumentCommand{\defn}{m m m}{
+  \setcounter{NumRef}{0}
   \stepcounter{IdArrSize}
   \IdArr(\value{IdArrSize})={#1}
 
   \begin{definition}
     \label{def:#1}
     \textbf{#1}\par
-    #2\par
+    \sentence{#2}
     \ifthenelse{\isempty{#3}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
-    \ifthenelse{\isempty{#4}}{\textbf{Axiom}}{\parents{#4}}
+    \hspace*{0pt}\hfill\ifthenelse{\equal{\theNumRef}{0}}{\textbf{Axiom}}{\textbf{\theNumRef parent(s)}}
   \end{definition}
 }
 

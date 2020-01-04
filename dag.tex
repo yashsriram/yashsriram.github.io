@@ -5,7 +5,7 @@
 \newcounter{NumRef}
 
 \makeatletter
-\newcommand{\referifexists}[1]{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}{\color{red} #1} [\ref{def:#1}]}}
+\newcommand{\referifexists}[1]{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}\hyperref[def:#1]{#1}}}
 \makeatother
 
 \NewDocumentCommand{\sentence}{>{\SplitList{ }}m}{

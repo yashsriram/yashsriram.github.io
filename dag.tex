@@ -6,10 +6,7 @@
 
 \makeatletter
 
-\NewDocumentCommand{\referifexists}{m}{
-  \ifdefmacro{#1}{#1}{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}\hyperref[def:#1]{#1}}}
-  % \ifdefparam{#1}{{\color{red} def param} }{}
-  % \ifcsparam{#1}{{\color{red} cs param} }{}
+\NewDocumentCommand{\referifexists}{m}{\ifdefmacro{#1}{#1}{\@ifundefined{r@def:#1}{#1}{\stepcounter{NumRef}\hyperref[def:#1]{#1}}}
 }
 
 \makeatother

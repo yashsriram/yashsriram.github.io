@@ -1,7 +1,3 @@
-\newarray\IdArr
-\newcounter{IdArrSize}
-\setcounter{IdArrSize}{0}
-
 \newcounter{NumRef}
 
 \makeatletter
@@ -19,8 +15,6 @@
 
 \NewDocumentCommand{\defn}{m m m}{
   \setcounter{NumRef}{0}
-  \stepcounter{IdArrSize}
-  \IdArr(\value{IdArrSize})={#1}
 
   \begin{definition}
     \label{def:#1}
@@ -29,6 +23,18 @@
     \ifthenelse{\isempty{#3}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
     \hspace*{0pt}\hfill\ifthenelse{\equal{\theNumRef}{0}}{\textbf{Axiom}}{\textbf{\theNumRef\ parent(s)}}
   \end{definition}
+}
+
+\NewDocumentCommand{\thm}{m m m}{
+  \setcounter{NumRef}{0}
+
+  \begin{theorem}
+    \label{def:#1}
+    \textbf{#1}\par
+    \sentence{#2}
+    \ifthenelse{\isempty{#3}}{{\color{red} No significance?}}{\textbf{Significance}:#3}\par
+    \hspace*{0pt}\hfill\ifthenelse{\equal{\theNumRef}{0}}{\textbf{Axiom}}{\textbf{\theNumRef\ parent(s)}}
+  \end{theorem}
 }
 
 \endinput

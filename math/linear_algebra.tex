@@ -5,7 +5,8 @@
 \chapter{vector}
 
 \defn{Vector}{
-  A vector can be defined as a collection of things (also called elements) where duplicates can exist and there is Order b/w any two elements.
+  A vector can be defined as a collection of numbers ( Number ) (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
+  For n elements a vector can be written as $ V = \pvecn{e} $
 }{
   The motivation behind vectors is to view a group of entities as a single entity.
   By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.
@@ -38,13 +39,9 @@
 \chapter{vector addition and scaling}
 
 \defn{VectorAddition}{
-  The addition of two ND vectors $A$ and $B$ ( Vector ) is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+  The addition of two ND vectors ( VectorDimension ) $A = \pvecn{a}$ and $B = \pvecn{b}$ ( Vector ) is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+  Denoted by $A + B = \pvecnsum{a}{b}$.
 }{
-  In case of 2D with vectors say $\pvectwo{x}{y}$ and $\pvectwo{a}{b}$ the addition rule for vectors is as follows
-  \[
-    \pvectwo{x}{y} + \pvectwo{a}{b} = \pvectwo{x + a}{y + b}
-  \]
-  This can be extended to general N dimension vector.
   This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.
   Otherwise there is no reason not to define the addition rule as something arbitrary like
   \[
@@ -53,17 +50,23 @@
 }
 
 \defn{VectorScaling}{
-  The scaling of an ND Vector $A$ with a Number $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$.
+  The scaling of an ND ( VectorDimension )  Vector $A = \pvecn{a}$ with a Number $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
 }{
-  For a number $\lambda$ and a 2D vector $\pvectwo{x}{y}$
- \[
-    \lambda * \pvectwo{x}{y} = \pvectwo{\lambda * x}{\lambda * y}
-  \].
-  The same thing can be extended to N dimensional vector.
   Same story. Here $\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.
 }
 
-% \chapter{What the hell is a linear combination?}
+\chapter{linear combination}
+
+\defn{LinearCombination}{
+  Linearly combination two vectors ND ( VectorDimension ) vectors A and B ( Vector ) means first scaling each vector with a Number and adding resultant vectors ( VectorScaling VectorAddition ).
+  The produced vector is also N dimensional.
+  Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are numbers.
+}{
+  This is nothing new, just a word to combine one scaling and one adding operations.
+  A higher level construct to play with.
+  What is so linear about it?
+  Well the word linear is given in the light that there can exist other types of combinations like quadratic combination where before scaling the entities are squared.
+}
 
 % \textbf{A (yet another) different way to think about vectors}
 % Well consider a 2D co-ordinate system. Say we draw the vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $ in that system.
@@ -88,7 +91,6 @@
 % .\] where $ \alpha $ and $ \beta $ are any real numbers.
 
 % The word comes from I guess the fact that there are other types of combinations like polynomial combination, exponential combination, logarithmic combination and what not. The most simplest of them all for us humans seems to be linear combination. And we know from experience that simple is fun and often powerful.
-
 
 % \chapter{What does `linearly dependent' and `linearly independent' mean?}
 

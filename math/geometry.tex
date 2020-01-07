@@ -2,72 +2,73 @@
 
 \begin{document}
 \chapter{geometry}
+axioms and definitions of geometry
 
-\defn{Point}
-{A point is characterized by its properties
-  \begin{enumerate}
-    \item It can be enclosed by arbitrarily small
-  \end{enumerate}
-}
-{We use this as a building block to define useful concepts}
+% \defn{Point}
+% {A point is characterized by its properties
+%   \begin{enumerate}
+%     \item It can be enclosed by arbitrarily small
+%   \end{enumerate}
+% }
+% {We use this as a building block to define useful concepts}
 
-\defn{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.
-A co-ordinate system consists axes.
-The collection of axes is called the co-ordinate frame.
-For any `point' in the `space' there is one and only one way of representation in reference to a frame, i.e. to give the signed lengths along each axis which one has to travel to from point which represents zero length in all axes (the origin) to get to the required point. The dimensionality of co-ordinate system is the number of axes of the co-ordinate system.}{}
+% \defn{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.
+% A co-ordinate system consists axes.
+% The collection of axes is called the co-ordinate frame.
+% For any `point' in the `space' there is one and only one way of representation in reference to a frame, i.e. to give the signed lengths along each axis which one has to travel to from point which represents zero length in all axes (the origin) to get to the required point. The dimensionality of co-ordinate system is the number of axes of the co-ordinate system.}{}
 
-\begin{enumerate}
-  \item Axis 1 + axis 2 + ... + axis N = co-ordinate frame
-  \item Frame is used to reference to points
-  \item Set of all points form a space
-  \item Frame + space = system
-  \item N = dimension of co-ordinate system
-\end{enumerate}
+% \begin{enumerate}
+%   \item Axis 1 + axis 2 + ... + axis N = co-ordinate frame
+%   \item Frame is used to reference to points
+%   \item Set of all points form a space
+%   \item Frame + space = system
+%   \item N = dimension of co-ordinate system
+% \end{enumerate}
 
-\chapter{co-ordinate systems and vectors}
-We can think of \textbf{each number in vector as the signed length in each of the axes of an N dimensional co-ordinate frame}.
-This way a numerical form of vector can be used to represent a point in space of appropriate dimension and a point can be used to visualize a numerical form of vector.
+% \chapter{co-ordinate systems and vectors}
+% We can think of \textbf{each number in vector as the signed length in each of the axes of an N dimensional co-ordinate frame}.
+% This way a numerical form of vector can be used to represent a point in space of appropriate dimension and a point can be used to visualize a numerical form of vector.
 
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
-    \draw (-3, 0) ellipse (2cm and 1cm);
-    \draw (-3, 0) node {Numerical};
-    \draw (3, 0) ellipse (2cm and 1cm);
-    \draw (3, 0) node {Co-ordinate};
-    \draw[->] (-3, 1) -- (3, 1);
-    \draw (0, 1.5) node {visualize};
-    \draw[->] (3, -1) -- (-3, -1);
-    \draw (0, -1.5) node { represent };
-  \end{tikzpicture}
-\end{figure}
+% \begin{figure}[ht]
+%   \centering
+%   \begin{tikzpicture}
+%     \draw (-3, 0) ellipse (2cm and 1cm);
+%     \draw (-3, 0) node {Numerical};
+%     \draw (3, 0) ellipse (2cm and 1cm);
+%     \draw (3, 0) node {Co-ordinate};
+%     \draw[->] (-3, 1) -- (3, 1);
+%     \draw (0, 1.5) node {visualize};
+%     \draw[->] (3, -1) -- (-3, -1);
+%     \draw (0, -1.5) node { represent };
+%   \end{tikzpicture}
+% \end{figure}
 
 
-For example a vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
+% For example a vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
 
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
-    \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
-    \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
-    \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
-    \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
-  \end{tikzpicture}
-\end{figure}
+% \begin{figure}[ht]
+%   \centering
+%   \begin{tikzpicture}
+%     \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
+%     \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
+%     \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
+%     \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+%   \end{tikzpicture}
+% \end{figure}
 
-Please note that
-\begin{enumerate}
-  \item There is no need to name these axes X and Y.
-  \item There is no need for the axes to be perpendicular.
-  \item No need for 1 unit along first axis to be same as 1 unit along second axis.
-  \item No need for units of first axis to be same as the second one
-\end{enumerate}
+% Please note that
+% \begin{enumerate}
+%   \item There is no need to name these axes X and Y.
+%   \item There is no need for the axes to be perpendicular.
+%   \item No need for 1 unit along first axis to be same as 1 unit along second axis.
+%   \item No need for units of first axis to be same as the second one
+% \end{enumerate}
 
-\chapter{Why like this?}
-Well there is no specific reason. Just that it seems natural and seems to be useful to solve many problems in the world.
+% \chapter{Why like this?}
+% Well there is no specific reason. Just that it seems natural and seems to be useful to solve many problems in the world.
 
-Probably the co-ordinate system was first developed to represent the objects in the real world with numbers. A co-ordinate system with dimensionality up to 3 makes sense in the real world. The ones with dimensionality 4 or above are not natural, as in we don't see physical manifestations of such systems. Umm... may be space time can be thought of as a 4D co-ordinate system with the 4th axis being time.
+% Probably the co-ordinate system was first developed to represent the objects in the real world with numbers. A co-ordinate system with dimensionality up to 3 makes sense in the real world. The ones with dimensionality 4 or above are not natural, as in we don't see physical manifestations of such systems. Umm... may be space time can be thought of as a 4D co-ordinate system with the 4th axis being time.
 
-Anyway the most natural way to think about co-ordinate systems is to imagine a 3D co-ordinate system with axes placed spatially mutually perpendicularly and origin at the interchapter of all of them.
+% Anyway the most natural way to think about co-ordinate systems is to imagine a 3D co-ordinate system with axes placed spatially mutually perpendicularly and origin at the interchapter of all of them.
 
 \end{document}

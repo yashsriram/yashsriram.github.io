@@ -1,0 +1,70 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{vector}
+
+\defn{Vector}{
+  A vector can be defined as a collection of numbers ( Number ) (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
+  For n elements a vector can be written as $ V = \pvecn{e} $
+}{
+  The motivation behind vectors is to view a group of entities as a single entity.
+  By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.
+  A simple use case would be say when you need to update marks of all students to a 100 scale from a 10 scale.
+}
+
+\defn{VectorDimension}{
+  The dimension of a Vector is just the count of elements in it.
+  A vector with dimension N can be called N dimensional vector, written as ND vector.
+}{
+  A name for size of vector.
+  The concept is illustrated in the table \ref{tab:dim}.
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{ c  c  c }
+      Vector name & Value & Dimension\\
+      $ V_1 $ & (1) & 1\\
+      $ V_2 $ & ($\sqrt{2}$) & 1\\
+      $ V_3 $ & (-100, $\sqrt{3}$) & 2\\
+      $ V_4 $ & (0, 0.1) & 2\\
+      $ V_5 $ & (0, 0, 0) & 3\\
+      $ V_6 $ & (0, 1, 2, 3) & 4\\
+    \end{tabular}
+  \caption{Dimensions of Vectors}
+  \label{tab:dim}
+  \end{table}
+}
+
+\chapter{vector addition and scaling}
+
+\defn{VectorAddition}{
+  The addition of two ND vectors $A = \pvecn{a}$ and $B = \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+   ( Vector VectorDimension ). Denoted by $A + B = \pvecnsum{a}{b}$.
+}{
+  This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.
+  Otherwise there is no reason not to define the addition rule as something arbitrary like
+  \[
+    \pvectwo{x}{y} + \pvectwo{a}{b} = \pvectwo{xa + yb^2}{\frac{b - y}{x + a}}
+  .\]
+}
+
+\defn{VectorScaling}{
+  The scaling of an ND ( VectorDimension )  Vector $A = \pvecn{a}$ with a Number $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
+}{
+  Same story. Here $\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.
+}
+
+\chapter{linear combination}
+
+\defn{LinearCombination}{
+  Linearly combination two vectors ND ( VectorDimension ) vectors A and B ( Vector ) means first scaling each vector with a Number and adding resultant vectors ( VectorScaling VectorAddition ).
+  The produced vector is also N dimensional.
+  Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are numbers.
+}{
+  This is nothing new, just a word to combine one scaling and one adding operations.
+  A higher level construct to play with.
+  What is so linear about it?
+  Well the word linear is given in the light that there can exist other types of combinations like quadratic combination where before scaling the entities are squared.
+}
+
+\end{document}

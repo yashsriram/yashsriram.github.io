@@ -11,4 +11,4 @@ scratch/
 .idea
 *.tex
 !tex/packages
-!tex/dag.tex
+__pycache__

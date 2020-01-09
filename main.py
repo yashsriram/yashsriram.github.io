@@ -1,11 +1,13 @@
 import os
 
 from mako.template import Template
+from statement import Statement, StatementSet
 
 TEMPLATEX_DIR = './templatex/'
 TEX_DIR = './tex/'
 MAIN_FILE_NAME = 'main.templatex'
 SUB_FILE_PATHS = []
+STATEMENT_SET = StatementSet()
 
 
 def change_extension_to_tex(original_path):
@@ -20,17 +22,9 @@ def add_sub_file(sub_file):
 
 
 def add_statement(_id, description, significance, _type):
-    if significance.isspace():
-        latex_significance = '{\\color{red} No significance?}'
-    else:
-        latex_significance = '\\textbf{Significance}:%s' % significance
-    latex_statement = '\\begin{%s}\n' \
-                      '\\label{def:%s}\n' \
-                      '\\textbf{%s}\\par\n' \
-                      '%s\n' \
-                      '%s\\par\n' \
-                      '\end{%s}\n' % (_type, _id, _id, description, latex_significance, _type)
-    return latex_statement
+    statement = Statement(_id, description, significance, _type)
+    STATEMENT_SET.add(statement)
+    return STATEMENT_SET.latex_code(statement.id)
 
 
 def add_definition(_id, description, significance):

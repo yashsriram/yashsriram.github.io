@@ -12,11 +12,6 @@
 \usepackage{titlesec}
 \usepackage[titles]{tocloft}
 \usepackage{hyperref}
-\usepackage{arrayjobx}
-\usepackage{multido}
-\usepackage{xifthen}
-\usepackage{xparse}
-\usepackage{etoolbox}
 \usepackage{subfiles} % best loaded last in the preamble
 %% global settings
 \hypersetup{

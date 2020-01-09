@@ -18,7 +18,7 @@ def change_extension_to_tex(original_path):
 def add_sub_file(sub_file):
     global SUB_FILE_PATHS
     SUB_FILE_PATHS.append(sub_file)
-    return '\\subfile{%s}' % (change_extension_to_tex(sub_file))
+    return r'\subfile{%s}' % (change_extension_to_tex(sub_file))
 
 
 def add_statement(_id, description, significance, _type):

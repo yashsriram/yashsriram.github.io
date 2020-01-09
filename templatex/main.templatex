@@ -1,6 +1,6 @@
-% class
+%% class
 \documentclass[12pt]{report}
-% packages
+%% packages
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{enumitem}
@@ -18,7 +18,7 @@
 \usepackage{xparse}
 \usepackage{etoolbox}
 \usepackage{subfiles} % best loaded last in the preamble
-% global settings
+%% global settings
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
@@ -26,7 +26,7 @@
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 \setlength{\cftbeforechapskip}{1pt}
 \setcounter{secnumdepth}{0}
-% new commands
+%% new commands
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Define}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
@@ -36,7 +36,7 @@
 \newcommand{\pvecn}[1]{\begin{pmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{pmatrix}}
 \newcommand{\pvecnsum}[2]{\begin{pmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{pmatrix}}
 \newcommand{\pvecnscale}[2]{\begin{pmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{pmatrix}}
-% new command files
+%% new command files
 \input{dag.tex}
 
 \title{journal}
@@ -44,22 +44,21 @@
 
 \begin{document}
 \maketitle
-\subfile{why_this_effort.tex}
-\subfile{the_process_of_learning.tex}
+${add_sub_file('why_this_effort.templatex')}
+${add_sub_file('the_process_of_learning.templatex')}
 \tableofcontents
 
 \part{mathematics}
-\subfile{math/structure.tex}
-\subfile{math/math.tex}
-\subfile{math/basics.tex}
-\subfile{math/sets.tex}
-\subfile{math/numbers.tex}
-\subfile{math/vectors.tex}
-\subfile{math/geometry.tex}
-\subfile{math/linear_algebra.tex}
+${add_sub_file('math/structure.templatex')}
+${add_sub_file('math/math.templatex')}
+${add_sub_file('math/basics.templatex')}
+${add_sub_file('math/sets.templatex')}
+${add_sub_file('math/numbers.templatex')}
+${add_sub_file('math/vectors.templatex')}
+${add_sub_file('math/geometry.templatex')}
+${add_sub_file('math/linear_algebra.templatex')}
 
 \part{programming}
-\subfile{coding/tips.tex}
+${add_sub_file('coding/tips.templatex')}
 
 \end{document}
-

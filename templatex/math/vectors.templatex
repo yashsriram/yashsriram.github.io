@@ -5,7 +5,7 @@
 \chapter{vector}
 
 \defn{Vector}{
-  A vector can be defined as a collection of numbers ( Number ) (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
+  A vector can be defined as a collection of RealNumbers (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
   For n elements a vector can be written as $ V = \pvecn{e} $
 }{
   The motivation behind vectors is to view a group of entities as a single entity.
@@ -49,7 +49,7 @@
 }
 
 \defn{VectorScaling}{
-  The scaling of an ND ( VectorDimension )  Vector $A = \pvecn{a}$ with a Number $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
+  The scaling of an ND ( VectorDimension )  Vector $A = \pvecn{a}$ with a real number ( RealNumbers ) $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
 }{
   Same story. Here $\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.
 }
@@ -57,9 +57,9 @@
 \chapter{linear combination}
 
 \defn{LinearCombination}{
-  Linearly combination two vectors ND ( VectorDimension ) vectors A and B ( Vector ) means first scaling each vector with a Number and adding resultant vectors ( VectorScaling VectorAddition ).
+  Linearly combination two vectors ND ( VectorDimension ) vectors A and B ( Vector ) means first scaling each vector with a real number ( RealNumbers ) and adding resultant vectors ( VectorScaling VectorAddition ).
   The produced vector is also N dimensional.
-  Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are numbers.
+  Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are real numbers.
 }{
   This is nothing new, just a word to combine one scaling and one adding operations.
   A higher level construct to play with.

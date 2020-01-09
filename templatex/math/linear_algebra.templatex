@@ -1,0 +1,69 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{relationship b/w vectors and geometry}
+
+\defn{NumberSpaceEquivalence}{
+  todo
+}{
+}
+
+\chapter{span and basis}
+
+\chapter{linear transformation}
+
+proof of composition of linear transform is a linear transform, algebraically and geometrically
+
+writing linear transform and composition of linear transforms as matrix and product of matrices
+
+\chapter{determinant, descriminant arghh...}
+
+\chapter{eigen stuff}
+
+%% \textbf{A (yet another) different way to think about vectors}
+%% Well consider a 2D co-ordinate system. Say we draw the vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $ in that system.
+
+%% \begin{figure}[h]
+%%   \centering
+%%   \begin{tikzpicture}
+%%     \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
+%%     \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
+%%     \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
+%%     \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+%%   \end{tikzpicture}
+%% \end{figure}
+
+%% We know that each number in the list (the vector) is the signed length that we need to travel to get to the point represented by the vector.
+%% Well we can also `think' that \textbf{each number represents the `scalar' that scales some very fundamental vectors that belong to the system and by adding the scaled versions of those vectors we get the same point}. These fundamental vectors can be thought of as extension of the definition of co-ordinate system itself, in that each axis of a co-ordinate system has one and only one vector associated with it.
+
+%% This idea of \textbf{scaling and adding things is known as linear combination} in general. In linear algebra the things are vectors. Most ideas in linear algebra build up on this idea of scaling and adding some fundamental vectors (i.e. linear combination of vectors). In the regular 2D co-ordinate system these vectors are $ \ihat $ and $ \jhat $.
+
+%% So a linear combination of $ \ihat $ and $ \jhat $ can be represented symbolically as \[
+%% \alpha * \ihat + \beta * \jhat
+%% .\] where $ \alpha $ and $ \beta $ are any real numbers.
+
+%% The word comes from I guess the fact that there are other types of combinations like polynomial combination, exponential combination, logarithmic combination and what not. The most simplest of them all for us humans seems to be linear combination. And we know from experience that simple is fun and often powerful.
+
+%% \chapter{What does `linearly dependent' and `linearly independent' mean?}
+
+%% A set of vectors are said to be \textbf{linearly dependent iff one of them can be expressed as a linear combination of others}. They are called linearly independent if they that cannot be done. Symbolically for a set of vectors $ v_1 $ $ v_2 $ ... $ v_n $ if we can find co-efficients $ \alpha_1 \alpha_2 ... \alpha_n $ such that \[ \alpha_1 * v_1  = \alpha_2 * v_2 + ... + \alpha_n * v_n \] then they are said to linearly dependent. If we cannot (as in there does not exist such set of co-efficients) then the set of vectors are called linearly independent.
+
+%% Seems like a definition that is natural and will comes in handy.
+
+
+%% \chapter{Span}
+%% \textbf{The span of any set of vectors (F) is the set of all vectors (S) that can be formed using linear combination of each of the vectors in (F)}. Symbolically, the span of vectors $ v_1 $ $ v_2 $ ... $ v_n $ (F) is set of all vectors formed by $ \alpha_1 * v_1 + \alpha_2 * v_2 + ... + \alpha_n * v_n $ (S) where $ \alpha_1, \alpha_2 ... \alpha_n $ are any real numbers.
+
+%% The term span means something is similar to the normal meaning of the word span and the verb spanning itself i.e. like sort of to cover something.
+
+%% \chapter{Basis}
+%% \textbf{Basis of a set of vectors (S) is the set of linearly INdependent vectors (F) that span (S) i.e. the span of (F) is a superset or exactly equal to (S)}. Notice that
+%% \begin{enumerate}
+%%   \item By using the word linearly independent we are sort of putting a restriction on number of vectors in the set
+%% \end{enumerate}
+
+%% \chapter{But why these definitions?}
+%% The idea is that from `space' or `spatial' point of view, span and basis are sort like inverse things. Given basis we can find the span, given a span we can find the basis. This sort of comes from the natural drive to generate and break down, I guess.
+
+\end{document}

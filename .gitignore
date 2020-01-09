@@ -7,3 +7,8 @@
 *dvi
 *pdf
 *toc
+scratch/
+.idea
+*.tex
+!tex/packages
+!tex/dag.tex

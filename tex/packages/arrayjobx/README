@@ -1,0 +1,29 @@
+       +-----------------------------------------------------------+
+       |                'arrayjob'; 'arrayjobx'                    |
+       |                  Versions 1.03; 1.04                      |
+       |               May 3, 2000; May 3, 2010                    |
+       |                                                           |
+       |  Zhuhan Jiang (University of Western Sydney - Australia)  |
+       |              <zhuhan@scm.uws.edu.au>                      |
+       +-----------------------------------------------------------+
+
+
+The 'arrayjob(x)' package provides array data structures in (La)TeX, in the
+meaning of the classical procedural programming languages like Fortran, Ada or
+C, and macros to manipulate them. Arrays can be mono or bi-dimensional.
+
+This is useful for applications which require high level programming
+techniques, like algorithmic graphics programmed in the TeX language.
+
+The accompanying documentation files (arrayjob.tex, arrayjobx.tex ) were
+written by Denis Girou <Denis.Girou@idris.fr> and updated by Michael Sharpe
+(msharpe@ucsd.edu).
+
+Version 1.03 (arrayjob) is provided only for compatibility with old work that
+made explicit use of the \array macro. Version 1.04 (arrayjobx, modification
+suggested by Michael Sharpe) should be used for all new work---the only
+difference is that the macro known as \array in version 1.03 is known under
+the name \arrayx in version 1.04 in order to avoid conflict with the name
+\array as used in amsmath.
+
+This package is released under the terms of the LaTeX Project Public License.

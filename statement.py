@@ -16,7 +16,7 @@ class StatementSet:
             if token in self.statements:
                 num_parents += 1
                 parent_statement = self.statements[token]
-                split_desc[i] = ' \hyperref[%s:%s]{%s}' % (
+                split_desc[i] = r'\hyperref[%s:%s]{%s}' % (
                     parent_statement.type, parent_statement.id, parent_statement.id)
         statement.description = ' '.join(split_desc) + r'\par'
         # num parents

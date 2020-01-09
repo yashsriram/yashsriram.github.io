@@ -19,6 +19,24 @@ def add_sub_file(sub_file):
     return '\\subfile{%s}' % (change_extension_to_tex(sub_file))
 
 
+def add_statement(_id, description, significance, _type):
+
+    if significance.isspace():
+        latex_significance = '{\\color{red} No significance?}'
+    else:
+        latex_significance = '\\textbf{Significance}:%s' % significance
+    latex_statement = '\\begin{%s}\n' \
+                     '\\label{def:%s}\n' \
+                     '\\textbf{%s}\\par\n' \
+                     '%s\n' \
+                     '%s\\par\n' \
+                     '\end{%s}\n' % (_type, _id, _id, description, latex_significance, _type)
+    return latex_statement
+
+
+def add_definition(_id, description, significance):
+    return add_statement(_id, description, significance, 'definition')
+
 def save_as_tex(rendered, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     output_file = open(output_path, 'w')
@@ -32,5 +50,5 @@ save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(MAIN_FILE_NAM
 
 for sub_file_path in SUB_FILE_PATHS:
     template = Template(filename='{}{}'.format(TEMPLATEX_DIR, sub_file_path))
-    output = template.render()
+    output = template.render(add_definition=add_definition)
     save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(sub_file_path)))

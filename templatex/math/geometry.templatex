@@ -3,20 +3,44 @@
 \begin{document}
 \chapter{geometry}
 
-\defn{Point}{
-  todo
-}{
-}
+${ add_definition(
 
-\defn{Line}{
-  todo
-}{
-}
+'Point',
 
-\defn{Space}{
-  todo
-}{
-}
+r'''
+    todo
+''',
+
+r'''
+'''
+
+) }
+
+${ add_definition(
+
+'Line',
+
+r'''
+    todo
+''',
+
+r'''
+'''
+
+) }
+
+${ add_definition(
+
+'Space',
+
+r'''
+    todo
+''',
+
+r'''
+'''
+
+) }
 
 %% \defn{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.
 %% A co-ordinate system consists axes.

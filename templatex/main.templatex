@@ -37,7 +37,6 @@
 \newcommand{\pvecnsum}[2]{\begin{pmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{pmatrix}}
 \newcommand{\pvecnscale}[2]{\begin{pmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{pmatrix}}
 %% new command files
-\input{dag.tex}
 
 \title{journal}
 \author{yashasvi sriram patkuri}

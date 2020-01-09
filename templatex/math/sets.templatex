@@ -3,35 +3,74 @@
 \begin{document}
 \chapter{sets}
 
-\defn{Set}{
+${ add_definition(
+
+'Set',
+
+r'''
   A set $S$ is a collection of things (also called elements) $ e_1, e_2, e_3, ... e_n $ from which any two things picked without replacement are not equal ( Equality ). The relationship is written as $ S = \{ e_1, e_2, e_3, ... e_n \} $( EnumeratedNotation ).
-}{
+''',
+
+r'''
   To represent collection of differently colored balls in an urn, etc...
-}
+'''
 
-\defn{Union}{
+) }
+
+${ add_definition(
+
+'Union',
+
+r'''
   A union of two sets ( Set ) A and B is a new set which contains each and every element in A and B with repetitions removed if any. Denoted by $ A \cup B $.
-}{
+''',
+
+r'''
   A basic operator to combine sets.
-}
+'''
 
-\defn{OrderedSet}{
+) }
+
+${ add_definition(
+
+'OrderedSet',
+
+r'''
   An ordered set is a Set where there exists an Order b/w every pair of elements in it.
-}{
+''',
+
+r'''
   Useful to represent set of heights of students in a class, etc...
-}
+'''
 
-\defn{ContinuousSet}{
+) }
+
+${ add_definition(
+
+'ContinuousSet',
+
+r'''
   An OrderedSet which has no discrete separation b/w any two of its elements is called a continuous set.
-}{
-  To represent sets like the set of all wavelengths in the visible spectrum of light
-}
+''',
 
-\defn{ContiguousSet}{
+r'''
+  To represent sets like the set of all wavelengths in the visible spectrum of light
+'''
+
+) }
+
+${ add_definition(
+
+'ContiguousSet',
+
+r'''
   An OrderedSet which has a discrete separation b/w any two of its elements is called a contiguous set.
-}{
+''',
+
+r'''
   To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
-}
+'''
+
+) }
 
 \end{document}
-

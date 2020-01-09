@@ -4,10 +4,18 @@
 
 \chapter{relationship b/w vectors and geometry}
 
-\defn{NumberSpaceEquivalence}{
-  todo
-}{
-}
+${ add_definition(
+
+'NumberSpaceEquivalence',
+
+r'''
+    todo
+''',
+
+r'''
+'''
+
+) }
 
 \chapter{span and basis}
 

@@ -3,19 +3,35 @@
 \begin{document}
 \chapter{what is mathematics to me?}
 
-\defn{Mathematics}{
+${ add_definition(
+
+'Mathematics',
+
+r'''
 Math in itself has no universal definition.
 I think of it is a way of using imagination to solve problems.
 The essence is that we have a problem and we try to use our imagination to come up with something that solves the problem. There is no further restriction on the definition of math.
-}{
-Concepts developed during this process like algebra, calculus etc... are just tools, not the math itself. We can always create new tools and discard old ones.
-}
+''',
 
-\defn{MathematicalTool}{
-  An idea refined and carved iteratively that is useful to solve some problem
-}{
-  This is a natural construct to have while developing mathematics.
-}
+r'''
+Concepts developed during this process like algebra, calculus etc... are just tools, not the math itself. We can always create new tools and discard old ones.
+'''
+
+) }
+
+${ add_definition(
+
+'MathematicalTool',
+
+r'''
+An idea refined and carved iteratively that is useful to solve some problem.
+''',
+
+r'''
+This is a natural construct to have while developing mathematics.
+'''
+
+) }
 
 \end{document}
 

@@ -3,55 +3,130 @@
 \begin{document}
 \chapter{numbers}
 
-\defn{NaturalNumbers}{
-  The OrderedSet of all numbers ( Number ) used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
-}{
-  Encompasses all possible counts.
-}
 
-\defn{Zero}{
+${ add_definition(
+
+'NaturalNumbers',
+
+r'''
+  The OrderedSet of all numbers ( Number ) used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
+''',
+
+r'''
+  Encompasses all possible counts.
+'''
+
+) }
+
+${ add_definition(
+
+'Zero',
+
+r'''
   The notion of absence.
   Symbolically written as 0.
   Can be considered as a number.
-}{
+''',
+
+r'''
   For example in case of counting it can represent the case when there is no balls left in an urn.
-}
+'''
 
-\defn{WholeNumbers}{
+) }
+
+${ add_definition(
+
+'WholeNumbers',
+
+r'''
   The Union of NaturalNumbers and Set which contains only Zero . It is denoted by $ \mathbb{W} = \{ 0, 1, 2, 3, ... \}  $.
-}{
+''',
+
+r'''
   The name whole is given because we are gonna define numbers that will represent non-whole entities.
-}
+'''
 
-\defn{AdditiveInverse}{
-  Todo
-}{
-}
+) }
 
-\defn{Integers}{
-  Todo
-}{
-}
 
-\defn{MultiplicativeInverse}{
-  Todo
-}{
-}
+${ add_definition(
 
-\defn{RationalNumbers}{
-  Todo
-}{
-}
+'AdditiveInverse',
 
-\defn{IrrationalNumbers}{
+r'''
   Todo
-}{
-}
+''',
 
-\defn{RealNumbers}{
+r'''
+'''
+
+) }
+
+
+${ add_definition(
+
+'Integers',
+
+r'''
   Todo
-}{
-}
+''',
+
+r'''
+'''
+
+) }
+
+${ add_definition(
+
+'MultiplicativeInverse',
+
+r'''
+  Todo
+''',
+
+r'''
+'''
+
+) }
+
+${ add_definition(
+
+'RationalNumbers',
+
+r'''
+  Todo
+''',
+
+r'''
+'''
+
+) }
+
+
+${ add_definition(
+
+'IrrationalNumbers',
+
+r'''
+''',
+
+r'''
+'''
+
+) }
+
+
+${ add_definition(
+
+'RealNumbers',
+
+r'''
+  Todo
+''',
+
+r'''
+'''
+
+) }
 
 \end{document}
-

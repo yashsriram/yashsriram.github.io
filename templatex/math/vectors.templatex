@@ -10,7 +10,7 @@ ${ add_definition(
 'Vector',
 
 r'''
-  A vector can be defined as a collection of RealNumbers (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
+  A vector can be defined as a collection of @RealNumbers@ (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
   For n elements a vector can be written as $ V = \pvecn{e} $
 ''',
 
@@ -27,7 +27,7 @@ ${ add_definition(
 'VectorDimension',
 
 r'''
-  The dimension of a Vector is just the count of elements in it.
+  The dimension of a @Vector@ is just the count of elements in it.
   A vector with dimension N can be called N dimensional vector, written as ND vector.
 ''',
 
@@ -59,8 +59,8 @@ ${ add_definition(
 'VectorAddition',
 
 r'''
-  The addition of two ND vectors $A = \pvecn{a}$ and $B = \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
-   ( Vector VectorDimension ). Denoted by $A + B = \pvecnsum{a}{b}$.
+  The addition of two ND @Vector@s $A = \pvecn{a}$ and $B = \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+   @VectorDimension@. Denoted by $A + B = \pvecnsum{a}{b}$.
 ''',
 
 r'''
@@ -78,7 +78,7 @@ ${ add_definition(
 'VectorScaling',
 
 r'''
-  The scaling of an ND ( VectorDimension )  Vector $A = \pvecn{a}$ with a real number ( RealNumbers ) $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
+  The scaling of an ND @Vector@ $A = \pvecn{a}$ @VectorDimension@ with a real number @RealNumbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
 ''',
 
 r'''
@@ -94,7 +94,7 @@ ${ add_definition(
 'LinearCombination',
 
 r'''
-  Linearly combination two vectors ND ( VectorDimension ) vectors A and B ( Vector ) means first scaling each vector with a real number ( RealNumbers ) and adding resultant vectors ( VectorScaling VectorAddition ).
+  Linearly combination two vectors ND @Vector@s A and B @VectorDimension@ means first scaling each vector with a real number @RealNumbers@ and adding resultant vectors @VectorScaling@ @VectorAddition@.
   The produced vector is also N dimensional.
   Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are real numbers.
 ''',

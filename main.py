@@ -1,13 +1,12 @@
 import os
 
 from mako.template import Template
-from statement import Statement, StatementSet
+from statement import Statement
 
 TEMPLATEX_DIR = './templatex/'
 TEX_DIR = './tex/'
 MAIN_FILE_NAME = 'main.templatex'
 SUB_FILE_PATHS = []
-STATEMENT_SET = StatementSet()
 
 
 def change_extension_to_tex(original_path):
@@ -22,13 +21,11 @@ def add_sub_file(sub_file):
 
 
 def add_statement(_id, description, significance, _type):
-    statement = Statement(_id, description, significance, _type)
-    STATEMENT_SET.add(statement)
-    return STATEMENT_SET.latex_code(statement.id)
+    return Statement(_id, description, significance, _type).latex_format()
 
 
 def add_definition(_id, description, significance):
-    return add_statement(_id, description, significance, 'definition')
+    return add_statement(_id, description, significance, Statement.TYPE_DEFINITION)
 
 
 def save_as_tex(rendered, output_path):

@@ -6,25 +6,6 @@
 
 ${ add_definition(
 
-'Number',
-
-r'''
-A number is a notion to count or to label or measure things.
-''',
-
-r'''
-  Some uses of numbers are
-  \begin{enumerate}[noitemsep,topsep=0pt]
-    \item Count number of apples in a bag - There are 37 apples in a bag
-    \item Measure the length of a pencil - The length of the pencil is 3.1468 cm
-    \item Label each participant in a marathon - The participant number 10714 won the marathon
-  \end{enumerate}
-'''
-
-) }
-
-${ add_definition(
-
 'Equality',
 
 r'''
@@ -46,7 +27,7 @@ ${ add_definition(
 'Order',
 
 r'''
-  Two unequal ( Equality ) things are ordered iff there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
+  Two unequal @Equality@ things are ordered iff there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
 ''',
 
 r'''
@@ -57,10 +38,29 @@ r'''
 
 ${ add_definition(
 
+'Number',
+
+r'''
+A number is a notion to count or to label or measure things.
+''',
+
+r'''
+  Some uses of numbers are
+  \begin{enumerate}[noitemsep,topsep=0pt]
+    \item Count number of apples in a bag - There are 37 apples in a bag
+    \item Measure the length of a pencil - The length of the pencil is 3.1468 cm
+    \item Label each participant in a marathon - The participant number 10714 won the marathon
+  \end{enumerate}
+'''
+
+) }
+
+${ add_definition(
+
 'EnumeratedNotation',
 
 r'''
-  To name each element in a collection such that each elements name is unequal ( Equality ) to all others, we arrange each element in some way and use the position Number as the subscript of that element. This is called enumerated notation.
+  To name each element in a collection such that each elements name is unequal @Equality@ to all others, we arrange each element in some way and use the position @Number@ as the subscript of that element. This is called enumerated notation.
   For a collection having n elements the enumerated notation would be $ \{ e_1, e_2, e_3, ... e_n \} $.
   \begin{itemize}[noitemsep,topsep=0pt]
     \item If n = 0, it expands to $\{\}$.

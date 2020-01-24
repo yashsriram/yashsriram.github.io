@@ -9,7 +9,7 @@ ${ add_definition(
 'Natural Numbers',
 
 r'''
-  The @Ordered Set@ of all numbers @Number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
+  The @ordered Set@ of all numbers @number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
 ''',
 
 r'''
@@ -39,7 +39,7 @@ ${ add_definition(
 'Whole Numbers',
 
 r'''
-  The @Union@ of @Natural Numbers@ and @Set@ which contains only @Zero@ . It is denoted by $ \mathbb{W} = \{ 0, 1, 2, 3, ... \}  $.
+  The @union@ of @natural Numbers@ and @set@ which contains only @zero@ . It is denoted by $ \mathbb{W} = \{ 0, 1, 2, 3, ... \}  $.
 ''',
 
 r'''

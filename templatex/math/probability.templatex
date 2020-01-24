@@ -24,7 +24,7 @@ ${ add_definition(
 'Deterministic Experiment',
 
 r'''
-An @Experiment@ in which the outcome always remains the same @Equality@ no matter how many times it is repeated is called a deterministic experiment.
+An @experiment@ in which the outcome always remains the same @equality@ no matter how many times it is repeated is called a deterministic experiment.
 ''',
 
 r'''
@@ -38,7 +38,7 @@ ${ add_definition(
 'Stochastic Experiment',
 
 r'''
-An @Experiment@ in which the outcome need not remain the same @Equality@ when it is repeated is called a stochastic experiment.
+An @experiment@ in which the outcome need not remain the same @equality@ when it is repeated is called a stochastic experiment.
 ''',
 
 r'''
@@ -52,7 +52,7 @@ ${ add_definition(
 'Outcome Space',
 
 r'''
-The outcome space of an @Experiment@ is the @Set@ of its all possible outcomes when repeated infinitely many times.
+The outcome space of an @experiment@ is the @set@ of its all possible outcomes when repeated infinitely many times.
 ''',
 
 r'''

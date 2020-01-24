@@ -27,7 +27,7 @@ ${ add_definition(
 'Order',
 
 r'''
-  Two unequal @Equality@ things are ordered $ \biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
+  Two unequal @equality@ things are ordered $ \biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
 ''',
 
 r'''
@@ -60,7 +60,7 @@ ${ add_definition(
 'Enumerated Notation',
 
 r'''
-  To name each element in a collection such that each elements name is unequal @Equality@ to all others, we arrange each element in some way and use the position @Number@ as the subscript of that element. This is called enumerated notation.
+  To name each element in a collection such that each elements name is unequal @equality@ to all others, we arrange each element in some way and use the position @number@ as the subscript of that element. This is called enumerated notation.
   For a collection having n elements the enumerated notation would be $ \{ e_1, e_2, e_3, ... e_n \} $.
   \begin{itemize}[noitemsep,topsep=0pt]
     \item If n = 0, it expands to $\{\}$.

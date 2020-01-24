@@ -8,9 +8,9 @@ ${ add_definition(
 'Function',
 
 r'''
-A function $ \Lambda $ is an operator on a @Set@ called domain $ D $, such that it maps each element $ \alpha $ of the set $ D $ to a single new entity $ \beta $ called the image of  $ \alpha $.
+A function $ \Lambda $ is an operator on a @set@ called domain $ D $, such that it maps each element $ \alpha $ of the set $ D $ to a single new entity $ \beta $ called the image of  $ \alpha $.
 The set of all such mappings of the domain is called range $ R $.
-Any @Superset@ of the range is called co-domain $ C $.
+Any @superset@ of the range is called co-domain $ C $.
 Function is denoted by $ \Lambda:D \to C $ or $ \forall e \in D, \Lambda(e) \in C $.
 ''',
 

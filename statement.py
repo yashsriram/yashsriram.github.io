@@ -1,3 +1,5 @@
+from utils import *
+
 class Statement:
     PARENT_ID_DELIMITER = '@'
     ID_STATEMENT_MAP = {}
@@ -9,6 +11,10 @@ class Statement:
             raise Exception('Empty statement id found')
         if _id in Statement.ID_STATEMENT_MAP:
             raise Exception('Duplicate statement id found: {}'.format(_id))
+        id_case_combinations = case_combinations(_id)
+        for combination in id_case_combinations:
+            if combination in Statement.ID_STATEMENT_MAP:
+                raise Exception('Duplicate case combination of statement id found: {} for id: {}'.format(combination, _id))
         self.id = _id
         # description validation and parsing
         self.description = description
@@ -22,13 +28,19 @@ class Statement:
             # skip even index elements
             if i % 2 == 0:
                 continue
-            if token in Statement.ID_STATEMENT_MAP:
-                parent = Statement.ID_STATEMENT_MAP[token]
-                if parent in self.parents:
-                    raise Exception('Duplicate parent reference found: {} in statement with id: {}'.format(token, _id))
-                self.parents.append(parent)
-                parent.children.append(self)
-            else:
+            # if parent found in some case combination it is valid
+            token_case_combinations = case_combinations(token)
+            parent_found = False
+            for combination in token_case_combinations:
+                if combination in Statement.ID_STATEMENT_MAP:
+                    parent = Statement.ID_STATEMENT_MAP[combination]
+                    if parent in self.parents:
+                        raise Exception('Duplicate parent reference found: {} in statement with id: {}'.format(token, _id))
+                    self.parents.append(parent)
+                    parent.children.append(self)
+                    parent_found = True
+                    break
+            if not parent_found:
                 raise Exception('Unknown parent reference found: {} in statement with id: {}'.format(token, _id))
         self.significance = significance
         self.type = _type
@@ -59,7 +71,7 @@ class Statement:
                 continue
             # parents and parent reference tokens have corresponding indices
             parent = self.parents[int(i / 2)]
-            tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, parent.id)
+            tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, token)
         formatted_description = ''.join(tokens) + r'\par'
         # num parents
         if len(self.parents) == 0:

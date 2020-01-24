@@ -8,7 +8,7 @@ ${ add_definition(
 'Set',
 
 r'''
-A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @Equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @Enumerated Notation@.
+A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @enumerated Notation@.
 ''',
 
 r'''
@@ -19,10 +19,10 @@ To represent collection of differently colored balls in an urn, etc...
 
 ${ add_definition(
 
-'BelongsTo',
+'Belongs To',
 
 r'''
-An element $ \lambda $ belongs to a @Set@ S $ \biimpl $ $ \exists! \tau \in S \mid \lambda = \tau $ @Equality@.
+An element $ \lambda $ belongs to a @set@ S $ \biimpl $ $ \exists! \tau \in S \mid \lambda = \tau $ @equality@.
 Denoted by $ \lambda \in S $.
 
 An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda = \tau $.
@@ -41,7 +41,7 @@ ${ add_definition(
 'Subset',
 
 r'''
-A @Set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $.
+A @set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $ @belongs to@.
 ''',
 
 r'''
@@ -55,7 +55,7 @@ ${ add_definition(
 'Superset',
 
 r'''
-A @Set@ E is called a superset of set F $ \biimpl $ $ F \subseteq E $ @Subset@. Denoted by $ E \supseteq F $.
+A @set@ E is called a superset of set F $ \biimpl $ $ F \subseteq E $ @subset@. Denoted by $ E \supseteq F $.
 ''',
 
 r'''
@@ -69,7 +69,7 @@ ${ add_definition(
 'Union',
 
 r'''
-  A union of two sets @Set@ A and B is a new set which contains each and every element in A and B with repetitions removed if any. Denoted by $ A \cup B $.
+  A union of two sets @set@ A and B is a new set which contains each and every element in A and B with repetitions removed if any. Denoted by $ A \cup B $.
 ''',
 
 r'''
@@ -83,7 +83,7 @@ ${ add_definition(
 'Ordered Set',
 
 r'''
-  An ordered set is a @Set@ where there exists an Order b/w every pair of elements in it.
+  An ordered set is a @set@ where there exists an Order b/w every pair of elements in it.
 ''',
 
 r'''
@@ -97,7 +97,7 @@ ${ add_definition(
 'Continuous Set',
 
 r'''
-  An @Ordered Set@ which has no discrete separation b/w any two of its elements is called a continuous set.
+  An @ordered set@ which has no discrete separation b/w any two of its elements is called a continuous set.
 ''',
 
 r'''
@@ -111,7 +111,7 @@ ${ add_definition(
 'Contiguous Set',
 
 r'''
-  An @Ordered Set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
+  An @ordered set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
 ''',
 
 r'''

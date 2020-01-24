@@ -10,7 +10,7 @@ ${ add_definition(
 'Vector',
 
 r'''
-  A vector can be defined as a collection of @RealNumbers@ (also called elements) where duplicates can exist and the arrangement in which elements appear matters.
+  A vector can be defined as a collection of @Real Numbers@ (also called elements) where the arrangement in which elements appear matters.
   For n elements a vector can be written as $ V = \pvecn{e} $
 ''',
 
@@ -24,7 +24,7 @@ r'''
 
 ${ add_definition(
 
-'VectorDimension',
+'Vector Dimension',
 
 r'''
   The dimension of a @Vector@ is just the count of elements in it.
@@ -56,11 +56,11 @@ r'''
 
 ${ add_definition(
 
-'VectorAddition',
+'Vector Addition',
 
 r'''
   The addition of two ND @Vector@s $A = \pvecn{a}$ and $B = \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
-   @VectorDimension@. Denoted by $A + B = \pvecnsum{a}{b}$.
+   @Vector Dimension@. Denoted by $A + B = \pvecnsum{a}{b}$.
 ''',
 
 r'''
@@ -75,10 +75,10 @@ r'''
 
 ${ add_definition(
 
-'VectorScaling',
+'Vector Scaling',
 
 r'''
-  The scaling of an ND @Vector@ $A = \pvecn{a}$ @VectorDimension@ with a real number @RealNumbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
+  The scaling of an ND @Vector@ $A = \pvecn{a}$ @Vector Dimension@ with a real number @Real Numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
 ''',
 
 r'''
@@ -91,10 +91,10 @@ r'''
 
 ${ add_definition(
 
-'LinearCombination',
+'Linear Combination',
 
 r'''
-  Linearly combination two vectors ND @Vector@s A and B @VectorDimension@ means first scaling each vector with a real number @RealNumbers@ and adding resultant vectors @VectorScaling@ @VectorAddition@.
+  Linearly combination two vectors ND @Vector@s A and B @Vector Dimension@ means first scaling each vector with a real number @Real Numbers@ and adding resultant vectors @Vector Scaling@ @Vector Addition@.
   The produced vector is also N dimensional.
   Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are real numbers.
 ''',

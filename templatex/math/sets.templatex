@@ -8,7 +8,7 @@ ${ add_definition(
 'Set',
 
 r'''
-A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @Equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @EnumeratedNotation@.
+A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @Equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @Enumerated Notation@.
 ''',
 
 r'''
@@ -80,7 +80,7 @@ r'''
 
 ${ add_definition(
 
-'OrderedSet',
+'Ordered Set',
 
 r'''
   An ordered set is a @Set@ where there exists an Order b/w every pair of elements in it.
@@ -94,10 +94,10 @@ r'''
 
 ${ add_definition(
 
-'ContinuousSet',
+'Continuous Set',
 
 r'''
-  An @OrderedSet@ which has no discrete separation b/w any two of its elements is called a continuous set.
+  An @Ordered Set@ which has no discrete separation b/w any two of its elements is called a continuous set.
 ''',
 
 r'''
@@ -108,10 +108,10 @@ r'''
 
 ${ add_definition(
 
-'ContiguousSet',
+'Contiguous Set',
 
 r'''
-  An @OrderedSet@ which has a discrete separation b/w any two of its elements is called a contiguous set.
+  An @Ordered Set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
 ''',
 
 r'''

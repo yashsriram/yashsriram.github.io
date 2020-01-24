@@ -57,7 +57,7 @@ r'''
 
 ${ add_definition(
 
-'EnumeratedNotation',
+'Enumerated Notation',
 
 r'''
   To name each element in a collection such that each elements name is unequal @Equality@ to all others, we arrange each element in some way and use the position @Number@ as the subscript of that element. This is called enumerated notation.

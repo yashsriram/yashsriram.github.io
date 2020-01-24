@@ -5,14 +5,58 @@
 
 ${ add_definition(
 
-'Event Space',
+'Experiment',
 
 r'''
-The event space of a @StochasticFunction@ is its Range.
+A set of procedures which when followed produces an outcome.
 ''',
 
 r'''
+Can be used to represent a lot of things food recipies, code, course registrations etc... The meaning of this is not just limited to experiments which involve physics or chemistry. They are just a class of experiments called physical and chemical experiments respectively. There can exist imaginary experiments like (surprise surprise!) adding two numbers in your head, calculating limits etc...
+'''
 
+) }
+
+
+
+${ add_definition(
+
+'Deterministic Experiment',
+
+r'''
+An @Experiment@ in which the outcome always remains the same @Equality@ no matter how many times it is repeated is called a deterministic experiment.
+''',
+
+r'''
+Can be used to represent experiments like adding two numbers.
+'''
+
+) }
+
+${ add_definition(
+
+'Stochastic Experiment',
+
+r'''
+An @Experiment@ in which the outcome need not remain the same @Equality@ when it is repeated is called a stochastic experiment.
+''',
+
+r'''
+Can be used to represent experiments like rolling a dice.
+'''
+
+) }
+
+${ add_definition(
+
+'Outcome Space',
+
+r'''
+The outcome space of an @Experiment@ is the @Set@ of its all possible outcomes when repeated infinitely many times.
+''',
+
+r'''
+A term to refer to all possible outcomes collectively.
 '''
 
 ) }

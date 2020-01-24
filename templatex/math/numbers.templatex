@@ -6,10 +6,10 @@
 
 ${ add_definition(
 
-'NaturalNumbers',
+'Natural Numbers',
 
 r'''
-  The @OrderedSet@ of all numbers @Number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
+  The @Ordered Set@ of all numbers @Number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} = \{ 1, 2, 3, ... \} $.
 ''',
 
 r'''
@@ -36,10 +36,10 @@ r'''
 
 ${ add_definition(
 
-'WholeNumbers',
+'Whole Numbers',
 
 r'''
-  The @Union@ of @NaturalNumbers@ and @Set@ which contains only @Zero@ . It is denoted by $ \mathbb{W} = \{ 0, 1, 2, 3, ... \}  $.
+  The @Union@ of @Natural Numbers@ and @Set@ which contains only @Zero@ . It is denoted by $ \mathbb{W} = \{ 0, 1, 2, 3, ... \}  $.
 ''',
 
 r'''
@@ -51,7 +51,7 @@ r'''
 
 ${ add_definition(
 
-'AdditiveInverse',
+'Additive Inverse',
 
 r'''
   Todo
@@ -78,7 +78,7 @@ r'''
 
 ${ add_definition(
 
-'MultiplicativeInverse',
+'Multiplicative Inverse',
 
 r'''
   Todo
@@ -91,7 +91,7 @@ r'''
 
 ${ add_definition(
 
-'RationalNumbers',
+'Rational Numbers',
 
 r'''
   Todo
@@ -105,7 +105,7 @@ r'''
 
 ${ add_definition(
 
-'IrrationalNumbers',
+'Irrational Numbers',
 
 r'''
 ''',
@@ -118,7 +118,7 @@ r'''
 
 ${ add_definition(
 
-'RealNumbers',
+'Real Numbers',
 
 r'''
   Todo

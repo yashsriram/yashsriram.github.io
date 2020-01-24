@@ -9,8 +9,8 @@ ${ add_definition(
 'Equality',
 
 r'''
-  Two things A and B are equal iff one can be replaced with another at any place in the context, written it as $ A = B $.
-  If that does not hold they are called unequal, written as $ A \neq B $.
+  Two things A and B are equal $ \biimpl $ one can be replaced with another at any place in the context. Denoted by $ A = B $.
+  If that does not hold they are called unequal. Denoted by $ A \neq B $.
 ''',
 
 r'''

@@ -8,55 +8,44 @@ ${ add_definition(
 'Function',
 
 r'''
-A function is an operator on a @Set@ (called domain) such that it maps each element of the set to a new entity.
-The set of all mapping of the domain is called range.
-Any superset of the range is called co-domain.
+A function $ \Lambda $ is an operator on a @Set@ called domain $ D $, such that it maps each element $ \alpha $ of the set $ D $ to a single new entity $ \beta $ called the image of  $ \alpha $.
+The set of all such mappings of the domain is called range $ R $.
+Any @Superset@ of the range is called co-domain $ C $.
+Function is denoted by $ \Lambda:D \to C $ or $ \forall e \in D, \Lambda(e) \in C $.
 ''',
 
 r'''
-A basic tool for moving from one set to another.
+A basic tool for mapping one set to another.
 '''
 
 ) }
 
 ${ add_definition(
 
-'Domain',
+'DeterministicFunction',
 
 r'''
-In a @Function@ the first @Set@ is called domain of the function.
+A @Function@ $ \Psi $ in which images of all elements in the domain remain same @Equality@, even when function is repeatedly applied on the domain is called a deterministic function.
 ''',
 
 r'''
-The source set. Can be visualized as the starting point of movement.
+With the set of planets in our solar system as domain, if we map each planet with its position from sun, the images (the positions) of all elements (all planets) in the domain (the solar system) remain the same even when the function is repeatedly applied on the domain.
 '''
 
 ) }
 
 ${ add_definition(
 
-'Co-Domain',
+'StochasticFunction',
 
 r'''
-In a @Function@ the second @Set@ is called co-domain of the function.
+A @Function@ $ \Psi $ is called a stochastic function if it is not a @DeterministicFunction@.
+There may be some consecutive applications of function on domain, which may yield identical images for all elements in domain, but it is not enough.
 ''',
 
 r'''
-The destination set. Can be visualized as the end point of the movement.
-'''
-
-) }
-
-${ add_definition(
-
-'Range',
-
-r'''
-In a @Function@ the set of images of each element in @Domain@ is called range of the function.
-''',
-
-r'''
-The image of the domain.
+With the set of a single event of rolling a dice as domain, if we map it to the number appearing on the top, the image (number on top) of the element (rolling a dice) in the domain need not remain same when function is repeatedly applied on domain.
+Thinking like this is a bit non-trivial but neat and makes things easy.
 '''
 
 ) }

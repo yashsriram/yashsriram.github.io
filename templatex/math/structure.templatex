@@ -10,10 +10,9 @@ In big picture this text describes a directed acyclic graph (DAG).
 
 Any node of the DAG is a \textbf{statement}.
 If a statement node does not have any parents it is called \textbf{axiom} otherwise it is called \textbf{theorem}.
-A statement in which we name a certain thing is called \textbf{definition}.
 
-An edge of the DAG is a \textbf{proof}.
-All edges that connect a node and its parents share the same proof.
+Every theorem is associated with a \textbf{proof}.
+All edges from a theorem to its parents are also associated with the same proof.
 The following condition holds for the DAG, and it is illustrated in the figure \ref{fig:structure_of_text}.
 
 \begin{center}
@@ -25,6 +24,9 @@ The following condition holds for the DAG, and it is illustrated in the figure \
   }
 \end{verbatim}
 \end{center}
+
+A statement in which we name a certain thing is called \textbf{definition}.
+If a definition is a theorem, the proof is just that we name it so and so when all its parents are true and hence theorem is true.
 
 \begin{figure}[ht]
 	\centering

@@ -27,7 +27,7 @@ ${ add_definition(
 'Order',
 
 r'''
-  Two unequal @Equality@ things are ordered iff there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
+  Two unequal @Equality@ things are ordered $ \biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
 ''',
 
 r'''

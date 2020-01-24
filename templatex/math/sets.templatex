@@ -8,11 +8,58 @@ ${ add_definition(
 'Set',
 
 r'''
-  A set $S$ is a collection of things (also called elements) $ e_1, e_2, e_3, ... e_n $ from which any two things picked without replacement are not equal @Equality@. The relationship is written as $ S = \{ e_1, e_2, e_3, ... e_n \} $ @EnumeratedNotation@.
+A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @Equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @EnumeratedNotation@.
 ''',
 
 r'''
-  To represent collection of differently colored balls in an urn, etc...
+To represent collection of differently colored balls in an urn, etc...
+'''
+
+) }
+
+${ add_definition(
+
+'BelongsTo',
+
+r'''
+An element $ \lambda $ belongs to a @Set@ S $ \biimpl $ $ \exists! \tau \in S \mid \lambda = \tau $ @Equality@.
+Denoted by $ \lambda \in S $.
+
+An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda = \tau $.
+Denoted by $ \lambda \in S $.
+''',
+
+r'''
+To indicate whether an element belongs to a set or not.
+There cannot be more than one element in S that is equal to $ \lambda $ anyways due to the definition of a set.
+'''
+
+) }
+
+${ add_definition(
+
+'Subset',
+
+r'''
+A @Set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $.
+''',
+
+r'''
+Can be used to represent useful partitions of a set.
+'''
+
+) }
+
+${ add_definition(
+
+'Superset',
+
+r'''
+A @Set@ E is called a superset of set F $ \biimpl $ $ F \subseteq E $ @Subset@. Denoted by $ E \supseteq F $.
+''',
+
+r'''
+The inverse of subset.
 '''
 
 ) }

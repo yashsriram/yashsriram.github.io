@@ -6,7 +6,7 @@
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{mathtools}
-\usepackage{amsthm, amsfonts}
+\usepackage{amsthm, amsfonts, amsmath, amssymb}
 \usepackage{pgf, tikz}
 \usetikzlibrary{arrows, automata}
 \usepackage{titlesec}
@@ -31,6 +31,9 @@
 \newcommand{\pvecn}[1]{\begin{pmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{pmatrix}}
 \newcommand{\pvecnsum}[2]{\begin{pmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{pmatrix}}
 \newcommand{\pvecnscale}[2]{\begin{pmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{pmatrix}}
+\newcommand{\biimpl}{\longleftrightarrow}
+\newcommand{\impl}{\implies}
+\newcommand{\st}{\mid}
 %% new command files
 
 \title{journal}
@@ -47,9 +50,11 @@ ${add_sub_file('math/structure.templatex')}
 ${add_sub_file('math/math.templatex')}
 ${add_sub_file('math/basics.templatex')}
 ${add_sub_file('math/sets.templatex')}
+${add_sub_file('math/functions.templatex')}
 ${add_sub_file('math/numbers.templatex')}
 ${add_sub_file('math/vectors.templatex')}
 ${add_sub_file('math/geometry.templatex')}
+${add_sub_file('math/probability.templatex')}
 ${add_sub_file('math/linear_algebra.templatex')}
 
 \part{programming}

@@ -1,0 +1,62 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{probability}
+
+${ add_definition(
+
+'Deterministic Experiment',
+
+r'''
+An experiment where its outcome is always fixed when it is repeated is called a deterministic experiment.
+''',
+
+r'''
+
+'''
+
+) }
+
+${ add_definition(
+
+'Stochastic Experiment',
+
+r'''
+An experiment where its outcome is not fixed when it is repeated, but belongs to a @Set@ of possible outcomes is called a stochastic experiment.
+''',
+
+r'''
+
+'''
+
+) }
+
+${ add_definition(
+
+'StochasticFunction',
+
+r'''
+A @Function@ in which for every element in @Domain@ its image is not a single fixed element in the @Co-Domain@, but the image can be any element in the co-domain and is known only when function is evaluated is called a stochastic function.
+''',
+
+r'''
+An infamous but very very bad name for Stochastic Function is Random Variable as it abuses both words random and variable.
+'''
+
+) }
+
+${ add_definition(
+
+'Event Space',
+
+r'''
+The event space of a @StochasticFunction@ is its @Range@.
+''',
+
+r'''
+
+'''
+
+) }
+
+\end{document}

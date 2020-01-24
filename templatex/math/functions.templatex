@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{functions}
+
+${ add_definition(
+
+'Function',
+
+r'''
+A function is an operator on a @Set@ (called domain) such that it maps each element of the set to a new entity.
+The set of all mapping of the domain is called range.
+Any superset of the range is called co-domain.
+''',
+
+r'''
+A basic tool for moving from one set to another.
+'''
+
+) }
+
+${ add_definition(
+
+'Domain',
+
+r'''
+In a @Function@ the first @Set@ is called domain of the function.
+''',
+
+r'''
+The source set. Can be visualized as the starting point of movement.
+'''
+
+) }
+
+${ add_definition(
+
+'Co-Domain',
+
+r'''
+In a @Function@ the second @Set@ is called co-domain of the function.
+''',
+
+r'''
+The destination set. Can be visualized as the end point of the movement.
+'''
+
+) }
+
+${ add_definition(
+
+'Range',
+
+r'''
+In a @Function@ the set of images of each element in @Domain@ is called range of the function.
+''',
+
+r'''
+The image of the domain.
+'''
+
+) }
+
+\end{document}

@@ -24,6 +24,8 @@ class Statement:
                 continue
             if token in Statement.ID_STATEMENT_MAP:
                 parent = Statement.ID_STATEMENT_MAP[token]
+                if parent in self.parents:
+                    raise Exception('Duplicate parent reference found: {} in statement with id: {}'.format(token, _id))
                 self.parents.append(parent)
                 parent.children.append(self)
             else:

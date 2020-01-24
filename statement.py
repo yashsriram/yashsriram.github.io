@@ -54,9 +54,12 @@ class Statement:
     def latex_format(self):
         tokens = self.description.split(Statement.PARENT_ID_DELIMITER)
         for i, token in enumerate(tokens):
-            if token in Statement.ID_STATEMENT_MAP:
-                parent = Statement.ID_STATEMENT_MAP[token]
-                tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, parent.id)
+            # skip even index elements
+            if i % 2 == 0:
+                continue
+            # parents and parent reference tokens have corresponding indices
+            parent = self.parents[int(i / 2)]
+            tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, parent.id)
         formatted_description = ''.join(tokens) + r'\par'
         # num parents
         if len(self.parents) == 0:

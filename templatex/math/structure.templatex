@@ -70,7 +70,11 @@ If a definition is a theorem, the proof is just that we name it so and so when a
 \textbf{Acyclic} because, if there are circles in the statement graph then there is a circular dependency among statements to be true.
 This makes not much sense to me and therefore acyclic.
 
+\section{also}
 Statements \textbf{always have a practical significance} i.e. there is a reasonable answer to the question `why the hell are we even spending time on this?' I shall try to write this for every statement. All definitions in this text are just my convention, which will \textbf{mostly} be same as the general consensus.
+
+I personally have a very application-oriented mindset (who does not), as in if I can apply my knowledge to create/improve a tangible system, it drives me a lot more than purposeless studying.
+So I guess if I bring some kind of application to every piece of new thing I learn then I might have a deeper and a more intimate insight in it.
 
 \end{document}
 

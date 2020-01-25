@@ -3,9 +3,8 @@ from utils import *
 class Statement:
     PARENT_ID_DELIMITER = '@'
     ID_STATEMENT_MAP = {}
-    TYPE_DEFINITION = 'definition'
 
-    def __init__(self, _id, description, significance, _type):
+    def __init__(self, _id, description, significance, proof):
         # id validation
         if _id == '':
             raise Exception('Empty statement id found')
@@ -43,7 +42,11 @@ class Statement:
             if not parent_found:
                 raise Exception('Unknown parent reference found: {} in statement with id: {}'.format(token, _id))
         self.significance = significance
-        self.type = _type
+        if len(self.parents) == 0:
+            self.type = 'axiom'
+        else:
+            self.type = 'theorem'
+        self.proof = proof
         # acyclicity check
         if self.cycle_exists():
             raise Exception('Cycle forms by statement with id: {}'.format(_id))
@@ -75,9 +78,15 @@ class Statement:
         formatted_description = ''.join(tokens) + r'\par'
         # num parents
         if len(self.parents) == 0:
-            num_parents_latex = r'\textbf{Axiom}'
+            num_parents_latex = r''
+            proof = ''
         else:
             num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
+            proof = r'''
+            \begin{proof}
+            %s
+            \end{proof}
+            ''' % self.proof
         # significance
         if self.significance.isspace():
             latex_significance = r'{\color{red} No significance?}'
@@ -85,17 +94,19 @@ class Statement:
             latex_significance = r'\textbf{Significance}:%s' % self.significance
         # complete latex
         latex = r'''
-        \begin{%s}
+        \begin{%s}[\textbf{%s}]
         \label{%s:%s}
-        \textbf{%s}\hspace*{0pt}\hfill%s\par
+        \hspace*{0pt}\hfill%s\par
         %s
         %s\par
         \end{%s}
+        %s
         ''' % (
-            self.type,
             self.type, self.id,
-            self.id, num_parents_latex,
+            self.type, self.id,
+            num_parents_latex,
             formatted_description,
             latex_significance,
-            self.type)
+            self.type,
+            proof)
         return latex

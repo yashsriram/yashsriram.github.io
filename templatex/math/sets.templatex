@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{sets}
 
-${ add_definition(
+${ add_statement(
 
 'Set',
 
@@ -13,11 +13,15 @@ A set $S$ is a collection of things (also called elements) from which any two th
 
 r'''
 To represent collection of differently colored balls in an urn, etc...
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Belongs To',
 
@@ -32,11 +36,15 @@ Denoted by $ \lambda \in S $.
 r'''
 To indicate whether an element belongs to a set or not.
 There cannot be more than one element in S that is equal to $ \lambda $ anyways due to the definition of a set.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Subset',
 
@@ -46,11 +54,15 @@ A @set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in 
 
 r'''
 Can be used to represent useful partitions of a set.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Superset',
 
@@ -60,11 +72,15 @@ A @set@ E is called a superset of set F $ \biimpl $ $ F \subseteq E $ @subset@. 
 
 r'''
 The inverse of subset.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Union',
 
@@ -74,11 +90,15 @@ r'''
 
 r'''
   A basic operator to combine sets.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Ordered Set',
 
@@ -88,11 +108,15 @@ r'''
 
 r'''
   Useful to represent set of heights of students in a class, etc...
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Continuous Set',
 
@@ -102,11 +126,15 @@ r'''
 
 r'''
   To represent sets like the set of all wavelengths in the visible spectrum of light
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Contiguous Set',
 
@@ -116,6 +144,10 @@ r'''
 
 r'''
   To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{functions}
 
-${ add_definition(
+${ add_statement(
 
 'Function',
 
@@ -16,6 +16,10 @@ Function is denoted by $ \Lambda:D \to C $ or $ \forall e \in D, \Lambda(e) \in 
 
 r'''
 A basic tool for mapping one set to another.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

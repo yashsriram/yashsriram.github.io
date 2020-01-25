@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{probability}
 
-${ add_definition(
+${ add_statement(
 
 'Experiment',
 
@@ -13,13 +13,17 @@ A set of procedures which when followed produces an outcome.
 
 r'''
 Can be used to represent a lot of things food recipies, code, course registrations etc... The meaning of this is not just limited to experiments which involve physics or chemistry. They are just a class of experiments called physical and chemical experiments respectively. There can exist imaginary experiments like (surprise surprise!) adding two numbers in your head, calculating limits etc...
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
 
-${ add_definition(
+${ add_statement(
 
 'Deterministic Experiment',
 
@@ -29,11 +33,15 @@ An @experiment@ in which the outcome always remains the same @equality@ no matte
 
 r'''
 Can be used to represent experiments like adding two numbers.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Stochastic Experiment',
 
@@ -43,11 +51,15 @@ An @experiment@ in which the outcome need not remain the same @equality@ when it
 
 r'''
 Can be used to represent experiments like rolling a dice.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Outcome Space',
 
@@ -57,6 +69,10 @@ The outcome space of an @experiment@ is the @set@ of its all possible outcomes w
 
 r'''
 A term to refer to all possible outcomes collectively.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

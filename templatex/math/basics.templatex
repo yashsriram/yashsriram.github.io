@@ -4,7 +4,7 @@
 \chapter{basics}
 
 
-${ add_definition(
+${ add_statement(
 
 'Equality',
 
@@ -17,12 +17,16 @@ r'''
   The definition itself is quite simple but I wanted to focus on the word \textbf{context}.
   For example, a Volkswagen car and a BMW car can be considered equal when the analysis is about classifying objects as cars and kittens.
   But they can be considered different if we are analyzing the mileages of different car brands.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
-${ add_definition(
+${ add_statement(
 
 'Order',
 
@@ -32,11 +36,15 @@ r'''
 
 r'''
   There need not be order in all unequal pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Number',
 
@@ -51,11 +59,15 @@ r'''
     \item Measure the length of a pencil - The length of the pencil is 3.1468 cm
     \item Label each participant in a marathon - The participant number 10714 won the marathon
   \end{enumerate}
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Enumerated Notation',
 
@@ -74,6 +86,10 @@ r'''
 r'''
   This way we can refer to each element uniquely.
   This comes in handy all the time.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

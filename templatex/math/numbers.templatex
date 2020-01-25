@@ -4,7 +4,7 @@
 \chapter{numbers}
 
 
-${ add_definition(
+${ add_statement(
 
 'Natural Numbers',
 
@@ -14,11 +14,15 @@ r'''
 
 r'''
   Encompasses all possible counts.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Zero',
 
@@ -30,11 +34,15 @@ r'''
 
 r'''
   For example in case of counting it can represent the case when there is no balls left in an urn.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Whole Numbers',
 
@@ -44,12 +52,16 @@ r'''
 
 r'''
   The name whole is given because we are gonna define numbers that will represent non-whole entities.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
-${ add_definition(
+${ add_statement(
 
 'Additive Inverse',
 
@@ -58,12 +70,16 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
-${ add_definition(
+${ add_statement(
 
 'Integers',
 
@@ -72,11 +88,15 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Multiplicative Inverse',
 
@@ -85,11 +105,15 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Rational Numbers',
 
@@ -98,12 +122,16 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
-${ add_definition(
+${ add_statement(
 
 'Irrational Numbers',
 
@@ -111,12 +139,16 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 
-${ add_definition(
+${ add_statement(
 
 'Real Numbers',
 
@@ -125,6 +157,10 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

@@ -20,12 +20,8 @@ def add_sub_file(sub_file):
     return r'\subfile{%s}' % (change_extension_to_tex(sub_file))
 
 
-def add_statement(_id, description, significance, _type):
-    return Statement(_id, description, significance, _type).latex_format()
-
-
-def add_definition(_id, description, significance):
-    return add_statement(_id, description, significance, Statement.TYPE_DEFINITION)
+def add_statement(_id, description, significance, proof):
+    return Statement(_id, description, significance, proof).latex_format()
 
 
 def save_as_tex(rendered, output_path):
@@ -41,5 +37,6 @@ save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(MAIN_FILE_NAM
 
 for sub_file_path in SUB_FILE_PATHS:
     template = Template(filename='{}{}'.format(TEMPLATEX_DIR, sub_file_path))
-    output = template.render(add_definition=add_definition)
+    output = template.render(add_statement=add_statement)
     save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(sub_file_path)))
+

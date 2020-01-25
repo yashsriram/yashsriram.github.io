@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{what is mathematics to me?}
 
-${ add_definition(
+${ add_statement(
 
 'Mathematics',
 
@@ -18,6 +18,9 @@ There is also no real boundary b/w normal everyday thinking and mathematics.
 Just that as thinking becomes more rigourous, it becomes more mathematical.
 Concepts developed while solving problems like algebra, calculus, statistics etc... are just tools, not the math itself.
 We can always create new tools and discard old ones.
+''',
+
+r'''
 '''
 
 ) }

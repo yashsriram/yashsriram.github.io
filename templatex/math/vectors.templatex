@@ -5,7 +5,7 @@
 \chapter{vector}
 
 
-${ add_definition(
+${ add_statement(
 
 'Vector',
 
@@ -18,11 +18,15 @@ r'''
   The motivation behind vectors is to view a group of entities as a single entity.
   By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.
   A simple use case would be say when you need to update marks of all students to a 100 scale from a 10 scale.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Vector Dimension',
 
@@ -48,13 +52,17 @@ r'''
   \caption{Dimensions of Vectors}
   \label{tab:dim}
   \end{table}
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 \chapter{vector addition and scaling}
 
-${ add_definition(
+${ add_statement(
 
 'Vector Addition',
 
@@ -69,11 +77,15 @@ r'''
   \[
     \pvectwo{x}{y} + \pvectwo{a}{b} = \pvectwo{xa + yb^2}{\frac{b - y}{x + a}}
   .\]
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Vector Scaling',
 
@@ -83,13 +95,17 @@ r'''
 
 r'''
   Same story. Here $\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
 \chapter{linear combination}
 
-${ add_definition(
+${ add_statement(
 
 'Linear Combination',
 
@@ -104,6 +120,10 @@ r'''
   A higher level construct to play with.
   What is so linear about it?
   Well the word linear is given in the light that there can exist other types of combinations like quadratic combination where before scaling the entities are squared.
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

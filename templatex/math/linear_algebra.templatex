@@ -4,7 +4,7 @@
 
 \chapter{relationship b/w vectors and geometry}
 
-${ add_definition(
+${ add_statement(
 
 'NumberSpaceEquivalence',
 
@@ -13,6 +13,10 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }

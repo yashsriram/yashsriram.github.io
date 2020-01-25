@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{geometry}
 
-${ add_definition(
+${ add_statement(
 
 'Point',
 
@@ -12,11 +12,15 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Line',
 
@@ -25,11 +29,15 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-${ add_definition(
+${ add_statement(
 
 'Space',
 
@@ -38,11 +46,15 @@ r'''
 ''',
 
 r'''
+''',
+
+r'''
+\proofbydefinition
 '''
 
 ) }
 
-%% \defn{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.
+%% \\proofbydefinition{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.
 %% A co-ordinate system consists axes.
 %% The collection of axes is called the co-ordinate frame.
 %% For any `point' in the `space' there is one and only one way of representation in reference to a frame, i.e. to give the signed lengths along each axis which one has to travel to from point which represents zero length in all axes (the origin) to get to the required point. The dimensionality of co-ordinate system is the number of axes of the co-ordinate system.}{}

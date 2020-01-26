@@ -77,4 +77,28 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Probability',
+
+r'''
+The limiting value of the ratio $ \frac{Number-of-times-outcome-\lambda-occured}{Number-of-repetitions} $ as the @Experiment@ is the repeated infinitely many times is called the probability of the outcome $ \lambda $.
+''',
+
+r'''
+Say an experiement has two outcomes $ \alpha, \beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.
+Probability gives a sense of power of an outcome when an experiment is conducted.
+But we can never say with certainity that when an experiment is conducted only $ \alpha $ shall occur.
+Nor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \alpha $ never occurs.
+This subtle nature of probability, that arises from the definition of limit itself, should be digested well.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
 \end{document}

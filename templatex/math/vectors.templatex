@@ -11,7 +11,7 @@ ${ add_statement(
 
 r'''
   A vector can be defined as a collection of @real numbers@ (also called elements) where the arrangement in which elements appear matters.
-  For n elements a vector can be written as $ V = \pvecn{e} $
+  For n elements a vector can be written as $ V \gets \pvecn{e} $
 ''',
 
 r'''
@@ -67,15 +67,15 @@ ${ add_statement(
 'Vector Addition',
 
 r'''
-  The addition of two ND @vector@s $A = \pvecn{a}$ and $B = \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
-   @vector dimension@. Denoted by $A + B = \pvecnsum{a}{b}$.
+  The addition of two ND @vector@s $A \gets \pvecn{a}$ and $B \gets \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+   @vector dimension@. Denoted by $A + B \equiv \pvecnsum{a}{b}$.
 ''',
 
 r'''
   This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.
   Otherwise there is no reason not to define the addition rule as something arbitrary like
   \[
-    \pvectwo{x}{y} + \pvectwo{a}{b} = \pvectwo{xa + yb^2}{\frac{b - y}{x + a}}
+    \pvectwo{x}{y} + \pvectwo{a}{b} \equiv \pvectwo{xa + yb^2}{\frac{b - y}{x + a}}
   .\]
 ''',
 
@@ -90,7 +90,7 @@ ${ add_statement(
 'Vector Scaling',
 
 r'''
-  The scaling of an ND @vector@ $A = \pvecn{a}$ @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A = \pvecnscale{\lambda}{a}$.
+  The scaling of an ND @vector@ $A \gets \pvecn{a}$ @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A \equiv \pvecnscale{\lambda}{a}$.
 ''',
 
 r'''

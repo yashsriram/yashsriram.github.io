@@ -83,7 +83,7 @@ ${ add_statement(
 'Event',
 
 r'''
-An event of an @experiment@ is a @set@ of some outcomes. An event is said to have occured if any one of the outcome elements occur.
+An event $ E $ of an @experiment@ is a @set@ of some outcomes. An event is said to have occured or is true $ \biimpl $ $ \exists $ outcome $ \in E $ that occured.
 ''',
 
 r'''
@@ -101,7 +101,7 @@ ${ add_statement(
 'Probability',
 
 r'''
-The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio $ \frac{Number-of-times-any-outcome-in-\lambda-occured}{Number-of-repetitions} $ as the experiment is the repeated infinitely many times.
+The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio $ \frac{Number-of-times-\lambda-occured}{Number-of-repetitions} $ as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda) $.
 ''',
 
 r'''

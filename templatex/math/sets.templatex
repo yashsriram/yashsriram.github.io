@@ -8,7 +8,7 @@ ${ add_statement(
 'Set',
 
 r'''
-A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are not equal @equality@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S = \{ e_1, e_2, e_3, ... e_n \} $ @enumerated Notation@.
+A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ @enumerated Notation@.
 ''',
 
 r'''
@@ -26,16 +26,16 @@ ${ add_statement(
 'Belongs To',
 
 r'''
-An element $ \lambda $ belongs to a @set@ S $ \biimpl $ $ \exists! \tau \in S \mid \lambda = \tau $ @equality@.
+An element $ \lambda $ belongs to a @set@ S $ \biimpl $ $ \exists! \tau \in S \mid \lambda \equiv \tau $ @identity@.
 Denoted by $ \lambda \in S $.
 
-An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda = \tau $.
+An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda \equiv \tau $.
 Denoted by $ \lambda \notin S $.
 ''',
 
 r'''
 To indicate whether an element belongs to a set or not.
-There cannot be more than one element in S that is equal to $ \lambda $ anyways due to the definition of a set.
+There cannot be more than one element in S that is identical to $ \lambda $ anyways due to the definition of a set.
 ''',
 
 r'''
@@ -85,7 +85,7 @@ ${ add_statement(
 'Proper Subset',
 
 r'''
-A @set@ E is called a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \neq F $. Denoted by $ E \subset F $.
+A @set@ E is called a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \not\equiv F $ @identity@. Denoted by $ E \subset F $.
 ''',
 
 r'''
@@ -175,7 +175,7 @@ ${ add_statement(
 'Universal Set',
 
 r'''
-A universal set of a @set@ A is a set which is equal to $ A \cup \overline{A} $ @equality@ @union@ @complement@.
+A universal set of a @set@ A is a set which is identical to $ A \cup \overline{A} $ @identity@ @union@ @complement@.
 ''',
 
 r'''
@@ -195,7 +195,7 @@ ${ add_statement(
 r'''
 A null set is a @set@ which has @zero@ elements in it. Denoted by $ \phi $.
 There is a great debate whether there is a single null set or many null sets.
-My take on it is that it depends on the context @equality@.
+My take on it is that it depends on the context @identity@.
 ''',
 
 r'''
@@ -270,22 +270,24 @@ ${ add_statement(
 'Properties of sets',
 
 r'''
-The following list enumerates some properties of @set@s. Here $S$ denotes @universal set@ and $\phi$ denotes @null set@ @equality@.
+The following list enumerates some properties of @set@s. Here $S$ denotes @universal set@ and $\phi$ denotes @null set@ @identity@.
 \begin{enumerate}[nolistsep]
-  \item $ A \cup B = B \cup A $ (Commutative)
-  \item $ A \cap B = B \cap A $ (Commutative)
-  \item $ (A \cup B) \cup C = A \cup (B \cup C) $ (Associative)
-  \item $ (A \cap B) \cap C = A \cap (B \cap C) $ (Associative)
-  \item $ A \cup A = A$
-  \item $ A \cap A = A$
-  \item $ A \cup S = S \cup A = S $
-  \item $ A \cap S = S \cap A = A $
-  \item $ A \cup \phi = \phi \cup A = A $
-  \item $ A \cap \phi = \phi \cap A = \phi $
-  \item $ A \cup \overline{A} = S$ (Definition of universal set)
-  \item $ A \cap \overline{A} = \phi$
-  \item $ A \subseteq B \biimpl A \cup B = B $
-  \item $ A \subseteq B \biimpl A \cap B = A $
+  \item $ A \cup B \equiv B \cup A $ (Commutative)
+  \item $ A \cap B \equiv B \cap A $ (Commutative)
+  \item $ (A \cup B) \cup C \equiv A \cup (B \cup C) $ (Associative)
+  \item $ (A \cap B) \cap C \equiv A \cap (B \cap C) $ (Associative)
+  \item $ A \cup A \equiv A$ (Idompotent)
+  \item $ A \cap A \equiv A$ (Idompotent)
+  \item $ A \cup S \equiv S \cup A \equiv S $
+  \item $ A \cap S \equiv S \cap A \equiv A $
+  \item $ A \cup \phi \equiv \phi \cup A \equiv A $
+  \item $ A \cap \phi \equiv \phi \cap A \equiv \phi $
+  \item $ A \cup \overline{A} \equiv S$ (Definition of universal set)
+  \item $ A \cap \overline{A} \equiv \phi$
+  \item $ A \subseteq B \biimpl A \cup B \equiv B $
+  \item $ A \subseteq B \biimpl A \cap B \equiv A $
+  \item $ A \cap (B \cup C) \equiv (A \cap B) \cup (A \cap C) $ (Distributive)
+  \item $ A \cup (B \cap C) \equiv (A \cup B) \cap (A \cup C) $ (Distributive)
 \end{enumerate}
 ''',
 

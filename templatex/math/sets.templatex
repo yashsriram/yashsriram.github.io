@@ -284,6 +284,8 @@ The following list enumerates some properties of @set@s. Here $S$ denotes @unive
   \item $ A \cap \phi = \phi \cap A = \phi $
   \item $ A \cup \overline{A} = S$ (Definition of universal set)
   \item $ A \cap \overline{A} = \phi$
+  \item $ A \subseteq B \biimpl A \cup B = B $
+  \item $ A \subseteq B \biimpl A \cap B = A $
 \end{enumerate}
 ''',
 
@@ -292,7 +294,7 @@ Some basic relations b/w sets so we can play with them.
 ''',
 
 r'''
-Proof by belief.
+Proof by using definitions of parent statements.
 '''
 
 ) }

@@ -28,7 +28,7 @@ ${ add_statement(
 'Deterministic Experiment',
 
 r'''
-An @experiment@ in which the outcome always remains the same @equality@ no matter how many times it is repeated is called a deterministic experiment.
+An @experiment@ where $ O_1, O_2, O_3, ... $ represent outcomes at when experiment is repeated 1, 2, 3 and so on number of times, is such that $ O_1, O_2, O_3, ... $ are pairwise identical no matter how many times it is repeated is called a deterministic experiment @identity@.
 ''',
 
 r'''
@@ -46,7 +46,7 @@ ${ add_statement(
 'Stochastic Experiment',
 
 r'''
-An @experiment@ in which the outcome need not remain the same @equality@ when it is repeated is called a stochastic experiment.
+An @experiment@ where $ O_1, O_2, O_3, ... $ represent outcomes at when experiment is repeated 1, 2, 3 and so on number of times, is such that $ \exists (i, j) \st O_i \not\equiv O_j $ is called a stochastic experiment @identity@.
 ''',
 
 r'''

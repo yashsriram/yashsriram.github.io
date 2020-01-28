@@ -14,6 +14,7 @@ Two things A and B are non-identical $ \biimpl $ $ \forall context $ there is di
 ''',
 
 r'''
+Note that this operator is binary, i.e. it takes two operands and produces a boolean.
 The definition itself is quite simple but I wanted to focus on the word context.
 For example, a Volkswagen car and a BMW car can be considered identical when the analysis is about classifying objects as cars and kittens.
 But they can be considered non-identical if we are analyzing the properties of different car brands.
@@ -36,6 +37,7 @@ Two things A and B are unequal at a context C $ \biimpl $ there is distinction b
 ''',
 
 r'''
+Note that this operator is binary, i.e. it takes two operands and produces a boolean.
 The definition itself is quite simple but I wanted to focus on the word context.
 For example, if we are talking about the apparant positions of objects in sky to an observer, the sun and moon are equal when it is a complete solar eclipse for her.
 But they can be considered unequal at all other times.

@@ -24,26 +24,6 @@ r'''
 
 ${ add_statement(
 
-'Zero',
-
-r'''
-  The notion of absence.
-  Symbolically written as 0.
-  Can be considered as a number.
-''',
-
-r'''
-  For example in case of counting it can represent the case when there is no balls left in an urn.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-${ add_statement(
-
 'Whole Numbers',
 
 r'''

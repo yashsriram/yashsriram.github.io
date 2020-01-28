@@ -30,7 +30,7 @@ An element $ \lambda $ belongs to a @set@ S $ \biimpl $ $ \exists! \tau \in S \m
 Denoted by $ \lambda \in S $.
 
 An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda = \tau $.
-Denoted by $ \lambda \in S $.
+Denoted by $ \lambda \notin S $.
 ''',
 
 r'''
@@ -53,7 +53,7 @@ A @set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in 
 ''',
 
 r'''
-Can be used to represent useful partitions of a set.
+Can be used to represent useful pieces of a set.
 ''',
 
 r'''
@@ -82,14 +82,14 @@ r'''
 
 ${ add_statement(
 
-'Union',
+'Proper Subset',
 
 r'''
-  A union of two sets @set@ A and B is a new set which contains each and every element in A and B with repetitions removed if any. Denoted by $ A \cup B $.
+A @set@ E is called a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \neq F $. Denoted by $ E \subset F $.
 ''',
 
 r'''
-  A basic operator to combine sets.
+Can be used to represent useful pieces of a set.
 ''',
 
 r'''
@@ -100,14 +100,127 @@ r'''
 
 ${ add_statement(
 
-'Ordered Set',
+'Prpoer Superset',
 
 r'''
-  An ordered set is a @set@ where there exists an Order b/w every pair of elements in it.
+A @set@ E is called a superset of set F $ \biimpl $ $ F \subset E $ @subset@. Denoted by $ E \supset F $.
 ''',
 
 r'''
-  Useful to represent set of heights of students in a class, etc...
+The inverse of subset.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+${ add_statement(
+
+'Union',
+
+r'''
+A union of two @set@s A and B is a set which contains every element in A, every element in B, with repetitions removed, if any. Denoted by $ A \cup B $.
+''',
+
+r'''
+A basic operator to combine sets.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Intersection',
+
+r'''
+An intersection of two @set@s A and B is a set which contains every element that is common to A and B. Denoted by $ A \cap B $.
+''',
+
+r'''
+A basic operator to combine sets.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Complement',
+
+r'''
+A complement of a @set@ A is a set which contains all elements which do not @belongs to@ the set A itself. Denoted by $ \overline{A} $
+''',
+
+r'''
+A basic unary operator on a set.
+A similar but (not entirely) operator to negative numbers.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Universal Set',
+
+r'''
+A universal set of a @set@ A is a set which is equal to $ A \cup \overline{A} $ @equality@ @union@ @complement@.
+''',
+
+r'''
+A representation of a whole.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Null Set',
+
+r'''
+A null set is a @set@ which has @zero@ elements in it. Denoted by $ \phi $.
+There is a great debate whether there is a single null set or many null sets.
+My take on it is that it depends on the context @equality@.
+''',
+
+r'''
+A representation for nothingness.
+The reason for my take is because even null set is just a mathematical tool.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
+${ add_statement(
+
+'Ordered Set',
+
+r'''
+An ordered set is a @set@ where there exists an Order b/w every pair of elements in it.
+''',
+
+r'''
+Useful to represent set of heights of students in a class, etc...
 ''',
 
 r'''
@@ -121,11 +234,11 @@ ${ add_statement(
 'Continuous Set',
 
 r'''
-  An @ordered set@ which has no discrete separation b/w any two of its elements is called a continuous set.
+An @ordered set@ which has no discrete separation b/w any two of its elements is called a continuous set.
 ''',
 
 r'''
-  To represent sets like the set of all wavelengths in the visible spectrum of light
+To represent sets like the set of all wavelengths in the visible spectrum of light
 ''',
 
 r'''
@@ -139,15 +252,47 @@ ${ add_statement(
 'Contiguous Set',
 
 r'''
-  An @ordered set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
+An @ordered set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
 ''',
 
 r'''
-  To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
+To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
 ''',
 
 r'''
 \proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Properties of sets',
+
+r'''
+The following list enumerates some properties of @set@s. Here $S$ denotes @universal set@ and $\phi$ denotes @null set@ @equality@.
+\begin{enumerate}[nolistsep]
+  \item $ A \cup B = B \cup A $ (Commutative)
+  \item $ A \cap B = B \cap A $ (Commutative)
+  \item $ (A \cup B) \cup C = A \cup (B \cup C) $ (Associative)
+  \item $ (A \cap B) \cap C = A \cap (B \cap C) $ (Associative)
+  \item $ A \cup A = A$
+  \item $ A \cap A = A$
+  \item $ A \cup S = S \cup A = S $
+  \item $ A \cap S = S \cap A = A $
+  \item $ A \cup \phi = \phi \cup A = A $
+  \item $ A \cap \phi = \phi \cap A = \phi $
+  \item $ A \cup \overline{A} = S$ (Definition of universal set)
+  \item $ A \cap \overline{A} = \phi$
+\end{enumerate}
+''',
+
+r'''
+Some basic relations b/w sets so we can play with them.
+''',
+
+r'''
+Proof by belief.
 '''
 
 ) }

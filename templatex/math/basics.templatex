@@ -3,7 +3,6 @@
 \begin{document}
 \chapter{basics}
 
-
 ${ add_statement(
 
 'Equality',
@@ -25,7 +24,6 @@ r'''
 
 ) }
 
-
 ${ add_statement(
 
 'Order',
@@ -36,6 +34,26 @@ r'''
 
 r'''
   There need not be order in all unequal pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Zero',
+
+r'''
+  The notion of absence.
+  Symbolically written as 0.
+  Can be considered as a number.
+''',
+
+r'''
+  For example in case of counting it can represent the case when there is no balls left in an urn.
 ''',
 
 r'''

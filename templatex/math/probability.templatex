@@ -8,7 +8,7 @@ ${ add_statement(
 'Experiment',
 
 r'''
-A set of procedures which when followed produces an outcome.
+A set of procedures which when followed produces some outcome.
 ''',
 
 r'''
@@ -50,6 +50,7 @@ An @experiment@ in which the outcome need not remain the same @equality@ when it
 ''',
 
 r'''
+Note that outcome can remain same for some repetitions of the experiement.
 Can be used to represent experiments like rolling a dice.
 ''',
 
@@ -64,7 +65,7 @@ ${ add_statement(
 'Outcome Space',
 
 r'''
-The outcome space of an @experiment@ is the @set@ of its all possible outcomes when repeated infinitely many times.
+The outcome space of an @experiment@ is the @set@ of its all possible outcomes.
 ''',
 
 r'''
@@ -79,10 +80,28 @@ r'''
 
 ${ add_statement(
 
+'Event',
+
+r'''
+An event of an @experiment@ is a @set@ of some outcomes. An event is said to have occured if any one of the outcome elements occur.
+''',
+
+r'''
+The number of elements in an event can be 0, 1 or even total number of possible outcomes.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'Probability',
 
 r'''
-The limiting value of the ratio $ \frac{Number-of-times-outcome-\lambda-occured}{Number-of-repetitions} $ as the @Experiment@ is the repeated infinitely many times is called the probability of the outcome $ \lambda $.
+The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio $ \frac{Number-of-times-any-outcome-in-\lambda-occured}{Number-of-repetitions} $ as the experiment is the repeated infinitely many times.
 ''',
 
 r'''
@@ -98,7 +117,5 @@ r'''
 '''
 
 ) }
-
-
 
 \end{document}

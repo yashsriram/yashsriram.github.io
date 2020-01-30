@@ -179,7 +179,7 @@ A universal set of a @set@ A is a set which is identical to $ A \cup \overline{A
 ''',
 
 r'''
-A representation of a whole.
+A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.
 ''',
 
 r'''

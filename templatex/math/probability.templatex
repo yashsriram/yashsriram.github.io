@@ -83,7 +83,7 @@ ${ add_statement(
 'Event',
 
 r'''
-An event $ E $ of an @experiment@ is a @set@ of some outcomes. An event is said to have occured or is true $ \biimpl $ $ \exists $ outcome $ \in E $ that occured.
+An event $ E $ of an @experiment@ is a @subset@ of @outcome space@. An event is said to have occured $ \biimpl $ $ \exists $ outcome $ \in E $ that occured.
 ''',
 
 r'''
@@ -125,8 +125,8 @@ The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting val
 ''',
 
 r'''
+Probability gives a sense of power of an event when an experiment is conducted.
 Say an experiement has two outcomes $ \alpha, \beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.
-Probability gives a sense of power of an outcome when an experiment is conducted.
 But we can never say with certainity that when an experiment is conducted only $ \alpha $ shall occur.
 Nor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \alpha $ never occurs.
 This subtle nature of probability, that arises from the definition of limit itself, should be digested well.
@@ -173,6 +173,66 @@ $ \impl $ the limiting value of the ratio P(S) is also $ \equiv 1 $.
 
 ) }
 
+${ add_statement(
 
+'Collapsed Experiment',
+
+r'''
+A collapsed experiment of an @experiment@ E is a new experiment F where F's @outcome space@ is a @proper subset@ of the E's outcome space.
+''',
+
+r'''
+Why not also consider a proper superset of the outcome space?
+Something like an Expanded Experiement?!
+Good question, the reason is because by definition outcome space is a universal set.
+And any superset of universal set is itself, again by definition.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
+${ add_statement(
+
+'Conditional Probability',
+
+r'''
+Let P(A) denotes probability of original @experiment@ E.
+The conditional probability of an @event@ A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as $ \equiv \frac{P(A \cap B)}{P(B)} $.
+''',
+
+r'''
+This definition has more profound significance than its appears.
+
+$ A \cap B $ because event of an even the collapsed experiement must be a subset of its outcome space (here B).
+$ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabilities of all outcomes = 1.
+
+To be more precise the definition is actually
+\[ P(A \mid B) \equiv \lim_{repetitions\to\infty} \frac{Number-of-times-A \cap B-occured}{Number-of-repetitions} \]
+where the experiement repeated is the collapsed experiment.
+We can easily construct an experiment which does not obey the neat rule of
+\[ P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)} \]
+For example consider an experiment with three outcomes each with probability 1/3.
+If the experiment is collapsed to outcome space of only the second and third outcomes, there is no hard and fast rule that new probabilities become 1/2 as given by the neat rule.
+They can even be 0.4 and 0.6 respectively and that is fine and can be captured by the limit definition.
+The point is that this neat rule just does not represent such transformations.
+They can be modeled by other rules.
+The reason we choose this neat rule as definition is because of its simplicity and as we believe, simple is better.
+
+By assuming that outcome space collapses to B, we are effectively changing probabilities of some events.
+This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1 (by definition).
+More specifically speaking probabilities sort of are compressed in that now size of outcome space is decreased but still its probability = 1.
+The changed probabilities are given by conditional probability.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
 
 \end{document}

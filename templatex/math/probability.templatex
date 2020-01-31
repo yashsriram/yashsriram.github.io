@@ -175,6 +175,55 @@ $ \impl $ the limiting value of the ratio P(S) is also $ \equiv 1 $.
 
 ${ add_statement(
 
+'Mutually Exclusive Events',
+
+r'''
+Two @event@s A and B of an @experiment@ are mutually exclusive events $ \biimpl $ $ A \cap B \equiv \phi $ @null set@.
+''',
+
+r'''
+For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.
+Note that they are not independent events, even both words are eerily similar.
+Mutually exclusive mean that only one can occur at a given time.
+Independent means both can occur at the same time.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Independent Events',
+
+r'''
+Two @event@s A and B of an @experiment@ are independent $ \biimpl $ $ P(A \cap B) \equiv P(A) * P(B) $ @probability@.
+''',
+
+r'''
+For example in the experiement of throwing a dice the event of throwing a dice first time and the event of throwing a dice second time can be considered independent events.
+
+One very important subtlety is that indeed there is no hard and fast rule that these events need to be independent.
+The turbulance from the first time might effect other which might cause some dependence.
+Even if that is not the case this dependence definition is not limited to the normal sense of the word.
+We can always create an experiement (and thus its probability function) (however bizzare, but still an experiment) with say getting 2 on top in first repetition is event A and the same in second repetition is B such that $ P(A \cap B) \not\equiv P(A) * P(B) $.
+Then by definition these events are not independent, even if no one talks about such kind of experiements.
+
+Note that they are not mutually exclusive events, even though both words are eerily similar.
+Mutually exclusive mean that only one can occur at a given time.
+Independent means both can occur at the same time.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'Collapsed Experiment',
 
 r'''

@@ -285,4 +285,24 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Random Variable',
+
+r'''
+A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $.
+''',
+
+r'''
+A function wrapper around the definitions of experiment, event space, probability
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
 \end{document}

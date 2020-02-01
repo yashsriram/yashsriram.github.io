@@ -29,6 +29,7 @@
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\blockcomment}[1]{}
 \newcommand{\proofbydefinition}{Proof by definition}
+\newcommand{\todo}{{\color{red} \textbf{TODO}}}
 \newcommand{\pvectwo}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 \newcommand{\pvecn}[1]{\begin{pmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{pmatrix}}
 \newcommand{\pvecnsum}[2]{\begin{pmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{pmatrix}}

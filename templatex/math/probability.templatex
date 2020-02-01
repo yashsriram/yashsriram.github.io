@@ -290,11 +290,12 @@ ${ add_statement(
 'Random Variable',
 
 r'''
-A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $.
+A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and $ \forall \alpha, \beta \in S \st \beta \not\equiv \phi, \psi(\alpha\mid\beta) \equiv $ the conditional probability of event $ \alpha $ given event $ \beta $ for the experiment E.
 ''',
 
 r'''
-A function wrapper around the definitions of experiment, event space, probability
+A function wrapper around the definitions of experiment, event space, probability.
+Note that $ \psi(\alpha \mid \beta) $ is conditional probability of event $ \alpha $ given event $ \beta $ for the experiment E only, not the collapsed experiment of E.
 ''',
 
 r'''
@@ -303,6 +304,48 @@ r'''
 
 ) }
 
+${ add_statement(
 
+'Total Probability Theorem',
+
+r'''
+For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+\[
+  \psi(B) = \sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )
+\]
+
+''',
+
+r'''
+Using this theorem we can split the probability of event B into conditional probabilities of B given $ A_i $s and proababilities of $ A_i $s.
+''',
+
+r'''
+\todo
+'''
+
+) }
+
+${ add_statement(
+
+'Bayes Theorem',
+
+r'''
+For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+\[
+  \psi(A_i \mid B) = \frac{\psi(B \mid A_i ) \psi( A_i )}{\sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )}
+\]
+
+''',
+
+r'''
+When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide simple ideas to build the concept/definition of bayes theorem.
+''',
+
+r'''
+\todo
+'''
+
+) }
 
 \end{document}

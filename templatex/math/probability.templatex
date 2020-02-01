@@ -250,8 +250,8 @@ ${ add_statement(
 'Conditional Probability',
 
 r'''
-Let P(A) denotes probability of original @experiment@ E.
-The conditional probability of an @event@ A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as $ \equiv \frac{P(A \cap B)}{P(B)} $.
+Let P(A) denotes probability of some @event@ A of original @experiment@ E.
+The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as $ \equiv \frac{P(A \cap B)}{P(B)} $.
 ''',
 
 r'''
@@ -263,6 +263,7 @@ $ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabil
 To be more precise the definition is actually
 \[ P(A \mid B) \equiv \lim_{repetitions\to\infty} \frac{Number-of-times-A \cap B-occured}{Number-of-repetitions} \]
 where the experiement repeated is the collapsed experiment.
+There is no ultimate reason to follow the neat rule.
 We can easily construct an experiment which does not obey the neat rule of
 \[ P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)} \]
 For example consider an experiment with three outcomes each with probability 1/3.
@@ -273,9 +274,9 @@ They can be modeled by other rules.
 The reason we choose this neat rule as definition is because of its simplicity and as we believe, simple is better.
 
 By assuming that outcome space collapses to B, we are effectively changing probabilities of some events.
-This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1 (by definition).
+This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1.
 More specifically speaking probabilities sort of are compressed in that now size of outcome space is decreased but still its probability = 1.
-The changed probabilities are given by conditional probability.
+The changed probabilities are called conditional probabilities and are defined by whatever rule we follow (here it is that neat rule).
 ''',
 
 r'''

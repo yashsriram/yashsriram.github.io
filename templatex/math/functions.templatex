@@ -8,14 +8,17 @@ ${ add_statement(
 'Function',
 
 r'''
-A function $ \Lambda $ is an operator on a @set@ called domain $ D $, such that it maps each element $ \alpha $ of the set $ D $ to a single new entity $ \beta $ called the image of  $ \alpha $.
-The set of all such mappings of the domain is called range $ R $.
-Any @superset@ of the range is called co-domain $ C $.
-Function is denoted by $ \Lambda:D \to C $ or $ \forall e \in D, \Lambda(e) \in C $.
+A function $ \Lambda $ on a @set@ called its domain $ D $ is a mapping from each element $ \alpha $ that @belongs to@ $ D $ to an element $ \beta $ in a new set C called its co-domain.
+This mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.
+For each element $ \alpha \in D $ the mapping $ \beta $ is called image of $ \alpha $.
+The set of mappings for all elements the domain is called range $ R $ of the function $ \Lambda $.
+Function is denoted by $ \Lambda:D \to C $. The image of $ \alpha $ is denoted bu $ \Lambda(\alpha) \forall \alpha \in D $.
 ''',
 
 r'''
-A basic tool for mapping one set to another.
+A basic tool for moving b/w sets.
+Note that two elements on domain can be mapped to same element in co-domain.
+Also range $ \subseteq $ co-domain.
 ''',
 
 r'''

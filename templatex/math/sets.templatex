@@ -100,7 +100,7 @@ r'''
 
 ${ add_statement(
 
-'Prpoer Superset',
+'Proper Superset',
 
 r'''
 A @set@ E is called a superset of set F $ \biimpl $ $ F \subset E $ @subset@. Denoted by $ E \supset F $.
@@ -300,5 +300,30 @@ Proof by using definitions of parent statements.
 '''
 
 ) }
+
+${ add_statement(
+
+'Partition',
+
+r'''
+A partition of a @set@ S is a new set $ \Lambda $ of @subset@s of S such that
+\begin{enumerate}[nolistsep]
+  \item Intersection of any two elements of $ \Lambda \equiv \phi $ @null set@
+  \item Union of all elements of $ \Lambda \equiv $ S
+\end{enumerate}
+
+''',
+
+r'''
+A neat way to divide a set.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
 
 \end{document}

@@ -57,8 +57,8 @@ ${add_sub_file('math/functions.templatex')}
 ${add_sub_file('math/numbers.templatex')}
 ${add_sub_file('math/vectors.templatex')}
 ${add_sub_file('math/geometry.templatex')}
-${add_sub_file('math/linear_algebra.templatex')}
 ${add_sub_file('math/probability.templatex')}
+${add_sub_file('math/linear_algebra.templatex')}
 
 \part{programming}
 ${add_sub_file('coding/tips.templatex')}

@@ -11,7 +11,7 @@ ${ add_statement(
 
 r'''
   A vector can be defined as a collection of @real numbers@ (also called elements) where the arrangement in which elements appear matters.
-  For n elements a vector can be written as $ V \gets \pvecn{e} $
+  For n elements a vector can be written as $ V \equiv \pvecn{e} $
 ''',
 
 r'''
@@ -60,14 +60,12 @@ r'''
 
 ) }
 
-\chapter{vector addition and scaling}
-
 ${ add_statement(
 
 'Vector Addition',
 
 r'''
-  The addition of two ND @vector@s $A \gets \pvecn{a}$ and $B \gets \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+  The addition of two ND @vector@s $A \equiv \pvecn{a}$ and $B \equiv \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
    @vector dimension@. Denoted by $A + B \equiv \pvecnsum{a}{b}$.
 ''',
 
@@ -90,7 +88,7 @@ ${ add_statement(
 'Vector Scaling',
 
 r'''
-  The scaling of an ND @vector@ $A \gets \pvecn{a}$ @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A \equiv \pvecnscale{\lambda}{a}$.
+  The scaling of an ND @vector@ $A \equiv \pvecn{a}$ @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A \equiv \pvecnscale{\lambda}{a}$.
 ''',
 
 r'''
@@ -102,8 +100,6 @@ r'''
 '''
 
 ) }
-
-\chapter{linear combination}
 
 ${ add_statement(
 

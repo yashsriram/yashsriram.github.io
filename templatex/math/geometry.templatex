@@ -8,10 +8,14 @@ ${ add_statement(
 'Point',
 
 r'''
-    todo
+Point is a tool to refer to the position of any object.
+Point does not change with any quantity.
+There is no notion of moving a point.
+As any points does not change, an object is either at a given point or not, that is how the position of the object is defined.
 ''',
 
 r'''
+A basic (and weirdly difficult to describe) building block to create useful tools.
 ''',
 
 r'''
@@ -25,10 +29,11 @@ ${ add_statement(
 'Line',
 
 r'''
-    todo
+Given two different @point@s A, B, a line is a @set@ of all points that we come across when we join the two points A and B and continue in the same direction on both sides without stopping.
 ''',
 
 r'''
+A basic (and weirdly difficult to describe) building block to create useful tools.
 ''',
 
 r'''
@@ -36,16 +41,22 @@ r'''
 '''
 
 ) }
-
 ${ add_statement(
 
 'Space',
 
 r'''
-    todo
+Space is a @set@ of @point@s.
 ''',
 
 r'''
+That's it! No more restriction on the definition.
+Even a line can be considered a space.
+Even the union of two parallel lines is a space.
+Even the union a line and a set of a point that does not lie on the line is a space.
+The 1D, 2D and 3D spaces are just types of spaces.
+Therefore there is not much stopping than just cognitive unease to consider a space that is 4D.
+And similarly 5D, 6D, 7D spaces.
 ''',
 
 r'''

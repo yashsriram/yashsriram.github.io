@@ -2,27 +2,6 @@
 
 \begin{document}
 
-\chapter{relationship b/w vectors and geometry}
-
-${ add_statement(
-
-'NumberSpaceEquivalence',
-
-r'''
-    todo
-''',
-
-r'''
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-\chapter{span and basis}
-
 \chapter{linear transformation}
 
 proof of composition of linear transform is a linear transform, algebraically and geometrically

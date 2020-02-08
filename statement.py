@@ -79,14 +79,24 @@ class Statement:
         # num parents
         if len(self.parents) == 0:
             num_parents_latex = r''
-            proof = ''
+            latex_proof = ''
         else:
             num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
-            proof = r'''
+            # proof
+            if self.proof.isspace():
+                formatted_proof = r'{\color{red} TODO}\par'
+            else:
+                formatted_proof = self.proof
+            latex_proof = r'''
             \begin{proof}
             %s
             \end{proof}
-            ''' % self.proof
+            ''' % formatted_proof
+        # description
+        if self.description.isspace():
+            latex_description = r'{\color{red} TODO}\par'
+        else:
+            latex_description = formatted_description
         # significance
         if self.significance.isspace():
             latex_significance = r'{\color{red} No significance?}'
@@ -105,8 +115,8 @@ class Statement:
             self.type, self.id,
             self.type, self.id,
             num_parents_latex,
-            formatted_description,
+            latex_description,
             latex_significance,
             self.type,
-            proof)
+            latex_proof)
         return latex

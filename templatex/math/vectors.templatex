@@ -189,9 +189,9 @@ A @vector@ V whose @L2 norm@ $ \norm{V}_2 \equiv 1 $ is called a unit vector.
 
 r'''
 A unit vector has magnitude of one in the L2 norm sense.
-Therefore it can be used as a template vector, which can be scaled to create new vectors.
-Ofcourse any vector can be used for this purpose.
-But the magnitude being one for the unit vector makes it simple to get an arbitrary magnitude M vector, just by scaling the unit vector by M.
+Therefore it can be used as a template vector, which can be scaled to create new vectors of arbitrary size.
+Ofcourse vector of magnitude other than one can also be used for this purpose.
+But the magnitude being one makes it simple to get an arbitrary magnitude M vector, just by scaling the unit vector by M.
 ''',
 
 r'''

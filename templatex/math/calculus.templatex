@@ -1,0 +1,17 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+\chapter{calculus}
+TODO
+\begin{enumerate}[nolistsep]
+  \item limits
+  \item derivative
+  \item partial derivatives
+  \item derivative of vectors and matrices, jacobians
+  \item integral
+\end{enumerate}
+
+
+\end{document}
+
+

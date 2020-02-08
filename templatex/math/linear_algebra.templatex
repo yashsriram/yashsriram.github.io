@@ -2,16 +2,68 @@
 
 \begin{document}
 
-\chapter{linear transformation}
+\chapter{linear algebra}
+TODO
+\begin{enumerate}[nolistsep]
+  \item proof of composition of linear transform is a linear transform, algebraically and geometrically
+  \item writing linear transform and composition of linear transforms as matrix and product of matrices, building matrix as tool
+  \item determinant, descriminant whatever
+  \item dot product, cross product
+  \item linearly dependent/independent
+  \item eigen stuff
+  \item null spaces
+  \item orthogonal, orthonormal
+  \item diagnoal
+  \item +ve definite, semi +ve definite
+  \item quaternions
+  \item SVD, other easy useful decompositions
+\end{enumerate}
 
-proof of composition of linear transform is a linear transform, algebraically and geometrically
+%% \chapter{co-ordinate systems and vectors}
+%% We can think of \textbf{each number in vector as the signed length in each of the axes of an N dimensional co-ordinate frame}.
+%% This way a numerical form of vector can be used to represent a point in space of appropriate dimension and a point can be used to visualize a numerical form of vector.
 
-writing linear transform and composition of linear transforms as matrix and product of matrices
+%% \begin{figure}[ht]
+%%   \centering
+%%   \begin{tikzpicture}
+%%     \draw (-3, 0) ellipse (2cm and 1cm);
+%%     \draw (-3, 0) node {Numerical};
+%%     \draw (3, 0) ellipse (2cm and 1cm);
+%%     \draw (3, 0) node {Co-ordinate};
+%%     \draw[->] (-3, 1) -- (3, 1);
+%%     \draw (0, 1.5) node {visualize};
+%%     \draw[->] (3, -1) -- (-3, -1);
+%%     \draw (0, -1.5) node { represent };
+%%   \end{tikzpicture}
+%% \end{figure}
 
-\chapter{determinant, descriminant arghh...}
 
-\chapter{eigen stuff}
+%% For example a vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  has dimensionality of 2, hence called a 2D vector and can be used to represent a point in a 2D co-ordinate space formed by 2D co-ordinate frame which consists of 2 axes. The point can be arrived at starting from the origin and moving 2 units along first axis and -3 units along second axis.
 
+%% \begin{figure}[ht]
+%%   \centering
+%%   \begin{tikzpicture}
+%%     \draw[step=1cm,gray,very thin] (-2.9,-3.9) grid (2.9,1.9);
+%%     \draw[->] (-3, 0) -- (3, 0) node[anchor=north] {axis 1};
+%%     \draw[->] (0, -4) -- (0, 2) node[anchor=east] {axis 2};
+%%     \draw[thick, ->] (0, 0) -- (2, -3) node[anchor=west] { $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $  };
+%%   \end{tikzpicture}
+%% \end{figure}
+
+%% Please note that
+%% \begin{enumerate}
+%%   \item There is no need to name these axes X and Y.
+%%   \item There is no need for the axes to be perpendicular.
+%%   \item No need for 1 unit along first axis to be same as 1 unit along second axis.
+%%   \item No need for units of first axis to be same as the second one
+%% \end{enumerate}
+
+%% \chapter{Why like this?}
+%% Well there is no specific reason. Just that it seems natural and seems to be useful to solve many problems in the world.
+
+%% Probably the co-ordinate system was first developed to represent the objects in the real world with numbers. A co-ordinate system with dimensionality up to 3 makes sense in the real world. The ones with dimensionality 4 or above are not natural, as in we don't see physical manifestations of such systems. Umm... may be space time can be thought of as a 4D co-ordinate system with the 4th axis being time.
+
+%% Anyway the most natural way to think about co-ordinate systems is to imagine a 3D co-ordinate system with axes placed spatially mutually perpendicularly and origin at the interchapter of all of them.
 %% \textbf{A (yet another) different way to think about vectors}
 %% Well consider a 2D co-ordinate system. Say we draw the vector $ \blockcomment{Column-Vector: 2, -3} \begin{pmatrix} 2 \\  -3 \end{pmatrix} $ in that system.
 

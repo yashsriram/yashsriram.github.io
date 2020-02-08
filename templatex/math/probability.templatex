@@ -347,4 +347,11 @@ r'''
 
 ) }
 
+\begin{enumerate}[nolistsep]
+  \item Cdf and pdf definitions
+  \item Expected value definitions
+  \item Joint probability definition
+  \item Random vectors
+  \item baysian networks
+\end{enumerate}
 \end{document}

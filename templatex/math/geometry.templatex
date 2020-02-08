@@ -133,6 +133,40 @@ r'''
 
 ) }
 
+${ add_statement(
 
+'Basis',
+
+r'''
+
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Span',
+
+r'''
+
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
 
 \end{document}

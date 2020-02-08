@@ -123,4 +123,24 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Unit Vector',
+
+r'''
+
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
 \end{document}

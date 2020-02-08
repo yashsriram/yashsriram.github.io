@@ -84,7 +84,6 @@ ${ add_statement(
 'Coordinate Axis',
 
 r'''
-Coordinate axis of a @coordinate system@ $\Lambda$
 ''',
 
 r'''

@@ -3,44 +3,6 @@
 \begin{document}
 \chapter{coordinates}
 
-${ add_statement(
-
-'Number Line',
-
-r'''
-A number line is a @function@ $ \psi $ mapping from a @line@ L to the @set@ of @real numbers@ $ \reals $ where $ \forall \lambda \in L, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ some real number $ \lambda $ such that 
-''',
-
-r'''
-It is a connection b/w the concept of space and numbers, which if you carefully observe need not have any connection by their definitions.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-
-
-${ add_statement(
-
-'Axis',
-
-r'''
-An axis is a @line@.
-''',
-
-r'''
-
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
 
 
 %% \\proofbydefinition{CoordinateSystem}{Co-ordinate system is a method to represent the concept of space with real numbers.

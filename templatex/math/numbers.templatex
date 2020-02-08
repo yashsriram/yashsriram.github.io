@@ -46,7 +46,7 @@ ${ add_statement(
 'Additive Inverse',
 
 r'''
-  Todo
+
 ''',
 
 r'''
@@ -64,7 +64,7 @@ ${ add_statement(
 'Integers',
 
 r'''
-  Todo
+
 ''',
 
 r'''
@@ -81,7 +81,7 @@ ${ add_statement(
 'Multiplicative Inverse',
 
 r'''
-  Todo
+
 ''',
 
 r'''
@@ -98,7 +98,7 @@ ${ add_statement(
 'Rational Numbers',
 
 r'''
-  Todo
+
 ''',
 
 r'''
@@ -133,7 +133,7 @@ ${ add_statement(
 'Real Numbers',
 
 r'''
-  Todo
+
 ''',
 
 r'''

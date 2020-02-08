@@ -5,19 +5,15 @@
 
 ${ add_statement(
 
-'Point',
+'Geometric Point',
 
 r'''
-Point is a tool to represent position.
-Two points are identical if they represent the same position @identity@.
-Otherwise they are non-identical.
-Point does not change with any quantity, so there is no notion of moving a point.
-Objects can move from one point to another.
-If an object is at a point P, then it has the P's position otherwise it's position is not determined by P.
+A geometric point is a position. Any geometric point does not change with time (or any quantity), so there is no notion of moving a point.
 ''',
 
 r'''
-A basic and weirdly not an immediately easy to describe tool.
+A basic but weirdly `not an immediately easy to describe' tool, because `position' seems to be an axiom here.
+The position is defined not to change just so that it can act as a reference for any changes that occur in other quantities.
 ''',
 
 r'''
@@ -28,38 +24,15 @@ r'''
 
 ${ add_statement(
 
-'Line',
+'Geometric Space',
 
 r'''
-Given two different @point@s A, B, a line is a @set@ of all points that we come across when we join the two points A and B and continue doing that both directions without stopping.
-''',
-
-r'''
-A basic (and weirdly difficult to describe) building block to create useful tools.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-${ add_statement(
-
-'Space',
-
-r'''
-Space is a @set@ of @point@s.
+A geometric space is a @set@ of @geometric point@s.
 ''',
 
 r'''
 That's it! No more restriction on the definition.
-Even a line can be considered a space.
-Even the union of two parallel lines is a space.
-Even the union a line and a set of a point that does not lie on the line is a space.
-The 1D, 2D and 3D spaces are just types of spaces.
-Therefore there is not much stopping than just cognitive unease to consider a space that is 4D.
-And similarly 5D, 6D, 7D spaces.
+As position does not change (with any quantity), geometric space does not change with any quantity.
 ''',
 
 r'''
@@ -67,5 +40,100 @@ r'''
 '''
 
 ) }
+${ add_statement(
+
+'Position Vector',
+
+r'''
+A position vector is a @vector@ that represents a @geometric point@.
+''',
+
+r'''
+Although the point never changes, the representation of the point can change.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Coordinate System',
+
+r'''
+A coordinate system $ \Lambda $ is an @injection@ mapping from @geometric space@ G to a @set@ of @position vector@s V. Denoted by $ \Lambda: G \to V $.
+
+$\forall g \in G \Lambda(g) $ (i.e. the image of @geometric point@ g under coordinate system $ \Lambda $) is denoted by $P^{\Lambda}_{g}$.
+''',
+
+r'''
+Sets up a representation for every point in space such that any point's representation (position vector) is different from all others.
+Defining it like this removes all invisible evil chains that are tied to definition otherwise, thus providing a clean and elegant description.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Coordinate Axis',
+
+r'''
+Coordinate axis of a @coordinate system@ $\Lambda$
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Straight Coordinate Space',
+
+r'''
+A @geometric space@ under a @coordinate system@ in which the @position vector@ of any @geometric point@ $ \equiv $ at least one @linear combination@ of position vectors of any two geometric points is called a straight coordinate space.
+''',
+
+r'''
+If the geometric space is finite, it is called a line segement otherwise a line.
+We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
+Generally denoted by drawing straight lines on paper.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Geometric distance',
+
+r'''
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
 
 \end{document}

@@ -30,14 +30,15 @@
 \newcommand{\blockcomment}[1]{}
 \newcommand{\proofbydefinition}{Proof by definition}
 \newcommand{\todo}{{\color{red} \textbf{TODO}}}
-\newcommand{\pvectwo}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
-\newcommand{\pvecn}[1]{\begin{pmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{pmatrix}}
-\newcommand{\pvecnsum}[2]{\begin{pmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{pmatrix}}
-\newcommand{\pvecnscale}[2]{\begin{pmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{pmatrix}}
+\newcommand{\bvectwo}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+\newcommand{\bvecn}[1]{\begin{bmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{bmatrix}}
+\newcommand{\bvecnsum}[2]{\begin{bmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{bmatrix}}
+\newcommand{\bvecnscale}[2]{\begin{bmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{bmatrix}}
 \newcommand{\biimpl}{\longleftrightarrow}
 \newcommand{\impl}{\implies}
 \newcommand{\st}{\mid}
 \newcommand{\reals}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 %% new command files
 
 \title{journal}

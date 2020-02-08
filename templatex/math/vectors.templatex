@@ -10,7 +10,7 @@ ${ add_statement(
 
 r'''
   A vector can be defined as a collection of @real numbers@ (also called elements) where the arrangement in which elements appear matters.
-  For n elements a vector can be written as $ V \equiv \pvecn{e} $
+  For n elements a vector can be written as \[ V \equiv \bvecn{e} \]
 ''',
 
 r'''
@@ -64,15 +64,15 @@ ${ add_statement(
 'Vector Addition',
 
 r'''
-  The addition of two ND @vector@s $A \equiv \pvecn{a}$ and $B \equiv \pvecn{b}$ is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
-   @vector dimension@. Denoted by $A + B \equiv \pvecnsum{a}{b}$.
+  The addition of two ND @vector@s \[ A \equiv \bvecn{a} \] and \[ B \equiv \bvecn{b} \] is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+   @vector dimension@. Denoted by \[ A + B \equiv \bvecnsum{a}{b} \].
 ''',
 
 r'''
   This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.
   Otherwise there is no reason not to define the addition rule as something arbitrary like
   \[
-    \pvectwo{x}{y} + \pvectwo{a}{b} \equiv \pvectwo{xa + yb^2}{\frac{b - y}{x + a}}
+    \bvectwo{x}{y} + \bvectwo{a}{b} \equiv \bvectwo{xa + yb^2}{\frac{b - y}{x + a}}
   .\]
 ''',
 
@@ -87,7 +87,7 @@ ${ add_statement(
 'Vector Scaling',
 
 r'''
-  The scaling of an ND @vector@ $A \equiv \pvecn{a}$ @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by $\lambda * A \equiv \pvecnscale{\lambda}{a}$.
+  The scaling of an ND @vector@ \[ A \equiv \bvecn{a} \] @vector dimension@ with a real number @real numbers@ $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by \[ \lambda * A \equiv \bvecnscale{\lambda}{a} \].
 ''',
 
 r'''
@@ -125,14 +125,73 @@ r'''
 
 ${ add_statement(
 
-'Unit Vector',
+'L1 Norm',
 
 r'''
-
+The L1 norm of a @vector@ \[ V \equiv \bvecn{e} \] is defined as the sum of absolute values of elements of V. Denoted by \[ \norm{V}_1 \equiv \sum_{i = 1}^{n} abs(e_i) \].
 ''',
 
 r'''
+A simple and natural way to get a sense of size of vector.
+This norm is also called Manhattan norm or Taxicab norm, as this represents the distance travelled by taxis to go from one point to another.
+''',
 
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'L2 Norm',
+
+r'''
+The L2 norm of a @vector@ \[ V \equiv \bvecn{e} \] is defined as the square root of sum of squares of elements of V. Denoted by \[ \norm{V}_2 \equiv \sqrt{ \sum_{i = 1}^{n} e_i^2 } \].
+''',
+
+r'''
+A simple and natural way to get a sense of size of vector.
+This norm is also called Euclidean norm.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'L-infinity Norm',
+
+r'''
+The L-infinity norm of a @vector@ \[ V \equiv \bvecn{e} \] is defined as the maximum of absolute values of elements of V. Denoted by \[ \norm{V}_\infty \equiv \max_{i = 1}^{n}(abs(e_i)) \].
+''',
+
+r'''
+Gives a sense of size of vector.
+For example, if the vector represents the cost of constructing a buildings, by minimizing L-infinity norm we are reducing the cost of the most expensive building.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+${ add_statement(
+
+'Unit Vector',
+
+r'''
+A @vector@ V whose @L2 norm@ $ \norm{V}_2 \equiv 1 $ is called a unit vector.
+''',
+
+r'''
+A unit vector has magnitude of one in the L2 norm sense.
+Therefore it can be used as a template vector, which can be scaled to create new vectors.
+Ofcourse any vector can be used for this purpose.
+But the magnitude being one for the unit vector makes it simple to get an arbitrary magnitude M vector, just by scaling the unit vector by M.
 ''',
 
 r'''

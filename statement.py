@@ -1,4 +1,6 @@
 from utils import *
+from pyvis.network import Network
+
 
 class Statement:
     PARENT_ID_DELIMITER = '@'
@@ -13,7 +15,8 @@ class Statement:
         id_case_combinations = case_combinations(_id)
         for combination in id_case_combinations:
             if combination in Statement.ID_STATEMENT_MAP:
-                raise Exception('Duplicate case combination of statement id found: {} for id: {}'.format(combination, _id))
+                raise Exception(
+                    'Duplicate case combination of statement id found: {} for id: {}'.format(combination, _id))
         self.id = _id
         # description validation and parsing
         self.description = description
@@ -34,7 +37,8 @@ class Statement:
                 if combination in Statement.ID_STATEMENT_MAP:
                     parent = Statement.ID_STATEMENT_MAP[combination]
                     if parent in self.parents:
-                        raise Exception('Duplicate parent reference found: {} in statement with id: {}'.format(token, _id))
+                        raise Exception(
+                            'Duplicate parent reference found: {} in statement with id: {}'.format(token, _id))
                     self.parents.append(parent)
                     parent.children.append(self)
                     parent_found = True
@@ -52,6 +56,22 @@ class Statement:
             raise Exception('Cycle forms by statement with id: {}'.format(_id))
         # add statement to id statement map
         Statement.ID_STATEMENT_MAP[_id] = self
+
+    @staticmethod
+    def html_dag_format(filename, width, height):
+        net = Network(width=width, height=height, directed=True, layout=True)
+        for _id, statement in Statement.ID_STATEMENT_MAP.items():
+            if len(statement.parents) == 0:
+                net.add_node(_id, shape='diamond', size=10)
+            else:
+                net.add_node(_id, shape='dot', size=10)
+            counter = 0
+            for parent in statement.parents:
+                net.add_edge(_id, parent.id, arrowStrikethrough=False)
+                counter += 1
+                if counter > 2:
+                    break
+        net.save_graph(filename)
 
     @staticmethod
     def _cycle_exists(node, origin_id, is_node_the_origin):

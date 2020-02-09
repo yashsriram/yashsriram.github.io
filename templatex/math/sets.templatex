@@ -8,7 +8,7 @@ ${ add_statement(
 'Set',
 
 r'''
-A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ @enumerated Notation@.
+A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ @enumerated notation@.
 ''',
 
 r'''
@@ -49,7 +49,7 @@ ${ add_statement(
 'Subset',
 
 r'''
-A @set@ E is called a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $ @belongs to@.
+A @set@ E is a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $ @belongs to@.
 ''',
 
 r'''
@@ -67,7 +67,7 @@ ${ add_statement(
 'Superset',
 
 r'''
-A @set@ E is called a superset of set F $ \biimpl $ $ F \subseteq E $ @subset@. Denoted by $ E \supseteq F $.
+A @set@ E is a superset of set F $ \biimpl $ $ F \subseteq E $ @subset@. Denoted by $ E \supseteq F $.
 ''',
 
 r'''
@@ -85,7 +85,7 @@ ${ add_statement(
 'Proper Subset',
 
 r'''
-A @set@ E is called a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \not\equiv F $ @identity@. Denoted by $ E \subset F $.
+A @set@ E is a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \not\equiv F $ @identity@. Denoted by $ E \subset F $.
 ''',
 
 r'''
@@ -103,7 +103,7 @@ ${ add_statement(
 'Proper Superset',
 
 r'''
-A @set@ E is called a superset of set F $ \biimpl $ $ F \subset E $ @subset@. Denoted by $ E \supset F $.
+A @set@ E is a superset of set F $ \biimpl $ $ F \subset E $ @subset@. Denoted by $ E \supset F $.
 ''',
 
 r'''
@@ -234,7 +234,7 @@ ${ add_statement(
 'Continuous Set',
 
 r'''
-An @ordered set@ which has no discrete separation b/w any two of its elements is called a continuous set.
+An @ordered set@ which has no discrete separation b/w any two of its elements is a continuous set.
 ''',
 
 r'''
@@ -252,7 +252,7 @@ ${ add_statement(
 'Contiguous Set',
 
 r'''
-An @ordered set@ which has a discrete separation b/w any two of its elements is called a contiguous set.
+An @ordered set@ which has a discrete separation b/w any two of its elements is a contiguous set.
 ''',
 
 r'''

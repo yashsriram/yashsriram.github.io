@@ -7,6 +7,6 @@
 - [x] DAG statement heatmap
 - [ ] DAG search
 - [ ] DAG btn to reset
-- [ ] DAG latex
+- [ ] DAG latex type set description
 - [ ] DAG click to pdf
 - [ ] more natural parent reference detection

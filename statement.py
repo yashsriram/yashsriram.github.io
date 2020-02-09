@@ -65,13 +65,13 @@ class Statement:
                          title=statement.description,
                          shape='star',
                          size=10,
-                         mass=2,
+                         mass=1 + len(statement.children) * 5,
                          borderWidth=1,
                          borderWidthSelected=5,
                          color={'background': '#FFFFFF10', 'border': '#FFFFFFAA'},
                          font={'size': 12, 'color': '#FFFFFF', 'face': 'monospace'})
             for parent in statement.parents:
-                net.add_edge(_id, parent.id, arrowStrikethrough=False)
+                net.add_edge(parent.id, _id, arrowStrikethrough=False)
         net.save_graph(filename)
 
     @staticmethod

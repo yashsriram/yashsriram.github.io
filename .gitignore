@@ -12,3 +12,4 @@ scratch/
 *.tex
 !tex/packages
 __pycache__
+*html

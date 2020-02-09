@@ -2,7 +2,6 @@ import os
 
 from mako.template import Template
 from statement import Statement
-from screeninfo import get_monitors
 
 TEMPLATEX_DIR = './templatex/'
 TEX_DIR = './tex/'
@@ -41,8 +40,4 @@ for sub_file_path in SUB_FILE_PATHS:
     output = template.render(add_statement=add_statement)
     save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(sub_file_path)))
 
-if len(get_monitors()) == 0:
-    raise Exception('No monitors found')
-monitor = get_monitors()[0]
-
-Statement.html_dag_format('graph.html', '{}px'.format(monitor.width - 100), '{}px'.format(monitor.height - 100))
+Statement.html_dag_format('graph.html')

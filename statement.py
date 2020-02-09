@@ -58,19 +58,20 @@ class Statement:
         Statement.ID_STATEMENT_MAP[_id] = self
 
     @staticmethod
-    def html_dag_format(filename, width, height):
-        net = Network(width=width, height=height, directed=True, layout=True)
+    def html_dag_format(filename):
+        net = Network(width='100%', height='100%', directed=True, bgcolor='#000000')
         for _id, statement in Statement.ID_STATEMENT_MAP.items():
-            if len(statement.parents) == 0:
-                net.add_node(_id, shape='diamond', size=10)
-            else:
-                net.add_node(_id, shape='dot', size=10)
-            counter = 0
+            net.add_node(statement.id,
+                         title=statement.description,
+                         shape='star',
+                         size=10,
+                         mass=2,
+                         borderWidth=1,
+                         borderWidthSelected=5,
+                         color={'background': '#FFFFFF10', 'border': '#FFFFFFAA'},
+                         font={'size': 12, 'color': '#FFFFFF', 'face': 'monospace'})
             for parent in statement.parents:
                 net.add_edge(_id, parent.id, arrowStrikethrough=False)
-                counter += 1
-                if counter > 2:
-                    break
         net.save_graph(filename)
 
     @staticmethod

@@ -3,7 +3,9 @@
 - [x] use only axioms and theorems, remove definitions
 - [x] DAG visualization
 - [x] DAG node mass caliberation
+- [x] DAG node size caliberation
 - [ ] DAG statement heatmap
+- [ ] DAG search
 - [ ] DAG btn to reset
 - [ ] DAG latex
 - [ ] DAG click to pdf

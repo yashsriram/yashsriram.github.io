@@ -71,10 +71,12 @@ $\forall g \in G \Lambda(g) $ (i.e. the image of @geometric point@ g under coord
 r'''
 Sets up a representation for every point in space such that any point's representation (position vector) is different from all others.
 Defining it like this removes all invisible evil chains that are tied to definition otherwise, thus providing a clean and elegant description.
-Here we make a connection from geometric points and spaces to vectors.
-Here we talk about dimensionality, but still it is the property of vectors not the geometric space itself.
-In general there is no restriction on mapping any space to set of any dimensional vectors.
-{\color{blue} The association of a real world with a coordinate system of 3-dimensional vector co-domain seems very natural but it might be an arbitrary choice, I have to think about this more}.
+Here we make a proper connection from geometric points and spaces to vectors.
+Here we talk about dimensionality in a context which also contains geometry, but still it is the property of vectors not the geometric space itself.
+In general we can imagine always spaces which can be mapped to set of 4 or higher dimensional vectors meaningfully.
+We are more or less comfortable wiht 1D and 2D spaces which are said not to exist in real world so there is no reason in saying no to 4D spaces wherever they can be useful.
+Similarly for higher dimensional spaces.
+{\color{blue} The unanimous association of a real world with a coordinate system of 3-dimensional vector co-domain seems very natural but it might be an arbitrary choice, I don't know, I have to think about this more}.
 ''',
 
 r'''

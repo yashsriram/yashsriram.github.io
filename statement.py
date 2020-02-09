@@ -1,5 +1,6 @@
 from utils import *
 from pyvis.network import Network
+from colorhash import ColorHash
 
 
 class Statement:
@@ -61,15 +62,22 @@ class Statement:
     def html_dag_format(filename):
         net = Network(width='100%', height='100%', directed=True, bgcolor='#000000')
         for _id, statement in Statement.ID_STATEMENT_MAP.items():
+            if len(statement.parents) == 0:
+                shape = 'dot'
+            else:
+                shape = 'star'
+            color = ColorHash(statement.id).hex
             net.add_node(statement.id,
                          title=statement.description,
-                         shape='star',
+                         shape=shape,
                          mass=1 + len(statement.children) * 3 + len(statement.parents) * 2,
                          size=10 + len(statement.children) * 3,
                          borderWidth=1,
                          borderWidthSelected=5,
-                         color={'background': '#{}'.format(heat_map(0, len(statement.parents), 5)),
-                                'border': '#FFFFFFAA'},
+                         color={
+                             'background': '{}{}'.format(color, heat_map(0, len(statement.parents), 5)),
+                             'border': color
+                         },
                          font={'size': 24, 'color': '#FFFFFF', 'face': 'monospace'})
             for parent in statement.parents:
                 net.add_edge(parent.id, _id, arrowStrikethrough=False)

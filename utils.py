@@ -32,4 +32,4 @@ def heat_map(_min, val, _max):
         gray = 0
     if gray > 255:
         gray = 255
-    return ('%02x%02x%02x' % (gray, gray, gray)).capitalize()
+    return ('%02x' % gray).capitalize()

@@ -68,8 +68,9 @@ class Statement:
                          size=10 + len(statement.children) * 3,
                          borderWidth=1,
                          borderWidthSelected=5,
-                         color={'background': '#FFFFFF10', 'border': '#FFFFFFAA'},
-                         font={'size': 12, 'color': '#FFFFFF', 'face': 'monospace'})
+                         color={'background': '#{}'.format(heat_map(0, len(statement.parents), 5)),
+                                'border': '#FFFFFFAA'},
+                         font={'size': 24, 'color': '#FFFFFF', 'face': 'monospace'})
             for parent in statement.parents:
                 net.add_edge(parent.id, _id, arrowStrikethrough=False)
         net.save_graph(filename)

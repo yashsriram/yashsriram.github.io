@@ -4,7 +4,7 @@
 - [x] DAG visualization
 - [x] DAG node mass caliberation
 - [x] DAG node size caliberation
-- [ ] DAG statement heatmap
+- [x] DAG statement heatmap
 - [ ] DAG search
 - [ ] DAG btn to reset
 - [ ] DAG latex

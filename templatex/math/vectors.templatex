@@ -36,6 +36,7 @@ r'''
 
 r'''
   A name for size of vector.
+  Note that we are not considering collections with zero elements as vectors as it does not seem to be useful.
   The concept is illustrated in the table \ref{tab:dim}.
   \begin{table}[ht]
     \centering
@@ -192,6 +193,33 @@ A unit vector has magnitude of one in the L2 norm sense.
 Therefore it can be used as a template vector, which can be scaled to create new vectors of arbitrary size.
 Ofcourse vector of magnitude other than one can also be used for this purpose.
 But the magnitude being one makes it simple to get an arbitrary magnitude M vector, just by scaling the unit vector by M.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Axis Vector',
+
+r'''
+An axis vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.
+''',
+
+r'''
+An axis vector is a simple unit vector.
+For example
+\[
+  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \end{bmatrix}
+\]
+are instances of axis vector.
+It can be used as a building block for creating useful tools.
 ''',
 
 r'''

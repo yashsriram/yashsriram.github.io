@@ -1,0 +1,175 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{coordinate system}
+
+${ add_statement(
+
+'Point',
+
+r'''
+A point represents state of an object.
+A point does not change, so there is no notion of moving a point.
+Objects can change states and hence can go from one point to another.
+''',
+
+r'''
+A basic tool for representing state of objects.
+For instance a point can represent position, temperature, velocity, pressure etc...
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Space',
+
+r'''
+A space is a @set@ of @point@s.
+''',
+
+r'''
+A tool to group all states considered in the context.
+As point does not change, space does not change.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'State Vector',
+
+r'''
+A state vector is a @vector@ that represents a @point@.
+''',
+
+r'''
+This is not a redundant definition (with point).
+Although a point never changes, the representation of that point can change.
+That is why we define both point and state vector.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Coordinate System',
+
+r'''
+A coordinate system $ \Lambda $ is an @injection@ mapping from @space@ G to a @set@ of N-dimensional @state vector@s V. Denoted by $ \Lambda: G \to V $.
+
+$\forall g \in G, \Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
+''',
+
+r'''
+Sets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.
+Defining it like this removes all untagible invisible evil chains that are tied to the concept otherwise, thus providing a clean, elegant and concrete description.
+
+Here we make a proper connection from points and spaces to vectors.
+Note that when we talk about dimensionality here, it is the property of vectors not the space itself.
+Thus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.
+
+Positions in real world are generally mapped to a 3D vector set.
+This mapping is just based on the belief that the real world is in 3D.
+But as we believe, beliefs are not final and should be challanged constantly and consciously.
+For example positions can be mapped to 4D vector set, the new dimension being the time.
+Similarly more dimensions can represent more information.
+Or the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.
+However we can always imagine a space represented by 3D vector set and do operations on it.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Coordinate Axis',
+
+r'''
+A coordinate axis of a @coordinate system@ $ \Lambda $ acting on a @space@ G is a @subset@ of G, say A such that the @state vector@ of any @point@ in A $ \equiv $ a scaled version of an @axis vector@ B @vector scaling@.
+''',
+
+r'''
+A coordinate axis is a simple way to disassemble a coordinate system.
+For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.
+Due to the virtue of state vectors on coordinate axis being scaled axis vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.
+It has no connection with other coordinate axes.
+This is a good thing because it makes things simple, decoupled and non-clumsy.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Basis',
+
+r'''
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Straight Space',
+
+r'''
+A straight space under a @coordinate system@ $\Lambda$ acting on a @space@ G is a @subset@ of G, say S such that the @state vector@ of any @point@ in S $ \equiv $ at least one @linear combination@ of state vectors of every pair of points in S.
+''',
+
+r'''
+If the space is finite, it is called a line segement otherwise a line.
+We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
+Generally denoted by drawing straight lines on paper.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+${ add_statement(
+
+'Span',
+
+r'''
+
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+\end{document}

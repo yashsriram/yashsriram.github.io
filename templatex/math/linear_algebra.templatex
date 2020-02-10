@@ -7,6 +7,7 @@ TODO
 \begin{enumerate}[nolistsep]
   \item proof of composition of linear transform is a linear transform, algebraically and geometrically
   \item writing linear transform and composition of linear transforms as matrix and product of matrices, building matrix as tool
+  \item rotation as a special case of linear transform, rotation in 3d always has a one and only one axis proof (using linear transform + constant L2 norm + two vector defn of plane + normal to plane)
   \item determinant, descriminant whatever
   \item dot product, cross product
   \item linearly dependent/independent

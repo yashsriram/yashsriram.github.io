@@ -120,23 +120,6 @@ r'''
 
 ${ add_statement(
 
-'Basis',
-
-r'''
-''',
-
-r'''
-
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-${ add_statement(
-
 'Straight Space',
 
 r'''
@@ -147,23 +130,6 @@ r'''
 If the space is finite, it is called a line segement otherwise a line.
 We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
 Generally denoted by drawing straight lines on paper.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-${ add_statement(
-
-'Span',
-
-r'''
-
-''',
-
-r'''
-
 ''',
 
 r'''

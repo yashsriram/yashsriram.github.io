@@ -126,6 +126,47 @@ r'''
 
 ${ add_statement(
 
+'Span',
+
+r'''
+The span of a @set@ of @vector@s B is a set of vectors S in which each vector $ \equiv $ @linear combination@ of all vectors in B.
+''',
+
+r'''
+A tool to give a sense of spread of a set of vectors.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Basis',
+
+r'''
+A basis of a @set@ of @vector@s S is a set of vectors B which contains minimum number of vectors, such that each vector in S $ \equiv $ @linear combination@ of all vectrs in B.
+''',
+
+r'''
+Sort of an inverse of span.
+Note that for a given set of vectors there can be multiple basis sets.
+For instance the set of all 2D vectors has the following sets as basis sets.
+\[
+  \{ \bvectwo{1}{0}, \bvectwo{0}{1} \}, \{ \bvectwo{2}{0}, \bvectwo{0}{2} \}
+\]
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'L1 Norm',
 
 r'''

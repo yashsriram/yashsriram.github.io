@@ -306,7 +306,7 @@ ${ add_statement(
 'Partition',
 
 r'''
-A partition of a @set@ S is a new set $ \Lambda $ of @subset@s of S such that
+A partition of a @set@ S is a set $ \Lambda $ of @subset@s of S such that
 \begin{enumerate}[nolistsep]
   \item Intersection of any two elements of $ \Lambda \equiv \phi $ @null set@
   \item Union of all elements of $ \Lambda \equiv $ S

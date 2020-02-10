@@ -112,6 +112,27 @@ r'''
 
 ${ add_statement(
 
+'Notation',
+
+r'''
+A shortform representation of a tool or idea.
+The representation is short doesn't mean that information is omitted, rather it motivates to present information in a more concise and simplified manner.
+A good notation has complete information, is transparent in meaning, readable and un-ambiguous.
+''',
+
+r'''
+For instance, when writing a vector of a position $g$, writing $ P_{g} $ is a bad notation as it has no information about the coordiante system used.
+$ P^{\Lambda}_{g} $ where $ \Lambda $ is the coordinate system is a good notation.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'Enumerated Notation',
 
 r'''

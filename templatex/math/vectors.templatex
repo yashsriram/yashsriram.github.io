@@ -126,6 +126,31 @@ r'''
 
 ${ add_statement(
 
+'Linearly Independent Set',
+
+r'''
+A linearly independent set is a @set@ of @vector@s B, such that $ \forall b_i \in B, b_i \not\equiv $ @linear combination@ of all other vectors in B.
+
+A set of vectors in which each element $ \equiv $ a linear combination of all other elements is called a linearly dependent set of vectors.
+''',
+
+r'''
+Vectors in a set with this property are sort of independent from others as in they cannot be built by other vectors using any simple operation available for vectors.
+Yes! addition and scaling are all the available simple operations for vectors. Mind blown!
+Well you might scream matrices. But matrices were created just for that purpose, to build a vector that is otherwise not constructable using addition and scaling.
+
+Note that there cannot be a set of vectors in which one element $ b_d \equiv $ linear combination of all other elements and another element $ b_i \not\equiv $ linear combination of all other elements.
+This is because given the first identity, we can rearrange terms to get second identity.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'Span',
 
 r'''
@@ -147,7 +172,7 @@ ${ add_statement(
 'Basis',
 
 r'''
-A basis of a @set@ of @vector@s S is a set of vectors B which contains minimum number of vectors, such that each vector in S $ \equiv $ @linear combination@ of all vectrs in B.
+A basis of a @set@ of @vector@s S is a @linearly independent set@ of vectors B, such that each vector in S $ \equiv $ @linear combination@ of all vectrs in B.
 ''',
 
 r'''

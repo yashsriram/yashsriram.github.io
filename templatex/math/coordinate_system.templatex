@@ -123,7 +123,7 @@ ${ add_statement(
 'Straight Space',
 
 r'''
-A straight space under a @coordinate system@ $\Lambda$ acting on a @space@ G is a @subset@ of G, say S such that the @state vector@ of any @point@ in S $ \equiv $ at least one @linear combination@ of state vectors of every pair of points in S.
+A straight space under a @coordinate system@ $\Lambda$ acting on a @space@ G is a @subset@ of G, say S such that the @state vector@ of any @point@ in S $ \equiv $ $ o + t * d $ where $ o, d \in G $ and t $ \in $ @real numbers@.
 ''',
 
 r'''

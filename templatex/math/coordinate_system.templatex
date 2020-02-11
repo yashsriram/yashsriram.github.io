@@ -154,6 +154,7 @@ We can also choose to set each of the coordinate axes `perpendicular to each oth
 We can do the same for 2D mapped spaces.
 We imagine the axes being perpendicular in 2D and 3D spaces because we believe it makes sense.
 In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.
+So we donot visualize them in 4D or more dimensional spaces.
 ''',
 
 r'''

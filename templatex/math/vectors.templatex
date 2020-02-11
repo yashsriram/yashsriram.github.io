@@ -353,7 +353,7 @@ Two N-dimensional @vector@s A and B are said to be perpendicular vectors $ \biim
 r'''
 Gives a sense of independence b/w two vectors.
 
-In vectors of dimensions 2 and 3, we visualize this by drawing to how we usually draw coordinate systems.
+In vectors of dimensions 2 and 3, we visualize this by drawing what we usually draw for coordinate systems.
 This visualization is just a choice.
 We choose that because the independence is visualized in the sense of projections.
 In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.

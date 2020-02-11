@@ -5,14 +5,21 @@
 \chapter{linear algebra}
 TODO
 \begin{enumerate}[nolistsep]
-  \item proof of composition of linear transform is a linear transform, algebraically and geometrically
+  \item idea of linear transform
   \item writing linear transform and composition of linear transforms as matrix and product of matrices, building matrix as tool
-  \item rotation as a special case of linear transform, rotation in 3d always has a one and only one axis proof (using linear transform + constant L2 norm + two vector defn of plane + normal to plane)
+  \item proof of composition of linear transform is a linear transform, algebraically and geometrically
+  \item misconceptions: multiplying matrices on left of vectors vs \xcancel{right of vectors}
+  \item misconceptions: animating vectors vs \xcancel{animating coordinate frames}
+  \item latest frame vs initial frame
+  \item rotation as a special case of linear transform, rotation in 3d always has a one and only one axis passing through origin proof (using linear transform + constant L2 norm + two vector defn of plane + normal to plane)
+  \item rotation in 2d only around point on origin
   \item determinant, descriminant whatever
   \item dot product, cross product
   \item linearly dependent/independent
-  \item eigen stuff
+  \item inverses
+  \item column spaces, rank
   \item null spaces
+  \item eigen stuff, eigen basis
   \item orthogonal, orthonormal
   \item diagnoal
   \item +ve definite, semi +ve definite

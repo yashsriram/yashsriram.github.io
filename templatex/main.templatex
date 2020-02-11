@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{enumitem}
+\usepackage{cancel}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{amsthm, amsfonts, amsmath, amssymb}

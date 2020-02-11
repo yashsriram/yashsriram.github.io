@@ -150,11 +150,7 @@ Similarly more dimensions can represent more information.
 Or the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.
 
 Whatever the real world might be, we can always imagine a space represented by 3D vector set and do operations on it.
-We can also choose to set each of the coordinate axes `perpendicular to each other geometrically' in that coordinate system.
-We can do the same for 2D mapped spaces.
-We imagine the axes being perpendicular in 2D and 3D spaces because we believe it makes sense.
-In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.
-So we donot visualize them in 4D or more dimensional spaces.
+
 ''',
 
 r'''

@@ -33,6 +33,7 @@
 \newcommand{\bvectwo}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
 \newcommand{\bvecn}[1]{\begin{bmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{bmatrix}}
 \newcommand{\bvecnsum}[2]{\begin{bmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{bmatrix}}
+\newcommand{\bvecndot}[2]{\begin{bmatrix} #1_1 * #2_1 \\ #1_2 * #2_2 \\ ... \\ #1_n * #2_n \end{bmatrix}}
 \newcommand{\bvecnscale}[2]{\begin{bmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{bmatrix}}
 \newcommand{\biimpl}{\longleftrightarrow}
 \newcommand{\impl}{\implies}

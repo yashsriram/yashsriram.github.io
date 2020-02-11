@@ -294,6 +294,79 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Dot Product',
+
+r'''
+The dot product of N-dimensional two @vector@s
+\[
+  A \equiv \bvecn{a}
+  B \equiv \bvecn{b}
+\]
+is a real number @real numbers@ $ \eta \equiv $ sum of element-wise products of A and B.
+Denoted by
+\[
+  A . B \equiv \sum_{i = 1}^{n} (a_i * b_i)
+\]
+''',
+
+r'''
+A tool to give a sense of similarity of vectors.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Angle between Vectors',
+
+r'''
+The angle between two N-dimensional @vector@s A and B is a real number $ \theta \equiv $ arc cosine of @dot product@ of vectors divided by @L2 norm@ of both A and B. Denoted by
+\[
+  \angle(A,B) \equiv arccos(\frac{A.B}{\norm{A}_2 * \norm{B}_2})
+\]
+''',
+
+r'''
+A tool give a sense of orientation difference b/w the vectors.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Perpendicular Vectors',
+
+r'''
+Two N-dimensional @vector@s A and B are said to be perpendicular vectors $ \biimpl $ the cosine of @angle between vectors@ $ \equiv 0 $.
+''',
+
+r'''
+Gives a sense of independence b/w two vectors.
+
+In vectors of dimensions 2 and 3, we visualize this by drawing to how we usually draw coordinate systems.
+This visualization is just a choice.
+We choose that because the independence is visualized in the sense of projections.
+In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.
+So we donot visualize them in 4D or more dimensional spaces.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
 
 
 \end{document}
+

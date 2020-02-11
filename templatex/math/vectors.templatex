@@ -180,7 +180,7 @@ Sort of an inverse of span.
 Note that for a given set of vectors there can be multiple basis sets.
 For instance the set of all 2D vectors has the following sets as basis sets.
 \[
-  \{ \bvectwo{1}{0}, \bvectwo{0}{1} \}, \{ \bvectwo{2}{0}, \bvectwo{0}{2} \}
+  \{ \bvectwo{1}{0}, \bvectwo{0}{1} \}, \{ \bvectwo{2}{0}, \bvectwo{0}{2} \}, \{ \bvectwo{2}{0}, \bvectwo{1}{2} \}
 \]
 ''',
 

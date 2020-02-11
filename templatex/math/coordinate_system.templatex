@@ -80,14 +80,6 @@ Defining it like this removes all untagible invisible evil chains that are tied 
 Here we make a proper connection from points and spaces to vectors.
 Note that when we talk about dimensionality here, it is the property of vectors not the space itself.
 Thus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.
-
-Positions in real world are generally mapped to a 3D vector set.
-This mapping is just based on the belief that the real world is in 3D.
-But as we believe, beliefs are not final and should be challanged constantly and consciously.
-For example positions can be mapped to 4D vector set, the new dimension being the time.
-Similarly more dimensions can represent more information.
-Or the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.
-However we can always imagine a space represented by 3D vector set and do operations on it.
 ''',
 
 r'''
@@ -130,6 +122,35 @@ r'''
 If the space is finite, it is called a line segement otherwise a line.
 We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
 Generally denoted by drawing straight lines on paper.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Position Space',
+
+r'''
+A @space@ where each @point@ represents a position of an object is called a position space.
+The coordinate system that acts on it is called position coordinate system.
+''',
+
+r'''
+Used to denote positions of objects in the real world.
+Positions in real world are generally mapped to a 3D vector set.
+This mapping is just based on the belief that the real world is in 3D.
+But as we believe, beliefs are not final and should be challanged constantly and consciously.
+
+For example positions can be mapped to 4D vector set, the new dimension being the time.
+Similarly more dimensions can represent more information.
+Or the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.
+
+Whatever the real world might be, we can always imagine a space represented by 3D vector set and do operations on it.
+We can also choose to set each of the coordinate axes `perpendicular to each other geometrically' in that coordinate system.
 ''',
 
 r'''

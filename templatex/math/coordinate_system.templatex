@@ -93,13 +93,13 @@ ${ add_statement(
 'Coordinate Axis',
 
 r'''
-A coordinate axis of a @coordinate system@ $ \Lambda $ acting on a @space@ G is a @subset@ of G, say A such that the @state vector@ of any @point@ in A $ \equiv $ a scaled version of an @axis vector@ B @vector scaling@.
+A coordinate axis of a @coordinate system@ $ \Lambda $ acting on a @space@ G is a @subset@ of G, say A such that the @state vector@ of any @point@ in A $ \equiv $ a scaled version of an @standard vector@ B @vector scaling@.
 ''',
 
 r'''
 A coordinate axis is a simple way to disassemble a coordinate system.
 For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.
-Due to the virtue of state vectors on coordinate axis being scaled axis vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.
+Due to the virtue of state vectors on coordinate axis being scaled standard vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.
 It has no connection with other coordinate axes.
 This is a good thing because it makes things simple, decoupled and non-clumsy.
 ''',

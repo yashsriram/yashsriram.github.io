@@ -269,14 +269,14 @@ r'''
 
 ${ add_statement(
 
-'Axis Vector',
+'Standard Vector',
 
 r'''
-An axis vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.
+A standard vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.
 ''',
 
 r'''
-An axis vector is a simple unit vector.
+An standard vector is a simple unit vector.
 For example
 \[
   \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
@@ -284,7 +284,7 @@ For example
   \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
   \begin{bmatrix} 1 \end{bmatrix}
 \]
-are instances of axis vector.
+are instances of standard vector.
 It can be used as a building block for creating useful tools.
 ''',
 
@@ -357,7 +357,7 @@ In vectors of dimensions 2 and 3, we visualize this by drawing what we usually d
 This visualization is just a choice.
 We choose that because the independence is visualized in the sense of projections.
 In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.
-So we donot visualize them in 4D or more dimensional spaces.
+So there is no need to visualize them in 4D or more dimensional spaces.
 ''',
 
 r'''

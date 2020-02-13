@@ -192,6 +192,59 @@ r'''
 
 ${ add_statement(
 
+'Standard Vector',
+
+r'''
+A standard vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.
+''',
+
+r'''
+An standard vector is a simple unit vector.
+For example
+\[
+  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \end{bmatrix}
+\]
+are instances of standard vector.
+It can be used as a building block for creating useful tools.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Standard basis',
+
+r'''
+The standard basis of a @set@ of N-dimensional @vector@s V is the set of all @standard vector@s of dimension N.
+''',
+
+r'''
+Can be used to construct coordinate axes and thus coordinate system.
+As each vector in standard basis belongs to one and only one coordinate axis, any point in the state vector space $ \equiv $ linear combination of all vectors in standard basis.
+For example a set of 4D vectors have a standard basis as the following
+\[
+  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'L1 Norm',
 
 r'''
@@ -266,61 +319,6 @@ r'''
 '''
 
 ) }
-
-${ add_statement(
-
-'Standard Vector',
-
-r'''
-A standard vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.
-''',
-
-r'''
-An standard vector is a simple unit vector.
-For example
-\[
-  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 1 \end{bmatrix}
-\]
-are instances of standard vector.
-It can be used as a building block for creating useful tools.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-${ add_statement(
-
-'Standard basis',
-
-r'''
-The standard basis of a @set@ of N-dimensional @vector@s V is the set of all @standard vector@s of dimension N.
-''',
-
-r'''
-Can be used to construct coordinate axes and thus coordinate system.
-As each vector in standard basis belongs to one and only one coordinate axis, any point in the state vector space $ \equiv $ linear combination of all vectors in standard basis.
-For example a set of 4D vectors have a standard basis as the following
-\[
-  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
-  \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
-\]
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-
 
 ${ add_statement(
 

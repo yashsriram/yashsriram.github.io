@@ -9,10 +9,57 @@ ${ add_statement(
 'Linear Transformation',
 
 r'''
-A linear transformation of a @coordinate system@ $ \Lambda $ mapping to a set of vectors V, is a @function@ $ \Psi $ mapping from V to a new set of vectors W, such th
+A linear transformation on a @space@ G is a @bijection@ mapping from a @coordinate system@ $ \Lambda $ on G mapping to a @state vector space@ V to a coordinate system $\Psi$ on same G mapping to state vector space W of same dimension as V, such that each @vector@ in @standard basis@ of W is a @linear combination@ of all vectors in V.
 ''',
 
 r'''
+A simple tool for moving b/w representations of space.
+Some popular examples of linear transformations are rotation, scale, sheer.
+
+For instance in a 2D state vector space, if standard basis of W say $ \hat{o}, \hat{p} $ are linear combinations of standard basis of V say $ \hat{d}, \hat{f} $ as follows
+\[  \hat{o} = 3 * \hat{d} + 2 * \hat{f} \]
+\[  \hat{p} = 0 * \hat{d} + 2 * \hat{f} \]
+Note that
+\begin{enumerate}[nolistsep]
+  \item In V $ \hat{o}, \hat{p} $ represent $ \begin{bmatrix} 1 \\ 0 \end{bmatrix} and \begin{bmatrix} 0 \\ 1 \end{bmatrix} $ repsectively.
+  \item In W $ \hat{d}, \hat{f} $ represent $ \begin{bmatrix} 1 \\ 0 \end{bmatrix} and \begin{bmatrix} 0 \\ 1 \end{bmatrix} $ repsectively.
+\end{enumerate}
+But V and W are different representations of the same space. Therfore,
+\begin{enumerate}[nolistsep]
+  \item $ \hat{o}, \hat{p} $ represents a same vector as $ \hat{d}, \hat{f} $. So they are indentical in this context.
+  \item $ \hat{o}, \hat{p} $ represents a different point than $ \hat{d}, \hat{f} $. So they are non identical in this context.
+\end{enumerate}
+Therefore when we say two vectors are equal we should be careful about the context of the discussion.
+
+Suppose a point $ \eta $ is represented by $ \begin{bmatrix} 4 \\ 10 \end{bmatrix} $ in $ \Psi $.
+That means P is represented by $ 4 * \hat{o} + 10 * \hat{p} $.
+Now to get representation of the same point $ \eta $ in $ \Lambda $ (remember points do not change with anything) we just substitute the expressions of $ \hat{o}, \hat{p} $ in terms of $ \hat{d}, \hat{f} $ as given above, i.e. $ 4 * (3 * \hat{d} + 2 * \hat{f}) + 10 * (0 * \hat{d} + 2 * \hat{f}) $ which gives $ 12 * \hat{d} + 28 * \hat{f} $.
+This can be written as
+\[
+  4 * \begin{bmatrix} 3 \\ 2 \end{bmatrix} + 10 * \begin{bmatrix} 0 \\ 2 \end{bmatrix}
+\]
+which can be further packaged as a matrix multiplication.
+\[
+  \begin{bmatrix} 3 & 0 \\ 2 & 2 \end{bmatrix} \begin{bmatrix} 4 \\ 10 \end{bmatrix}
+\]
+This is why the matrix multiplication was invented. Mind Blown!!
+Therefore columns in a matrix can be seen as the representations of standard basis of new coordinate system in the old one.
+
+Therefore the linear tranform can be seen as a way to do the following things
+\begin{enumerate}[nolistsep]
+  \item Given a transformed coordinate system i.e. given standard basis of new coordinate system in terms of the old one, we can get the representation for the same point in two different systems.
+  \item Visualize moving a vector $ \lambda $ representing a point A in $ \Lambda $ to the point B represented in $ \Psi $ by $ \psi $ which is numerically equal to $ \lambda $.
+\end{enumerate}
+Donot mix these two.
+
+Misconceptions busting.
+\begin{enumerate}[nolistsep]
+  \item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.
+  \item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
+  \item There is no such thing as multiplying a vector on its right. Dimensions don't match for multiplication to occur.
+  \item Linear transformation is not about raw numbers, the idea comes from visualing space and trying to play with it.
+\end{enumerate}
+
 
 ''',
 

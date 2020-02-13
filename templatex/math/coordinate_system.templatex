@@ -68,7 +68,7 @@ ${ add_statement(
 'State Vector Space',
 
 r'''
-A state vector space is a @set@ of @state vector@s.
+A state vector space is a @set@ of all possible N-dimensional @state vector@s.
 ''',
 
 r'''
@@ -82,19 +82,20 @@ r'''
 
 ) }
 
-
-
 ${ add_statement(
 
 'Coordinate System',
 
 r'''
-A coordinate system $ \Lambda $ is an @injection@ mapping from @space@ G to an N-dimensional @state vector space@ V. Denoted by $ \Lambda: G \to V $.
+A coordinate system $ \Lambda $ is an @bijection@ mapping from @space@ G to an N-dimensional @state vector space@ V.
 
-$\forall g \in G, \Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
+Denoted by $ \Lambda: G \to V $. $\forall g \in G, \Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
 ''',
 
 r'''
+We choose state vector space to represent a space G because, by definition any v $\in V \equiv $ linear combination of all vectors of standard basis.
+Therefore we only need standard basis to describe any vector in V, nothing else.
+
 Sets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.
 Defining it like this removes all untagible invisible evil chains that are otherwise tied to the concept, thus providing a clean, elegant and concrete description.
 

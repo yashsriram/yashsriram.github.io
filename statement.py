@@ -129,7 +129,7 @@ class Statement:
             latex_description = formatted_description
         # significance
         if self.significance.isspace():
-            latex_significance = r'{\color{red} No significance?}'
+            latex_significance = r'{\color{red} No significance? TODO}'
         else:
             latex_significance = r'\textbf{Significance}:%s' % self.significance
         # complete latex

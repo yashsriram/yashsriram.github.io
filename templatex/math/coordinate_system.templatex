@@ -65,19 +65,40 @@ r'''
 
 ${ add_statement(
 
+'State Vector Space',
+
+r'''
+A state vector space is a @set@ of @state vector@s.
+''',
+
+r'''
+Used to represent a collection of state vectors.
+Mainly created for constructing coordinate system.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
+${ add_statement(
+
 'Coordinate System',
 
 r'''
-A coordinate system $ \Lambda $ is an @injection@ mapping from @space@ G to a @set@ of N-dimensional @state vector@s V. Denoted by $ \Lambda: G \to V $.
+A coordinate system $ \Lambda $ is an @injection@ mapping from @space@ G to an N-dimensional @state vector space@ V. Denoted by $ \Lambda: G \to V $.
 
 $\forall g \in G, \Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
 ''',
 
 r'''
 Sets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.
-Defining it like this removes all untagible invisible evil chains that are tied to the concept otherwise, thus providing a clean, elegant and concrete description.
+Defining it like this removes all untagible invisible evil chains that are otherwise tied to the concept, thus providing a clean, elegant and concrete description.
 
-Here we make a proper connection from points and spaces to vectors.
+Here we make sort of a first proper connection from points and spaces to vectors.
 Note that when we talk about dimensionality here, it is the property of vectors not the space itself.
 Thus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.
 ''',
@@ -97,11 +118,13 @@ A coordinate axis of a @coordinate system@ $ \Lambda $ acting on a @space@ G is 
 ''',
 
 r'''
-A coordinate axis is a simple way to disassemble a coordinate system.
 For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.
 Due to the virtue of state vectors on coordinate axis being scaled standard vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.
 It has no connection with other coordinate axes.
 This is a good thing because it makes things simple, decoupled and non-clumsy.
+
+A coordinate axis is a simple way to disassemble a coordinate system.
+Any point in the state vector space $ \equiv $ linear combination of some point on each coordinate axis.
 ''',
 
 r'''

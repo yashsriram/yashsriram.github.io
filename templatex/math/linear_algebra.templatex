@@ -3,6 +3,27 @@
 \begin{document}
 
 \chapter{linear algebra}
+
+${ add_statement(
+
+'Linear Transformation',
+
+r'''
+A linear transformation of a @coordinate system@ $ \Lambda $ mapping to a set of vectors V, is a @function@ $ \Psi $ mapping from V to a new set of vectors W, such th
+''',
+
+r'''
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
+
 TODO
 \begin{enumerate}[nolistsep]
   \item idea of linear transform

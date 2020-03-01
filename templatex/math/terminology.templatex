@@ -29,7 +29,6 @@ ${ add_statement(
 
 r'''
 The process of generating @graphics@ from a 2D or 3D geometric scene is called rendering.
-It is also known as rasterization.
 ''',
 
 r'''

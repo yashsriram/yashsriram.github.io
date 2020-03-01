@@ -64,6 +64,7 @@ ${add_sub_file('math/coordinate_system.templatex')}
 ${add_sub_file('math/linear_algebra.templatex')}
 ${add_sub_file('math/calculus.templatex')}
 ${add_sub_file('math/probability.templatex')}
+${add_sub_file('math/terminology.templatex')}
 
 \part{programming}
 ${add_sub_file('coding/tips.templatex')}

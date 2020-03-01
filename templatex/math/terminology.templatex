@@ -119,10 +119,10 @@ Often ignored and/or replaced with the word rasterization.
 The operations being independent makes the process parallelizable.
 Actually this idea along with the motivation for making better graphics for games, movies, research etc... resulted in development of hardware that can run same instruction on multiple data simultaneously, which we now call as GPUs (graphics processing units).
 Although GPUs were invented for graphics other uses were discovered recently, most notable example being the use in parallelizing matrix computations for deep learning.
-Therefore such GPUs are named GPGPUs (general purpose GPUs).
+GPUs that can be used for general purpose computations are named, surprise surprise, GPGPUs (general purpose GPUs).
 
 OpenGL is made for scan conversion rasterization only.
-It is not made for not general purpose parallel computing, not even for other rasterization techniques like ray tracing.
+It is not made for general purpose parallel computing, not even for other rasterization techniques like ray tracing.
 OpenCL and CUDA are made for general purpose parallel computing.
 The purpose of OpenGL is not to get access to GPU, the purpose is rasterization using scan conversion.
 The GPU just happens to be a good hardware for rasterization using scan conversion.

@@ -1,0 +1,14 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{languages}
+
+\begin{enumerate}[nolistsep]
+  \item C/C++/Rust
+  \item Go
+  \item Java/Kotlin
+  \item Python
+  \item Shell
+\end{enumerate}
+
+\end{document}

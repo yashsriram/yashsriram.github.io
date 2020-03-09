@@ -67,6 +67,7 @@ ${add_sub_file('math/probability.templatex')}
 ${add_sub_file('math/terminology.templatex')}
 
 \part{programming}
+${add_sub_file('coding/languages.templatex')}
 ${add_sub_file('coding/tips.templatex')}
 
 \end{document}

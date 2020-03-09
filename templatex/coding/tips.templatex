@@ -3,9 +3,8 @@
 \begin{document}
 \chapter{tips}
 
-\begin{enumerate}
-  \item Bitwise operations are much faster than arithmetic operations. So use them if possible
-    For ex in bit manipulation n, n - 1 bit manipulation trick
+\begin{enumerate}[nolistsep]
+  \item Bitwise operations are much faster than arithmetic operations. So use them if possible. For ex in bit manipulation n, n - 1 bit manipulation trick
   \item Linked list dummy initial node :P
   \item Systemetic case expansion
   \item Working with examples

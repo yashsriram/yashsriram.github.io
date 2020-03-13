@@ -3,6 +3,14 @@
 \begin{document}
 \chapter{tips}
 
+\section{Fuzzily separated tree searches}
+\begin{enumerate}[nolistsep]
+  \item Ones that have no state
+  \item Ones that have a fixed size state (finding nearest vertex to a position)
+  \item Ones that have a per-vertex state (path from start to current vertex)
+\end{enumerate}
+
+\section{Misc}
 \begin{enumerate}[nolistsep]
   \item Bitwise operations are much faster than arithmetic operations. So use them if possible. For ex in bit manipulation n, n - 1 bit manipulation trick
   \item Linked list dummy initial node :P

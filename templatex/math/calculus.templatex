@@ -7,7 +7,7 @@ TODO
   \item limits
   \item derivative
   \item partial derivatives
-  \item derivative of vectors and matrices, jacobians
+  \item derivative of vectors and matrices, jacobians, hessians, laplacians etc...
   \item integral
 \end{enumerate}
 

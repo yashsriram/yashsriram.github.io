@@ -145,7 +145,7 @@ A straight space under a @coordinate system@ $\Lambda$ acting on a @space@ G is 
 r'''
 If the space is finite, it is called a line segement otherwise a line.
 We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
-Generally denoted by drawing straight lines on paper.
+Generally denoted by drawing $\overleftrightarrow{}$ on paper.
 ''',
 
 r'''

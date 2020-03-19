@@ -52,11 +52,11 @@ Therefore the linear tranform can be seen as a way to do the following things
 \end{enumerate}
 Donot mix these two.
 
-Misconceptions busting.
+Misconceptions busting. The following are true statements.
 \begin{enumerate}[nolistsep]
   \item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.
   \item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
-  \item There is no such thing as multiplying a vector on its right. Dimensions don't match for multiplication to occur.
+  \item There is no such thing as multiplying a vector on its right by a matrix (contrary to left side which we can use for linear transform). Dimensions don't match for multiplication to occur.
   \item Linear transformation is not about raw numbers, the idea comes from visualing space and trying to play with it.
 \end{enumerate}
 
@@ -69,18 +69,60 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Rotation Transformation',
+
+r'''
+A rotation transformation is a @linear transformation@ on a @space@ G from @coordinate system@ $\Lambda$ with @state vector space@ V to coordinate system $\Psi$ with state vector space W, in which each vector in @standard basis@ of W has @L2 norm@ of 1 and is perpendicular to all others @perpendicular vectors@
+''',
+
+r'''
+Defines a rotation operation.
+The matrix formed by such transformation is called rotation transformation matrix or rotation matrix for short.
+The standard basis of W forms an orthonormal basis.
+
+In 3D the number of degrees of freedom for a rotation matrix is 3 even though we have 9 elements in a 3x3 matrix.
+This is because for a 3D unit vector we have 2 degrees of freedom (the third one is fixed when we choose first two due to length).
+Therefore by choosing the unit vector value of first axis of new coordinate system in the old coordinate system we used 2 degrees of freedom.
+Given this vector we have to choose a perpendicular vector i.e. any vector in plane perpendicular to it.
+Choosing this will require 1 degree of freedom which is the angle of vector in that plane.
+The final vector is just the cross product of first two which uses 0 degrees of freedom.
+
+Say there is a state vector v.
+After a rotation tranformation the same state vector v in new coordinate system is represented by state vector u in old one.
+Two vectors form a plane.
+So u, v form a plane P that passes through the origin.
+Every plane has one and only one normal, P also has one and only one normal n.
+The rotation transformation matrix has a determinant $\equiv 1$ because it is a orthonormal matrix.
+Therefore the length (L2 norms) of both vectors u, v are identical.
+In the plane P we have angle b/w u, v say $\theta$.
+Therefore the whole rotation transformation can be seen as a rotating the state vector v about one and only one axis n by angle $\theta$ to reach u.
+There you have the good old way to thinking about rotation. Mind blown!!
+
+Misconceptions busting. The following are true statements.
+\begin{enumerate}[nolistsep]
+  \item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.
+  \item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
+  \item In 3D, every rotation always has one and only one axis of rotation which passes through origin. Rotation about an axis not passing through origin is not defined.
+  \item Similarly, in 2D, every rotation is always about origin. Rotation about a point which is not an origin is not defined.
+\end{enumerate}
+
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
 
 
 TODO
 \begin{enumerate}[nolistsep]
-  \item idea of linear transform
-  \item writing linear transform and composition of linear transforms as matrix and product of matrices, building matrix as tool
+  \item composition of linear transforms, composition as product of matrices, building matrix as tool
   \item proof of composition of linear transform is a linear transform, algebraically and geometrically
-  \item misconceptions: multiplying matrices on left of vectors vs \xcancel{right of vectors}
-  \item misconceptions: animating vectors vs \xcancel{animating coordinate frames}
+  \item misconceptions: \xcancel{animating vectors} vs \xcancel{animating coordinate frames} don't try to animate (lerp) anything
   \item latest frame vs initial frame
-  \item rotation as a special case of linear transform, rotation in 3d always has a one and only one axis passing through origin proof (using linear transform + constant L2 norm + two vector defn of plane + normal to plane)
-  \item rotation in 2d only around point on origin
   \item determinant, descriminant whatever
   \item dot product, cross product
   \item linearly dependent/independent

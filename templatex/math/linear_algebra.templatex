@@ -123,6 +123,7 @@ TODO
   \item proof of composition of linear transform is a linear transform, algebraically and geometrically
   \item misconceptions: \xcancel{animating vectors} vs \xcancel{animating coordinate frames} don't try to animate (lerp) anything
   \item latest frame vs initial frame
+  \item representation of rotation: rot mat, quaternions, axis-angle, eular, roll pitch yaw, gimbal lock
   \item determinant, descriminant whatever
   \item dot product, cross product
   \item linearly dependent/independent

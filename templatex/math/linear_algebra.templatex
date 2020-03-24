@@ -83,7 +83,7 @@ The matrix formed by such transformation is called rotation transformation matri
 The standard basis of W forms an orthonormal basis.
 
 In 3D the number of degrees of freedom for a rotation matrix is 3 even though we have 9 elements in a 3x3 matrix.
-This is because for a 3D unit vector we have 2 degrees of freedom (the third one is fixed when we choose first two due to length).
+This is because for a 3D unit vector we have two degrees of freedom (the third one is fixed when we choose first two due to length constraint).
 Therefore by choosing the unit vector value of first axis of new coordinate system in the old coordinate system we used 2 degrees of freedom.
 Given this vector we have to choose a perpendicular vector i.e. any vector in plane perpendicular to it.
 Choosing this will require 1 degree of freedom which is the angle of vector in that plane.

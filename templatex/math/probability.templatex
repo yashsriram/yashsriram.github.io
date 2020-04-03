@@ -257,7 +257,7 @@ The conditional probability of an event A given event B of E is the @probability
 r'''
 This definition has more profound significance than its appears.
 
-$ A \cap B $ because event of an even the collapsed experiement must be a subset of its outcome space (here B).
+$ A \cap B $ because even the collapsed experiement must be a subset of its outcome space (here B).
 $ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabilities of all outcomes = 1.
 
 To be more precise the definition is actually
@@ -348,6 +348,7 @@ r'''
 ) }
 
 \begin{enumerate}[nolistsep]
+  \item \todo
   \item Cdf and pdf definitions
   \item Expected value definitions
   \item Joint probability definition

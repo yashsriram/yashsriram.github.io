@@ -117,7 +117,7 @@ r'''
 ) }
 
 
-TODO
+\todo
 \begin{enumerate}[nolistsep]
   \item composition of linear transforms, composition as product of matrices, building matrix as tool
   \item proof of composition of linear transform is a linear transform, algebraically and geometrically
@@ -136,6 +136,22 @@ TODO
   \item +ve definite, semi +ve definite
   \item quaternions
   \item SVD, other easy useful decompositions
+\end{enumerate}
+
+\todo
+\begin{enumerate}[nolistsep]
+  \item multiplication of quaternions is not commutative
+  \item the beauty of the phrase exact approximation
+  \item rot mat <-> eular angle, rpy
+  \item what is gimbal lock? not single solution with gimbal lock?
+  \item axis-angle <-> rotation matrix - eigen basis, null space finding
+  \item Code/Visualize/Animate the math
+  \item how to tell which system has how many and what type  of solutions? and what is a solution exactly?
+  \item sensing: hw1 p1 how is orientation not determinable?
+  \item $a^T * b = b^T$ * a iff a, b are vectors
+  \item what is determinant of transform matrix with only rotation and translation ? == 1
+  \item composition of linear transformations
+  \item rotation \& quaternions
 \end{enumerate}
 
 %% \chapter{co-ordinate systems and vectors}

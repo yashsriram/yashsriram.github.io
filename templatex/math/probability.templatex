@@ -143,7 +143,7 @@ ${ add_statement(
 'Basic properties of probability',
 
 r'''
-Given S be the @outcome space@ and E, A, B be some @event@s of an @experiment@ X. The following properties hold @null set@.
+Given S be the @outcome space@ and A, B be some @event@s of an @experiment@ E. The following properties hold @null set@.
 \begin{enumerate}[nolistsep]
   \item $P(A) \ge 0 $
   \item $P(S) \equiv 1 $

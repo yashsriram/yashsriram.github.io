@@ -127,6 +127,7 @@ As the $d\alpha$ tends to 0
 \begin{enumerate}[nolistsep]
   \item The limiting value of the LHS is derivative of $f$
   \item The limiting value of the RHS is $g(\alpha)$
+  \item The approximation becomes equivalence
 \end{enumerate}
 Therefore,
 \[
@@ -149,6 +150,7 @@ As $n$ tends to infinity
 \begin{enumerate}[nolistsep]
   \item The limiting value of the LHS is derivative of $\int_{0}^{\alpha} g(\beta) d\beta$
   \item The limiting value of the RHS is $f(\alpha) - f(0)$
+  \item The approximation becomes equivalence
 \end{enumerate}
 Therefore,
 \[

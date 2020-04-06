@@ -121,7 +121,11 @@ ${ add_statement(
 'Probability',
 
 r'''
-The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio $ \frac{Number-of-times-\lambda-occured}{Number-of-repetitions} $ as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda) $.
+The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio
+\[
+\frac{Number-of-times-\lambda-occured}{Number-of-repetitions}
+\]
+as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda) $.
 ''',
 
 r'''
@@ -251,7 +255,10 @@ ${ add_statement(
 
 r'''
 Let P(A) denotes probability of some @event@ A of original @experiment@ E.
-The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as $ \equiv \frac{P(A \cap B)}{P(B)} $.
+The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as
+\[
+  P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)}
+\]
 ''',
 
 r'''

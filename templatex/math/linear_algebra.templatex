@@ -141,7 +141,6 @@ r'''
 \todo
 \begin{enumerate}[nolistsep]
   \item multiplication of quaternions is not commutative
-  \item the beauty of the phrase exact approximation
   \item rot mat <-> eular angle, rpy
   \item what is gimbal lock? not single solution with gimbal lock?
   \item axis-angle <-> rotation matrix - eigen basis, null space finding

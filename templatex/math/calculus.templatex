@@ -1,16 +1,165 @@
 \documentclass[./main.tex]{subfiles}
 
 \begin{document}
-\chapter{calculus}
+\chapter{infinitesimal calculus}
 TODO
 \begin{enumerate}[nolistsep]
   \item limits
-  \item derivative
+  \item the beauty of the phrase exact approximation
   \item partial derivatives
   \item derivative of vectors and matrices, jacobians, hessians, laplacians etc...
-  \item integral
 \end{enumerate}
 
+${ add_statement(
+
+'Derivative',
+
+r'''
+The derivative of a @function@ $\Lambda : D \to C $ at $\alpha \in D$ is the limiting value of
+\[
+  \frac{\Lambda(\alpha + h) - \Lambda(\alpha)}{h}
+\]
+as h tends to zero.
+Denoted by
+\[
+  \frac{d\Lambda}{d\alpha} \equiv \lim_{h \to 0}\frac{\Lambda(\alpha + h) - \Lambda(\alpha)}{h}
+\]
+''',
+
+r'''
+A notion of difference in function given difference in input.
+Generally visualized as a slope of the curve defined by the function.
+It is a general misconception that derivative is something very complicated and uncomprehensible thing.
+But it is actually not.
+It is a simple thing.
+
+One subtle but important thing to notice here is that, there is no usage of the term "infinitesimals" here.
+The spirit of the derivative is in measuring change in function when input is changed.
+And the actual derivative itself is the value that the ratio approaches as the change gets smaller and smaller.
+
+It can definitely be the case that the ratio does not have a limiting value.
+The derivative is not defined for such cases, that's all.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Integral',
+
+r'''
+The integral of a @function@ $\Lambda : D \to C $ at $\alpha \in D$ is the limiting value of
+\[
+  \sum_{i=0}^{n-1} \Lambda(\alpha * \frac{i}{n}) * \frac{\alpha}{n}
+\]
+as n tends to infinity.
+Denoted by
+\[
+  \int_{0}^{\alpha} \Lambda(\beta) d\beta \equiv \lim_{n \to \infty}\sum_{i=0}^{n-1} \Lambda(\alpha * \frac{i}{n}) * \frac{\alpha}{n}
+\]
+''',
+
+r'''
+A notion of sum of function until a given input.
+Generally visualized as area under the curve defined by the function.
+It is a general misconception that integral is some other worldly incomprehensible thing.
+It is not.
+It is just this.
+There is nothing more to the definition.
+
+One thing to observe is that there is no method to natively evaluate the integral contrary to derivatives (which uses limits).
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
+'Fundamental theorem of Calculus',
+
+r'''
+This theorem links @derivative@s and @integral@s.
+
+For @function@s $g, f:D \to C$ s.t. $\forall \alpha \in D$,
+\[
+  f(\alpha) \equiv \int_{0}^{\alpha} g(\beta) d\beta
+  \impl
+  \frac{df(\alpha)}{d\alpha} \equiv g(\alpha)
+\]
+\[
+  \frac{df(\alpha)}{d\alpha} \equiv g(\alpha)
+  \impl
+  f(\alpha) \equiv f(0) + \int_{0}^{\alpha} g(\beta) d\beta
+\]
+.
+''',
+
+r'''
+Also provides a method to evaluate integrals.
+There is no native method to evaluate integral other than to basically guess viz. guess a function which upon derivation gives the original function and get its value at required point.
+
+It is almost hilarious.
+It almost seems like the integrals are created like a hack.
+This should be developed and we should make a way to natively evaluate integrals that does not involve guessing.
+''',
+
+r'''
+The term `approximation' used here is more profound than you might think.
+\\
+\textbf{First}
+\\
+If $f$ is the integral function i.e. the area under the curve, consider a small finite change in the area $df$.
+Then
+\[
+  df \approx g(\alpha) * d\alpha
+\]
+\[
+  \frac{df}{d\alpha} \approx g(\alpha)
+\]
+As the $d\alpha$ tends to 0
+\begin{enumerate}[nolistsep]
+  \item The limiting value of the LHS is derivative of $f$
+  \item The limiting value of the RHS is $g(\alpha)$
+\end{enumerate}
+Therefore,
+\[
+  \frac{df}{d\alpha} \equiv g(\alpha)
+\]
+\textbf{Second}
+\\
+If $g$ is the derivative of $f$
+\[
+  g(\beta) * d\beta \approx f(\beta + d\beta) - f(\beta)
+\]
+\[
+  \sum_{0}^{n-1} g(\alpha * \frac{i}{n}) * \frac{\alpha}{n} \approx \sum_{0}^{n-1} f(\alpha * \frac{i + 1}{n}) - f(\alpha * \frac{i}{n})
+\]
+Expanding and cancelling terms on RHS we have
+\[
+  \sum_{0}^{n-1} g(\alpha * \frac{i}{n}) * \frac{\alpha}{n} \approx f(\alpha) - f(0)
+\]
+As $n$ tends to infinity
+\begin{enumerate}[nolistsep]
+  \item The limiting value of the LHS is derivative of $\int_{0}^{\alpha} g(\beta) d\beta$
+  \item The limiting value of the RHS is $f(\alpha) - f(0)$
+\end{enumerate}
+Therefore,
+\[
+  f(\alpha) - f(0) \equiv \int_{0}^{\alpha} g(\beta) d\beta
+\]
+\[
+  f(\alpha) \equiv f(0) + \int_{0}^{\alpha} g(\beta) d\beta
+\]
+'''
+
+) }
 
 \end{document}
 

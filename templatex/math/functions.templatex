@@ -11,7 +11,7 @@ r'''
 A function $ \Lambda $ on a @set@ called its domain $ D $ is a mapping from each element $ \alpha $ that @belongs to@ $ D $ to an element $ \beta $ in a new set C called its co-domain.
 This mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.
 For each element $ \alpha \in D $ the mapping $ \beta $ is called image of $ \alpha $.
-The set of mappings for all elements the domain is called range $ R $ of the function $ \Lambda $.
+The set of images for all elements the domain is called range $ R $ of the function $ \Lambda $.
 Function is denoted by $ \Lambda:D \to C $. The image of $ \alpha $ is denoted by $ \Lambda(\alpha) \forall \alpha \in D $.
 ''',
 

@@ -1,7 +1,12 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{tips}
+\chapter{nursery}
+
+\section{Irony of thoughts}
+\begin{enumerate}[nolistsep]
+  \item There exist things which we don't know but can approximate (ex. integrals)
+\end{enumerate}
 
 \section{Long project lessons}
 \begin{enumerate}[nolistsep]

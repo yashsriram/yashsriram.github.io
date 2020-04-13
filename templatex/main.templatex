@@ -69,6 +69,6 @@ ${add_sub_file('math/terminology.templatex')}
 
 \part{programming}
 ${add_sub_file('coding/languages.templatex')}
-${add_sub_file('coding/tips.templatex')}
+${add_sub_file('coding/nursery.templatex')}
 
 \end{document}

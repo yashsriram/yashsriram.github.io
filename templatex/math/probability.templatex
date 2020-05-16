@@ -345,7 +345,7 @@ For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@
 ''',
 
 r'''
-When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide simple ideas to build the concept/definition of bayes theorem.
+When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide simple ideas to build the definition of bayes theorem.
 ''',
 
 r'''

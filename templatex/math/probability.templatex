@@ -207,14 +207,6 @@ Two @event@s A and B of an @experiment@ are independent $ \biimpl $ $ P(A \cap B
 ''',
 
 r'''
-For example in the experiement of throwing a dice the event of throwing a dice first time and the event of throwing a dice second time can be considered independent events.
-
-One very important subtlety is that indeed there is no hard and fast rule that these events need to be independent.
-The turbulance from the first time might effect other which might cause some dependence.
-Even if that is not the case this dependence definition is not limited to the normal sense of the word.
-We can always create an experiement (and thus its probability function) (however bizzare, but still an experiment) with say getting 2 on top in first repetition is event A and the same in second repetition is B such that $ P(A \cap B) \not\equiv P(A) * P(B) $.
-Then by definition these events are not independent, even if no one talks about such kind of experiements.
-
 Note that they are not mutually exclusive events, even though both words are eerily similar.
 Mutually exclusive mean that only one can occur at a given time.
 Independent means both can occur at the same time.
@@ -236,9 +228,10 @@ A collapsed experiment of an @experiment@ E is a new experiment F where F's @out
 
 r'''
 Why not also consider a proper superset of the outcome space?
-Something like an Expanded Experiement?!
-Good question, the reason is because by definition outcome space is a universal set.
-And any superset of universal set is itself, again by definition.
+Something like an Expanded Experiement?
+Good question.
+But by definition outcome space is a universal set for the experiment outcomes.
+A proper superset of universal set doesn't seem very useful or make much sense.
 ''',
 
 r'''
@@ -255,7 +248,7 @@ ${ add_statement(
 
 r'''
 Let P(A) denotes probability of some @event@ A of original @experiment@ E.
-The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and defined as
+The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and it's value is defined as
 \[
   P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)}
 \]
@@ -282,7 +275,7 @@ The reason we choose this neat rule as definition is because of its simplicity a
 
 By assuming that outcome space collapses to B, we are effectively changing probabilities of some events.
 This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1.
-More specifically speaking probabilities sort of are compressed in that now size of outcome space is decreased but still its probability = 1.
+More specifically speaking, probabilities sort of are compressed in that now size of outcome space is decreased but still its probability = 1.
 The changed probabilities are called conditional probabilities and are defined by whatever rule we follow (here it is that neat rule).
 ''',
 
@@ -297,12 +290,16 @@ ${ add_statement(
 'Random Variable',
 
 r'''
-A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and $ \forall \alpha, \beta \in S \st \beta \not\equiv \phi, \psi(\alpha\mid\beta) \equiv $ the conditional probability of event $ \alpha $ given event $ \beta $ for the experiment E.
+A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
+
+$ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and
+
+$ \forall \alpha, \beta \in S \st \beta \not\equiv \phi, \psi(\alpha\mid\beta) \equiv $ the conditional probability of event $ \alpha $ given event $ \beta $.
 ''',
 
 r'''
 A function wrapper around the definitions of experiment, event space, probability.
-Note that $ \psi(\alpha \mid \beta) $ is conditional probability of event $ \alpha $ given event $ \beta $ for the experiment E only, not the collapsed experiment of E.
+Note that $ \psi(\alpha \mid \beta) $ is conditional probability of event $ \alpha $ given event $ \beta $ for the original experiment E, not the collapsed experiment of E.
 ''',
 
 r'''
@@ -345,7 +342,7 @@ For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@
 ''',
 
 r'''
-When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide simple ideas to build the definition of bayes theorem.
+When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide ideas to build the definition of bayes theorem.
 ''',
 
 r'''

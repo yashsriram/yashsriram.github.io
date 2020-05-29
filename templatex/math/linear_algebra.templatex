@@ -117,6 +117,36 @@ r'''
 ) }
 
 
+${ add_statement(
+
+'Definiteness',
+
+r'''
+Let a square matrix M represent a @linear transformation@ on a @space@ G. If
+\begin{enumerate}[nolistsep]
+  \item $z^TMz > 0$ for any non-zero vector $z \biimpl$ it (transformation) is called positive definite.
+  \item $z^TMz < 0$ for any non-zero vector $z \biimpl$ it is called negative definite.
+  \item $z^TMz \ge 0$ for any non-zero vector $z \biimpl$ it is called postive semi-definite.
+  \item $z^TMz \le 0$ for any non-zero vector $z \biimpl$ it is called negative semi-definite.
+  \item else it is called indefinite.
+\end{enumerate}
+''',
+
+r'''
+A neat way to classify transformations.
+In the expression $z^TMz$, $Mz$ is the transformed vector of $z$.
+Therefore the entire expression is the dot product of the vector to its transformed vector.
+Hence a positive definite transformation $\biimpl$ dot product of any vector with its transformed one $> 0$.
+Similarly for others.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+
 \todo
 \begin{enumerate}[nolistsep]
   \item composition of linear transforms, composition as product of matrices, building matrix as tool
@@ -125,15 +155,13 @@ r'''
   \item latest frame vs initial frame
   \item representation of rotation: rot mat, quaternions, axis-angle, eular, roll pitch yaw, gimbal lock
   \item determinant, descriminant whatever
-  \item dot product, cross product
-  \item linearly dependent/independent
+  \item cross product
   \item inverses
   \item column spaces, rank
   \item null spaces
   \item eigen stuff, eigen basis
   \item orthogonal, orthonormal
   \item diagnoal
-  \item +ve definite, semi +ve definite
   \item quaternions
   \item SVD, other easy useful decompositions
 \end{enumerate}

@@ -5,9 +5,9 @@
 - [x] DAG node mass caliberation
 - [x] DAG node size caliberation
 - [x] DAG statement heatmap
+- [ ] Use amethyst or similar to have more control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation)
 - [ ] DAG search
 - [ ] DAG btn to reset
 - [ ] DAG latex type set description
 - [ ] DAG click to pdf
 - [ ] more natural parent reference detection
-- [ ] Use processing or amethyst or similar for rendering to have more control (need force directed layout implementation i.e. spring-mass simulation)

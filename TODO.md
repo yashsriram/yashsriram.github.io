@@ -10,4 +10,4 @@
 - [ ] DAG latex type set description
 - [ ] DAG click to pdf
 - [ ] more natural parent reference detection
-- [ ] Use processing or similar for rendering to have more control (need force directed layout implementation i.e. spring-mass simulation)
+- [ ] Use processing or amethyst or similar for rendering to have more control (need force directed layout implementation i.e. spring-mass simulation)

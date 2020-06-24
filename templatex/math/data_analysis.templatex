@@ -1,0 +1,20 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{data analysis}
+
+\begin{enumerate}[nolistsep]
+  \item \todo
+  \item $(x_i - min) / (max - min)$ set of values vs normalizing set of values, show they are not equal in some instances and properties of each
+  \item accuracy vs precision
+  \item modelling uncertainity using stochasticity
+  \item given a parametrized "stochastically noisy" model with stimulus and response (vector) variable and some samples, the process of estimating parameters (a.k.a fitting model). Using optimization for this estimation. Other non-optimization ways of doing the same. The essence of ML.
+  \item estimation = estimate + uncertainity
+  \item emphasize diff b/w
+    \begin{enumerate}[nolistsep]
+        \item min(sum(abs(residual)))
+        \item min(sum(residual * residual))
+        \item min(sum(perpendicular distance))
+    \end{enumerate}
+\end{enumerate}
+\end{document}

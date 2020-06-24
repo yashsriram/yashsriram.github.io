@@ -9,7 +9,7 @@ ${ add_statement(
 'Linear Transformation',
 
 r'''
-A linear transformation on a @space@ G is a @bijection@ mapping from a @coordinate system@ $ \Lambda $ on G mapping to a @state vector space@ V to a coordinate system $\Psi$ on same G mapping to state vector space W of same dimension as V, such that each @vector@ in @standard basis@ of W is a @linear combination@ of all vectors in V.
+A linear transformation on a @space@ G is a @bijection@ mapping from a @coordinate system@ $ \Lambda $ on G mapping to a @state vector space@ V to a coordinate system $\Psi$ on same G mapping to state vector space W of same dimension as V, such that each @vector@ in @standard basis@ of W is a @linear combination@ of each vector in standard basis of V.
 ''',
 
 r'''
@@ -26,8 +26,8 @@ Note that
 \end{enumerate}
 But V and W are different representations of the same space. Therfore,
 \begin{enumerate}[nolistsep]
-  \item $ \hat{o}, \hat{p} $ represents a same vector as $ \hat{d}, \hat{f} $. So they are indentical in this context.
-  \item $ \hat{o}, \hat{p} $ represents a different point than $ \hat{d}, \hat{f} $. So they are non identical in this context.
+  \item $ \hat{o} $ represents a same vector as $ \hat{d} $. So they are indentical in this context.
+  \item $ \hat{o} $ represents a different point than $ \hat{d} $. So they are non-identical in this context.
 \end{enumerate}
 Therefore when we say two vectors are equal we should be careful about the context of the discussion.
 
@@ -55,7 +55,7 @@ Donot mix these two.
 Misconceptions busting. The following are true statements.
 \begin{enumerate}[nolistsep]
   \item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.
-  \item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
+  \item Rotation is not some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
   \item There is no such thing as multiplying a vector on its right by a matrix (contrary to left side which we can use for linear transform). Dimensions don't match for multiplication to occur.
   \item Linear transformation is not about raw numbers, the idea comes from visualing space and trying to play with it.
 \end{enumerate}
@@ -106,6 +106,36 @@ Misconceptions busting. The following are true statements.
   \item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.
   \item In 3D, every rotation always has one and only one axis of rotation which passes through origin. Rotation about an axis not passing through origin is not defined.
   \item Similarly, in 2D, every rotation is always about origin. Rotation about a point which is not an origin is not defined.
+  \item Although rotation is a linear transform, the result of rotation may not be linear in terms of the angle of rotation.
+  \[
+    \begin{bmatrix}
+        a \\
+        b
+    \end{bmatrix}
+    \equiv
+    \begin{bmatrix}
+        c\theta & -s\theta \\
+        s\theta & c\theta
+    \end{bmatrix}
+    *
+    \begin{bmatrix}
+        x \\
+        y
+    \end{bmatrix}
+  \]
+  \[
+    \begin{bmatrix}
+        a \\
+        b
+    \end{bmatrix}
+    \equiv
+    \begin{bmatrix}
+        xc\theta - ys\theta \\
+        xs\theta + yc\theta
+    \end{bmatrix}
+  \]
+  For example here the result $[a, b]^T$ is linear in terms of $c\theta, s\theta$ and not $\theta$ even though entire rotation matrix can be generated only using $\theta$.
+  A bit misleading indeed.
 \end{enumerate}
 
 ''',

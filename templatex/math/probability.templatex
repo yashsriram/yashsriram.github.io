@@ -8,7 +8,7 @@ ${ add_statement(
 'Experiment',
 
 r'''
-A set of procedures which when followed produces some outcome.
+A list of instructions which when followed produces some outcome.
 ''',
 
 r'''
@@ -28,7 +28,7 @@ ${ add_statement(
 'Deterministic Experiment',
 
 r'''
-An @experiment@ where $ O_1, O_2, O_3, ... $ represent outcomes at when experiment is repeated 1, 2, 3 and so on number of times, is such that $ O_1, O_2, O_3, ... $ are pairwise identical no matter how many times it is repeated is called a deterministic experiment @identity@.
+Let $ O_k $ represent the final outcome when an @experiment@ is repeated k times, an experiment such that $ O_1, O_2, O_3, ... O_n $ are pairwise identical @identity@ $\forall n \in \mathbb{N} $ @natural numbers@ is called a deterministic experiment.
 ''',
 
 r'''
@@ -43,10 +43,10 @@ r'''
 
 ${ add_statement(
 
-'Stochastic Experiment',
+'Non-deterministic Experiment',
 
 r'''
-An @experiment@ where $ O_1, O_2, O_3, ... $ represent outcomes at when experiment is repeated 1, 2, 3 and so on number of times, is such that $ \exists (i, j) \st O_i \not\equiv O_j $ is called a stochastic experiment @identity@.
+Let $ O_k $ represent the final outcome when an @experiment@ is repeated k times, an experiment such that $ \exists (i, j) \st O_i \not\equiv O_j $ @identity@ is called a non-deterministic experiment.
 ''',
 
 r'''
@@ -115,21 +115,63 @@ r'''
 ) }
 
 
+${ add_statement(
+
+'Stochastic Experiment',
+
+r'''
+An @experiment@ such that $\forall$ @event@ $ \lambda \in $ @event space@ the limiting value of the ratio
+\[
+\frac{number-of-times-\lambda-occured}{number-of-repetitions}
+\]
+as the number of repetitions tend to infinity, exists, is called a stochastic experiment.
+''',
+
+r'''
+Useful to build the concept of probability.
+Note that by my definition of stochastic experiment
+\begin{enumerate}[nolistsep]
+    \item All deterministic experiments are stochastic experiments with probability of the only outcome being 1.
+    \item Some non-deterministic experiments are stochastic experiments.
+\end{enumerate}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+
+    \setlength{\parskip}{5mm}
+        \draw[fill=blue!60]     (0, 0) -- (90:2.5) arc (90:270:2.5) -- cycle ;
+        \draw[]                 (0, 0) circle (2.5) node {Non-deterministic};
+        \draw[fill=blue!60]     (0: 5.1) circle (2.5) node {Deterministic};
+        \node[anchor=south] at (current bounding box.north) {Stochastic (in blue)};
+    \end{tikzpicture}
+    \caption{Venn diagram of Deterministic experiments set, Non-deterministic experiment set and stochastic experiment set.}
+\end{figure}
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
 
 ${ add_statement(
 
 'Probability',
 
 r'''
-The probability of an @event@ $ \lambda $ of an @experiment@ is the limiting value of the ratio
+The probability of an @event@ $ \lambda $ of an @stochastic experiment@ is the limiting value of the ratio
 \[
-\frac{Number-of-times-\lambda-occured}{Number-of-repetitions}
+\frac{number-of-times-\lambda-occured}{number-of-repetitions}
 \]
 as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda) $.
 ''',
 
 r'''
 Probability gives a sense of power of an event when an experiment is conducted.
+
+Although this should be well understood.
+A higher probability does not mean it will occur next.
+Even an event with unimaginabily miniscule probability may happen (many times in a row) and an event with very high probability may not occur (many times in a row).
 Say an experiement has two outcomes $ \alpha, \beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.
 But we can never say with certainity that when an experiment is conducted only $ \alpha $ shall occur.
 Nor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \alpha $ never occurs.
@@ -147,7 +189,7 @@ ${ add_statement(
 'Basic properties of probability',
 
 r'''
-Given S be the @outcome space@ and A, B be some @event@s of an @experiment@ E. The following properties hold @null set@.
+Given S be the @outcome space@ and A, B be some @event@s of an @stochastic experiment@ E. The following properties hold @null set@.
 \begin{enumerate}[nolistsep]
   \item $P(A) \ge 0 $
   \item $P(S) \equiv 1 $
@@ -203,7 +245,7 @@ ${ add_statement(
 'Independent Events',
 
 r'''
-Two @event@s A and B of an @experiment@ are independent $ \biimpl $ $ P(A \cap B) \equiv P(A) * P(B) $ @probability@.
+Two @event@s A and B of an @stochastic experiment@ are independent $ \biimpl $ $ P(A \cap B) \equiv P(A) * P(B) $ @probability@.
 ''',
 
 r'''
@@ -247,7 +289,7 @@ ${ add_statement(
 'Conditional Probability',
 
 r'''
-Let P(A) denotes probability of some @event@ A of original @experiment@ E.
+Let P(A) denotes probability of some @event@ A of original @stochastic experiment@ E.
 The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and it's value is defined as
 \[
   P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)}
@@ -285,12 +327,13 @@ r'''
 
 ) }
 
+
 ${ add_statement(
 
 'Random Variable',
 
 r'''
-A random variable of an @experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
+A random variable of an @stochastic experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
 
 $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and
 
@@ -313,7 +356,7 @@ ${ add_statement(
 'Total Probability Theorem',
 
 r'''
-For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+For a @random variable@ $\psi$ of an @stochastic experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
 \[
   \psi(B) = \sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )
 \]
@@ -334,7 +377,7 @@ ${ add_statement(
 'Bayes Theorem',
 
 r'''
-For a @random variable@ $\psi$ of an @experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+For a @random variable@ $\psi$ of an @stochastic experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
 \[
   \psi(A_i \mid B) = \frac{\psi(B \mid A_i ) \psi( A_i )}{\sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )}
 \]

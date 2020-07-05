@@ -161,7 +161,6 @@ A complement of a @set@ A is a set which contains all elements which do not @bel
 
 r'''
 A basic unary operator on a set.
-A similar but (not entirely) operator to negative numbers.
 ''',
 
 r'''
@@ -194,13 +193,13 @@ ${ add_statement(
 
 r'''
 A null set is a @set@ which has @zero@ elements in it. Denoted by $ \phi $.
-There is a great debate whether there is a single null set or many null sets.
-My take on it is that it depends on the context @identity@.
 ''',
 
 r'''
 A representation for nothingness.
 The reason for my take is because even null set is just a mathematical tool.
+There is a great debate whether there is a single null set or many null sets.
+My take on it is that it depends on the context.
 ''',
 
 r'''
@@ -216,7 +215,7 @@ ${ add_statement(
 'Ordered Set',
 
 r'''
-An ordered set is a @set@ where there exists an Order b/w every pair of elements in it.
+An ordered set is a @set@ where there exists an @order@ b/w every pair of elements in it.
 ''',
 
 r'''
@@ -333,7 +332,7 @@ A @set@ of tools working together to do something.
 ''',
 
 r'''
-A general term to refer to a set of tools working together to do something. Surprisingly never been defined properly until now.
+A general term to refer to a set of tools working together to do something. Surprisingly was defined properly until now.
 ''',
 
 r'''

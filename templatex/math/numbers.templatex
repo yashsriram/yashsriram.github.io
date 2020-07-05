@@ -9,7 +9,7 @@ ${ add_statement(
 'Natural Numbers',
 
 r'''
-  The @ordered Set@ of all numbers @number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} \equiv \{ 1, 2, 3, ... \} $.
+  The @ordered set@ of all numbers @number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \mathbb{N} \equiv \{ 1, 2, 3, ... \} $.
 ''',
 
 r'''

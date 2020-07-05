@@ -13,7 +13,7 @@ A statment is a sentence that is either true or false.
 If a node does not have any parents it is called \textbf{axiom} otherwise it is called \textbf{theorem}.
 
 Every theorem is associated with a \textbf{proof}.
-All edges from a theorem to its parents can also be associated with the same proof.
+All edges from a theorem to its parents are associated with the same proof.
 A proof is a reasoning only due to which the theorem becomes true when all its parents are true.
 It is illustrated in the following pseudocode and figure \ref{fig:structure_of_text}.
 
@@ -26,6 +26,8 @@ It is illustrated in the following pseudocode and figure \ref{fig:structure_of_t
   }
 \end{verbatim}
 \end{center}
+As the DAG is constructed manually, the statements are by default in a topological sort.
+Viz, a statement can not have any statement defined after it as parent, therefore what it states is independent of all such statements.
 
 %% A statement in which we name a certain thing is called \textbf{definition}.
 %% If a definition is a theorem, the proof is just that we name it so and so when all its parents are true and hence theorem is true.

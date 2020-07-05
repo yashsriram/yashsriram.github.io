@@ -179,6 +179,9 @@ A universal set of a @set@ A is a set which is identical to $ A \cup \overline{A
 
 r'''
 A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.
+A proper superset of universal set doesn't exist.
+One can argue to just put some more elements to build a superset, but it makes things complicated.
+If there is ever a real need for such a construct (dynamic universal set!!!???), we can build it then.
 ''',
 
 r'''

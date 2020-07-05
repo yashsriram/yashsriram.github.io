@@ -98,6 +98,29 @@ r'''
 
 ${ add_statement(
 
+'Mutually Exclusive Events',
+
+r'''
+Two @event@s A and B of an @experiment@ are mutually exclusive events $ \biimpl $ $ A \cap B \equiv \phi $ @null set@.
+''',
+
+r'''
+For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.
+Note that they are not independent events, even both words are eerily similar.
+Mutually exclusive mean that at max one can occur at a given time.
+Independent means both can occur at the same time.
+Mutually exclusive events can occur in non-stochastic experiements too.
+Independent events can not occur in non-stochastic experiements.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
+${ add_statement(
+
 'Event Space',
 
 r'''
@@ -114,6 +137,28 @@ r'''
 
 ) }
 
+${ add_statement(
+
+'Collapsed Experiment',
+
+r'''
+A collapsed experiment of an @experiment@ E is a new experiment F where F's @outcome space@ is a @proper subset@ of the E's outcome space.
+''',
+
+r'''
+Why not also consider a proper superset of the outcome space?
+Something like an Expanded Experiement?
+Good question.
+By definition outcome space is a universal set for the experiment outcomes.
+A proper superset of universal set doesn't exist.
+''',
+
+r'''
+\proofbydefinition
+'''
+
+) }
+
 
 ${ add_statement(
 
@@ -122,7 +167,7 @@ ${ add_statement(
 r'''
 An @experiment@ such that $\forall$ @event@ $ \lambda \in $ @event space@ the limiting value of the ratio
 \[
-\frac{number-of-times-\lambda-occured}{number-of-repetitions}
+\frac{\text{number-of-times-$\lambda$-occured}}{\text{number-of-repetitions}}
 \]
 as the number of repetitions tend to infinity, exists, is called a stochastic experiment.
 ''',
@@ -134,18 +179,15 @@ Note that by my definition of stochastic experiment
     \item All deterministic experiments are stochastic experiments with probability of the only outcome being 1.
     \item Some non-deterministic experiments are stochastic experiments.
 \end{enumerate}
-\begin{figure}[h!]
-    \centering
+\begin{center}
     \begin{tikzpicture}
-
     \setlength{\parskip}{5mm}
         \draw[fill=blue!60]     (0, 0) -- (90:2.5) arc (90:270:2.5) -- cycle ;
         \draw[]                 (0, 0) circle (2.5) node {Non-deterministic};
         \draw[fill=blue!60]     (0: 5.1) circle (2.5) node {Deterministic};
         \node[anchor=south] at (current bounding box.north) {Stochastic (in blue)};
     \end{tikzpicture}
-    \caption{Venn diagram of Deterministic experiments set, Non-deterministic experiment set and stochastic experiment set.}
-\end{figure}
+\end{center}
 ''',
 
 r'''
@@ -161,7 +203,7 @@ ${ add_statement(
 r'''
 The probability of an @event@ $ \lambda $ of an @stochastic experiment@ is the limiting value of the ratio
 \[
-\frac{number-of-times-\lambda-occured}{number-of-repetitions}
+\frac{\text{number-of-times-$\lambda$-occured}}{\text{number-of-repetitions}}
 \]
 as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda) $.
 ''',
@@ -186,20 +228,20 @@ r'''
 
 ${ add_statement(
 
-'Basic properties of probability',
+'Properties of probability',
 
 r'''
-Given S be the @outcome space@ and A, B be some @event@s of an @stochastic experiment@ E. The following properties hold @null set@.
+Given S be the @outcome space@ and A, B be some @event@s of an @stochastic experiment@ E. The following properties hold.
 \begin{enumerate}[nolistsep]
   \item $P(A) \ge 0 $
   \item $P(S) \equiv 1 $
-  \item $ A \cap B \equiv \phi \impl P(A \cup B) \equiv P(A) + P(B)$
+  \item $ A \cap B \equiv \phi \impl P(A \cup B) \equiv P(A) + P(B)$ @null set@.
 \end{enumerate}
 
 ''',
 
 r'''
-Some basic tools which can be played around with to create compound interesting tools
+Some tools to played around with to create new tools.
 ''',
 
 r'''
@@ -221,27 +263,6 @@ $ \impl $ the limiting value of the ratio P(S) is also $ \equiv 1 $.
 
 ${ add_statement(
 
-'Mutually Exclusive Events',
-
-r'''
-Two @event@s A and B of an @experiment@ are mutually exclusive events $ \biimpl $ $ A \cap B \equiv \phi $ @null set@.
-''',
-
-r'''
-For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.
-Note that they are not independent events, even both words are eerily similar.
-Mutually exclusive mean that only one can occur at a given time.
-Independent means both can occur at the same time.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-${ add_statement(
-
 'Independent Events',
 
 r'''
@@ -250,8 +271,10 @@ Two @event@s A and B of an @stochastic experiment@ are independent $ \biimpl $ $
 
 r'''
 Note that they are not mutually exclusive events, even though both words are eerily similar.
-Mutually exclusive mean that only one can occur at a given time.
+Mutually exclusive mean that at max one can occur at a given time.
 Independent means both can occur at the same time.
+Mutually exclusive events can occur in non-stochastic experiements too.
+Independent events can not occur in non-stochastic experiements.
 ''',
 
 r'''
@@ -259,37 +282,13 @@ r'''
 '''
 
 ) }
-
-${ add_statement(
-
-'Collapsed Experiment',
-
-r'''
-A collapsed experiment of an @experiment@ E is a new experiment F where F's @outcome space@ is a @proper subset@ of the E's outcome space.
-''',
-
-r'''
-Why not also consider a proper superset of the outcome space?
-Something like an Expanded Experiement?
-Good question.
-But by definition outcome space is a universal set for the experiment outcomes.
-A proper superset of universal set doesn't seem very useful or make much sense.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-
 
 ${ add_statement(
 
 'Conditional Probability',
 
 r'''
-Let P(A) denotes probability of some @event@ A of original @stochastic experiment@ E.
+Let P(A) denote probability of some @event@ A of original @stochastic experiment@ E.
 The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and it's value is defined as
 \[
   P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)}
@@ -303,7 +302,7 @@ $ A \cap B $ because even the collapsed experiement must be a subset of its outc
 $ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabilities of all outcomes = 1.
 
 To be more precise the definition is actually
-\[ P(A \mid B) \equiv \lim_{repetitions\to\infty} \frac{Number-of-times-A \cap B-occured}{Number-of-repetitions} \]
+\[ P(A \mid B) \equiv \lim_{repetitions\to\infty} \frac{\text{number-of-times-$A \cap B$-occured}}{\text{number-of-repetitions}} \]
 where the experiement repeated is the collapsed experiment.
 There is no ultimate reason to follow the neat rule.
 We can easily construct an experiment which does not obey the neat rule of
@@ -313,11 +312,12 @@ If the experiment is collapsed to outcome space of only the second and third out
 They can even be 0.4 and 0.6 respectively and that is fine and can be captured by the limit definition.
 The point is that this neat rule just does not represent such transformations.
 They can be modeled by other rules.
-The reason we choose this neat rule as definition is because of its simplicity and as we believe, simple is better.
+The reason we choose this neat rule as common definition is because of its simplicity.
 
-By assuming that outcome space collapses to B, we are effectively changing probabilities of some events.
+By assuming that outcome space collapses to B, we are effectively changing probabilities of some events from original experiement to collapsed experiement.
 This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1.
-More specifically speaking, probabilities sort of are compressed in that now size of outcome space is decreased but still its probability = 1.
+More specifically speaking, probabilities are sort of compressed.
+In that, now size of outcome space is decreased but still its probability = 1.
 The changed probabilities are called conditional probabilities and are defined by whatever rule we follow (here it is that neat rule).
 ''',
 

@@ -34,7 +34,7 @@ And I often have to re-start my train of thought on them, which is tedious and d
 \begin{enumerate}[noitemsep]
   \item Build constructs that are simple, atomic, composable and excel at one thing.
   \item Build meaningful connections and flow among constructs.
-  \item Keep everything as simple and minimalistic as possible.
+  \item Keep everything as simple and minimal as possible.
   \item Promote recognition rather than re-call.
 \end{enumerate}
 These ideas are inspired by the UNIX philosophy, my experience in programming and doing things in general.

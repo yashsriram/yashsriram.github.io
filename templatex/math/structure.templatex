@@ -74,10 +74,11 @@ Viz, a statement can not have any statement defined after it as parent, therefor
 This makes not much sense to me and therefore acyclic.
 
 \section{also}
-Statements \textbf{always have a practical significance} i.e. there is a reasonable answer to the question `why the hell are we even spending time on this?' I shall try to write this for every statement. All definitions in this text are just my convention, which will \textbf{mostly} be same as the general consensus.
+Statements always have a significance viz. there is a reasonable answer to the question `why the hell are we even spending time on this?'.
+I write this for every statement.
+I avoid purposeless statements.
 
-I personally have a very application-oriented mindset (who does not), as in if I can apply my knowledge to create/improve a tangible system, it drives me a lot more than purposeless studying.
-So I guess if I bring some kind of application to every piece of new thing I learn then I might have a deeper and a more intimate insight in it.
+All definitions in this text are just my convention, which will mostly be same as the general consensus.
 
 \end{document}
 

@@ -424,11 +424,11 @@ For a @random variable@ $\psi$ of a @stochastic experiment@ E, let B be some @ev
 ''',
 
 r'''
-When you have a world that is constant but cannot be observed accurately at once and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem. Videos by \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium} provide ideas to build the definition of bayes theorem.
-''',
+Sanity checks for such a concept can be found at \href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \href{https://youtu.be/R13BD8qKeTg}{veritasium}.
+
+When you have a constant world but cannot be observed accurately and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem.''',
 
 r'''
-
 '''
 
 ) }

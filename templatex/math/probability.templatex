@@ -65,7 +65,7 @@ ${ add_statement(
 'Outcome Space',
 
 r'''
-The outcome space of an @experiment@ is the @set@ of its all possible outcomes.
+The outcome space of an @experiment@ is the @set@ of its all possible outcomes @universal set@.
 ''',
 
 r'''
@@ -374,15 +374,14 @@ ${ add_statement(
 
 r'''
 A random variable of a @stochastic experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
-
-$ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and
-
-$ \forall \alpha, \beta \in S \st \beta \not\equiv \phi, \psi(\alpha\mid\beta) \equiv $ the conditional probability of event $ \alpha $ given event $ \beta $.
+\begin{enumerate}[nolistsep]
+    \item $ \forall \lambda \in S, \psi(\lambda) \equiv $ the @probability@ of the event $ \lambda $.
+    \item $ \forall \alpha, \beta \in S \st \beta \not\equiv \phi, \psi(\alpha\mid\beta) \equiv $ the @conditional probability@ of event $ \alpha $ given event $ \beta $, of E.
+\end{enumerate}
 ''',
 
 r'''
-A function wrapper around the definitions of experiment, event space, probability.
-Note that $ \psi(\alpha \mid \beta) $ is conditional probability of event $ \alpha $ given event $ \beta $ for the original experiment E, not F.
+A function wrapper around the definitions of experiment, event space, probability, conditional probability.
 ''',
 
 r'''

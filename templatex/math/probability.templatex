@@ -201,7 +201,7 @@ ${ add_statement(
 'Probability',
 
 r'''
-The probability of an @event@ $ \lambda $ of an @stochastic experiment@ is the limiting value of the ratio
+The probability of an @event@ $ \lambda $ of a @stochastic experiment@ is the limiting value of the ratio
 \[
 \frac{\text{number-of-times-$\lambda$-occured}}{\text{number-of-repetitions}}
 \]
@@ -231,7 +231,7 @@ ${ add_statement(
 'Properties of probability',
 
 r'''
-Given S be the @outcome space@ and A, B be some @event@s of an @stochastic experiment@ E. The following properties hold.
+Given S be the @outcome space@ and A, B be some @event@s of a @stochastic experiment@ E. The following properties hold.
 \begin{enumerate}[nolistsep]
   \item $P(A) \ge 0 $
   \item $P(S) \equiv 1 $
@@ -266,7 +266,7 @@ ${ add_statement(
 'Independent Events',
 
 r'''
-Two @event@s A and B of an @stochastic experiment@ are independent $ \biimpl $ $ P(A \cap B) \equiv P(A) * P(B) $ @probability@.
+Two @event@s A and B of a @stochastic experiment@ are independent $ \biimpl $ $ P(A \cap B) \equiv P(A) * P(B) $ @probability@.
 ''',
 
 r'''
@@ -289,38 +289,40 @@ ${ add_statement(
 
 r'''
 Let P(A) denote probability of some @event@ A of original @stochastic experiment@ E.
-The conditional probability of an event A given event B of E is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and it's value is defined as
+The conditional probability of an event A given event B, of E, such that B is not a @null set@, is the @probability@ of the event $ A \cap B $ in the @collapsed experiment@ F of E whose @outcome space@ $ \equiv $ B, denoted by P(A$\mid$B) and very specifically it's value is defined as
 \[
   P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)}
 \]
 ''',
 
 r'''
-This definition has more profound significance than its appears.
 
-Observe that $ P(A \mid B) $ is conditional probability of event $ A $ given event $ B $ for the original experiment E, not the collapsed experiment F.
-
-Then the reason for such definition.
-$ A \cap B $ because even an event of the collapsed experiement must be a subset of its outcome space (here B).
-$ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabilities of all outcomes = 1.
-
-To be more precise the definition is actually
+Well, minimally it should be, rather than the simple division rule.
 \[ P(A \mid B) \equiv \lim_{repetitions\to\infty} \frac{\text{number-of-times-$A \cap B$-occured}}{\text{number-of-repetitions-of-F}} \]
-There is no ultimate reason to follow the neat rule.
-We can easily construct an experiment which does not obey the neat rule of
-\[ P(A \mid B) \equiv \frac{P(A \cap B)}{P(B)} \]
-For example consider an experiment with three outcomes each with probability 1/3.
-If the experiment is collapsed to outcome space of only the second and third outcomes, there is no hard and fast rule that new probabilities become 1/2 as given by the neat rule.
-They can even be 0.4 and 0.6 respectively and that is fine and can be captured by the limit definition.
-The point is that this neat rule just does not represent such transformations.
-They can be modeled by other rules.
-The reason we choose this neat rule as common definition is because of its simplicity.
+There is no ultimate reason for such a rule.
+We can easily construct an experiment which does not obey the such a rule.
+For example, consider an experiment with three outcomes each with probability 1/3.
+If the experiment is collapsed such that outcome space contains only the second and third outcomes, there is no hard and fast rule that new probabilities become 1/2 as given by the definition.
+They can even be 0.4 and 0.6 respectively.
+And that is fine.
+Such conditional probabilities can be captured by the minimal definition but not by simple division definition.
+The reason we choose the simple division rule as the definition is because of its simplicity.
+If we ever have a need to capture conditional probability a different way, we can define a new rule.
+This is one more big assumption in probability.
+Remember this when you use conditional probabilities.
 
 By assuming that outcome space collapses to B, we are effectively changing probabilities of some events from original experiement to collapsed experiement.
-This is because even in collapsed experiement (which has a different collapsed outcome space) each probability $ \ge $ 0 and probability of the collapsed outcome space = 1.
-More specifically speaking, probabilities are sort of compressed.
-In that, now size of outcome space is decreased but still its probability = 1.
-The changed probabilities are called conditional probabilities and are defined by whatever rule we follow (here it is that neat rule).
+Because even in collapsed experiement, which has a smaller outcome space, each probability $ \ge $ 0 and probability of the outcome space = 1.
+So probabilities are sort of compressed.
+The changed probabilities are called conditional probabilities and are defined by whatever rule we follow (here it is the simple division rule).
+
+Some sanity checks for the definition.
+\begin{enumerate}[nolistsep]
+    \item $ A \cap B $ because even an event of the collapsed experiement must be a subset of its outcome space (here B).
+    \item $ \frac{1}{P(B)} $ because it normalizes probabilities such that sum of probabilities of all outcomes = 1.
+\end{enumerate}
+
+Observe that $ P(A \mid B) $ is associated with E not F i.e. $ P(A \mid B) $ is conditional probability of event $ A $ given event $ B $ for the original experiment E, not the collapsed experiment F.
 ''',
 
 r'''
@@ -335,7 +337,7 @@ ${ add_statement(
 'Random Variable',
 
 r'''
-A random variable of an @stochastic experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
+A random variable of a @stochastic experiment@ E is a @function@ $ \psi $ mapping from E's @event space@ S to $ [0, 1] $ where
 
 $ \forall \lambda \in S, \psi(\lambda) $ (the image of $ \lambda $ under the function) $ \equiv $ the @probability@ of the event $ \lambda $ and
 
@@ -358,7 +360,7 @@ ${ add_statement(
 'Total Probability Theorem',
 
 r'''
-For a @random variable@ $\psi$ of an @stochastic experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+For a @random variable@ $\psi$ of a @stochastic experiment@ E, let B be some @event@ of E and $\{A_1, A_2, ... A_n\}$ be a @partition@ of @outcome space@ of E, such that none of the $ A_i $ is a @null set@ $ \impl $
 \[
   \psi(B) = \sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )
 \]
@@ -379,7 +381,7 @@ ${ add_statement(
 'Bayes Theorem',
 
 r'''
-For a @random variable@ $\psi$ of an @stochastic experiment@ E, let A and B be some @event@s such that $\{A_1, A_2, ... A_n\}$ represents a @partition@ of a A such that none of the $ A_i $ is a @null set@ $ \impl $
+For a @random variable@ $\psi$ of a @stochastic experiment@ E, let B be some @event@ of E and $\{A_1, A_2, ... A_n\}$ be a @partition@ of @outcome space@ of E, such that none of the $ A_i $ is a @null set@ $ \impl $
 \[
   \psi(A_i \mid B) = \frac{\psi(B \mid A_i ) \psi( A_i )}{\sum_{i=1}^{n} \psi(B \mid A_i ) \psi ( A_i )}
 \]

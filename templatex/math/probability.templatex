@@ -306,8 +306,9 @@ If the experiment is collapsed such that outcome space contains only the second 
 They can even be 0.4 and 0.6 respectively.
 And that is fine.
 Such conditional probabilities can be captured by the minimal definition but not by simple division definition.
+The simple division rule is a special case.
 The reason we choose the simple division rule as the definition is because of its simplicity.
-If we ever have a need to capture conditional probability a different way, we can define a new rule.
+If we ever have a need to capture conditional probability a different way, we can create a new definition.
 This is one more big assumption in probability.
 Remember this when you use conditional probabilities.
 

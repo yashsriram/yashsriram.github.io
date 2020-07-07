@@ -209,15 +209,30 @@ as the experiment is the repeated infinitely many times. Denoted by $ P(\lambda)
 ''',
 
 r'''
-Probability gives a sense of power of an event when an experiment is conducted.
-
-Although this should be well understood.
+One might easily think that probability gives a sense of power of an event when an experiment is conducted.
+Although this is quite easy to misinterpret.
 A higher probability does not mean it will occur next.
 Even an event with unimaginabily miniscule probability may happen (many times in a row) and an event with very high probability may not occur (many times in a row).
 Say an experiement has two outcomes $ \alpha, \beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.
 But we can never say with certainity that when an experiment is conducted only $ \alpha $ shall occur.
 Nor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \alpha $ never occurs.
 This subtle nature of probability, that arises from the definition of limit itself, should be digested well.
+
+A good way to remember this is to add meaning to notation.
+Consider notation,
+\[
+    {\color{red} P} {\color{green}  (} {\color{blue} \lambda} {\color{green} )}
+\]
+Here
+\begin{enumerate}[nolistsep]
+    \item {\color{red} P} should remind that probability is a limit definition.
+    \item {\color{green}  (} {\color{green} )} contains an event(s) therefore an implicit experiment is defined.
+    The experiment should be well understood.
+    This is the most ignored step while working with probability.
+    A simple experiment is to pick any element from a collection and is used very often.
+    Note that the phrase `picking at random' is not used, as the word random is not defined yet.
+    \item ${\color{blue} \lambda}$ represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.
+\end{enumerate}
 ''',
 
 r'''
@@ -311,6 +326,26 @@ The reason we choose the simple division rule as the definition is because of it
 If we ever have a need to capture conditional probability a different way, we can create a new definition.
 This is one more big assumption in probability.
 Remember this when you use conditional probabilities.
+
+A good way to remember this is to add meaning to notation.
+Consider notation,
+\[
+    {\color{red} P} {\color{green}  (} {\color{blue} \alpha} \mid {\color{magenta} \beta} {\color{green} )}
+\]
+Here
+\begin{enumerate}[nolistsep]
+    \item {\color{red} P} should remind that probability is a limit definition.
+    \item {\color{green}  (} {\color{green} )} contains an event(s) therefore an implicit experiment is defined.
+    The experiment should be well understood.
+    This is the most ignored step while working with probability.
+    A simple experiment is to pick any element from a collection and is used very often.
+    Note that the phrase `picking at random' is not used, as the word random is not defined yet.
+    \item ${\color{blue} \alpha}, {\color{magenta} \beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.
+    \item $\mid$ should remind us that there is an implicit collapsed experiement and the event ${\color{blue} \alpha} \cap {\color{magenta} \beta}$ is the one that is actually considered.
+    The collapsed experiment must also be well understood.
+    This is another most ignored step while working with probability.
+    As it sort of looks like the division operator for real numbers, it should remind us that a simple division rule of conditional probability is used rather than a general limit definition.
+\end{enumerate}
 
 By assuming that outcome space collapses to B, we are effectively changing probabilities of some events from original experiement to collapsed experiement.
 Because even in collapsed experiement, which has a smaller outcome space, each probability $ \ge $ 0 and probability of the outcome space = 1.
@@ -406,5 +441,6 @@ r'''
   \item Joint probability definition
   \item Random vectors
   \item baysian networks
+  \item How can one say that an experiement is not non-stochastic and/or follows simple division conditional probability rule?
 \end{enumerate}
 \end{document}

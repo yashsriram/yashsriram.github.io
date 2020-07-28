@@ -87,7 +87,7 @@ ${ add_statement(
 'Coordinate System',
 
 r'''
-A coordinate system $ \Lambda $ is an @bijection@ mapping from @space@ G to an N-dimensional @state vector space@ V.
+A coordinate system $ \Lambda $ is a @bijection@ mapping from @space@ G to an N-dimensional @state vector space@ V.
 
 Denoted by $ \Lambda: G \to V $. $\forall g \in G, \Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
 ''',
@@ -126,6 +126,14 @@ This is a good thing because it makes things simple, decoupled and non-clumsy.
 
 A coordinate axis is a simple way to disassemble a coordinate system.
 Any point in the state vector space $ \equiv $ linear combination of some point on each coordinate axis.
+
+Misconception busting:
+\begin{enumerate}[nolistsep]
+  \item There is no need to name the axes X, Y ...
+  \item There is no need for the axes to be perpendicular.
+  \item No need for 1 unit along first axis to be same as 1 unit along second axis.
+  \item No need for units of first axis to be same as the second one
+\end{enumerate}
 ''',
 
 r'''

@@ -68,8 +68,9 @@ ${add_sub_file('math/fourier_analysis.templatex')}
 ${add_sub_file('math/data_analysis.templatex')}
 ${add_sub_file('math/terminology.templatex')}
 
-\part{programming}
+\part{computing}
 ${add_sub_file('coding/languages.templatex')}
 ${add_sub_file('coding/nursery.templatex')}
+${add_sub_file('coding/language.templatex')}
 
 \end{document}

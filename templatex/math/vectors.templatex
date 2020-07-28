@@ -115,7 +115,8 @@ r'''
   This is nothing new, just a word to combine one scaling and one adding operations.
   A higher level construct to play with.
   What is so linear about it?
-  Well the word linear is given in the light that there can exist other types of combinations like quadratic combination where before scaling the entities are squared.
+  Well the word linear is given because there can exist other types of combinations like quadratic combination where before scaling the entities are squared, polynomial combination, exponential combination, logarithmic combination ...
+  The most simplest of them all seems to be linear combination.
 ''',
 
 r'''
@@ -158,7 +159,7 @@ The span of a @set@ of @vector@s B is a set of vectors S in which each vector $ 
 ''',
 
 r'''
-A tool to give a sense of spread of a set of vectors.
+A tool to give a sense of spread/cover of a set of vectors.
 ''',
 
 r'''
@@ -172,7 +173,7 @@ ${ add_statement(
 'Basis',
 
 r'''
-A basis of a @set@ of @vector@s S is a @linearly independent set@ of vectors B, such that each vector in S $ \equiv $ @linear combination@ of all vectrs in B.
+A basis of a @set@ of @vector@s S is a @linearly independent set@ of vectors B, such that each vector in S $ \equiv $ @linear combination@ of all vectors in B.
 ''',
 
 r'''
@@ -182,6 +183,7 @@ For instance the set of all 2D vectors has the following sets as basis sets.
 \[
   \{ \bvectwo{1}{0}, \bvectwo{0}{1} \}, \{ \bvectwo{2}{0}, \bvectwo{0}{2} \}, \{ \bvectwo{2}{0}, \bvectwo{1}{2} \}
 \]
+By using the word linearly independent we are sort of putting a restriction on number of vectors in the set.
 ''',
 
 r'''

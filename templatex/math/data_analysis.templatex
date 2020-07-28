@@ -3,13 +3,14 @@
 \begin{document}
 \chapter{data analysis}
 
+\todo
 \begin{enumerate}[nolistsep]
-  \item \todo
   \item $(x_i - min) / (max - min)$ set of values vs normalizing set of values, show they are not equal in some instances and properties of each
   \item accuracy vs precision
+  \item estimation = estimate + uncertainity
   \item modelling uncertainity using stochasticity
   \item given a parametrized "stochastically noisy" model with stimulus and response (vector) variable and some samples, the process of estimating parameters (a.k.a fitting model). Using optimization for this estimation. Other non-optimization ways of doing the same. The essence of ML.
-  \item estimation = estimate + uncertainity
+  \item does uncertainity change during fitting process?
   \item emphasize diff b/w
     \begin{enumerate}[nolistsep]
         \item min(sum(abs(residual))) $\equiv$ min(Sum of Absolute Errors). The average of SAE is MAE
@@ -17,6 +18,8 @@
         \item min(sum(perpendicular distance)) $\equiv$ min(Sum of Perpendicular Errors). The average of SPE is MPE
     \end{enumerate}
   \item Thinking mean and variance visually, mean of a list of numbers plotted on a co-ordinate system is "the rough line passing through the center", take differences from the rough center line to actual values and square them. Each of these towers or inverted towers can be thought to represent "certain variation" from the mean. Average (/n-1) of all this is defined as "variance". Etymology of "variance". observed the sqaured fn to ignore signs and preserve differentiability. Mind blown!!!. And all this from visualizing the definitions.
-  \item R-squared = Explained variation / Total variation. what it means (explaination of variation for just this instance), and especially what it does not mean (good/bad model (patterns in residual plots), predictability of model etc...). Is it scale invariant?
+  \item R-squared = Explained variation / Total variation. what it means (capturing the variation for just the samples in context and does not say anything about predictablility of model), and especially what it does not mean (good/bad model (patterns in residual plots)). Is it scale invariant?
+  \item patterns in residual plots as a measure of good or bad model.
+  \item Shallow vs deep classifiers $\equiv$ seperate description and classification vs together description and classification.
 \end{enumerate}
 \end{document}

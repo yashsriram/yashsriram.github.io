@@ -229,8 +229,8 @@ Here
     \item {\color{green}  (} {\color{green} )} contains an event(s) therefore an implicit experiment is defined.
     The experiment should be well understood.
     This is the most ignored step while working with probability.
-    A simple experiment is to pick any element from a collection and is used very often.
-    Note that the phrase `picking at random' is not used, as the word random is not defined yet.
+    A simple experiment is to pick any element from a collection as the outcome.
+    Note that a superfluous phrase like `picking at random' is not used, because the word random is not defined yet.
     \item ${\color{blue} \lambda}$ represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.
 \end{enumerate}
 ''',
@@ -338,8 +338,8 @@ Here
     \item {\color{green}  (} {\color{green} )} contains an event(s) therefore an implicit experiment is defined.
     The experiment should be well understood.
     This is the most ignored step while working with probability.
-    A simple experiment is to pick any element from a collection and is used very often.
-    Note that the phrase `picking at random' is not used, as the word random is not defined yet.
+    A simple experiment is to pick any element from a collection as the outcome.
+    Note that a superfluous phrase like `picking at random' is not used, because the word random is not defined yet.
     \item ${\color{blue} \alpha}, {\color{magenta} \beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.
     \item $\mid$ should remind us that there is an implicit collapsed experiement and the event ${\color{blue} \alpha} \cap {\color{magenta} \beta}$ is the one that is actually considered.
     The collapsed experiment must also be well understood.

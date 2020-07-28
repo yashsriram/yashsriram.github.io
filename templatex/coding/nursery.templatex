@@ -3,6 +3,8 @@
 \begin{document}
 \chapter{nursery}
 
+\todo : add some structure
+
 \section{Irony of thoughts}
 \begin{enumerate}[nolistsep]
   \item There exist things which we don't know but can approximate (ex. integrals)

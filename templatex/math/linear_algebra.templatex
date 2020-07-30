@@ -194,6 +194,8 @@ r'''
   \item diagnoal
   \item quaternions
   \item SVD, other easy useful decompositions
+  \item quadratic systems using matrices like $X^TAX$.
+  \item derivatives of matrices, matrix products like $X^T X$.
 \end{enumerate}
 
 \todo

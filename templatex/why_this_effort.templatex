@@ -32,7 +32,7 @@ And I often have to re-start my train of thought on them, which is tedious and d
 
 \paragraph{The effort will be to}
 \begin{enumerate}[noitemsep]
-  \item Build constructs that are simple, atomic, composable and excel at one thing.
+  \item Build constructs that are simple, minimal, atomic, composable and excel at one thing.
   \item Build meaningful connections and flow among constructs.
   \item Keep everything as simple and minimal as possible.
   \item Promote recognition rather than re-call.

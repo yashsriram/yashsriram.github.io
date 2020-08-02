@@ -437,8 +437,17 @@ r'''
   \item Cdf and pdf definitions
   \item Expected value definitions
   \item Joint probability definition
+  \item Joint vs Conditional probability
+  \item Compare MLE vs MAP vs Linear Regression on.
+    \begin{enumerate}[nolistsep]
+        \item fitting function
+        \item measure of accuracy, measure of uncertainity
+        \item covariance
+    \end{enumerate}
+  \item Functions of random variable
   \item Random vectors
-  \item baysian networks
-  \item How can one say that an experiement is not non-stochastic and/or follows simple division conditional probability rule?
+  \item baysian networks, HMM, Markov, MDP, Q-learning ...
+  \item How to determine if an experiment is stochastic?
+  \item How to determine where the simple division conditional probability rule is not good?
 \end{enumerate}
 \end{document}

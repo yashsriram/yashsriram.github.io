@@ -33,7 +33,7 @@ Collection of my thoughts on various things in my life.
 - [x] DAG node mass caliberation.
 - [x] DAG node size caliberation.
 - [x] DAG statement heatmap.
-- [ ] Simplify goal, design. Improve name. Make sure that for a new concepts the project needs new constructs very rarely.
+- [ ] Simplify goal, design. Improve name. Make sure that design minimizes constructs.
 - [ ] Typed system.
 - [ ] TODOs.
 - [ ] Use amethyst or similar to have more control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).

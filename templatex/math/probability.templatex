@@ -438,12 +438,6 @@ r'''
   \item Expected value definitions
   \item Joint probability definition
   \item Joint vs Conditional probability
-  \item Compare MLE vs MAP vs Linear Regression on.
-    \begin{enumerate}[nolistsep]
-        \item fitting function
-        \item measure of accuracy, measure of uncertainity
-        \item covariance
-    \end{enumerate}
   \item Functions of random variable
   \item Random vectors
   \item baysian networks, HMM, Markov, MDP, Q-learning ...

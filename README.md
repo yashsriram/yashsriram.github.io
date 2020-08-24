@@ -43,7 +43,18 @@ Collection of my thoughts on various things in my life.
     - [ ] DAG click to pdf.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
 
-- [ ] Minimize current content.
+- Minimize current content.
+    - [ ] More terse text.
+    - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
+- Build a TUI for browsing.
+    - [ ] TUI.
+    - [ ] Per statement view.
+    - [ ] Per chapter view.
+    - [ ] Followable links to parents.
+    - [ ] Colors.
+    - [ ] List children of node.
+    - [ ] Open graphical view with keymap.
+    - [ ] Able to search in entire graph.
 - [ ] Introduce syntax and semantics.
 - [ ] Syntax is normal rust.
 - [ ] First class TODOs, partials support.

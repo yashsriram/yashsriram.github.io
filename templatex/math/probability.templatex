@@ -8,11 +8,14 @@ ${ add_statement(
 'Experiment',
 
 r'''
-A list of instructions which when followed produces some outcome.
+A list of instructions which when followed produces an outcome.
 ''',
 
 r'''
-Can be used to represent a lot of things food recipies, code, course registrations etc... The meaning of this is not just limited to experiments which involve physics or chemistry. They are just a class of experiments called physical and chemical experiments respectively. There can exist imaginary experiments like (surprise surprise!) adding two numbers in your head, calculating limits etc...
+Anything that has some non-zero number of outcomes is an experiment.
+The meaning of this is not just limited to experiments which involve physics or chemistry.
+We are only concerned with the outcomes and not the inputs.
+Note that, at a time only one of the several possible outcomes of an experiment can occur.
 ''',
 
 r'''
@@ -87,6 +90,11 @@ An event $ E $ of an @experiment@ is a @subset@ of @outcome space@. An event is 
 ''',
 
 r'''
+The naming here is bad.
+An event is nothing but a set of outcomes.
+An event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.
+That's it.
+Nothing more.
 The number of elements in an event can be 0, 1 or even total number of possible outcomes.
 ''',
 
@@ -295,11 +303,19 @@ Say event B occured
 
 r'''
 All it is saying is that one of some outcomes a.k.a B occured, what is the probability that during that occurance an outcome a occured.
+
+Say the outcomes probabilities are $[a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4]$ respectively.
+Say event B = $\{a_1, a_2\}$ occured n times.
+To get $P(a_1 | B)$. We take the ratio
+\[
+\lim_{n\to\infty}\frac{\text{number-of-times-$a_1$-occured}}{\text{n}}
+\].
+The belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.
+
 \begin{enumerate}[nolistsep]
     \item $ a \cap B $ because if the outcome a is not in B, then it must definitely not have occured.
-    \item $ \frac{1}{P(B)} $ because it normalizes each outcome probability such that their sum $\equiv$ 1.
+    \item $ \frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\equiv$ 1.
 \end{enumerate}
-A good way to remember this is to add meaning to notation.
 Consider notation,
 \[
     {\color{red} P} {\color{green}  (} {\color{blue} \alpha} \mid {\color{magenta} \beta} {\color{green} )}

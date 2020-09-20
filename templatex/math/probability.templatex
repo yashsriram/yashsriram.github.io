@@ -244,17 +244,14 @@ Some tools to played around with to create new tools.
 ''',
 
 r'''
-\item
 \paragraph{1} From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \ge 1 $ and denominator (num. of repetitions done) $ > 0 $
 
 $ \impl $ the ratio is always $ \ge 0 $.
 
 $ \impl $ the limiting value of the ratio P(A) is also $ \ge 0 $.
-\item
 \paragraph{2} When the event is identical to outcome space the ratio is identical to one.
 
 $ \impl $ the limiting value of the ratio P(S) is also $ \equiv 1 $.
-\item
 \paragraph{3} When the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \cup B $ $ \equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \cup B) = P(A) + P(B) $.
 '''
 

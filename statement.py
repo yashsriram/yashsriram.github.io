@@ -105,7 +105,7 @@ class Statement:
             # parents and parent reference tokens have corresponding indices
             parent = self.parents[int(i / 2)]
             tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, token)
-        formatted_description = ''.join(tokens) + r'\par'
+        formatted_description = ''.join(tokens)
         # num parents
         if len(self.parents) == 0:
             num_parents_latex = r''
@@ -114,39 +114,33 @@ class Statement:
             num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
             # proof
             if self.proof.isspace():
-                formatted_proof = r'{\color{red} TODO}\par'
+                formatted_proof = r'{\color{red} \todo}'
             else:
                 formatted_proof = self.proof
-            latex_proof = r'''
-            \begin{proof}
-            %s
-            \end{proof}
-            ''' % formatted_proof
+            latex_proof = r'''%s''' % formatted_proof
         # description
         if self.description.isspace():
-            latex_description = r'{\color{red} TODO}\par'
+            latex_description = r'{\color{red} \todo}'
         else:
             latex_description = formatted_description
         # significance
         if self.significance.isspace():
-            latex_significance = r'{\color{red} No significance? TODO}'
+            latex_significance = r'{\color{red} \todo}'
         else:
-            latex_significance = r'\textbf{Significance}:%s' % self.significance
+            latex_significance = self.significance
         # complete latex
         latex = r'''
-        \begin{%s}[\textbf{%s}]
-        \label{%s:%s}
-        \hspace*{0pt}\hfill%s\par
-        %s
-        %s\par
-        \end{%s}
-        %s
-        ''' % (
+\begin{%s}[\textbf{%s}]
+\label{%s:%s}\hspace*{0pt}\hfill%s\par
+\end{%s}
+\textbf{Description}:%s\par
+{\color{pink} \textbf{Significance}:%s\par}
+%s\par''' % (
             self.type, self.id,
             self.type, self.id,
             num_parents_latex,
+            self.type,
             latex_description,
             latex_significance,
-            self.type,
             latex_proof)
         return latex

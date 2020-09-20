@@ -25,7 +25,7 @@ Collection of my thoughts on various things in my life.
 - Use `cd tex && latexmk -pdf main.tex` to compile latex files into a pdf.
 
 ## roadmap
-- [ ] Todos.
+- [ ] Todos in text.
 - Design
     - [x] Use only axioms and theorems, remove definitions.
     - [ ] More natural parent reference detection.
@@ -37,10 +37,7 @@ Collection of my thoughts on various things in my life.
     - [x] DAG node mass caliberation.
     - [x] DAG node size caliberation.
     - [x] DAG statement heatmap.
-    - [ ] DAG search.
-    - [ ] DAG btn to reset.
-    - [ ] DAG latex type set description.
-    - [ ] DAG click to pdf.
+    - [ ] DAG search, btn to reset, DAG latex type set description, DAG click to pdf.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
 
 - Minimize current content.

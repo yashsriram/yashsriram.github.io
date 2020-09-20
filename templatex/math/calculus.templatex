@@ -2,7 +2,7 @@
 
 \begin{document}
 \chapter{infinitesimal calculus}
-TODO
+\todo
 \begin{enumerate}[nolistsep]
   \item limits
   \item the beauty of the phrase exact approximation

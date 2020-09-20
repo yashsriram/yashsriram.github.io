@@ -27,8 +27,7 @@ Science, math, whatever are just classifications of work but the balance is the 
     \node[white] at (0,-2.5) {\textbf{Skepticism}};
     \draw[white, fill=white] (0,0) circle (1.25) node[black] {\textbf{Joy}};
   \end{tikzpicture}
-  \label{fig:human_learning}
-  \caption{Zen of human learning}
+  \caption{Zen of learning}
 \end{figure}
 
 \end{document}

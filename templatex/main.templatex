@@ -1,8 +1,9 @@
 %% class
-\documentclass[12pt]{report}
+\documentclass[12pt, a4paper]{report}
+
 %% packages
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in, landscape]{geometry}
 \usepackage{enumitem}
 \usepackage{cancel}
 \usepackage{graphicx}
@@ -14,45 +15,41 @@
 \usepackage[titles]{tocloft}
 \usepackage{hyperref}
 \usepackage{subfiles} % best loaded last in the preamble
+
 %% global settings
 \hypersetup{
     colorlinks=true,
-    linkcolor=red,
+    linkcolor=cyan,
 }
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 \setlength{\cftbeforechapskip}{1pt}
 \setcounter{secnumdepth}{0}
+
 %% new theorems
 \newtheorem{theorem}{Theorem}
 \newtheorem{axiom}{Axiom}
+
 %% new commands
-\newcommand{\ihat}{\hat{\textbf{\i}}}
-\newcommand{\jhat}{\hat{\textbf{\j}}}
-\newcommand{\blockcomment}[1]{}
 \newcommand{\proofbydefinition}{Proof by definition}
 \newcommand{\todo}{{\color{red} \textbf{TODO}}}
-\newcommand{\bvectwo}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
-\newcommand{\bvecn}[1]{\begin{bmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{bmatrix}}
-\newcommand{\bvecnsum}[2]{\begin{bmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{bmatrix}}
-\newcommand{\bvecndot}[2]{\begin{bmatrix} #1_1 * #2_1 \\ #1_2 * #2_2 \\ ... \\ #1_n * #2_n \end{bmatrix}}
-\newcommand{\bvecnscale}[2]{\begin{bmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{bmatrix}}
 \newcommand{\biimpl}{\longleftrightarrow}
 \newcommand{\impl}{\implies}
 \newcommand{\st}{\mid}
-\newcommand{\reals}{\mathbb{R}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-%% new command files
 
 \title{journal}
-\author{yashasvi sriram patkuri}
+\date{}
 
 \begin{document}
 \maketitle
+
+\large
+\sffamily
+
 ${add_sub_file('why_this_effort.templatex')}
 ${add_sub_file('the_process_of_learning.templatex')}
+
 \tableofcontents
 
-\part{mathematics}
 ${add_sub_file('math/structure.templatex')}
 ${add_sub_file('math/math.templatex')}
 ${add_sub_file('math/basics.templatex')}
@@ -68,7 +65,6 @@ ${add_sub_file('math/fourier_analysis.templatex')}
 ${add_sub_file('math/data_analysis.templatex')}
 ${add_sub_file('math/terminology.templatex')}
 
-\part{computing}
 ${add_sub_file('coding/languages.templatex')}
 ${add_sub_file('coding/nursery.templatex')}
 ${add_sub_file('coding/language.templatex')}

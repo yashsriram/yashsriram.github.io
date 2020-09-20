@@ -18,15 +18,15 @@ And I often have to re-start my train of thought on them, which is tedious and d
       \item So that I use my brain for thinking rather than storing.
     \end{enumerate}
   \item Use the power of machine search.
-  \item Don't start over from scratch. Build on previous knowledge.
+  \item Reuse previous knowledge. Don't start over from scratch unncessarily.
 \end{enumerate}
 
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
-    \draw[fill=black] (0, 0) circle (1.75) node[white] {\textbf{Write Stuff}};
-    \draw[fill=black] (5, 0) circle (1.75) node[white] {\textbf{Search Stuff}};
-    \draw[fill=black] (10, 0) circle (1.75) node[white] {\textbf{Update Stuff}};
+    \draw[fill=black] (0, 0) circle (1.75) node[white] {\textbf{Write}};
+    \draw[fill=black] (5, 0) circle (1.75) node[white] {\textbf{Search}};
+    \draw[fill=black] (10, 0) circle (1.75) node[white] {\textbf{Update}};
   \end{tikzpicture}
 \end{figure}
 

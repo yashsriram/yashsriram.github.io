@@ -8,7 +8,7 @@ ${ add_statement(
 'Set',
 
 r'''
-A set $S$ is a collection of things (also called elements) from which any two things picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ @enumerated notation@.
+A set $S$ is a collection of elements from which any two elements picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ @enumerated notation@.
 ''',
 
 r'''

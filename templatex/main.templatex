@@ -25,11 +25,8 @@
 \setlength{\cftbeforechapskip}{1pt}
 \setcounter{secnumdepth}{0}
 
-%% new theorems
-\newtheorem{theorem}{Theorem}
-\newtheorem{axiom}{Axiom}
-
 %% new commands
+\newtheorem{statement}{Statement}
 \newcommand{\proofbydefinition}{Proof by definition}
 \newcommand{\todo}{{\color{red} \textbf{TODO}}}
 \newcommand{\biimpl}{\longleftrightarrow}

@@ -47,10 +47,6 @@ class Statement:
             if not parent_found:
                 raise Exception('Unknown parent reference found: {} in statement with id: {}'.format(token, _id))
         self.significance = significance
-        if len(self.parents) == 0:
-            self.type = 'axiom'
-        else:
-            self.type = 'theorem'
         self.proof = proof
         # acyclicity check
         if self.cycle_exists():
@@ -104,14 +100,13 @@ class Statement:
                 continue
             # parents and parent reference tokens have corresponding indices
             parent = self.parents[int(i / 2)]
-            tokens[i] = r'[\hyperref[%s:%s]{%s}]' % (parent.type, parent.id, token)
+            tokens[i] = r'[\hyperref[statement:%s]{%s}]' % (parent.id, token)
         formatted_description = ''.join(tokens)
         # num parents
+        num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
         if len(self.parents) == 0:
-            num_parents_latex = r''
-            latex_proof = ''
+            latex_proof = r'Axiom.'
         else:
-            num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
             # proof
             if self.proof.isspace():
                 formatted_proof = r'{\color{red} \todo}'
@@ -130,16 +125,16 @@ class Statement:
             latex_significance = self.significance
         # complete latex
         latex = r'''
-\begin{%s}[\textbf{%s}]
-\label{%s:%s}\hspace*{0pt}\hfill%s\par
-\end{%s}
+\pagebreak
+\begin{statement}[\textbf{%s}]
+\label{statement:%s}\hspace*{0pt}\hfill%s\par
+\end{statement}
 \textbf{Description}:%s\par
 {\color{pink} \textbf{Significance}:%s\par}
-%s\par''' % (
-            self.type, self.id,
-            self.type, self.id,
+\begin{proof}%s\end{proof}\par''' % (
+            self.id,
+            self.id,
             num_parents_latex,
-            self.type,
             latex_description,
             latex_significance,
             latex_proof)

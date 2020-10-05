@@ -53,10 +53,10 @@ My perspective and understanding of mathematics.
     - [ ] CRUD of statements.
     - [ ] ORM of statements.
     - [ ] Statement id list view/Statement complete view, with chapter separators.
+    - [ ] Able to search in entire graph.
     - [ ] Followable links to parents.
     - [ ] List children of node.
     - [ ] Colors.
     - [ ] Compile and open the statement PDF. Should be snappy.
     - [ ] Handle TODOs and scratch statements.
     - [ ] Open graphical view with keymap.
-    - [ ] Able to search in entire graph.

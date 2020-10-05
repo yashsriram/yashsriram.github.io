@@ -136,9 +136,9 @@ ${ add_statement(
 'Linearly Independent Set',
 
 r'''
-A linearly independent set is a @set@ of @vector@s B, such that $ \forall b_i \in B, b_i \not\equiv $ @linear combination@ of all other vectors in B.
+A linearly independent set is a @set@ of @vector@s B of cardinality $>$ 1, such that $ \forall b_i \in B, b_i \not\equiv $ @linear combination@ of all other vectors in B.
 
-A set of vectors in which each element $ \equiv $ a linear combination of all other elements is called a linearly dependent set of vectors.
+A set of vectors in which at least one element $ \equiv $ a linear combination of all other elements is called a linearly dependent set of vectors.
 ''',
 
 r'''

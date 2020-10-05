@@ -103,7 +103,6 @@ class Statement:
             tokens[i] = r'[\hyperref[statement:%s]{%s}]' % (parent.id, token)
         formatted_description = ''.join(tokens)
         # num parents
-        num_parents_latex = r'\textbf{%d parent(s)}' % len(self.parents)
         if len(self.parents) == 0:
             latex_proof = r'Axiom.'
         else:
@@ -123,19 +122,35 @@ class Statement:
             latex_significance = r'{\color{red} \todo}'
         else:
             latex_significance = self.significance
+        # parents
+        parents_latex = ''
+        for parent in self.parents:
+            parents_latex += r'\hyperref[statement:%s]{%s}, ' % (parent.id, parent.id)
+        # children
+        children_latex = ''
+        for child in self.children:
+            children_latex += r'\hyperref[statement:%s]{%s}, ' % (child.id, child.id)
+        if len(self.parents) == 0 and len(self.children) == 0:
+            print(self.id)
         # complete latex
         latex = r'''
-\pagebreak
+\addcontentsline{toc}{section}{%s}
 \begin{statement}[\textbf{%s}]
-\label{statement:%s}\hspace*{0pt}\hfill%s\par
+\label{statement:%s}\hspace*{0pt}\par
 \end{statement}
 \textbf{Description}:%s\par
-{\color{pink} \textbf{Significance}:%s\par}
-\begin{proof}%s\end{proof}\par''' % (
+{\color{magenta} \textbf{Significance}:%s\par}
+\begin{proof}%s\end{proof}\par
+\paragraph{%d parents} %s
+\paragraph{%d children} %s
+''' % (
             self.id,
             self.id,
-            num_parents_latex,
+            self.id,
             latex_description,
             latex_significance,
-            latex_proof)
+            latex_proof,
+            len(self.parents), parents_latex,
+            len(self.children), children_latex,
+            )
         return latex

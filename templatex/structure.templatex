@@ -1,8 +1,8 @@
 \documentclass[./main.tex]{subfiles}
 
 \begin{document}
-\chapter{structure}
-\section{what?}
+\chapter*{structure}
+\section*{what?}
 This is not a re-write of any book.
 This is the written form of my perspective and understanding of mathematics.
 
@@ -53,7 +53,7 @@ Viz, a statement can not have any statement defined after it as parent, therefor
 	\label{fig:structure_of_text}
 \end{figure}
 
-\section{why?}
+\section*{why?}
 \textbf{Graph} because, the hope is that by seeing the bigger picture with connections neatly lay-ed out we might be able to find new things.
 
 \textbf{Directed} because, it is the way mathematics is developed traditionally. Also this way, given a statement, we can get all statements that should be true for the subject statement to be true.
@@ -61,7 +61,7 @@ Viz, a statement can not have any statement defined after it as parent, therefor
 \textbf{Acyclic} because, if there are circles in the statement graph then there is a circular dependency among statements to be true.
 This makes not much sense to me and therefore acyclic.
 
-\section{also}
+\section*{also}
 Statements always have a significance viz. there is a reasonable answer to the question `why the hell are we even spending time on this?'.
 I write this for every statement.
 I avoid purposeless statements.

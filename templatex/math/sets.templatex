@@ -326,24 +326,4 @@ r'''
 
 ) }
 
-${ add_statement(
-
-'System',
-
-r'''
-A @set@ of tools working together to do something.
-''',
-
-r'''
-A general term to refer to a set of tools working together to do something. Surprisingly was defined properly until now.
-''',
-
-r'''
-\proofbydefinition
-'''
-
-) }
-
-
-
 \end{document}

@@ -24,24 +24,21 @@ My perspective and understanding of mathematics.
 - To search for a statement/TODOs use pdf reader search feature.
 
 ## roadmap
-- [ ] Todos in text.
+- [ ] Solve Todos in journal.
 - [ ] Simplify goal, design. Make sure that design minimizes constructs.
+- [ ] Typed journal.
+- [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
+- [ ] First class TODOs, partials support.
 - [ ] Improve name.
 - Design
     - [x] Use only axioms and theorems, remove definitions.
     - [x] Use only statements, remove axioms and theorems.
-    - [ ] More natural parent reference detection.
 - Text representation.
     - [x] Case combination check.
     - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
 - Minimize current content.
     - [ ] More terse text.
     - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
-- Static typing
-    - [ ] Introduce syntax and semantics.
-    - [ ] Syntax is normal rust.
-    - [ ] First class TODOs, partials support.
-    - [ ] Need some latex like type setting.
 - Graphical representation.
     - [x] Create a standalone html file which visualizes all statements in a directed acyclic graph.
     - [x] DAG node mass caliberation.

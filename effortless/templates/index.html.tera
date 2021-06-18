@@ -1,0 +1,9 @@
+{% extends "base" %}
+
+{% block title %}
+index.
+{% endblock title %}
+
+{% block content %}
+This is the effortless project.
+{% endblock content %}

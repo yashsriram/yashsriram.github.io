@@ -1,0 +1,12 @@
+[package]
+name = "effortless"
+version = "0.1.0"
+authors = ["Yashasvi Sriram Patkuri <yash.3997@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rocket = "0.5.0-rc.1"
+
+[dependencies.rocket_dyn_templates]
+version = "0.1.0-rc.1"
+features = ["tera"]

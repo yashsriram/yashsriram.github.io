@@ -47,9 +47,7 @@ class Statement:
                 raise Exception('Unknown parent reference found: {} in statement with id: {}'.format(token, _id))
         self.significance = significance
         self.proof = proof
-        # acyclicity check
-        if self.cycle_exists():
-            raise Exception('Cycle forms by statement with id: {}'.format(_id))
+        # acyclicity automatically guaranteed since for each statement the parents have to be already in ID_STATEMENT_MAP
         # add statement to id statement map
         Statement.ID_STATEMENT_MAP[_id] = self
 
@@ -77,19 +75,6 @@ class Statement:
             for parent in statement.parents:
                 net.add_edge(parent.id, _id, arrowStrikethrough=False)
         net.save_graph(filename)
-
-    @staticmethod
-    def _cycle_exists(node, origin_id, is_node_the_origin):
-        if node.id == origin_id and not is_node_the_origin:
-            return True
-
-        for child in node.children:
-            if Statement._cycle_exists(child, origin_id, False):
-                return True
-        return False
-
-    def cycle_exists(self):
-        return Statement._cycle_exists(self, self.id, True)
 
     def json_format(self):
         tokens = self.description.split(Statement.PARENT_ID_DELIMITER)

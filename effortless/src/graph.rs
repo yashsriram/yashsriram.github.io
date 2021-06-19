@@ -39,6 +39,7 @@ impl DirectedAcyclicGraph {
         }
         let mut id_to_idx_map = HashMap::new();
         // Validate non-empty, unique ids and topological order
+        // Validating above things automatically ensures acyclicity; since every parent of a vertex has to occur before it there are no cycles
         for (vertex_idx, vertex) in topological_list.iter().enumerate() {
             // Validate non-empty ids until now
             if vertex.id.is_empty() {
@@ -79,6 +80,7 @@ impl DirectedAcyclicGraph {
                                 vertex.id, vertex_idx
                             )));
                         }
+                        // Everything okay
                         adjacency_list[vertex_idx].parents.push(parent_idx);
                         adjacency_list[parent_idx].children.push(vertex_idx);
                     }

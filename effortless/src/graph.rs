@@ -8,7 +8,7 @@ use std::io::BufReader;
 #[serde(deny_unknown_fields)]
 struct Vertex {
     id: String,
-    description: String,
+    description: Vec<String>,
     significance: String,
     proof: String,
 }
@@ -38,7 +38,7 @@ impl DirectedAcyclicGraph {
             adjacency_list.push(Adjacent::default());
         }
         let mut id_to_idx_map = HashMap::new();
-        // Validate non-empty, unique ids and topological order
+        // Validate non-empty, stripped_snake_case, unique ids and topological order
         // Validating above things automatically ensures acyclicity; since every parent of a vertex has to occur before it there are no cycles
         for (vertex_idx, vertex) in topological_list.iter().enumerate() {
             // Validate non-empty ids until now
@@ -46,6 +46,16 @@ impl DirectedAcyclicGraph {
                 return Err(String::from(format!(
                     "vertex with empty id found at index {}.",
                     vertex_idx
+                )));
+            }
+            // Validate stripped_snake_case ids until now
+            if let Some(_) = vertex
+                .id
+                .find(|c: char| c.is_whitespace() || c.is_uppercase())
+            {
+                return Err(String::from(format!(
+                    "vertex with non stripped_snake_case id \"{}\" found at index {}.",
+                    vertex.id, vertex_idx
                 )));
             }
             // Validate unique ids until now
@@ -56,19 +66,21 @@ impl DirectedAcyclicGraph {
                 )));
             }
             // Validate topological order until now
-            // Validate all parents are already read
-            let tokens: Vec<&str> = vertex.description.split('@').collect();
-            if tokens.len() % 2 == 0 {
+            // Validate that all parents of current vertex are already exist
+            if vertex.description.len() % 2 == 0 {
                 return Err(String::from(format!(
                     "vertex \"{}\" at index {} has invalid syntax for parent references.",
                     vertex.id, vertex_idx
                 )));
             }
-            for (token_idx, &token) in tokens.iter().enumerate() {
-                if token_idx % 2 == 0 {
-                    continue;
-                }
-                match id_to_idx_map.get(token) {
+            for parent in vertex
+                .description
+                .iter()
+                .enumerate()
+                .filter(|&(i, _)| i % 2 == 1)
+                .map(|(_, odd_token)| odd_token)
+            {
+                match id_to_idx_map.get(parent) {
                     Some(&parent_idx) => {
                         if adjacency_list[vertex_idx]
                             .parents

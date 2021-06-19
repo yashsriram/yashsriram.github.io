@@ -1,511 +1,1045 @@
 [
   {
     "id": "mathematics",
-    "description": "\nMathematics is a way of using imagination to solve problems.\nThe essence is that we have a problem and we try to use our imagination to come up with something that solves the problem.\nThere is no further restriction on the definition of math.\n",
+    "description": [
+      "Mathematics is a way of using imagination to solve problems.\nThe essence is that we have a problem and we try to use our imagination to come up with something that solves the problem.\nThere is no further restriction on the definition of math."
+    ],
     "significance": "There is also no real boundary b/w normal everyday thinking and mathematics.\nJust that as thinking becomes more rigourous, it becomes more mathematical.\nConcepts developed while solving problems like algebra, calculus, statistics etc... are just tools, not the math itself.\nWe can always create new tools and discard old ones.",
     "proof": ""
   },
   {
     "id": "identity",
-    "description": "\nTwo things A and B are identical $ \\biimpl $ $ \\forall context $ there is no distinction b/w them. Denoted by $ A \\equiv B $.\n\nTwo things A and B are non-identical $ \\biimpl $ $ \\forall context $ there is distinction b/w them. Denoted by $ A \\not\\equiv B $.\n",
+    "description": [
+      "Two things A and B are identical $ \\biimpl $ $ \\forall context $ there is no distinction b/w them. Denoted by $ A \\equiv B $.\n\nTwo things A and B are non-identical $ \\biimpl $ $ \\forall context $ there is distinction b/w them. Denoted by $ A \\not\\equiv B $."
+    ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, a Volkswagen car and a BMW car can be considered identical when the analysis is about classifying objects as cars and kittens.\nBut they can be considered non-identical if we are analyzing the properties of different car brands.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "equality",
-    "description": "\nTwo things A and B are equal at a context C $ \\biimpl $ there is no distinction b/w them at C. Denoted by $ A = B $.\n\nTwo things A and B are unequal at a context C $ \\biimpl $ there is distinction b/w them at C. Denoted by $ A \\ne B $.\n",
+    "description": [
+      "Two things A and B are equal at a context C $ \\biimpl $ there is no distinction b/w them at C. Denoted by $ A = B $.\n\nTwo things A and B are unequal at a context C $ \\biimpl $ there is distinction b/w them at C. Denoted by $ A \\ne B $."
+    ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, if we are talking about the apparant positions of objects in sky to an observer, the sun and moon are equal when it is a complete solar eclipse for her.\nBut they can be considered unequal at all other times.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "order",
-    "description": "\nTwo non-identical @identity@ things are ordered $ \\biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.\n",
+    "description": [
+      "Two non-identical ",
+      "identity",
+      " things are ordered $ \\biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $."
+    ],
     "significance": "There need not be order in all non-identical pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "zero",
-    "description": "\nThe notion of absence.\nSymbolically written as 0.\nCan be considered as a number.\n",
+    "description": [
+      "The notion of absence.\nSymbolically written as 0.\nCan be considered as a number."
+    ],
     "significance": "For example in case of counting it can represent the case when there is no balls left in an urn.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "number",
-    "description": "\nA number is a notion to count or to label or measure things.\n",
+    "description": [
+      "A number is a notion to count or to label or measure things."
+    ],
     "significance": "Some uses of numbers are\n\\begin{enumerate}[noitemsep,topsep=0pt]\n  \\item Count number of apples in a bag - There are 37 apples in a bag\n  \\item Measure the length of a pencil - The length of the pencil is 3.1468 cm\n  \\item Label each participant in a marathon - The participant number 10714 won the marathon\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "notation",
-    "description": "\nA shortform representation of a tool or idea.\nThe representation is short doesn't mean that information is omitted, rather it motivates to present information in a more concise and simplified manner.\nA good notation has complete information, is transparent in meaning, readable and un-ambiguous.\n",
+    "description": [
+      "A shortform representation of a tool or idea.\nThe representation is short doesn't mean that information is omitted, rather it motivates to present information in a more concise and simplified manner.\nA good notation has complete information, is transparent in meaning, readable and un-ambiguous."
+    ],
     "significance": "For instance, when writing a vector of a position $g$, writing $ P_{g} $ is a bad notation as it has no information about the coordiante system used.\n$ P^{\\Lambda}_{g} $ where $ \\Lambda $ is the coordinate system is a good notation.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "enumerated_notation",
-    "description": "\nTo name each element in a collection such that each elements name is non-identical @identity@ to all others, we arrange each element in some way and use the position @number@ as the subscript of that element. This is called enumerated notation.\nFor a collection having n elements the enumerated notation would be $ \\{ e_1, e_2, e_3, ... e_n \\} $.\n\\begin{itemize}[noitemsep,topsep=0pt]\n  \\item If n = 0, it expands to $\\{\\}$.\n  \\item If n = 1, it expands to $\\{ e_1 \\}$\n  \\item If n = 2, it expands to $\\{ e_1, e_2 \\}$\n  \\item ...\n  \\item If n = n, it expands to $\\{ e_1, e_2, ... e_n \\}$\n\\end{itemize}\n",
+    "description": [
+      "To name each element in a collection such that each elements name is non-identical ",
+      "identity",
+      " to all others, we arrange each element in some way and use the position ",
+      "number",
+      " as the subscript of that element. This is called enumerated notation.\nFor a collection having n elements the enumerated notation would be $ \\{ e_1, e_2, e_3, ... e_n \\} $.\n\\begin{itemize}[noitemsep,topsep=0pt]\n  \\item If n = 0, it expands to $\\{\\}$.\n  \\item If n = 1, it expands to $\\{ e_1 \\}$\n  \\item If n = 2, it expands to $\\{ e_1, e_2 \\}$\n  \\item ...\n  \\item If n = n, it expands to $\\{ e_1, e_2, ... e_n \\}$\n\\end{itemize}"
+    ],
     "significance": "This way we can refer to each element uniquely.\nThis comes in handy all the time.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "set",
-    "description": "\nA set $S$ is a collection of elements from which any two elements picked without replacement are non-identical @identity@. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \\equiv \\{ e_1, e_2, e_3, ... e_n \\} $ @enumerated_notation@.\n",
+    "description": [
+      "A set $S$ is a collection of elements from which any two elements picked without replacement are non-identical ",
+      "identity",
+      ". If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \\equiv \\{ e_1, e_2, e_3, ... e_n \\} $ ",
+      "enumerated_notation",
+      "."
+    ],
     "significance": "To represent collection of differently colored balls in an urn, etc...",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "belongs_to",
-    "description": "\nAn element $ \\lambda $ belongs to a @set@ S $ \\biimpl $ $ \\exists! \\tau \\in S \\mid \\lambda \\equiv \\tau $ @identity@.\nDenoted by $ \\lambda \\in S $.\n\nAn element $ \\lambda $ does not belong to a S $ \\biimpl $ $ \\nexists \\tau \\in S \\mid \\lambda \\equiv \\tau $.\nDenoted by $ \\lambda \\notin S $.\n",
+    "description": [
+      "An element $ \\lambda $ belongs to a ",
+      "set",
+      " S $ \\biimpl $ $ \\exists! \\tau \\in S \\mid \\lambda \\equiv \\tau $ ",
+      "identity",
+      ".\nDenoted by $ \\lambda \\in S $.\n\nAn element $ \\lambda $ does not belong to a S $ \\biimpl $ $ \\nexists \\tau \\in S \\mid \\lambda \\equiv \\tau $.\nDenoted by $ \\lambda \\notin S $."
+    ],
     "significance": "To indicate whether an element belongs to a set or not.\nThere cannot be more than one element in S that is identical to $ \\lambda $ anyways due to the definition of a set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "subset",
-    "description": "\nA @set@ E is a subset of set F $ \\biimpl $ $ \\forall e \\in E \\impl e \\in F $. Denoted by $ E \\subseteq F $ @belongs_to@.\n",
+    "description": [
+      "A ",
+      "set",
+      " E is a subset of set F $ \\biimpl $ $ \\forall e \\in E \\impl e \\in F $. Denoted by $ E \\subseteq F $ ",
+      "belongs_to",
+      "."
+    ],
     "significance": "Can be used to represent useful pieces of a set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "superset",
-    "description": "\nA @set@ E is a superset of set F $ \\biimpl $ $ F \\subseteq E $ @subset@. Denoted by $ E \\supseteq F $.\n",
+    "description": [
+      "A ",
+      "set",
+      " E is a superset of set F $ \\biimpl $ $ F \\subseteq E $ ",
+      "subset",
+      ". Denoted by $ E \\supseteq F $."
+    ],
     "significance": "The inverse of subset.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "proper_subset",
-    "description": "\nA @set@ E is a proper subset of set F $ \\biimpl $  $ E \\subseteq F $ and $ E \\not\\equiv F $ @identity@. Denoted by $ E \\subset F $.\n",
+    "description": [
+      "A ",
+      "set",
+      " E is a proper subset of set F $ \\biimpl $  $ E \\subseteq F $ and $ E \\not\\equiv F $ ",
+      "identity",
+      ". Denoted by $ E \\subset F $."
+    ],
     "significance": "Can be used to represent useful pieces of a set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "proper_superset",
-    "description": "\nA @set@ E is a superset of set F $ \\biimpl $ $ F \\subset E $ @subset@. Denoted by $ E \\supset F $.\n",
+    "description": [
+      "A ",
+      "set",
+      " E is a superset of set F $ \\biimpl $ $ F \\subset E $ ",
+      "subset",
+      ". Denoted by $ E \\supset F $."
+    ],
     "significance": "The inverse of subset.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "union",
-    "description": "\nA union of two @set@s A and B is a set which contains every element in A, every element in B, with repetitions removed, if any. Denoted by $ A \\cup B $.\n",
+    "description": [
+      "A union of two ",
+      "set",
+      "s A and B is a set which contains every element in A, every element in B, with repetitions removed, if any. Denoted by $ A \\cup B $."
+    ],
     "significance": "A basic operator to combine sets.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "intersection",
-    "description": "\nAn intersection of two @set@s A and B is a set which contains every element that is common to A and B. Denoted by $ A \\cap B $.\n",
+    "description": [
+      "An intersection of two ",
+      "set",
+      "s A and B is a set which contains every element that is common to A and B. Denoted by $ A \\cap B $."
+    ],
     "significance": "A basic operator to combine sets.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "complement",
-    "description": "\nA complement of a @set@ A is a set which contains all elements which do not @belongs_to@ the set A itself. Denoted by $ \\overline{A} $\n",
+    "description": [
+      "A complement of a ",
+      "set",
+      " A is a set which contains all elements which do not ",
+      "belongs_to",
+      " the set A itself. Denoted by $ \\overline{A} $"
+    ],
     "significance": "A basic unary operator on a set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "universal_set",
-    "description": "\nA universal set of a @set@ A is a set which is identical to $ A \\cup \\overline{A} $ @identity@ @union@ @complement@.\n",
+    "description": [
+      "A universal set of a ",
+      "set",
+      " A is a set which is identical to $ A \\cup \\overline{A} $ ",
+      "identity",
+      " ",
+      "union",
+      " ",
+      "complement",
+      "."
+    ],
     "significance": "A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.\nA proper superset of universal set doesn't exist.\nOne can argue to just put some more elements to build a superset, but it makes things complicated.\nIf there is ever a real need for such a construct (dynamic universal set!!!???), we can build it then.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "null_set",
-    "description": "\nA null set is a @set@ which has @zero@ elements in it. Denoted by $ \\phi $.\n",
+    "description": [
+      "A null set is a ",
+      "set",
+      " which has ",
+      "zero",
+      " elements in it. Denoted by $ \\phi $."
+    ],
     "significance": "A representation for nothingness.\nThe reason for my take is because even null set is just a mathematical tool.\nThere is a great debate whether there is a single null set or many null sets.\nMy take on it is that it depends on the context.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "ordered_set",
-    "description": "\nAn ordered set is a @set@ where there exists an @order@ b/w every pair of elements in it.\n",
+    "description": [
+      "An ordered set is a ",
+      "set",
+      " where there exists an ",
+      "order",
+      " b/w every pair of elements in it."
+    ],
     "significance": "Useful to represent set of heights of students in a class, etc...",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "continuous_set",
-    "description": "\nAn @ordered_set@ which has no discrete separation b/w any two of its elements is a continuous set.\n",
+    "description": [
+      "An ",
+      "ordered_set",
+      " which has no discrete separation b/w any two of its elements is a continuous set."
+    ],
     "significance": "To represent sets like the set of all wavelengths in the visible spectrum of light",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "contiguous_set",
-    "description": "\nAn @ordered_set@ which has a discrete separation b/w any two of its elements is a contiguous set.\n",
+    "description": [
+      "An ",
+      "ordered_set",
+      " which has a discrete separation b/w any two of its elements is a contiguous set."
+    ],
     "significance": "To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "properties_of_sets",
-    "description": "\nThe following list enumerates some properties of @set@s. Here $S$ denotes @universal_set@ and $\\phi$ denotes @null_set@ @identity@.\n\\begin{enumerate}[nolistsep]\n  \\item $ A \\cup B \\equiv B \\cup A $ (Commutative)\n  \\item $ A \\cap B \\equiv B \\cap A $ (Commutative)\n  \\item $ (A \\cup B) \\cup C \\equiv A \\cup (B \\cup C) $ (Associative)\n  \\item $ (A \\cap B) \\cap C \\equiv A \\cap (B \\cap C) $ (Associative)\n  \\item $ A \\cup A \\equiv A$ (Idompotent)\n  \\item $ A \\cap A \\equiv A$ (Idompotent)\n  \\item $ A \\cup S \\equiv S \\cup A \\equiv S $\n  \\item $ A \\cap S \\equiv S \\cap A \\equiv A $\n  \\item $ A \\cup \\phi \\equiv \\phi \\cup A \\equiv A $\n  \\item $ A \\cap \\phi \\equiv \\phi \\cap A \\equiv \\phi $\n  \\item $ A \\cup \\overline{A} \\equiv S$ (Definition of universal set)\n  \\item $ A \\cap \\overline{A} \\equiv \\phi$\n  \\item $ A \\subseteq B \\biimpl A \\cup B \\equiv B $\n  \\item $ A \\subseteq B \\biimpl A \\cap B \\equiv A $\n  \\item $ A \\cap (B \\cup C) \\equiv (A \\cap B) \\cup (A \\cap C) $ (Distributive)\n  \\item $ A \\cup (B \\cap C) \\equiv (A \\cup B) \\cap (A \\cup C) $ (Distributive)\n\\end{enumerate}\n",
+    "description": [
+      "The following list enumerates some properties of ",
+      "set",
+      "s. Here $S$ denotes ",
+      "universal_set",
+      " and $\\phi$ denotes ",
+      "null_set",
+      " ",
+      "identity",
+      ".\n\\begin{enumerate}[nolistsep]\n  \\item $ A \\cup B \\equiv B \\cup A $ (Commutative)\n  \\item $ A \\cap B \\equiv B \\cap A $ (Commutative)\n  \\item $ (A \\cup B) \\cup C \\equiv A \\cup (B \\cup C) $ (Associative)\n  \\item $ (A \\cap B) \\cap C \\equiv A \\cap (B \\cap C) $ (Associative)\n  \\item $ A \\cup A \\equiv A$ (Idompotent)\n  \\item $ A \\cap A \\equiv A$ (Idompotent)\n  \\item $ A \\cup S \\equiv S \\cup A \\equiv S $\n  \\item $ A \\cap S \\equiv S \\cap A \\equiv A $\n  \\item $ A \\cup \\phi \\equiv \\phi \\cup A \\equiv A $\n  \\item $ A \\cap \\phi \\equiv \\phi \\cap A \\equiv \\phi $\n  \\item $ A \\cup \\overline{A} \\equiv S$ (Definition of universal set)\n  \\item $ A \\cap \\overline{A} \\equiv \\phi$\n  \\item $ A \\subseteq B \\biimpl A \\cup B \\equiv B $\n  \\item $ A \\subseteq B \\biimpl A \\cap B \\equiv A $\n  \\item $ A \\cap (B \\cup C) \\equiv (A \\cap B) \\cup (A \\cap C) $ (Distributive)\n  \\item $ A \\cup (B \\cap C) \\equiv (A \\cup B) \\cap (A \\cup C) $ (Distributive)\n\\end{enumerate}"
+    ],
     "significance": "Some basic relations b/w sets so we can play with them.",
     "proof": "Proof by using definitions of parent statements."
   },
   {
     "id": "partition",
-    "description": "\nA partition of a @set@ S is a set $ \\Lambda $ of @subset@s of S such that\n\\begin{enumerate}[nolistsep]\n  \\item Intersection of any two elements of $ \\Lambda \\equiv \\phi $ @null_set@\n  \\item Union of all elements of $ \\Lambda \\equiv $ S\n\\end{enumerate}\n\n",
+    "description": [
+      "A partition of a ",
+      "set",
+      " S is a set $ \\Lambda $ of ",
+      "subset",
+      "s of S such that\n\\begin{enumerate}[nolistsep]\n  \\item Intersection of any two elements of $ \\Lambda \\equiv \\phi $ ",
+      "null_set",
+      "\n  \\item Union of all elements of $ \\Lambda \\equiv $ S\n\\end{enumerate}"
+    ],
     "significance": "A neat way to divide a set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "function",
-    "description": "\nA function $ \\Lambda $ on a @set@ called its domain $ D $ is a mapping from each element $ \\alpha $ that @belongs_to@ $ D $ to an element $ \\beta $ in a new set C called its co-domain.\nThis mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.\nFor each element $ \\alpha \\in D $ the mapping $ \\beta $ is called image of $ \\alpha $.\nThe set of images for all elements the domain is called range $ R $ of the function $ \\Lambda $.\nFunction is denoted by $ \\Lambda:D \\to C $. The image of $ \\alpha $ is denoted by $ \\Lambda(\\alpha) \\forall \\alpha \\in D $.\n",
+    "description": [
+      "A function $ \\Lambda $ on a ",
+      "set",
+      " called its domain $ D $ is a mapping from each element $ \\alpha $ that ",
+      "belongs_to",
+      " $ D $ to an element $ \\beta $ in a new set C called its co-domain.\nThis mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.\nFor each element $ \\alpha \\in D $ the mapping $ \\beta $ is called image of $ \\alpha $.\nThe set of images for all elements the domain is called range $ R $ of the function $ \\Lambda $.\nFunction is denoted by $ \\Lambda:D \\to C $. The image of $ \\alpha $ is denoted by $ \\Lambda(\\alpha) \\forall \\alpha \\in D $."
+    ],
     "significance": "A basic tool for moving b/w sets.\nNote that two elements on domain can be mapped to same element in co-domain.\nAlso range $ \\subseteq $ co-domain.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "injection",
-    "description": "\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "surjection",
-    "description": "\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "bijection",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "natural_numbers",
-    "description": "\n  The @ordered_set@ of all numbers @number@ used for counting and ordering is called the set of natural numbers. It is denoted by $ \\mathbb{N}$.\n",
+    "description": [
+      "The ",
+      "ordered_set",
+      " of all numbers ",
+      "number",
+      " used for counting and ordering is called the set of natural numbers. It is denoted by $ \\mathbb{N}$."
+    ],
     "significance": "Encompasses all possible counts.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "whole_numbers",
-    "description": "\n  The @union@ of @natural_numbers@ and @set@ which contains only @zero@ . It is denoted by $ \\mathbb{W}$.\n",
+    "description": [
+      "The ",
+      "union",
+      " of ",
+      "natural_numbers",
+      " and ",
+      "set",
+      " which contains only ",
+      "zero",
+      " . It is denoted by $ \\mathbb{W}$."
+    ],
     "significance": "The name whole is given because we are gonna define numbers that will represent non-whole entities.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "additive_inverse",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "integers",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "multiplicative_inverse",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "rational_numbers",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "irrational_numbers",
-    "description": "\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "real_numbers",
-    "description": "\n\n",
+    "description": [
+      ""
+    ],
     "significance": "",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "vector",
-    "description": "\n  A vector can be defined as a collection of @real_numbers@ (also called elements) where the arrangement in which elements appear matters.\n  For n elements a vector can be written as \\[ V \\equiv \\bvecn{e} \\]\n",
+    "description": [
+      "A vector can be defined as a collection of ",
+      "real_numbers",
+      " (also called elements) where the arrangement in which elements appear matters.\n  For n elements a vector can be written as \\[ V \\equiv \\bvecn{e} \\]"
+    ],
     "significance": "The motivation behind vectors is to view a group of entities as a single entity.\n  By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.\n  A simple use case would be say when you need to update marks of all students to a 100 scale from a 10 scale.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "vector_dimension",
-    "description": "\n  The dimension of a @vector@ is just the count of elements in it.\n  A vector with dimension N can be called N dimensional vector, written as ND vector.\n",
+    "description": [
+      "The dimension of a ",
+      "vector",
+      " is just the count of elements in it.\n  A vector with dimension N can be called N dimensional vector, written as ND vector."
+    ],
     "significance": "A name for size of vector.\n  Note that we are not considering collections with zero elements as vectors as it does not seem to be useful.\n  The concept is illustrated in the table \\ref{tab:dim}.\n  \\begin{table}[ht]\n    \\centering\n    \\begin{tabular}{ c  c  c }\n      Vector name & Value & Dimension\\\\\n      $ V_1 $ & (1) & 1\\\\\n      $ V_2 $ & ($\\sqrt{2}$) & 1\\\\\n      $ V_3 $ & (-100, $\\sqrt{3}$) & 2\\\\\n      $ V_4 $ & (0, 0.1) & 2\\\\\n      $ V_5 $ & (0, 0, 0) & 3\\\\\n      $ V_6 $ & (0, 1, 2, 3) & 4\\\\\n    \\end{tabular}\n  \\caption{Dimensions of Vectors}\n  \\label{tab:dim}\n  \\end{table}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "vector_addition",
-    "description": "\n  The addition of two ND @vector@s \\[ A \\equiv \\bvecn{a} \\] and \\[ B \\equiv \\bvecn{b} \\] is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.\n   @vector_dimension@. Denoted by \\[ A + B \\equiv \\bvecnsum{a}{b} \\].\n",
+    "description": [
+      "The addition of two ND ",
+      "vector",
+      "s \\[ A \\equiv \\bvecn{a} \\] and \\[ B \\equiv \\bvecn{b} \\] is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.\n   ",
+      "vector_dimension",
+      ". Denoted by \\[ A + B \\equiv \\bvecnsum{a}{b} \\]."
+    ],
     "significance": "This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.\n  Otherwise there is no reason not to define the addition rule as something arbitrary like\n  \\[\n    \\bvectwo{x}{y} + \\bvectwo{a}{b} \\equiv \\bvectwo{xa + yb^2}{\\frac{b - y}{x + a}}\n  .\\]",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "vector_scaling",
-    "description": "\n  The scaling of an ND @vector@ \\[ A \\equiv \\bvecn{a} \\] @vector_dimension@ with a real number @real_numbers@ $\\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\\lambda$. Denoted by \\[ \\lambda * A \\equiv \\bvecnscale{\\lambda}{a} \\].\n",
+    "description": [
+      "The scaling of an ND ",
+      "vector",
+      " \\[ A \\equiv \\bvecn{a} \\] ",
+      "vector_dimension",
+      " with a real number ",
+      "real_numbers",
+      " $\\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\\lambda$. Denoted by \\[ \\lambda * A \\equiv \\bvecnscale{\\lambda}{a} \\]."
+    ],
     "significance": "Same story. Here $\\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "linear_combination",
-    "description": "\n  Linearly combination two vectors ND @vector@s A and B @vector_dimension@ means first scaling each vector with a real number @real_numbers@ and adding resultant vectors @vector_scaling@ @vector_addition@.\n  The produced vector is also N dimensional.\n  Denoted by $ \\alpha * A + \\beta * B $, where $\\alpha$ and $\\beta$ are real numbers.\n",
+    "description": [
+      "Linearly combination two vectors ND ",
+      "vector",
+      "s A and B ",
+      "vector_dimension",
+      " means first scaling each vector with a real number ",
+      "real_numbers",
+      " and adding resultant vectors ",
+      "vector_scaling",
+      " ",
+      "vector_addition",
+      ".\n  The produced vector is also N dimensional.\n  Denoted by $ \\alpha * A + \\beta * B $, where $\\alpha$ and $\\beta$ are real numbers."
+    ],
     "significance": "This is nothing new, just a word to combine one scaling and one adding operations.\n  A higher level construct to play with.\n  What is so linear about it?\n  Well the word linear is given because there can exist other types of combinations like quadratic combination where before scaling the entities are squared, polynomial combination, exponential combination, logarithmic combination ...\n  The most simplest of them all seems to be linear combination.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "linearly_independent_set",
-    "description": "\nA linearly independent set is a @set@ of @vector@s B of cardinality $>$ 1, such that $ \\forall b_i \\in B, b_i \\not\\equiv $ @linear_combination@ of all other vectors in B.\n\nA set of vectors in which at least one element $ \\equiv $ a linear combination of all other elements is called a linearly dependent set of vectors.\n",
+    "description": [
+      "A linearly independent set is a ",
+      "set",
+      " of ",
+      "vector",
+      "s B of cardinality $>$ 1, such that $ \\forall b_i \\in B, b_i \\not\\equiv $ ",
+      "linear_combination",
+      " of all other vectors in B.\n\nA set of vectors in which at least one element $ \\equiv $ a linear combination of all other elements is called a linearly dependent set of vectors."
+    ],
     "significance": "Vectors in a set with this property are sort of independent from others as in they cannot be built by other vectors using any simple operation available for vectors.\nYes! addition and scaling are all the available simple operations for vectors. Mind blown!\nWell you might scream matrices. But matrices were created just for that purpose, to build a vector that is otherwise not constructable using addition and scaling.\n\nNote that there cannot be a set of vectors in which one element $ b_d \\equiv $ linear combination of all other elements and another element $ b_i \\not\\equiv $ linear combination of all other elements.\nThis is because given the first identity, we can rearrange terms to get second identity.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "span",
-    "description": "\nThe span of a @set@ of @vector@s B is a set of vectors S in which each vector $ \\equiv $ @linear_combination@ of all vectors in B.\n",
+    "description": [
+      "The span of a ",
+      "set",
+      " of ",
+      "vector",
+      "s B is a set of vectors S in which each vector $ \\equiv $ ",
+      "linear_combination",
+      " of all vectors in B."
+    ],
     "significance": "A tool to give a sense of spread/cover of a set of vectors.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "basis",
-    "description": "\nA basis of a @set@ of @vector@s S is a @linearly_independent_set@ of vectors B, such that each vector in S $ \\equiv $ @linear_combination@ of all vectors in B.\n",
+    "description": [
+      "A basis of a ",
+      "set",
+      " of ",
+      "vector",
+      "s S is a ",
+      "linearly_independent_set",
+      " of vectors B, such that each vector in S $ \\equiv $ ",
+      "linear_combination",
+      " of all vectors in B."
+    ],
     "significance": "Sort of an inverse of span.\nNote that for a given set of vectors there can be multiple basis sets.\nFor instance the set of all 2D vectors has the following sets as basis sets.\n\\[\n  \\{ \\bvectwo{1}{0}, \\bvectwo{0}{1} \\}, \\{ \\bvectwo{2}{0}, \\bvectwo{0}{2} \\}, \\{ \\bvectwo{2}{0}, \\bvectwo{1}{2} \\}\n\\]\nBy using the word linearly independent we are sort of putting a restriction on number of vectors in the set.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "standard_vector",
-    "description": "\nA standard vector is a @vector@ in which value of one and only one element is one. If any elements are remaining their value is @zero@.\n",
+    "description": [
+      "A standard vector is a ",
+      "vector",
+      " in which value of one and only one element is one. If any elements are remaining their value is ",
+      "zero",
+      "."
+    ],
     "significance": "An standard vector is a simple unit vector.\nFor example\n\\[\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 1 \\end{bmatrix}\n\\]\nare instances of standard vector.\nIt can be used as a building block for creating useful tools.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "standard_basis",
-    "description": "\nThe standard basis of a @set@ of N-dimensional @vector@s V is the set of all @standard_vector@s of dimension N.\n",
+    "description": [
+      "The standard basis of a ",
+      "set",
+      " of N-dimensional ",
+      "vector",
+      "s V is the set of all ",
+      "standard_vector",
+      "s of dimension N."
+    ],
     "significance": "Can be used to construct coordinate axes and thus coordinate system.\nAs each vector in standard basis belongs to one and only one coordinate axis, any point in the state vector space $ \\equiv $ linear combination of all vectors in standard basis.\nFor example a set of 4D vectors have a standard basis as the following\n\\[\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{bmatrix}\n\\]",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "l2_norm",
-    "description": "\nThe L2 norm of a @vector@ \\[ V \\equiv \\bvecn{e} \\] is defined as the square root of sum of squares of elements of V. Denoted by \\[ \\norm{V}_2 \\equiv \\sqrt{ \\sum_{i = 1}^{n} e_i^2 } \\].\n",
+    "description": [
+      "The L2 norm of a ",
+      "vector",
+      " \\[ V \\equiv \\bvecn{e} \\] is defined as the square root of sum of squares of elements of V. Denoted by \\[ \\norm{V}_2 \\equiv \\sqrt{ \\sum_{i = 1}^{n} e_i^2 } \\]."
+    ],
     "significance": "A simple and natural way to get a sense of size of vector.\nThis norm is also called Euclidean norm.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "dot_product",
-    "description": "\nThe dot product of N-dimensional two @vector@s\n\\[\n  A \\equiv \\bvecn{a}\n  B \\equiv \\bvecn{b}\n\\]\nis a real number @real_numbers@ $ \\eta \\equiv $ sum of element-wise products of A and B.\nDenoted by\n\\[\n  A . B \\equiv \\sum_{i = 1}^{n} (a_i * b_i)\n\\]\n",
+    "description": [
+      "The dot product of N-dimensional two ",
+      "vector",
+      "s\n\\[\n  A \\equiv \\bvecn{a}\n  B \\equiv \\bvecn{b}\n\\]\nis a real number ",
+      "real_numbers",
+      " $ \\eta \\equiv $ sum of element-wise products of A and B.\nDenoted by\n\\[\n  A . B \\equiv \\sum_{i = 1}^{n} (a_i * b_i)\n\\]"
+    ],
     "significance": "A tool to give a sense of similarity of vectors.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "angle_between_vectors",
-    "description": "\nThe angle between two N-dimensional @vector@s A and B is a real number $ \\theta \\equiv $ arc cosine of @dot_product@ of vectors divided by @l2_norm@ of both A and B. Denoted by\n\\[\n  \\angle(A,B) \\equiv arccos(\\frac{A.B}{\\norm{A}_2 * \\norm{B}_2})\n\\]\n",
+    "description": [
+      "The angle between two N-dimensional ",
+      "vector",
+      "s A and B is a real number $ \\theta \\equiv $ arc cosine of ",
+      "dot_product",
+      " of vectors divided by ",
+      "l2_norm",
+      " of both A and B. Denoted by\n\\[\n  \\angle(A,B) \\equiv arccos(\\frac{A.B}{\\norm{A}_2 * \\norm{B}_2})\n\\]"
+    ],
     "significance": "A tool give a sense of orientation difference b/w the vectors.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "perpendicular_vectors",
-    "description": "\nTwo N-dimensional @vector@s A and B are said to be perpendicular vectors $ \\biimpl $ the cosine of @angle_between_vectors@ $ \\equiv 0 $.\n",
+    "description": [
+      "Two N-dimensional ",
+      "vector",
+      "s A and B are said to be perpendicular vectors $ \\biimpl $ the cosine of ",
+      "angle_between_vectors",
+      " $ \\equiv 0 $."
+    ],
     "significance": "Gives a sense of independence b/w two vectors.\n\nIn vectors of dimensions 2 and 3, we visualize this by drawing what we usually draw for coordinate systems.\nThis visualization is just a choice.\nWe choose that because the independence is visualized in the sense of projections.\nIn 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.\nSo there is no need to visualize them in 4D or more dimensional spaces.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "point",
-    "description": "\nA point represents state of an object.\nA point does not change, so there is no notion of moving a point.\nObjects can change states and hence can go from one point to another.\n",
+    "description": [
+      "A point represents state of an object.\nA point does not change, so there is no notion of moving a point.\nObjects can change states and hence can go from one point to another."
+    ],
     "significance": "A basic tool for representing state of objects.\nFor instance a point can represent position, temperature, velocity, pressure etc...",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "space",
-    "description": "\nA space is a @set@ of @point@s.\n",
+    "description": [
+      "A space is a ",
+      "set",
+      " of ",
+      "point",
+      "s."
+    ],
     "significance": "A tool to group all states considered in the context.\nAs point does not change, space does not change.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "state_vector",
-    "description": "\nA state vector is a @vector@ that represents a @point@.\n",
+    "description": [
+      "A state vector is a ",
+      "vector",
+      " that represents a ",
+      "point",
+      "."
+    ],
     "significance": "This is not a redundant definition (with point).\nAlthough a point never changes, the representation of that point can change.\nThat is why we define both point and state vector.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "state_vector_space",
-    "description": "\nA state vector space is a @set@ of all possible N-dimensional @state_vector@s.\n",
+    "description": [
+      "A state vector space is a ",
+      "set",
+      " of all possible N-dimensional ",
+      "state_vector",
+      "s."
+    ],
     "significance": "Used to represent a collection of state vectors.\nMainly created for constructing coordinate system.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "coordinate_system",
-    "description": "\nA coordinate system $ \\Lambda $ is a @bijection@ mapping from @space@ G to an N-dimensional @state_vector_space@ V.\n\nDenoted by $ \\Lambda: G \\to V $. $\\forall g \\in G, \\Lambda(g) $ (i.e. the image of @point@ g under coordinate system $ \\Lambda $) can be denoted by $P^{\\Lambda}_{g}$.\n",
+    "description": [
+      "A coordinate system $ \\Lambda $ is a ",
+      "bijection",
+      " mapping from ",
+      "space",
+      " G to an N-dimensional ",
+      "state_vector_space",
+      " V.\n\nDenoted by $ \\Lambda: G \\to V $. $\\forall g \\in G, \\Lambda(g) $ (i.e. the image of ",
+      "point",
+      " g under coordinate system $ \\Lambda $) can be denoted by $P^{\\Lambda}_{g}$."
+    ],
     "significance": "We choose state vector space to represent a space G because, by definition any v $\\in V \\equiv $ linear combination of all vectors of standard basis.\nTherefore we only need standard basis to describe any vector in V, nothing else.\n\nSets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.\nDefining it like this removes all untagible invisible evil chains that are otherwise tied to the concept, thus providing a clean, elegant and concrete description.\n\nHere we make sort of a first proper connection from points and spaces to vectors.\nNote that when we talk about dimensionality here, it is the property of vectors not the space itself.\nThus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "coordinate_axis",
-    "description": "\nA coordinate axis of a @coordinate_system@ $ \\Lambda $ acting on a @space@ G is a @subset@ of G, say A such that the @state_vector@ of any @point@ in A $ \\equiv $ a scaled version of an @standard_vector@ B @vector_scaling@.\n",
+    "description": [
+      "A coordinate axis of a ",
+      "coordinate_system",
+      " $ \\Lambda $ acting on a ",
+      "space",
+      " G is a ",
+      "subset",
+      " of G, say A such that the ",
+      "state_vector",
+      " of any ",
+      "point",
+      " in A $ \\equiv $ a scaled version of an ",
+      "standard_vector",
+      " B ",
+      "vector_scaling",
+      "."
+    ],
     "significance": "For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.\nDue to the virtue of state vectors on coordinate axis being scaled standard vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.\nIt has no connection with other coordinate axes.\nThis is a good thing because it makes things simple, decoupled and non-clumsy.\n\nA coordinate axis is a simple way to disassemble a coordinate system.\nAny point in the state vector space $ \\equiv $ linear combination of some point on each coordinate axis.\n\nMisconception busting:\n\\begin{enumerate}[nolistsep]\n  \\item There is no need to name the axes X, Y ...\n  \\item There is no need for the axes to be perpendicular.\n  \\item No need for 1 unit along first axis to be same as 1 unit along second axis.\n  \\item No need for units of first axis to be same as the second one\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "straight_space",
-    "description": "\nA straight space under a @coordinate_system@ $\\Lambda$ acting on a @space@ G is a @subset@ of G, say S such that the @state_vector@ of any @point@ in S $ \\equiv $ $ o + t * d $ where $ o, d \\in G $ and t $ \\in $ @real_numbers@.\n",
+    "description": [
+      "A straight space under a ",
+      "coordinate_system",
+      " $\\Lambda$ acting on a ",
+      "space",
+      " G is a ",
+      "subset",
+      " of G, say S such that the ",
+      "state_vector",
+      " of any ",
+      "point",
+      " in S $ \\equiv $ $ o + t * d $ where $ o, d \\in G $ and t $ \\in $ ",
+      "real_numbers",
+      "."
+    ],
     "significance": "If the space is finite, it is called a line segement otherwise a line.\nWe can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.\nGenerally denoted by drawing $\\overleftrightarrow{}$ on paper.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "position_space",
-    "description": "\nA @space@ where each @point@ represents a position of an object is called a position space.\nThe coordinate system that acts on it is called position coordinate system.\n",
+    "description": [
+      "A ",
+      "space",
+      " where each ",
+      "point",
+      " represents a position of an object is called a position space.\nThe coordinate system that acts on it is called position coordinate system."
+    ],
     "significance": "Used to denote positions of objects in the real world.\nPositions in real world are generally mapped to a 3D vector set.\nThis mapping is just based on the belief that the real world is in 3D.\nBut as we believe, beliefs are not final and should be challanged constantly and consciously.\n\nFor example positions can be mapped to 4D vector set, the new dimension being the time.\nSimilarly more dimensions can represent more information.\nOr the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.\n\nWhatever the real world might be, we can always imagine a space represented by 3D vector set and do operations on it.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "linear_transformation",
-    "description": "\nA linear transformation on a @space@ G is a @bijection@ mapping from a @coordinate_system@ $ \\Lambda $ on G mapping to a @state_vector_space@ V to a coordinate system $\\Psi$ on same G mapping to state vector space W of same dimension as V, such that each @vector@ in @standard_basis@ of W is a @linear_combination@ of each vector in standard basis of V.\n",
+    "description": [
+      "A linear transformation on a ",
+      "space",
+      " G is a ",
+      "bijection",
+      " mapping from a ",
+      "coordinate_system",
+      " $ \\Lambda $ on G mapping to a ",
+      "state_vector_space",
+      " V to a coordinate system $\\Psi$ on same G mapping to state vector space W of same dimension as V, such that each ",
+      "vector",
+      " in ",
+      "standard_basis",
+      " of W is a ",
+      "linear_combination",
+      " of each vector in standard basis of V."
+    ],
     "significance": "A simple tool for moving b/w representations of space.\nSome popular examples of linear transformations are rotation, scale, sheer.\n\nFor instance in a 2D state vector space, if standard basis of W say $ \\hat{o}, \\hat{p} $ are linear combinations of standard basis of V say $ \\hat{d}, \\hat{f} $ as follows\n\\[  \\hat{o} = 3 * \\hat{d} + 2 * \\hat{f} \\]\n\\[  \\hat{p} = 0 * \\hat{d} + 2 * \\hat{f} \\]\nNote that\n\\begin{enumerate}[nolistsep]\n  \\item In V $ \\hat{o}, \\hat{p} $ represent $ \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} and \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} $ repsectively.\n  \\item In W $ \\hat{d}, \\hat{f} $ represent $ \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} and \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} $ repsectively.\n\\end{enumerate}\nBut V and W are different representations of the same space. Therfore,\n\\begin{enumerate}[nolistsep]\n  \\item $ \\hat{o} $ represents a same vector as $ \\hat{d} $. So they are indentical in this context.\n  \\item $ \\hat{o} $ represents a different point than $ \\hat{d} $. So they are non-identical in this context.\n\\end{enumerate}\nTherefore when we say two vectors are equal we should be careful about the context of the discussion.\n\nSuppose a point $ \\eta $ is represented by $ \\begin{bmatrix} 4 \\\\ 10 \\end{bmatrix} $ in $ \\Psi $.\nThat means P is represented by $ 4 * \\hat{o} + 10 * \\hat{p} $.\nNow to get representation of the same point $ \\eta $ in $ \\Lambda $ (remember points do not change with anything) we just substitute the expressions of $ \\hat{o}, \\hat{p} $ in terms of $ \\hat{d}, \\hat{f} $ as given above, i.e. $ 4 * (3 * \\hat{d} + 2 * \\hat{f}) + 10 * (0 * \\hat{d} + 2 * \\hat{f}) $ which gives $ 12 * \\hat{d} + 28 * \\hat{f} $.\nThis can be written as\n\\[\n  4 * \\begin{bmatrix} 3 \\\\ 2 \\end{bmatrix} + 10 * \\begin{bmatrix} 0 \\\\ 2 \\end{bmatrix}\n\\]\nwhich can be further packaged as a matrix multiplication.\n\\[\n  \\begin{bmatrix} 3 & 0 \\\\ 2 & 2 \\end{bmatrix} \\begin{bmatrix} 4 \\\\ 10 \\end{bmatrix}\n\\]\nThis is why the matrix multiplication was invented. Mind Blown!!\nTherefore columns in a matrix can be seen as the representations of standard basis of new coordinate system in the old one.\n\nTherefore the linear tranform can be seen as a way to do the following things\n\\begin{enumerate}[nolistsep]\n  \\item Given a transformed coordinate system i.e. given standard basis of new coordinate system in terms of the old one, we can get the representation for the same point in two different systems.\n  \\item Visualize moving a vector $ \\lambda $ representing a point A in $ \\Lambda $ to the point B represented in $ \\Psi $ by $ \\psi $ which is numerically equal to $ \\lambda $.\n\\end{enumerate}\nDonot mix these two.\n\nMisconceptions busting. The following are true statements.\n\\begin{enumerate}[nolistsep]\n  \\item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.\n  \\item Rotation is not some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.\n  \\item There is no such thing as multiplying a vector on its right by a matrix (contrary to left side which we can use for linear transform). Dimensions don't match for multiplication to occur.\n  \\item Linear transformation is not about raw numbers, the idea comes from visualing space and trying to play with it.\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "rotation_transformation",
-    "description": "\nA rotation transformation is a @linear_transformation@ on a @space@ G from @coordinate_system@ $\\Lambda$ with @state_vector_space@ V to coordinate system $\\Psi$ with state vector space W, in which each vector in @standard_basis@ of W has @l2_norm@ of 1 and is perpendicular to all others @perpendicular_vectors@\n",
+    "description": [
+      "A rotation transformation is a ",
+      "linear_transformation",
+      " on a ",
+      "space",
+      " G from ",
+      "coordinate_system",
+      " $\\Lambda$ with ",
+      "state_vector_space",
+      " V to coordinate system $\\Psi$ with state vector space W, in which each vector in ",
+      "standard_basis",
+      " of W has ",
+      "l2_norm",
+      " of 1 and is perpendicular to all others ",
+      "perpendicular_vectors",
+      ""
+    ],
     "significance": "Defines a rotation operation.\nThe matrix formed by such transformation is called rotation transformation matrix or rotation matrix for short.\nThe standard basis of W forms an orthonormal basis.\n\nIn 3D the number of degrees of freedom for a rotation matrix is 3 even though we have 9 elements in a 3x3 matrix.\nThis is because for a 3D unit vector we have two degrees of freedom (the third one is fixed when we choose first two due to length constraint).\nTherefore by choosing the unit vector value of first axis of new coordinate system in the old coordinate system we used 2 degrees of freedom.\nGiven this vector we have to choose a perpendicular vector i.e. any vector in plane perpendicular to it.\nChoosing this will require 1 degree of freedom which is the angle of vector in that plane.\nThe final vector is just the cross product of first two which uses 0 degrees of freedom.\n\nSay there is a state vector v.\nAfter a rotation tranformation the same state vector v in new coordinate system is represented by state vector u in old one.\nTwo vectors form a plane.\nSo u, v form a plane P that passes through the origin.\nEvery plane has one and only one normal, P also has one and only one normal n.\nThe rotation transformation matrix has a determinant $\\equiv 1$ because it is a orthonormal matrix.\nTherefore the length (L2 norms) of both vectors u, v are identical.\nIn the plane P we have angle b/w u, v say $\\theta$.\nTherefore the whole rotation transformation can be seen as a rotating the state vector v about one and only one axis n by angle $\\theta$ to reach u.\nThere you have the good old way to thinking about rotation. Mind blown!!\n\nMisconceptions busting. The following are true statements.\n\\begin{enumerate}[nolistsep]\n  \\item Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.\n  \\item Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.\n  \\item In 3D, every rotation always has one and only one axis of rotation which passes through origin. Rotation about an axis not passing through origin is not defined.\n  \\item Similarly, in 2D, every rotation is always about origin. Rotation about a point which is not an origin is not defined.\n  \\item Although rotation is a linear transform, the result of rotation may not be linear in terms of the angle of rotation.\n  \\[\n    \\begin{bmatrix}\n        a \\\\\n        b\n    \\end{bmatrix}\n    \\equiv\n    \\begin{bmatrix}\n        c\\theta & -s\\theta \\\\\n        s\\theta & c\\theta\n    \\end{bmatrix}\n    *\n    \\begin{bmatrix}\n        x \\\\\n        y\n    \\end{bmatrix}\n  \\]\n  \\[\n    \\begin{bmatrix}\n        a \\\\\n        b\n    \\end{bmatrix}\n    \\equiv\n    \\begin{bmatrix}\n        xc\\theta - ys\\theta \\\\\n        xs\\theta + yc\\theta\n    \\end{bmatrix}\n  \\]\n  For example here the result $[a, b]^T$ is linear in terms of $c\\theta, s\\theta$ and not $\\theta$ even though entire rotation matrix can be generated only using $\\theta$.\n  A bit misleading indeed.\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "definiteness",
-    "description": "\nLet a square matrix M represent a @linear_transformation@ on a @space@ G. If\n\\begin{enumerate}[nolistsep]\n  \\item $z^TMz > 0$ for any non-zero vector $z \\biimpl$ it (transformation) is called positive definite.\n  \\item $z^TMz < 0$ for any non-zero vector $z \\biimpl$ it is called negative definite.\n  \\item $z^TMz \\ge 0$ for any non-zero vector $z \\biimpl$ it is called postive semi-definite.\n  \\item $z^TMz \\le 0$ for any non-zero vector $z \\biimpl$ it is called negative semi-definite.\n  \\item else it is called indefinite.\n\\end{enumerate}\n",
+    "description": [
+      "Let a square matrix M represent a ",
+      "linear_transformation",
+      " on a ",
+      "space",
+      " G. If\n\\begin{enumerate}[nolistsep]\n  \\item $z^TMz > 0$ for any non-zero vector $z \\biimpl$ it (transformation) is called positive definite.\n  \\item $z^TMz < 0$ for any non-zero vector $z \\biimpl$ it is called negative definite.\n  \\item $z^TMz \\ge 0$ for any non-zero vector $z \\biimpl$ it is called postive semi-definite.\n  \\item $z^TMz \\le 0$ for any non-zero vector $z \\biimpl$ it is called negative semi-definite.\n  \\item else it is called indefinite.\n\\end{enumerate}"
+    ],
     "significance": "A neat way to classify transformations.\nIn the expression $z^TMz$, $Mz$ is the transformed vector of $z$.\nTherefore the entire expression is the dot product of the vector to its transformed vector.\nHence a positive definite transformation $\\biimpl$ dot product of any vector with its transformed one $> 0$.\nSimilarly for others.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "derivative",
-    "description": "\nThe derivative of a @function@ $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]\nas h tends to zero.\nDenoted by\n\\[\n  \\frac{d\\Lambda}{d\\alpha} \\equiv \\lim_{h \\to 0}\\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]\n",
+    "description": [
+      "The derivative of a ",
+      "function",
+      " $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]\nas h tends to zero.\nDenoted by\n\\[\n  \\frac{d\\Lambda}{d\\alpha} \\equiv \\lim_{h \\to 0}\\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]"
+    ],
     "significance": "A notion of difference in function given difference in input.\nGenerally visualized as a slope of the curve defined by the function.\nIt is a general misconception that derivative is something very complicated and uncomprehensible thing.\nBut it is actually not.\nIt is a simple thing.\n\nOne subtle but important thing to notice here is that, there is no usage of the term \"infinitesimals\" here.\nThe spirit of the derivative is in measuring change in function when input is changed.\nAnd the actual derivative itself is the value that the ratio approaches as the change gets smaller and smaller.\n\nIt can definitely be the case that the ratio does not have a limiting value.\nThe derivative is not defined for such cases, that's all.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "integral",
-    "description": "\nThe integral of a @function@ $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]\nas n tends to infinity.\nDenoted by\n\\[\n  \\int_{0}^{\\alpha} \\Lambda(\\beta) d\\beta \\equiv \\lim_{n \\to \\infty}\\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]\n",
+    "description": [
+      "The integral of a ",
+      "function",
+      " $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]\nas n tends to infinity.\nDenoted by\n\\[\n  \\int_{0}^{\\alpha} \\Lambda(\\beta) d\\beta \\equiv \\lim_{n \\to \\infty}\\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]"
+    ],
     "significance": "A notion of sum of function until a given input.\nGenerally visualized as area under the curve defined by the function.\nIt is a general misconception that integral is some other worldly incomprehensible thing.\nIt is not.\nIt is just this.\nThere is nothing more to the definition.\n\nOne thing to observe is that there is no method to natively evaluate the integral contrary to derivatives (which uses limits).",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "fundamental_theorem_of_calculus",
-    "description": "\nThis theorem links @derivative@s and @integral@s.\n\nFor @function@s $g, f:D \\to C$ s.t. $\\forall \\alpha \\in D$,\n\\[\n  f(\\alpha) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n  \\impl\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\[\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n  \\impl\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n.\n",
+    "description": [
+      "This theorem links ",
+      "derivative",
+      "s and ",
+      "integral",
+      "s.\n\nFor ",
+      "function",
+      "s $g, f:D \\to C$ s.t. $\\forall \\alpha \\in D$,\n\\[\n  f(\\alpha) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n  \\impl\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\[\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n  \\impl\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n."
+    ],
     "significance": "Also provides a method to evaluate integrals.\nThere is no native method to evaluate integral other than to basically guess viz. guess a function which upon derivation gives the original function and get its value at required point.\n\nIt is almost hilarious.\nIt almost seems like the integrals are created like a hack.\nThis should be developed and we should make a way to natively evaluate integrals that does not involve guessing.",
     "proof": "The term `approximation' used here is more profound than you might think.\n\\\\\n\\textbf{First}\n\\\\\nIf $f$ is the integral function i.e. the area under the curve, consider a small finite change in the area $df$.\nThen\n\\[\n  df \\approx g(\\alpha) * d\\alpha\n\\]\n\\[\n  \\frac{df}{d\\alpha} \\approx g(\\alpha)\n\\]\nAs the $d\\alpha$ tends to 0\n\\begin{enumerate}[nolistsep]\n  \\item The limiting value of the LHS is derivative of $f$\n  \\item The limiting value of the RHS is $g(\\alpha)$\n  \\item The approximation becomes equivalence\n\\end{enumerate}\nTherefore,\n\\[\n  \\frac{df}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\textbf{Second}\n\\\\\nIf $g$ is the derivative of $f$\n\\[\n  g(\\beta) * d\\beta \\approx f(\\beta + d\\beta) - f(\\beta)\n\\]\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx \\sum_{0}^{n-1} f(\\alpha * \\frac{i + 1}{n}) - f(\\alpha * \\frac{i}{n})\n\\]\nExpanding and cancelling terms on RHS we have\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx f(\\alpha) - f(0)\n\\]\nAs $n$ tends to infinity\n\\begin{enumerate}[nolistsep]\n  \\item The limiting value of the LHS is derivative of $\\int_{0}^{\\alpha} g(\\beta) d\\beta$\n  \\item The limiting value of the RHS is $f(\\alpha) - f(0)$\n  \\item The approximation becomes equivalence\n\\end{enumerate}\nTherefore,\n\\[\n  f(\\alpha) - f(0) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n\\[\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]"
   },
   {
     "id": "experiment",
-    "description": "\nA list of instructions which when followed produces an outcome.\n",
+    "description": [
+      "A list of instructions which when followed produces an outcome."
+    ],
     "significance": "Anything that has some non-zero number of outcomes is an experiment.\nThe meaning of this is not just limited to experiments which involve physics or chemistry.\nWe are only concerned with the outcomes and not the inputs.\nNote that, at a time only one of the several possible outcomes of an experiment can occur.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "deterministic_experiment",
-    "description": "\nLet $ O_k $ represent the final outcome when an @experiment@ is repeated k times, an experiment such that $ O_1, O_2, O_3, ... O_n $ are pairwise identical @identity@ $\\forall n \\in \\mathbb{N} $ @natural_numbers@ is called a deterministic experiment.\n",
+    "description": [
+      "Let $ O_k $ represent the final outcome when an ",
+      "experiment",
+      " is repeated k times, an experiment such that $ O_1, O_2, O_3, ... O_n $ are pairwise identical ",
+      "identity",
+      " $\\forall n \\in \\mathbb{N} $ ",
+      "natural_numbers",
+      " is called a deterministic experiment."
+    ],
     "significance": "Can be used to represent experiments like adding two numbers.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "non-deterministic_experiment",
-    "description": "\nLet $ O_k $ represent the final outcome when an @experiment@ is repeated k times, an experiment such that $ \\exists (i, j) \\st O_i \\not\\equiv O_j $ @identity@ is called a non-deterministic experiment.\n",
+    "description": [
+      "Let $ O_k $ represent the final outcome when an ",
+      "experiment",
+      " is repeated k times, an experiment such that $ \\exists (i, j) \\st O_i \\not\\equiv O_j $ ",
+      "identity",
+      " is called a non-deterministic experiment."
+    ],
     "significance": "Note that outcome can remain same for some repetitions of the experiement.\nCan be used to represent experiments like rolling a dice.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "outcome_space",
-    "description": "\nThe outcome space of an @experiment@ is the @set@ of its all possible outcomes @universal_set@.\n",
+    "description": [
+      "The outcome space of an ",
+      "experiment",
+      " is the ",
+      "set",
+      " of its all possible outcomes ",
+      "universal_set",
+      "."
+    ],
     "significance": "A term to refer to all possible outcomes collectively.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "event",
-    "description": "\nAn event $ E $ of an @experiment@ is a @subset@ of @outcome_space@. An event is said to have occured $ \\biimpl $ $ \\exists $ outcome $ \\in E $ that occured.\n",
+    "description": [
+      "An event $ E $ of an ",
+      "experiment",
+      " is a ",
+      "subset",
+      " of ",
+      "outcome_space",
+      ". An event is said to have occured $ \\biimpl $ $ \\exists $ outcome $ \\in E $ that occured."
+    ],
     "significance": "The naming here is bad.\nAn event is nothing but a set of outcomes.\nAn event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.\nThat's it.\nNothing more.\nThe number of elements in an event can be 0, 1 or even total number of possible outcomes.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "mutually_exclusive_events",
-    "description": "\nTwo @event@s A and B of an @experiment@ are mutually exclusive events $ \\biimpl $ $ A \\cap B \\equiv \\phi $ @null_set@.\n",
+    "description": [
+      "Two ",
+      "event",
+      "s A and B of an ",
+      "experiment",
+      " are mutually exclusive events $ \\biimpl $ $ A \\cap B \\equiv \\phi $ ",
+      "null_set",
+      "."
+    ],
     "significance": "For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.\nNote that they are not independent events, even both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "event_space",
-    "description": "\nThe event space of an @experiment@ is the @set@ of all possible @event@s of the experiement.\n",
+    "description": [
+      "The event space of an ",
+      "experiment",
+      " is the ",
+      "set",
+      " of all possible ",
+      "event",
+      "s of the experiement."
+    ],
     "significance": "A term to refer to all possible events collectively",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "stochastic_experiment",
-    "description": "\nAn @experiment@ such that $\\forall$ @event@ $ \\lambda \\in $ @event_space@ the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a stochastic experiment.\n",
+    "description": [
+      "An ",
+      "experiment",
+      " such that $\\forall$ ",
+      "event",
+      " $ \\lambda \\in $ ",
+      "event_space",
+      " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a stochastic experiment."
+    ],
     "significance": "Useful to build the concept of probability.\nNote that by my definition of stochastic experiment\n\\begin{enumerate}[nolistsep]\n    \\item All deterministic experiments are stochastic experiments with probability of the only outcome being 1.\n    \\item Some non-deterministic experiments are stochastic experiments.\n\\end{enumerate}\n\\begin{center}\n    \\begin{tikzpicture}\n    \\setlength{\\parskip}{5mm}\n        \\draw[fill=blue!60]     (0, 0) -- (90:2.5) arc (90:270:2.5) -- cycle ;\n        \\draw[]                 (0, 0) circle (2.5) node {Non-deterministic};\n        \\draw[fill=blue!60]     (0: 5.1) circle (2.5) node {Deterministic};\n        \\node[anchor=south] at (current bounding box.north) {Stochastic (in blue)};\n    \\end{tikzpicture}\n\\end{center}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "probability",
-    "description": "\nThe probability of an @event@ $ \\lambda $ of a @stochastic_experiment@ is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $.\n",
+    "description": [
+      "The probability of an ",
+      "event",
+      " $ \\lambda $ of a ",
+      "stochastic_experiment",
+      " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
+    ],
     "significance": "One might easily think that probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher probability does not mean it will occur next.\nEven an event with unimaginabily miniscule probability may happen (many times in a row) and an event with very high probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of probability, that arises from the definition of limit itself, should be digested well.\n\nA good way to remember this is to add meaning to notation.\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\lambda} {\\color{green} )}\n\\]\nHere\n\\begin{enumerate}[nolistsep]\n    \\item {\\color{red} P} should remind that probability is a limit definition.\n    \\item {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \\item ${\\color{blue} \\lambda}$ represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "properties_of_probability",
-    "description": "\nGiven S be the @outcome_space@ and A, B be some @event@s of a @stochastic_experiment@ E. The following properties hold.\n\\begin{enumerate}[nolistsep]\n  \\item $P(A) \\ge 0 $\n  \\item $P(S) \\equiv 1 $\n  \\item $ A \\cap B \\equiv \\phi \\impl P(A \\cup B) \\equiv P(A) + P(B)$ @null_set@.\n\\end{enumerate}\n\n",
+    "description": [
+      "Given S be the ",
+      "outcome_space",
+      " and A, B be some ",
+      "event",
+      "s of a ",
+      "stochastic_experiment",
+      " E. The following properties hold.\n\\begin{enumerate}[nolistsep]\n  \\item $P(A) \\ge 0 $\n  \\item $P(S) \\equiv 1 $\n  \\item $ A \\cap B \\equiv \\phi \\impl P(A \\cup B) \\equiv P(A) + P(B)$ ",
+      "null_set",
+      ".\n\\end{enumerate}"
+    ],
     "significance": "Some tools to played around with to create new tools.",
     "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\impl $ the ratio is always $ \\ge 0 $.\n\n$ \\impl $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\impl $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
   },
   {
     "id": "independent_events",
-    "description": "\nTwo @event@s A and B of a @stochastic_experiment@ are independent $ \\biimpl $ $ P(A \\cap B) \\equiv P(A) * P(B) $ @probability@.\n",
+    "description": [
+      "Two ",
+      "event",
+      "s A and B of a ",
+      "stochastic_experiment",
+      " are independent $ \\biimpl $ $ P(A \\cap B) \\equiv P(A) * P(B) $ ",
+      "probability",
+      "."
+    ],
     "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "conditional_probability",
-    "description": "\nLet P(B) denote @probability@ of some non @null_set@ @event@ B of a @stochastic_experiment@ E.\nSay event B occured\n\\begin{enumerate}[nolistsep]\n    \\item The probability that outcome a occured during the occurance of B is called conditional probability of a given B.\n    \\[\n      P(a \\mid B) \\equiv \\frac{P(a \\cap B)}{P(B)}\n    \\]\n    \\item The probability that event A = $\\{a_1, a_2, a_3 .. a_n\\}$ occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\sum_{i = 1}^{n}\\frac{P(a_i \\cap B)}{P(B)}\n    \\]\n\\end{enumerate}\n",
+    "description": [
+      "Let P(B) denote ",
+      "probability",
+      " of some non ",
+      "null_set",
+      " ",
+      "event",
+      " B of a ",
+      "stochastic_experiment",
+      " E.\nSay event B occured\n\\begin{enumerate}[nolistsep]\n    \\item The probability that outcome a occured during the occurance of B is called conditional probability of a given B.\n    \\[\n      P(a \\mid B) \\equiv \\frac{P(a \\cap B)}{P(B)}\n    \\]\n    \\item The probability that event A = $\\{a_1, a_2, a_3 .. a_n\\}$ occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\sum_{i = 1}^{n}\\frac{P(a_i \\cap B)}{P(B)}\n    \\]\n\\end{enumerate}"
+    ],
     "significance": "All it is saying is that one of some outcomes a.k.a B occured, what is the probability that during that occurance an outcome a occured.\n\nSay the outcomes probabilities are $[a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4]$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(a_1 | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n\n\\begin{enumerate}[nolistsep]\n    \\item $ a \\cap B $ because if the outcome a is not in B, then it must definitely not have occured.\n    \\item $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\\end{enumerate}\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere\n\\begin{enumerate}[nolistsep]\n    \\item {\\color{red} P} should remind that probability is a limit definition.\n    \\item {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \\item ${\\color{blue} \\alpha}, {\\color{magenta} \\beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n    \\item $\\mid$ should remind us that ${\\color{magenta} \\beta}$ occured.\n\\end{enumerate}",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "random_variable",
-    "description": "\nA random variable of a @stochastic_experiment@ E is a @function@ $ \\psi $ mapping from E's @event_space@ S to $ [0, 1] $ where\n\\begin{enumerate}[nolistsep]\n    \\item $ \\forall \\lambda \\in S, \\psi(\\lambda) \\equiv $ the @probability@ of the event $ \\lambda $.\n    \\item $ \\forall \\alpha, \\beta \\in S \\st \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the @conditional_probability@ of $ \\alpha $ given $ \\beta $,.\n\\end{enumerate}\n",
+    "description": [
+      "A random variable of a ",
+      "stochastic_experiment",
+      " E is a ",
+      "function",
+      " $ \\psi $ mapping from E's ",
+      "event_space",
+      " S to $ [0, 1] $ where\n\\begin{enumerate}[nolistsep]\n    \\item $ \\forall \\lambda \\in S, \\psi(\\lambda) \\equiv $ the ",
+      "probability",
+      " of the event $ \\lambda $.\n    \\item $ \\forall \\alpha, \\beta \\in S \\st \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the ",
+      "conditional_probability",
+      " of $ \\alpha $ given $ \\beta $,.\n\\end{enumerate}"
+    ],
     "significance": "A wrapper around the definitions of experiment, event space, probability, conditional probability.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "total_probability_theorem",
-    "description": "\nFor a @random_variable@ $\\psi$ of a @stochastic_experiment@ E, let B be some @event@ of E and $\\{A_1, A_2, ... A_n\\}$ be a @partition@ of @outcome_space@ of E, such that none of the $ A_i $ is a @null_set@ $ \\impl $\n\\[\n  \\psi(B) = \\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )\n\\]\n\n",
+    "description": [
+      "For a ",
+      "random_variable",
+      " $\\psi$ of a ",
+      "stochastic_experiment",
+      " E, let B be some ",
+      "event",
+      " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",
+      "partition",
+      " of ",
+      "outcome_space",
+      " of E, such that none of the $ A_i $ is a ",
+      "null_set",
+      " $ \\impl $\n\\[\n  \\psi(B) = \\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )\n\\]"
+    ],
     "significance": "Using this theorem we can split the probability of event B into conditional probabilities of B given $ A_i $s and proababilities of $ A_i $s.",
     "proof": ""
   },
   {
     "id": "bayes_theorem",
-    "description": "\nFor a @random_variable@ $\\psi$ of a @stochastic_experiment@ E, let B be some @event@ of E and $\\{A_1, A_2, ... A_n\\}$ be a @partition@ of @outcome_space@ of E, such that none of the $ A_i $ is a @null_set@ $ \\impl $\n\\[\n  \\psi(A_i \\mid B) = \\frac{\\psi(B \\mid A_i ) \\psi( A_i )}{\\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )}\n\\]\n\n",
+    "description": [
+      "For a ",
+      "random_variable",
+      " $\\psi$ of a ",
+      "stochastic_experiment",
+      " E, let B be some ",
+      "event",
+      " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",
+      "partition",
+      " of ",
+      "outcome_space",
+      " of E, such that none of the $ A_i $ is a ",
+      "null_set",
+      " $ \\impl $\n\\[\n  \\psi(A_i \\mid B) = \\frac{\\psi(B \\mid A_i ) \\psi( A_i )}{\\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )}\n\\]"
+    ],
     "significance": "Need for such a concept can be found at \\href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \\href{https://youtu.be/R13BD8qKeTg}{veritasium}.\n\nWhen you have a constant world but cannot be observed accurately and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem.",
     "proof": ""
   },
   {
     "id": "graphics",
-    "description": "\nGraphics is an image on a 2D surface.\n",
+    "description": [
+      "Graphics is an image on a 2D surface."
+    ],
     "significance": "Often abused word so it is good to write down a proper definition of it.\nThis is an uncountable noun, therefore the plural of graphics is also graphics.\nGraphics is by default singular.\nExamples of graphics are paintings on [paper, canvas, walls, solid object surfaces like balls, coffee mugs, stones], images generated on computer screen.",
     "proof": ""
   },
   {
     "id": "rendering",
-    "description": "\nThe process of generating @graphics@ from a 2D or 3D geometric scene is called rendering.\n",
+    "description": [
+      "The process of generating ",
+      "graphics",
+      " from a 2D or 3D geometric scene is called rendering."
+    ],
     "significance": "Often abused word, so good to jot down a proper definition.\nGraphics generated by computers are generally stored as a matrix of pixels.\n\nIt is also known as rasterization.\nBut rasterization is often used to refer to a specific algorithm used for the process of rendering known as scan conversion, which is a misnomer.\nIt is not a good practice.\nTo refer to scan conversion, use the word scan conversion.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "ray_casting",
-    "description": "\nRay casting is an type of @rendering@ in which rays are projected from camera into the scene through each pixel on image to detect intersections with objects analytically (a.k.a one form).\nThese intersections are used to deterimine the color at each pixel.\n",
+    "description": [
+      "Ray casting is an type of ",
+      "rendering",
+      " in which rays are projected from camera into the scene through each pixel on image to detect intersections with objects analytically (a.k.a one form).\nThese intersections are used to deterimine the color at each pixel."
+    ],
     "significance": "A simple and useful form of rendering.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "ray_marching",
-    "description": "\nRay marching is an type of @rendering@ in which rays are projected from camera into the scene through each pixel on image in finite incremental steps.\nIntersections with objects are checked at each step.\nThis is called a numerical approach (a.k.a many form).\nThese intersections are used to deterimine the color at each pixel.\n",
+    "description": [
+      "Ray marching is an type of ",
+      "rendering",
+      " in which rays are projected from camera into the scene through each pixel on image in finite incremental steps.\nIntersections with objects are checked at each step.\nThis is called a numerical approach (a.k.a many form).\nThese intersections are used to deterimine the color at each pixel."
+    ],
     "significance": "A simple and useful form of rendering.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "ray_tracing",
-    "description": "\nRay tracing is a type of @rendering@ in which either @ray_casting@ or @ray_marching@ is recursively applied to determine the color at each pixel.\n",
+    "description": [
+      "Ray tracing is a type of ",
+      "rendering",
+      " in which either ",
+      "ray_casting",
+      " or ",
+      "ray_marching",
+      " is recursively applied to determine the color at each pixel."
+    ],
     "significance": "A composition of ray casting / ray marching.",
     "proof": "\\proofbydefinition"
   },
   {
     "id": "scan_conversion",
-    "description": "\nScan conversion is a type of @rendering@ in which objects in the scene are culled, clipped and transformed w.r.t a viewing fustum.\nThen each pixel corresponding to each object is colored.\n",
+    "description": [
+      "Scan conversion is a type of ",
+      "rendering",
+      " in which objects in the scene are culled, clipped and transformed w.r.t a viewing fustum.\nThen each pixel corresponding to each object is colored."
+    ],
     "significance": "Often ignored and/or badly replaced with the word rasterization.\nThe operations being independent makes the process parallelizable.\nActually this idea along with the motivation for making better graphics for games, movies, research etc... resulted in development of hardware that can run same instruction on multiple data simultaneously, which we now call as GPUs (graphics processing units).\nAlthough GPUs were invented for graphics other uses were discovered recently, a notable example being the use in parallelizing matrix computations for deep learning.\nGPUs that can be used for general purpose computations are named, surprise surprise, GPGPUs (general purpose GPUs).\n\nOpenGL is made for scan conversion rendering only.\nIt is not made for general purpose parallel computing, not even for other rendering techniques like ray tracing.\nOpenCL and CUDA are made for general purpose parallel computing.\nThe purpose of OpenGL is not to get access to GPU, the purpose is rendering using scan conversion.\nThe GPU just happens to be a good hardware for rendering using scan conversion.",
     "proof": "\\proofbydefinition"
   }

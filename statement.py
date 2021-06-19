@@ -2,7 +2,6 @@ from utils import *
 from pyvis.network import Network
 from colorhash import ColorHash
 
-
 class Statement:
     PARENT_ID_DELIMITER = '@'
     ID_STATEMENT_MAP = {}
@@ -92,6 +91,21 @@ class Statement:
     def cycle_exists(self):
         return Statement._cycle_exists(self, self.id, True)
 
+    def json_format(self):
+        tokens = self.description.split(Statement.PARENT_ID_DELIMITER)
+        snaked_tokens = []
+        for i, token in enumerate(tokens):
+            snaked = token
+            if i % 2 == 1:
+                snaked = snaked.lower().replace(" ", "_")
+            snaked_tokens.append(snaked)
+        return {
+            'id': self.id.lower().replace(" ", "_"),
+            'description': "@".join(snaked_tokens),
+            'significance': self.significance.strip(),
+            'proof': self.proof.strip(),
+        }
+
     def latex_format(self):
         tokens = self.description.split(Statement.PARENT_ID_DELIMITER)
         for i, token in enumerate(tokens):
@@ -131,7 +145,7 @@ class Statement:
         for child in self.children:
             children_latex += r'\hyperref[statement:%s]{%s}, ' % (child.id, child.id)
         if len(self.parents) == 0 and len(self.children) == 0:
-            print(self.id)
+            print('Statement with no parents or children:', self.id)
         # complete latex
         latex = r'''
 \addcontentsline{toc}{section}{%s}

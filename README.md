@@ -24,29 +24,27 @@ My perspective and understanding of mathematics.
 - To search for a statement/TODOs use pdf reader search feature.
 
 ## roadmap
-- [ ] Solve Todos in journal.
 - [ ] Simplify goal, design. Make sure that design minimizes constructs.
-- [ ] Typed journal.
-- [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
-- [ ] First class TODOs, partials support.
-- [ ] Improve name.
-- Design
+    - [x] Improve name.
     - [x] Use only axioms and theorems, remove definitions.
     - [x] Use only statements, remove axioms and theorems.
-- Text representation.
-    - [x] Case combination check.
-    - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
+    - Text representation.
+        - [x] Case combination check.
+        - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
+    - [ ] Use snake case for ids
+- [ ] Scratch
+    - [ ] Solve Todos in journal.
+    - [ ] First class TODOs, partials support.
+    - [ ] Handle TODOs and scratch statements.
 - Minimize current content.
+    - [ ] Typed journal.
     - [ ] More terse text.
+    - [ ] Other topological sorts.
+    - [ ] Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
+    - [ ] Design should be such that clumsy graph should be difficult to create.
     - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
-- Graphical representation.
-    - [x] Create a standalone html file which visualizes all statements in a directed acyclic graph.
-    - [x] DAG node mass caliberation.
-    - [x] DAG node size caliberation.
-    - [x] DAG statement heatmap.
-    - [ ] DAG search, btn to reset, DAG latex type set description, DAG click to pdf.
-    - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
-- Build a TUI for browsing.
+    - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
+- Build a Server Client for browsing.
     - [ ] CRUD of statements.
     - [ ] ORM of statements.
     - [ ] Statement id list view/Statement complete view, with chapter separators.
@@ -54,6 +52,11 @@ My perspective and understanding of mathematics.
     - [ ] Followable links to parents.
     - [ ] List children of node.
     - [ ] Colors.
-    - [ ] Compile and open the statement PDF. Should be snappy.
-    - [ ] Handle TODOs and scratch statements.
-    - [ ] Open graphical view with keymap.
+    - [ ] Saving version and uploading to github.
+- Graph representation.
+    - [x] Create a standalone html file which visualizes all statements in a directed acyclic graph.
+    - [x] DAG node mass caliberation.
+    - [x] DAG node size caliberation.
+    - [x] DAG statement heatmap.
+    - [ ] DAG search, btn to reset, DAG latex type set description, DAG click to pdf.
+    - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).

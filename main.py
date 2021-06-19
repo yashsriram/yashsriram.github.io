@@ -2,6 +2,7 @@ import os
 
 from mako.template import Template
 from statement import Statement
+import json
 
 TEMPLATEX_DIR = './templatex/'
 TEX_DIR = './tex/'
@@ -27,6 +28,10 @@ def add_statement(_id, description, significance, proof):
 def generate_latex_for(_id, description, significance, proof):
     return Statement.ID_STATEMENT_MAP[_id].latex_format()
 
+JSON_LIST = []
+
+def generate_json_for(_id, description, significance, proof):
+    JSON_LIST.append(Statement.ID_STATEMENT_MAP[_id].json_format())
 
 def save_as_tex(rendered, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -49,3 +54,10 @@ for sub_file_path in SUB_FILE_PATHS:
     save_as_tex(output, '{}{}'.format(TEX_DIR, change_extension_to_tex(sub_file_path)))
 
 Statement.html_dag_format('graph.html')
+
+for sub_file_path in SUB_FILE_PATHS:
+    template = Template(filename='{}{}'.format(TEMPLATEX_DIR, sub_file_path))
+    template.render(add_statement=generate_json_for)
+
+print(json.dumps(JSON_LIST))
+print(len(JSON_LIST))

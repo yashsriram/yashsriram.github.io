@@ -3,7 +3,13 @@ extern crate rocket;
 use rocket::fs::{relative, NamedFile};
 use rocket::serde::Serialize;
 use rocket_dyn_templates::Template;
+use std::fs::File;
+use std::io::BufReader;
 use std::path::{Path, PathBuf};
+
+mod graph;
+
+use graph::DirectedAcyclicGraph;
 
 #[get("/static/<path..>")]
 pub async fn _static(path: PathBuf) -> Option<NamedFile> {
@@ -44,10 +50,15 @@ pub fn structure() -> Template {
     Template::render("structure", EmptyContext {})
 }
 
-#[launch]
-fn rocket() -> _ {
-    rocket::build()
-        .mount("/", routes![_static, index, why, learning, structure])
-        .register("/", catchers![not_found])
-        .attach(Template::fairing())
+// #[launch]
+// fn rocket() -> _ {
+//     rocket::build()
+//         .mount("/", routes![_static, index, why, learning, structure])
+//         .register("/", catchers![not_found])
+//         .attach(Template::fairing())
+// }
+
+fn main() {
+    let reader = BufReader::new(File::open("db/latest.json").unwrap());
+    let dag = DirectedAcyclicGraph::new(reader).unwrap();
 }

@@ -24,19 +24,19 @@ My perspective and understanding of mathematics.
 - To search for a statement/TODOs use pdf reader search feature.
 
 ## roadmap
-- [ ] Simplify goal, design. Make sure that design minimizes constructs.
+- [ ] Simplify goal, design.
     - [x] Improve name.
     - [x] Use only axioms and theorems, remove definitions.
     - [x] Use only statements, remove axioms and theorems.
     - Text representation.
         - [x] Case combination check.
         - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
-    - [ ] Use snake case for ids
-- [ ] Scratch
-    - [ ] Solve Todos in journal.
-    - [ ] First class TODOs, partials support.
-    - [ ] Handle TODOs and scratch statements.
-- Minimize current content.
+    - [x] Use stripped snake case for ids
+    - [ ] Scratch
+        - [ ] Solve Todos in journal.
+        - [ ] First class TODOs, partials support.
+        - [ ] Handle TODOs and scratch statements.
+-  Make sure that design minimizes constructs. Minimize current content.
     - [ ] Typed journal.
     - [ ] More terse text.
     - [ ] Other topological sorts.
@@ -46,11 +46,11 @@ My perspective and understanding of mathematics.
     - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
 - Build a Server Client for browsing.
     - [ ] CRUD of statements.
-    - [ ] ORM of statements.
-    - [ ] Statement id list view/Statement complete view, with chapter separators.
-    - [ ] Able to search in entire graph.
-    - [ ] Followable links to parents.
-    - [ ] List children of node.
+    - [ ] Left right to move across statements.
+    - [x] Statement id list view/Statement complete view.
+    - [ ] Chapter seperators.
+    - [x] Able to search in entire graph.
+    - [x] Followable links to parents and children.
     - [ ] Colors.
     - [ ] Saving version and uploading to github.
 - Graph representation.

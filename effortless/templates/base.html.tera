@@ -8,6 +8,7 @@
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
+        processEnvironments: false,
       },
     };
     </script>

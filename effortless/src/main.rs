@@ -66,12 +66,17 @@ fn open_id(id: String) -> Template {
     open(&id)
 }
 
+#[get("/create")]
+fn create() -> Template {
+    Template::render("create", EmptyContext {})
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount(
             "/",
-            routes![_static, index, why, learning, structure, open_empty, open_id],
+            routes![_static, index, why, learning, structure, open_empty, open_id, create],
         )
         .register("/", catchers![not_found])
         .attach(Template::fairing())

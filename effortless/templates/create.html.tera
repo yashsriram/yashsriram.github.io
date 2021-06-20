@@ -1,0 +1,41 @@
+{% extends "base" %}
+
+{% block title %}
+create.
+{% endblock title %}
+
+{% block content %}
+
+<h1 id="create">create</h1>
+
+<style>
+textarea {
+    height: 200px;
+}
+</style>
+
+<form class="pure-form pure-form-aligned" action="/create" method="post">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="id">id.</label>
+            <input type="text" id="id" class="pure-input-1-2" placeholder="id." autofocus/>
+        </div>
+        <div class="pure-control-group">
+            <label for="description">description.</label>
+            <textarea id="description" class="pure-input-1-2" placeholder="description."></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="significance">significance.</label>
+            <textarea id="significance" class="pure-input-1-2" placeholder="significance."></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="proof">proof.</label>
+            <textarea id="proof" class="pure-input-1-2" placeholder="proof."></textarea>
+        </div>
+        <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">create.</button>
+        </div>
+    </fieldset>
+</form>
+
+{% endblock content %}

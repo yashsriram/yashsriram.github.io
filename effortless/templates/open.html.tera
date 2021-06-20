@@ -40,7 +40,7 @@ list.
     </div>
     <div class="pure-u-1-5">
     {% if statement %}
-    <table class="pure-table pure-table-bordered">
+    <table>
         <tr><td><h4>Parents: ({{ statement.parents | length }})</h4></td></tr>
         {% for parent in statement.parents %}
         <tr><td><a href="/open/{{ parent }}">{{ parent }}</a></td></tr>

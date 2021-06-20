@@ -130,6 +130,8 @@ pub mod context {
         proof: String,
         parents: Vec<String>,
         children: Vec<String>,
+        next_id: String,
+        prev_id: String,
     }
 
     #[derive(Serialize)]
@@ -144,6 +146,12 @@ pub mod context {
             let statement = match dag.id_to_idx_map.get(id) {
                 Some(&idx) => {
                     let (v, a) = (&dag.topological_list[idx], &dag.adjacency_list[idx]);
+                    let next_idx = if idx + 1 == dag.topological_list.len() {
+                        idx
+                    } else {
+                        idx + 1
+                    };
+                    let prev_idx = if idx == 0 { 0 } else { idx - 1 };
                     Some(StatementContext {
                         id: v.id.clone(),
                         description: v.description.clone(),
@@ -159,6 +167,8 @@ pub mod context {
                             .iter()
                             .map(|&idx| dag.topological_list[idx].id.clone())
                             .collect(),
+                        next_id: dag.topological_list[next_idx].id.clone(),
+                        prev_id: dag.topological_list[prev_idx].id.clone(),
                     })
                 }
                 None => None,

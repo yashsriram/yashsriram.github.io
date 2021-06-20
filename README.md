@@ -46,7 +46,7 @@ My perspective and understanding of mathematics.
     - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
 - Build a Server Client for browsing.
     - [ ] CRUD of statements.
-    - [ ] Left right to move across statements.
+    - [x] Left right to move across statements. Instead of that prev and next links at relatively same positions.
     - [x] Statement id list view/Statement complete view.
     - [ ] Chapter seperators.
     - [x] Able to search in entire graph.

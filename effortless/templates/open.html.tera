@@ -20,6 +20,9 @@ list.
     <div class="pure-u-3-5">
     {% if statement %}
         <h1>{{ statement.id }}</h1>
+        <a href="/open/{{ statement.prev_id }}">prev: [{{ statement.prev_id }}]</a>
+        <br/>
+        <a href="/open/{{ statement.next_id }}">next: [{{ statement.next_id }}]</a>
         <h4>Description</h4>
         <p>
         {% for token in statement.description %}

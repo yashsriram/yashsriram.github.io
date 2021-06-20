@@ -1,0 +1,9 @@
+{% extends "base" %}
+
+{% block title %}
+db.
+{% endblock title %}
+
+{% block content %}
+
+{% endblock content %}

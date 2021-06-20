@@ -27,7 +27,7 @@
         <a href="/create">create.</a>
         <a href="/graph">graph.</a>
         <a href="/scratch">scratch.</a>
-        <a href="/saves">saves.</a>
+        <a href="/db">db.</a>
         <a href="/other_sorts">other_sorts.</a>
     </nav>
     </header>

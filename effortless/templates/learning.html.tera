@@ -14,6 +14,6 @@ the process of human learning.
 
 <p>I believe that this feeling is what I am after. Science, math, whatever are just classifications of work but the balance is the real deal. <strong>In fact, discovering joy through this balance is the spirit of life itself</strong>.</p>
 
-<img src="/static/learning.png"/>
+<img class="pure-img" src="/static/learning.png"/>
 
 {% endblock content %}

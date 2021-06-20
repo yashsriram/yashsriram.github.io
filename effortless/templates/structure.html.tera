@@ -15,7 +15,7 @@ structure.
 <p>Any node of the DAG has a <strong>statement</strong>. A statment is a sentence that is either true or false.</p>
 <p>Every statement is associated with a <strong>proof</strong>. All edges from a statement to its parents are associated with the same proof. Given all its parents are true, A statement is true <span class="math inline">\(\leftrightarrow\)</span> A proof is true. It is illustrated in the following figure.
 
-<img src="/static/structure.png"/>
+<img class="pure-img" src="/static/structure.png"/>
 
 <h2 id="why">why?</h2>
 

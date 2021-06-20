@@ -5,47 +5,55 @@ list.
 {% endblock title %}
 
 {% block content %}
-
-{% if statement %}
-    <h1>{{ statement.id }}</h1>
-    <h4>Description</h4>
-    <p>
-    {% for token in statement.description %}
-      {% if loop.index % 2 == 0 %}
-        <a href="/open/{{ token }}">[{{ token }}]</a>
-      {% else %}
-        {{ token | linebreaksbr | safe }}
-      {% endif %}
-    {% endfor %}
-    </p>
-    <h4>Significance</h4>
-    <p>{{ statement.significance | linebreaksbr | safe }}</p>
-    <h4>Proof</h4>
-    <p>{{ statement.proof | linebreaksbr | safe }}</p>
+<div class="pure-g">
+    <div class="pure-u-1-5">
+    <ol>
+        {% for id in list %}
+            {% if statement and statement.id == id %}
+            <li><b><a href="/open/{{ id }}">{{ id }}</a></b></li>
+            {% else %}
+            <li><a href="/open/{{ id }}">{{ id }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    </div>
+    <div class="pure-u-3-5">
+    {% if statement %}
+        <h1>{{ statement.id }}</h1>
+        <h4>Description</h4>
+        <p>
+        {% for token in statement.description %}
+          {% if loop.index % 2 == 0 %}
+            <a href="/open/{{ token }}">[{{ token }}]</a>
+          {% else %}
+            {{ token | trim | linebreaksbr | safe }}
+          {% endif %}
+        {% endfor %}
+        </p>
+        <h4>Significance</h4>
+        <p>{{ statement.significance | trim | linebreaksbr | safe }}</p>
+        <h4>Proof</h4>
+        <p>{{ statement.proof | trim | linebreaksbr | safe }}</p>
+    {% else %}
+        <h1>select a statement to open it.</h1>
+    {% endif %}
+    </div>
+    <div class="pure-u-1-5">
+    {% if statement %}
     <table>
-      <tr>
-        <td><h4>Parents:</h4></td>
-        <td>({{ statement.parents | length }})</td>
+        <tr><td><h4>Parents: ({{ statement.parents | length }})</h4></td></tr>
         {% for parent in statement.parents %}
-            <td><a href="/open/{{ parent }}">{{ parent }}</a></td>
+        <tr><td><a href="/open/{{ parent }}">{{ parent }}</a></td></tr>
         {% endfor %}
-      </tr>
-      <tr>
-        <td><h4>Children:</h4></td>
-        <td>({{ statement.children | length }})</td>
+    <table>
+    <table>
+        <tr><td><h4>Children: ({{ statement.children | length }})</h4></td></tr>
         {% for child in statement.children %}
-            <td><a href="/open/{{ child }}">{{ child }}</a></td>
+        <tr><td><a href="/open/{{ child }}">{{ child }}</a></td></tr>
         {% endfor %}
-      </tr>
     </table>
-{% else %}
-    <h1>select a statement to open it.</h1>
-{% endif %}
-
-<ol>
-    {% for id in list %}
-        <li><a href="/open/{{ id }}">{{ id }}</a></li>
-    {% endfor %}
-</ol>
+    {% endif %}
+    </div>
+</div>
 
 {% endblock content %}

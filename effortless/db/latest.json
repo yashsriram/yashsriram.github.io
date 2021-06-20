@@ -13,7 +13,7 @@
       "Two things A and B are identical $ \\leftrightarrow $ $ \\forall context $ there is no distinction b/w them. Denoted by $ A \\equiv B $.\n\nTwo things A and B are non-identical $ \\leftrightarrow $ $ \\forall context $ there is distinction b/w them. Denoted by $ A \\not\\equiv B $."
     ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, a Volkswagen car and a BMW car can be considered identical when the analysis is about classifying objects as cars and kittens.\nBut they can be considered non-identical if we are analyzing the properties of different car brands.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "equality",
@@ -21,7 +21,7 @@
       "Two things A and B are equal at a context C $ \\leftrightarrow $ there is no distinction b/w them at C. Denoted by $ A = B $.\n\nTwo things A and B are unequal at a context C $ \\leftrightarrow $ there is distinction b/w them at C. Denoted by $ A \\ne B $."
     ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, if we are talking about the apparant positions of objects in sky to an observer, the sun and moon are equal when it is a complete solar eclipse for her.\nBut they can be considered unequal at all other times.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "order",
@@ -31,7 +31,7 @@
       " things are ordered $ \\leftrightarrow $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $."
     ],
     "significance": "There need not be order in all non-identical pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "zero",
@@ -39,7 +39,7 @@
       "The notion of absence.\nSymbolically written as 0.\nCan be considered as a number."
     ],
     "significance": "For example in case of counting it can represent the case when there is no balls left in an urn.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "number",
@@ -47,7 +47,7 @@
       "A number is a notion to count or to label or measure things."
     ],
     "significance": "Some uses of numbers are\n\n- Count number of apples in a bag - There are 37 apples in a bag\n- Measure the length of a pencil - The length of the pencil is 3.1468 cm\n- Label each participant in a marathon - The participant number 10714 won the marathon\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "notation",
@@ -55,7 +55,7 @@
       "A shortform representation of a tool or idea.\nThe representation is short doesn't mean that information is omitted, rather it motivates to present information in a more concise and simplified manner.\nA good notation has complete information, is transparent in meaning, readable and un-ambiguous."
     ],
     "significance": "For instance, when writing a vector of a position $g$, writing $ P_{g} $ is a bad notation as it has no information about the coordiante system used.\n$ P^{\\Lambda}_{g} $ where $ \\Lambda $ is the coordinate system is a good notation.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "enumerated_notation",
@@ -67,7 +67,7 @@
       " as the subscript of that element. This is called enumerated notation.\nFor a collection having n elements the enumerated notation would be $ \\{ e_1, e_2, e_3, ... e_n \\} $.\n\n- If n = 0, it expands to $\\{\\}$.\n- If n = 1, it expands to $\\{ e_1 \\}$\n- If n = 2, it expands to $\\{ e_1, e_2 \\}$\n- ...\n- If n = n, it expands to $\\{ e_1, e_2, ... e_n \\}$\n"
     ],
     "significance": "This way we can refer to each element uniquely.\nThis comes in handy all the time.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "set",
@@ -79,7 +79,7 @@
       "."
     ],
     "significance": "To represent collection of differently colored balls in an urn, etc...",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "belongs_to",
@@ -91,7 +91,7 @@
       ".\nDenoted by $ \\lambda \\in S $.\n\nAn element $ \\lambda $ does not belong to a S $ \\leftrightarrow $ $ \\nexists \\tau \\in S \\mid \\lambda \\equiv \\tau $.\nDenoted by $ \\lambda \\notin S $."
     ],
     "significance": "To indicate whether an element belongs to a set or not.\nThere cannot be more than one element in S that is identical to $ \\lambda $ anyways due to the definition of a set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "subset",
@@ -103,7 +103,7 @@
       "."
     ],
     "significance": "Can be used to represent useful pieces of a set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "superset",
@@ -115,7 +115,7 @@
       ". Denoted by $ E \\supseteq F $."
     ],
     "significance": "The inverse of subset.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "proper_subset",
@@ -127,7 +127,7 @@
       ". Denoted by $ E \\subset F $."
     ],
     "significance": "Can be used to represent useful pieces of a set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "proper_superset",
@@ -139,7 +139,7 @@
       ". Denoted by $ E \\supset F $."
     ],
     "significance": "The inverse of subset.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "union",
@@ -149,7 +149,7 @@
       "s A and B is a set which contains every element in A, every element in B, with repetitions removed, if any. Denoted by $ A \\cup B $."
     ],
     "significance": "A basic operator to combine sets.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "intersection",
@@ -159,7 +159,7 @@
       "s A and B is a set which contains every element that is common to A and B. Denoted by $ A \\cap B $."
     ],
     "significance": "A basic operator to combine sets.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "complement",
@@ -171,7 +171,7 @@
       " the set A itself. Denoted by $ \\overline{A} $"
     ],
     "significance": "A basic unary operator on a set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "universal_set",
@@ -187,7 +187,7 @@
       "."
     ],
     "significance": "A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.\nA proper superset of universal set doesn't exist.\nOne can argue to just put some more elements to build a superset, but it makes things complicated.\nIf there is ever a real need for such a construct (dynamic universal set!!!???), we can build it then.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "null_set",
@@ -199,7 +199,7 @@
       " elements in it. Denoted by $ \\phi $."
     ],
     "significance": "A representation for nothingness.\nThe reason for my take is because even null set is just a mathematical tool.\nThere is a great debate whether there is a single null set or many null sets.\nMy take on it is that it depends on the context.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "ordered_set",
@@ -211,7 +211,7 @@
       " b/w every pair of elements in it."
     ],
     "significance": "Useful to represent set of heights of students in a class, etc...",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "continuous_set",
@@ -221,7 +221,7 @@
       " which has no discrete separation b/w any two of its elements is a continuous set."
     ],
     "significance": "To represent sets like the set of all wavelengths in the visible spectrum of light",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "contiguous_set",
@@ -231,7 +231,7 @@
       " which has a discrete separation b/w any two of its elements is a contiguous set."
     ],
     "significance": "To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "properties_of_sets",
@@ -261,7 +261,7 @@
       "\n- Union of all elements of $ \\Lambda \\equiv $ S\n"
     ],
     "significance": "A neat way to divide a set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "function",
@@ -273,7 +273,7 @@
       " $ D $ to an element $ \\beta $ in a new set C called its co-domain.\nThis mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.\nFor each element $ \\alpha \\in D $ the mapping $ \\beta $ is called image of $ \\alpha $.\nThe set of images for all elements the domain is called range $ R $ of the function $ \\Lambda $.\nFunction is denoted by $ \\Lambda:D \\to C $. The image of $ \\alpha $ is denoted by $ \\Lambda(\\alpha) \\forall \\alpha \\in D $."
     ],
     "significance": "A basic tool for moving b/w sets.\nNote that two elements on domain can be mapped to same element in co-domain.\nAlso range $ \\subseteq $ co-domain.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "injection",
@@ -281,7 +281,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "surjection",
@@ -289,7 +289,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "bijection",
@@ -297,7 +297,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "natural_numbers",
@@ -309,7 +309,7 @@
       " used for counting and ordering is called the set of natural numbers. It is denoted by $ \\mathbb{N}$."
     ],
     "significance": "Encompasses all possible counts.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "whole_numbers",
@@ -325,7 +325,7 @@
       " . It is denoted by $ \\mathbb{W}$."
     ],
     "significance": "The name whole is given because we are gonna define numbers that will represent non-whole entities.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "additive_inverse",
@@ -333,7 +333,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "integers",
@@ -341,7 +341,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "multiplicative_inverse",
@@ -349,7 +349,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "rational_numbers",
@@ -357,7 +357,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "irrational_numbers",
@@ -365,7 +365,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "real_numbers",
@@ -373,7 +373,7 @@
       ""
     ],
     "significance": "",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "vector",
@@ -383,7 +383,7 @@
       " (also called elements) where the arrangement in which elements appear matters.\n  For n elements a vector can be written as \\[ V \\equiv \\bvecn{e} \\]"
     ],
     "significance": "The motivation behind vectors is to view a group of entities as a single entity.\n  By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.\n  A simple use case would be say when you need to update marks of all students to a 100 scale from a 10 scale.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "vector_dimension",
@@ -393,7 +393,7 @@
       " is just the count of elements in it.\n  A vector with dimension N can be called N dimensional vector, written as ND vector."
     ],
     "significance": "A name for size of vector.\n  Note that we are not considering collections with zero elements as vectors as it does not seem to be useful.\n  The concept is illustrated in the table \\ref{tab:dim}.\n  \\begin{table}[ht]\n    \\centering\n    \\begin{tabular}{ c  c  c }\n      Vector name & Value & Dimension\\\\\n      $ V_1 $ & (1) & 1\\\\\n      $ V_2 $ & ($\\sqrt{2}$) & 1\\\\\n      $ V_3 $ & (-100, $\\sqrt{3}$) & 2\\\\\n      $ V_4 $ & (0, 0.1) & 2\\\\\n      $ V_5 $ & (0, 0, 0) & 3\\\\\n      $ V_6 $ & (0, 1, 2, 3) & 4\\\\\n    \\end{tabular}\n  \\caption{Dimensions of Vectors}\n  \\label{tab:dim}\n  \\end{table}",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "vector_addition",
@@ -405,7 +405,7 @@
       ". Denoted by \\[ A + B \\equiv \\bvecnsum{a}{b} \\]."
     ],
     "significance": "This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.\n  Otherwise there is no reason not to define the addition rule as something arbitrary like\n  \\[\n    \\bvectwo{x}{y} + \\bvectwo{a}{b} \\equiv \\bvectwo{xa + yb^2}{\\frac{b - y}{x + a}}\n  .\\]",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "vector_scaling",
@@ -419,7 +419,7 @@
       " $\\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\\lambda$. Denoted by \\[ \\lambda * A \\equiv \\bvecnscale{\\lambda}{a} \\]."
     ],
     "significance": "Same story. Here $\\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "linear_combination",
@@ -437,7 +437,7 @@
       ".\n  The produced vector is also N dimensional.\n  Denoted by $ \\alpha * A + \\beta * B $, where $\\alpha$ and $\\beta$ are real numbers."
     ],
     "significance": "This is nothing new, just a word to combine one scaling and one adding operations.\n  A higher level construct to play with.\n  What is so linear about it?\n  Well the word linear is given because there can exist other types of combinations like quadratic combination where before scaling the entities are squared, polynomial combination, exponential combination, logarithmic combination ...\n  The most simplest of them all seems to be linear combination.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "linearly_independent_set",
@@ -451,7 +451,7 @@
       " of all other vectors in B.\n\nA set of vectors in which at least one element $ \\equiv $ a linear combination of all other elements is called a linearly dependent set of vectors."
     ],
     "significance": "Vectors in a set with this property are sort of independent from others as in they cannot be built by other vectors using any simple operation available for vectors.\nYes! addition and scaling are all the available simple operations for vectors. Mind blown!\nWell you might scream matrices. But matrices were created just for that purpose, to build a vector that is otherwise not constructable using addition and scaling.\n\nNote that there cannot be a set of vectors in which one element $ b_d \\equiv $ linear combination of all other elements and another element $ b_i \\not\\equiv $ linear combination of all other elements.\nThis is because given the first identity, we can rearrange terms to get second identity.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "span",
@@ -465,7 +465,7 @@
       " of all vectors in B."
     ],
     "significance": "A tool to give a sense of spread/cover of a set of vectors.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "basis",
@@ -481,7 +481,7 @@
       " of all vectors in B."
     ],
     "significance": "Sort of an inverse of span.\nNote that for a given set of vectors there can be multiple basis sets.\nFor instance the set of all 2D vectors has the following sets as basis sets.\n\\[\n  \\{ \\bvectwo{1}{0}, \\bvectwo{0}{1} \\}, \\{ \\bvectwo{2}{0}, \\bvectwo{0}{2} \\}, \\{ \\bvectwo{2}{0}, \\bvectwo{1}{2} \\}\n\\]\nBy using the word linearly independent we are sort of putting a restriction on number of vectors in the set.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "standard_vector",
@@ -493,7 +493,7 @@
       "."
     ],
     "significance": "An standard vector is a simple unit vector.\nFor example\n\\[\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 1 \\end{bmatrix}\n\\]\nare instances of standard vector.\nIt can be used as a building block for creating useful tools.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "standard_basis",
@@ -507,7 +507,7 @@
       "s of dimension N."
     ],
     "significance": "Can be used to construct coordinate axes and thus coordinate system.\nAs each vector in standard basis belongs to one and only one coordinate axis, any point in the state vector space $ \\equiv $ linear combination of all vectors in standard basis.\nFor example a set of 4D vectors have a standard basis as the following\n\\[\n  \\begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{bmatrix}\n  \\begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{bmatrix}\n\\]",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "l2_norm",
@@ -517,7 +517,7 @@
       " \\[ V \\equiv \\bvecn{e} \\] is defined as the square root of sum of squares of elements of V. Denoted by \\[ \\norm{V}_2 \\equiv \\sqrt{ \\sum_{i = 1}^{n} e_i^2 } \\]."
     ],
     "significance": "A simple and natural way to get a sense of size of vector.\nThis norm is also called Euclidean norm.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "dot_product",
@@ -529,7 +529,7 @@
       " $ \\eta \\equiv $ sum of element-wise products of A and B.\nDenoted by\n\\[\n  A . B \\equiv \\sum_{i = 1}^{n} (a_i * b_i)\n\\]"
     ],
     "significance": "A tool to give a sense of similarity of vectors.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "angle_between_vectors",
@@ -543,7 +543,7 @@
       " of both A and B. Denoted by\n\\[\n  \\angle(A,B) \\equiv arccos(\\frac{A.B}{\\norm{A}_2 * \\norm{B}_2})\n\\]"
     ],
     "significance": "A tool give a sense of orientation difference b/w the vectors.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "perpendicular_vectors",
@@ -555,7 +555,7 @@
       " $ \\equiv 0 $."
     ],
     "significance": "Gives a sense of independence b/w two vectors.\n\nIn vectors of dimensions 2 and 3, we visualize this by drawing what we usually draw for coordinate systems.\nThis visualization is just a choice.\nWe choose that because the independence is visualized in the sense of projections.\nIn 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.\nSo there is no need to visualize them in 4D or more dimensional spaces.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "point",
@@ -563,7 +563,7 @@
       "A point represents state of an object.\nA point does not change, so there is no notion of moving a point.\nObjects can change states and hence can go from one point to another."
     ],
     "significance": "A basic tool for representing state of objects.\nFor instance a point can represent position, temperature, velocity, pressure etc...",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "space",
@@ -575,7 +575,7 @@
       "s."
     ],
     "significance": "A tool to group all states considered in the context.\nAs point does not change, space does not change.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "state_vector",
@@ -587,7 +587,7 @@
       "."
     ],
     "significance": "This is not a redundant definition (with point).\nAlthough a point never changes, the representation of that point can change.\nThat is why we define both point and state vector.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "state_vector_space",
@@ -599,7 +599,7 @@
       "s."
     ],
     "significance": "Used to represent a collection of state vectors.\nMainly created for constructing coordinate system.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "coordinate_system",
@@ -615,7 +615,7 @@
       " g under coordinate system $ \\Lambda $) can be denoted by $P^{\\Lambda}_{g}$."
     ],
     "significance": "We choose state vector space to represent a space G because, by definition any v $\\in V \\equiv $ linear combination of all vectors of standard basis.\nTherefore we only need standard basis to describe any vector in V, nothing else.\n\nSets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.\nDefining it like this removes all untagible invisible evil chains that are otherwise tied to the concept, thus providing a clean, elegant and concrete description.\n\nHere we make sort of a first proper connection from points and spaces to vectors.\nNote that when we talk about dimensionality here, it is the property of vectors not the space itself.\nThus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "coordinate_axis",
@@ -637,7 +637,7 @@
       "."
     ],
     "significance": "For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.\nDue to the virtue of state vectors on coordinate axis being scaled standard vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.\nIt has no connection with other coordinate axes.\nThis is a good thing because it makes things simple, decoupled and non-clumsy.\n\nA coordinate axis is a simple way to disassemble a coordinate system.\nAny point in the state vector space $ \\equiv $ linear combination of some point on each coordinate axis.\n\nMisconception busting:\n- There is no need to name the axes X, Y ...\n- There is no need for the axes to be perpendicular.\n- No need for 1 unit along first axis to be same as 1 unit along second axis.\n- No need for units of first axis to be same as the second one\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "straight_space",
@@ -657,7 +657,7 @@
       "."
     ],
     "significance": "If the space is finite, it is called a line segement otherwise a line.\nWe can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.\nGenerally denoted by drawing $\\overleftrightarrow{}$ on paper.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "position_space",
@@ -669,7 +669,7 @@
       " represents a position of an object is called a position space.\nThe coordinate system that acts on it is called position coordinate system."
     ],
     "significance": "Used to denote positions of objects in the real world.\nPositions in real world are generally mapped to a 3D vector set.\nThis mapping is just based on the belief that the real world is in 3D.\nBut as we believe, beliefs are not final and should be challanged constantly and consciously.\n\nFor example positions can be mapped to 4D vector set, the new dimension being the time.\nSimilarly more dimensions can represent more information.\nOr the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.\n\nWhatever the real world might be, we can always imagine a space represented by 3D vector set and do operations on it.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "linear_transformation",
@@ -691,7 +691,7 @@
       " of each vector in standard basis of V."
     ],
     "significance": "A simple tool for moving b/w representations of space.\nSome popular examples of linear transformations are rotation, scale, sheer.\n\nFor instance in a 2D state vector space, if standard basis of W say $ \\hat{o}, \\hat{p} $ are linear combinations of standard basis of V say $ \\hat{d}, \\hat{f} $ as follows\n\\[  \\hat{o} = 3 * \\hat{d} + 2 * \\hat{f} \\]\n\\[  \\hat{p} = 0 * \\hat{d} + 2 * \\hat{f} \\]\nNote that\n- In V $ \\hat{o}, \\hat{p} $ represent $ \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} and \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} $ repsectively.\n- In W $ \\hat{d}, \\hat{f} $ represent $ \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} and \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} $ repsectively.\n\nBut V and W are different representations of the same space. Therfore,\n- $ \\hat{o} $ represents a same vector as $ \\hat{d} $. So they are indentical in this context.\n- $ \\hat{o} $ represents a different point than $ \\hat{d} $. So they are non-identical in this context.\n\nTherefore when we say two vectors are equal we should be careful about the context of the discussion.\n\nSuppose a point $ \\eta $ is represented by $ \\begin{bmatrix} 4 \\\\ 10 \\end{bmatrix} $ in $ \\Psi $.\nThat means P is represented by $ 4 * \\hat{o} + 10 * \\hat{p} $.\nNow to get representation of the same point $ \\eta $ in $ \\Lambda $ (remember points do not change with anything) we just substitute the expressions of $ \\hat{o}, \\hat{p} $ in terms of $ \\hat{d}, \\hat{f} $ as given above, i.e. $ 4 * (3 * \\hat{d} + 2 * \\hat{f}) + 10 * (0 * \\hat{d} + 2 * \\hat{f}) $ which gives $ 12 * \\hat{d} + 28 * \\hat{f} $.\nThis can be written as\n\\[\n  4 * \\begin{bmatrix} 3 \\\\ 2 \\end{bmatrix} + 10 * \\begin{bmatrix} 0 \\\\ 2 \\end{bmatrix}\n\\]\nwhich can be further packaged as a matrix multiplication.\n\\[\n  \\begin{bmatrix} 3 & 0 \\\\ 2 & 2 \\end{bmatrix} \\begin{bmatrix} 4 \\\\ 10 \\end{bmatrix}\n\\]\nThis is why the matrix multiplication was invented. Mind Blown!!\nTherefore columns in a matrix can be seen as the representations of standard basis of new coordinate system in the old one.\n\nTherefore the linear tranform can be seen as a way to do the following things\n- Given a transformed coordinate system i.e. given standard basis of new coordinate system in terms of the old one, we can get the representation for the same point in two different systems.\n- Visualize moving a vector $ \\lambda $ representing a point A in $ \\Lambda $ to the point B represented in $ \\Psi $ by $ \\psi $ which is numerically equal to $ \\lambda $.\n\nDonot mix these two.\n\nMisconceptions busting. The following are true statements.\n- Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.\n- Rotation is not some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.\n- There is no such thing as multiplying a vector on its right by a matrix (contrary to left side which we can use for linear transform). Dimensions don't match for multiplication to occur.\n- Linear transformation is not about raw numbers, the idea comes from visualing space and trying to play with it.\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "rotation_transformation",
@@ -713,7 +713,7 @@
       ""
     ],
     "significance": "Defines a rotation operation.\nThe matrix formed by such transformation is called rotation transformation matrix or rotation matrix for short.\nThe standard basis of W forms an orthonormal basis.\n\nIn 3D the number of degrees of freedom for a rotation matrix is 3 even though we have 9 elements in a 3x3 matrix.\nThis is because for a 3D unit vector we have two degrees of freedom (the third one is fixed when we choose first two due to length constraint).\nTherefore by choosing the unit vector value of first axis of new coordinate system in the old coordinate system we used 2 degrees of freedom.\nGiven this vector we have to choose a perpendicular vector i.e. any vector in plane perpendicular to it.\nChoosing this will require 1 degree of freedom which is the angle of vector in that plane.\nThe final vector is just the cross product of first two which uses 0 degrees of freedom.\n\nSay there is a state vector v.\nAfter a rotation tranformation the same state vector v in new coordinate system is represented by state vector u in old one.\nTwo vectors form a plane.\nSo u, v form a plane P that passes through the origin.\nEvery plane has one and only one normal, P also has one and only one normal n.\nThe rotation transformation matrix has a determinant $\\equiv 1$ because it is a orthonormal matrix.\nTherefore the length (L2 norms) of both vectors u, v are identical.\nIn the plane P we have angle b/w u, v say $\\theta$.\nTherefore the whole rotation transformation can be seen as a rotating the state vector v about one and only one axis n by angle $\\theta$ to reach u.\nThere you have the good old way to thinking about rotation. Mind blown!!\n\nMisconceptions busting. The following are true statements.\n- Rotation is not a property of a body, it is a property of a pair of coordinate systems. One of the coordinate systems can be attached to a body.\n- Rotation is no some complicated thing, it is just a linear transformation. The columns of the matrix representing rotation transform are just the places where the new standard basis land in old coordinate system.\n- In 3D, every rotation always has one and only one axis of rotation which passes through origin. Rotation about an axis not passing through origin is not defined.\n- Similarly, in 2D, every rotation is always about origin. Rotation about a point which is not an origin is not defined.\n- Although rotation is a linear transform, the result of rotation may not be linear in terms of the angle of rotation.\n  \\[\n    \\begin{bmatrix}\n        a \\\\\n        b\n    \\end{bmatrix}\n    \\equiv\n    \\begin{bmatrix}\n        c\\theta & -s\\theta \\\\\n        s\\theta & c\\theta\n    \\end{bmatrix}\n    *\n    \\begin{bmatrix}\n        x \\\\\n        y\n    \\end{bmatrix}\n  \\]\n  \\[\n    \\begin{bmatrix}\n        a \\\\\n        b\n    \\end{bmatrix}\n    \\equiv\n    \\begin{bmatrix}\n        xc\\theta - ys\\theta \\\\\n        xs\\theta + yc\\theta\n    \\end{bmatrix}\n  \\]\n  For example here the result $[a, b]^T$ is linear in terms of $c\\theta, s\\theta$ and not $\\theta$ even though entire rotation matrix can be generated only using $\\theta$.\n  A bit misleading indeed.\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "definiteness",
@@ -725,7 +725,7 @@
       " G. If\n- $z^TMz > 0$ for any non-zero vector $z \\leftrightarrow$ it (transformation) is called positive definite.\n- $z^TMz < 0$ for any non-zero vector $z \\leftrightarrow$ it is called negative definite.\n- $z^TMz \\ge 0$ for any non-zero vector $z \\leftrightarrow$ it is called postive semi-definite.\n- $z^TMz \\le 0$ for any non-zero vector $z \\leftrightarrow$ it is called negative semi-definite.\n- else it is called indefinite.\n"
     ],
     "significance": "A neat way to classify transformations.\nIn the expression $z^TMz$, $Mz$ is the transformed vector of $z$.\nTherefore the entire expression is the dot product of the vector to its transformed vector.\nHence a positive definite transformation $\\leftrightarrow$ dot product of any vector with its transformed one $> 0$.\nSimilarly for others.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "derivative",
@@ -735,7 +735,7 @@
       " $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]\nas h tends to zero.\nDenoted by\n\\[\n  \\frac{d\\Lambda}{d\\alpha} \\equiv \\lim_{h \\to 0}\\frac{\\Lambda(\\alpha + h) - \\Lambda(\\alpha)}{h}\n\\]"
     ],
     "significance": "A notion of difference in function given difference in input.\nGenerally visualized as a slope of the curve defined by the function.\nIt is a general misconception that derivative is something very complicated and uncomprehensible thing.\nBut it is actually not.\nIt is a simple thing.\n\nOne subtle but important thing to notice here is that, there is no usage of the term \"infinitesimals\" here.\nThe spirit of the derivative is in measuring change in function when input is changed.\nAnd the actual derivative itself is the value that the ratio approaches as the change gets smaller and smaller.\n\nIt can definitely be the case that the ratio does not have a limiting value.\nThe derivative is not defined for such cases, that's all.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "integral",
@@ -745,7 +745,7 @@
       " $\\Lambda : D \\to C $ at $\\alpha \\in D$ is the limiting value of\n\\[\n  \\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]\nas n tends to infinity.\nDenoted by\n\\[\n  \\int_{0}^{\\alpha} \\Lambda(\\beta) d\\beta \\equiv \\lim_{n \\to \\infty}\\sum_{i=0}^{n-1} \\Lambda(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n}\n\\]"
     ],
     "significance": "A notion of sum of function until a given input.\nGenerally visualized as area under the curve defined by the function.\nIt is a general misconception that integral is some other worldly incomprehensible thing.\nIt is not.\nIt is just this.\nThere is nothing more to the definition.\n\nOne thing to observe is that there is no method to natively evaluate the integral contrary to derivatives (which uses limits).",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "fundamental_theorem_of_calculus",
@@ -767,7 +767,7 @@
       "A list of instructions which when followed produces an outcome."
     ],
     "significance": "Anything that has some non-zero number of outcomes is an experiment.\nThe meaning of this is not just limited to experiments which involve physics or chemistry.\nWe are only concerned with the outcomes and not the inputs.\nNote that, at a time only one of the several possible outcomes of an experiment can occur.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "deterministic_experiment",
@@ -781,19 +781,19 @@
       " is called a deterministic experiment."
     ],
     "significance": "Can be used to represent experiments like adding two numbers.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "non-deterministic_experiment",
     "description": [
       "Let $ O_k $ represent the final outcome when an ",
       "experiment",
-      " is repeated k times, an experiment such that $ \\exists (i, j) \\st O_i \\not\\equiv O_j $ ",
+      " is repeated k times, an experiment such that $ \\exists (i, j) \\mid O_i \\not\\equiv O_j $ ",
       "identity",
       " is called a non-deterministic experiment."
     ],
     "significance": "Note that outcome can remain same for some repetitions of the experiement.\nCan be used to represent experiments like rolling a dice.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "outcome_space",
@@ -807,7 +807,7 @@
       "."
     ],
     "significance": "A term to refer to all possible outcomes collectively.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "event",
@@ -821,7 +821,7 @@
       ". An event is said to have occured $ \\leftrightarrow $ $ \\exists $ outcome $ \\in E $ that occured."
     ],
     "significance": "The naming here is bad.\nAn event is nothing but a set of outcomes.\nAn event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.\nThat's it.\nNothing more.\nThe number of elements in an event can be 0, 1 or even total number of possible outcomes.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "mutually_exclusive_events",
@@ -835,7 +835,7 @@
       "."
     ],
     "significance": "For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.\nNote that they are not independent events, even both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "event_space",
@@ -849,7 +849,7 @@
       "s of the experiement."
     ],
     "significance": "A term to refer to all possible events collectively",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "stochastic_experiment",
@@ -863,7 +863,7 @@
       " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a stochastic experiment."
     ],
     "significance": "Useful to build the concept of probability.\nNote that by my definition of stochastic experiment  \n- All deterministic experiments are stochastic experiments with probability of the only outcome being 1.\n    \n- Some non-deterministic experiments are stochastic experiments.\n\n\\begin{center}\n    \\begin{tikzpicture}\n    \\setlength{\\parskip}{5mm}\n        \\draw[fill=blue!60]     (0, 0) -- (90:2.5) arc (90:270:2.5) -- cycle ;\n        \\draw[]                 (0, 0) circle (2.5) node {Non-deterministic};\n        \\draw[fill=blue!60]     (0: 5.1) circle (2.5) node {Deterministic};\n        \\node[anchor=south] at (current bounding box.north) {Stochastic (in blue)};\n    \\end{tikzpicture}\n\\end{center}",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "probability",
@@ -875,7 +875,7 @@
       " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
     ],
     "significance": "One might easily think that probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher probability does not mean it will occur next.\nEven an event with unimaginabily miniscule probability may happen (many times in a row) and an event with very high probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of probability, that arises from the definition of limit itself, should be digested well.\n\nA good way to remember this is to add meaning to notation.\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\lambda} {\\color{green} )}\n\\]\nHere  \n- {\\color{red} P} should remind that probability is a limit definition.\n    \n- {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \n- ${\\color{blue} \\lambda}$ represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "properties_of_probability",
@@ -905,7 +905,7 @@
       "."
     ],
     "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "conditional_probability",
@@ -921,7 +921,7 @@
       " E.\nSay event B occured  \n- The probability that outcome a occured during the occurance of B is called conditional probability of a given B.\n    \\[\n      P(a \\mid B) \\equiv \\frac{P(a \\cap B)}{P(B)}\n    \\]\n    \n- The probability that event A = $\\{a_1, a_2, a_3 .. a_n\\}$ occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\sum_{i = 1}^{n}\\frac{P(a_i \\cap B)}{P(B)}\n    \\]\n"
     ],
     "significance": "All it is saying is that one of some outcomes a.k.a B occured, what is the probability that during that occurance an outcome a occured.\n\nSay the outcomes probabilities are $[a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4]$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(a_1 | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n- $ a \\cap B $ because if the outcome a is not in B, then it must definitely not have occured.\n    \n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- {\\color{red} P} should remind that probability is a limit definition.\n    \n- {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \n- ${\\color{blue} \\alpha}, {\\color{magenta} \\beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n    \n- $\\mid$ should remind us that ${\\color{magenta} \\beta}$ occured.\n",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "random_variable",
@@ -934,12 +934,12 @@
       "event_space",
       " S to $ [0, 1] $ where  \n- $ \\forall \\lambda \\in S, \\psi(\\lambda) \\equiv $ the ",
       "probability",
-      " of the event $ \\lambda $.\n    \n- $ \\forall \\alpha, \\beta \\in S \\st \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the ",
+      " of the event $ \\lambda $.\n    \n- $ \\forall \\alpha, \\beta \\in S \\mid \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the ",
       "conditional_probability",
       " of $ \\alpha $ given $ \\beta $,.\n"
     ],
     "significance": "A wrapper around the definitions of experiment, event space, probability, conditional probability.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "total_probability_theorem",
@@ -997,7 +997,7 @@
       " from a 2D or 3D geometric scene is called rendering."
     ],
     "significance": "Often abused word, so good to jot down a proper definition.\nGraphics generated by computers are generally stored as a matrix of pixels.\n\nIt is also known as rasterization.\nBut rasterization is often used to refer to a specific algorithm used for the process of rendering known as scan conversion, which is a misnomer.\nIt is not a good practice.\nTo refer to scan conversion, use the word scan conversion.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "ray_casting",
@@ -1007,7 +1007,7 @@
       " in which rays are projected from camera into the scene through each pixel on image to detect intersections with objects analytically (a.k.a one form).\nThese intersections are used to deterimine the color at each pixel."
     ],
     "significance": "A simple and useful form of rendering.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "ray_marching",
@@ -1017,7 +1017,7 @@
       " in which rays are projected from camera into the scene through each pixel on image in finite incremental steps.\nIntersections with objects are checked at each step.\nThis is called a numerical approach (a.k.a many form).\nThese intersections are used to deterimine the color at each pixel."
     ],
     "significance": "A simple and useful form of rendering.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "ray_tracing",
@@ -1031,7 +1031,7 @@
       " is recursively applied to determine the color at each pixel."
     ],
     "significance": "A composition of ray casting / ray marching.",
-    "proof": "axiom."
+    "proof": ""
   },
   {
     "id": "scan_conversion",
@@ -1041,6 +1041,6 @@
       " in which objects in the scene are culled, clipped and transformed w.r.t a viewing fustum.\nThen each pixel corresponding to each object is colored."
     ],
     "significance": "Often ignored and/or badly replaced with the word rasterization.\nThe operations being independent makes the process parallelizable.\nActually this idea along with the motivation for making better graphics for games, movies, research etc... resulted in development of hardware that can run same instruction on multiple data simultaneously, which we now call as GPUs (graphics processing units).\nAlthough GPUs were invented for graphics other uses were discovered recently, a notable example being the use in parallelizing matrix computations for deep learning.\nGPUs that can be used for general purpose computations are named, surprise surprise, GPGPUs (general purpose GPUs).\n\nOpenGL is made for scan conversion rendering only.\nIt is not made for general purpose parallel computing, not even for other rendering techniques like ray tracing.\nOpenCL and CUDA are made for general purpose parallel computing.\nThe purpose of OpenGL is not to get access to GPU, the purpose is rendering using scan conversion.\nThe GPU just happens to be a good hardware for rendering using scan conversion.",
-    "proof": "axiom."
+    "proof": ""
   }
 ]

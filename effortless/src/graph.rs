@@ -120,6 +120,7 @@ impl DirectedAcyclicGraph {
 pub mod context {
     use super::DirectedAcyclicGraph;
     use rocket::serde::Serialize;
+    use std::convert::TryFrom;
 
     #[derive(Serialize)]
     #[serde(crate = "rocket::serde")]
@@ -134,16 +135,11 @@ pub mod context {
         prev_id: String,
     }
 
-    #[derive(Serialize)]
-    #[serde(crate = "rocket::serde")]
-    pub struct OpenContext {
-        statement: Option<StatementContext>,
-        list: Vec<String>,
-    }
+    impl TryFrom<(&DirectedAcyclicGraph, &str)> for StatementContext {
+        type Error = &'static str;
 
-    impl From<(DirectedAcyclicGraph, &str)> for OpenContext {
-        fn from((dag, id): (DirectedAcyclicGraph, &str)) -> Self {
-            let statement = match dag.id_to_idx_map.get(id) {
+        fn try_from((dag, id): (&DirectedAcyclicGraph, &str)) -> Result<Self, Self::Error> {
+            match dag.id_to_idx_map.get(id) {
                 Some(&idx) => {
                     let (v, a) = (&dag.topological_list[idx], &dag.adjacency_list[idx]);
                     let next_idx = if idx + 1 == dag.topological_list.len() {
@@ -152,7 +148,7 @@ pub mod context {
                         idx + 1
                     };
                     let prev_idx = if idx == 0 { 0 } else { idx - 1 };
-                    Some(StatementContext {
+                    Ok(StatementContext {
                         id: v.id.clone(),
                         description: v.description.clone(),
                         significance: v.significance.clone(),
@@ -171,7 +167,23 @@ pub mod context {
                         prev_id: dag.topological_list[prev_idx].id.clone(),
                     })
                 }
-                None => None,
+                None => Err("invalid id."),
+            }
+        }
+    }
+
+    #[derive(Serialize)]
+    #[serde(crate = "rocket::serde")]
+    pub struct OpenContext {
+        statement: Option<StatementContext>,
+        list: Vec<String>,
+    }
+
+    impl From<(DirectedAcyclicGraph, &str)> for OpenContext {
+        fn from((dag, id): (DirectedAcyclicGraph, &str)) -> Self {
+            let statement = match StatementContext::try_from((&dag, id)) {
+                Ok(v) => Some(v),
+                Err(_) => None,
             };
             let list = dag.topological_list.iter().map(|v| v.id.clone()).collect();
             OpenContext {

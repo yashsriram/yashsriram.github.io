@@ -170,4 +170,67 @@ pub mod context {
             }
         }
     }
+
+    #[derive(Serialize)]
+    #[serde(crate = "rocket::serde")]
+    struct VertexContext {
+        id: String,
+        color: String,
+        opaqueness: String,
+        description: Vec<String>,
+        parents: Vec<String>,
+        children: Vec<String>,
+    }
+
+    #[derive(Serialize)]
+    #[serde(crate = "rocket::serde")]
+    pub struct GraphContext {
+        statements: Vec<VertexContext>,
+    }
+
+    impl From<DirectedAcyclicGraph> for GraphContext {
+        fn from(dag: DirectedAcyclicGraph) -> Self {
+            fn heat_map(min: f32, val: f32, max: f32) -> String {
+                assert!(min < max);
+                let gray = ((val - min) / (max - min)) * 255.0;
+                let gray = if gray < 0.0 {
+                    0.0
+                } else if gray > 255.0 {
+                    255.0
+                } else {
+                    gray
+                };
+                let gray = gray as u8;
+                format!("{:X}", gray)
+            }
+            GraphContext {
+                statements: dag
+                    .topological_list
+                    .iter()
+                    .zip(dag.adjacency_list.iter())
+                    .map(|(v, a)| VertexContext {
+                        id: v.id.clone(),
+                        color: String::from(format!(
+                            "#{:X}{:X}{:X}",
+                            fastrand::u8(..),
+                            fastrand::u8(..),
+                            fastrand::u8(..)
+                        )),
+                        opaqueness: heat_map(0.0, a.parents.len() as f32, 6.0),
+                        description: v.description.clone(),
+                        parents: a
+                            .parents
+                            .iter()
+                            .map(|&idx| dag.topological_list[idx].id.clone())
+                            .collect(),
+                        children: a
+                            .children
+                            .iter()
+                            .map(|&idx| dag.topological_list[idx].id.clone())
+                            .collect(),
+                    })
+                    .collect::<Vec<VertexContext>>(),
+            }
+        }
+    }
 }

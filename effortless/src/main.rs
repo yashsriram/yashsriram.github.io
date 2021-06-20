@@ -71,12 +71,19 @@ fn create() -> Template {
     Template::render("create", EmptyContext {})
 }
 
+#[get("/graph")]
+fn _graph() -> Template {
+    let reader = BufReader::new(File::open(DEFAULT_DAG_PATH).unwrap());
+    let dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+    Template::render("graph", graph::context::GraphContext::from(dag))
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount(
             "/",
-            routes![_static, index, why, learning, structure, open_empty, open_id, create],
+            routes![_static, index, why, learning, structure, open_empty, open_id, create, _graph],
         )
         .register("/", catchers![not_found])
         .attach(Template::fairing())

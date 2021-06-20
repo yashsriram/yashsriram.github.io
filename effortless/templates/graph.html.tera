@@ -1,0 +1,114 @@
+{% extends "base" %}
+
+{% block title %}
+graph.
+{% endblock title %}
+
+{% block headers %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<style type="text/css">
+    #mynetwork {
+        width: 98%;
+        height: 96%;
+        background-color: #000000;
+        margin: auto;
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+{% endblock headers %}
+
+{% block content %}
+
+<div id = "mynetwork"></div>
+<script type="text/javascript">
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network;
+    var container;
+    var options, data;
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([
+        {% for s in statements %}
+            {
+                "borderWidth": 1,
+                "borderWidthSelected": 5,
+                "font": {
+                  "color": "#FFFFFF",
+                  "face": "monospace",
+                  "size": 24
+                },
+                "id": "{{ s.id }}",
+                "label": "{{ s.id }}",
+                "title": '{{ s.description | join(sep="@") | trim | linebreaksbr }}',
+                "color": {
+                  "background": "{{ s.color }}{{ s.opaqueness }}",
+                  "border": "{{ s.color }}"
+                },
+                "mass": 1 + {{ s.children | length }} * 3 + {{ s.parents | length }} * 2,
+                "size": 10 + {{ s.children | length }} * 3,
+                "shape":
+                {% if s.parents | length == 0 %}"dot"{% else %}"star"{% endif %},
+            },
+        {% endfor %}
+        ]);
+        edges = new vis.DataSet([
+        {% for s in statements %}
+            {% for c in s.children %}
+            {
+            "arrowStrikethrough": false,
+            "arrows": "to",
+            "from": "{{ s.id }}",
+            "to": "{{ c }}"
+            },
+            {% endfor %}
+        {% endfor %}
+        ]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+        var options = {
+            "configure": {
+                "enabled": false
+            },
+            "edges": {
+                "color": {
+                    "inherit": true
+                },
+                "smooth": {
+                    "enabled": false,
+                    "type": "continuous"
+                }
+            },
+            "interaction": {
+                "dragNodes": true,
+                "hideEdgesOnDrag": false,
+                "hideNodesOnDrag": false
+            },
+            "physics": {
+                "enabled": true,
+                "stabilization": {
+                    "enabled": true,
+                    "fit": true,
+                    "iterations": 1000,
+                    "onlyDynamicEdges": false,
+                    "updateInterval": 50
+                }
+            }
+        };
+        network = new vis.Network(container, data, options);
+        return network;
+    }
+
+    drawGraph();
+</script>
+{% endblock content %}

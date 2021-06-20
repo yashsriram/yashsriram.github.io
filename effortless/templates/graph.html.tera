@@ -29,10 +29,10 @@ graph.
     // initialize global variables.
     var edges;
     var nodes;
-    var network;
+    var graph;
     var container;
     var options, data;
-    // This method is responsible for drawing the graph, returns the drawn network
+    // This method is responsible for drawing the graph, returns the drawn graph
     function drawGraph() {
         var container = document.getElementById('mynetwork');
 
@@ -92,6 +92,8 @@ graph.
             "interaction": {
                 "dragNodes": true,
                 "hideEdgesOnDrag": false,
+                "hover": true,
+                "navigationButtons": true,
                 "hideNodesOnDrag": false
             },
             "physics": {
@@ -103,10 +105,17 @@ graph.
                     "onlyDynamicEdges": false,
                     "updateInterval": 50
                 }
-            }
+            },
         };
-        network = new vis.Network(container, data, options);
-        return network;
+        graph = new vis.Network(container, data, options);
+        graph.on('doubleClick', function (params) {
+            // On node
+            if (params.nodes.length === 1) {
+                let node_id = params.nodes[0];
+                window.open('/open/' + node_id);
+            }
+        });
+        return graph;
     }
 
     drawGraph();

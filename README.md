@@ -54,9 +54,12 @@ My perspective and understanding of mathematics.
     - [ ] Colors.
     - [ ] Saving version and uploading to github.
 - Graph representation.
-    - [x] Create a standalone html file which visualizes all statements in a directed acyclic graph.
+    - [x] Graph page.
     - [x] DAG node mass caliberation.
     - [x] DAG node size caliberation.
     - [x] DAG statement heatmap.
-    - [ ] DAG search, btn to reset, DAG latex type set description, DAG click to pdf.
+    - [x] btn to reset.
+    - [x] Click to go to statement.
+    - [ ] DAG search.
+    - [ ] DAG latex type set description.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).

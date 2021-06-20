@@ -9,10 +9,10 @@ use std::path::{Path, PathBuf};
 
 mod graph;
 
-use graph::DirectedAcyclicGraph;
+const DEFAULT_DAG_PATH: &str = "db/latest.json";
 
 #[get("/static/<path..>")]
-pub async fn _static(path: PathBuf) -> Option<NamedFile> {
+async fn _static(path: PathBuf) -> Option<NamedFile> {
     let mut path = Path::new(relative!("static")).join(path);
     if path.is_dir() {
         path.push("index.html");
@@ -31,34 +31,48 @@ fn not_found() -> Template {
 }
 
 #[get("/")]
-pub fn index() -> Template {
+fn index() -> Template {
     Template::render("index", EmptyContext {})
 }
 
 #[get("/why")]
-pub fn why() -> Template {
+fn why() -> Template {
     Template::render("why", EmptyContext {})
 }
 
 #[get("/learning")]
-pub fn learning() -> Template {
+fn learning() -> Template {
     Template::render("learning", EmptyContext {})
 }
 
 #[get("/structure")]
-pub fn structure() -> Template {
+fn structure() -> Template {
     Template::render("structure", EmptyContext {})
 }
 
-// #[launch]
-// fn rocket() -> _ {
-//     rocket::build()
-//         .mount("/", routes![_static, index, why, learning, structure])
-//         .register("/", catchers![not_found])
-//         .attach(Template::fairing())
-// }
+fn open(id: &str) -> Template {
+    let reader = BufReader::new(File::open(DEFAULT_DAG_PATH).unwrap());
+    let dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+    Template::render("open", graph::context::OpenContext::from((dag, id)))
+}
 
-fn main() {
-    let reader = BufReader::new(File::open("db/latest.json").unwrap());
-    let dag = DirectedAcyclicGraph::new(reader).unwrap();
+#[get("/open")]
+fn open_empty() -> Template {
+    open("")
+}
+
+#[get("/open/<id>")]
+fn open_id(id: String) -> Template {
+    open(&id)
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount(
+            "/",
+            routes![_static, index, why, learning, structure, open_empty, open_id],
+        )
+        .register("/", catchers![not_found])
+        .attach(Template::fairing())
 }

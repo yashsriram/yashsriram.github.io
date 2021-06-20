@@ -5,5 +5,5 @@
 {% endblock title %}
 
 {% block content %}
-The requested resource was not found.
+the requested resource was not found.
 {% endblock content %}

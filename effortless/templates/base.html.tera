@@ -2,21 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}effortless.{% endblock title %}</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+      },
+    };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
   </head>
   <body>
-    <a href="/">index.</a> |
-    <a href="/why">why the effort?</a> |
-    <a href="/learning">the process of learning.</a> |
-    <a href="/structure">structure.</a> |
-    <a href="/topological">topological.</a> |
-    <a href="/graph">graph.</a> |
-    <a href="/scratch">scratch.</a> |
-    <a href="/saves">saves.</a> |
-    <a href="/other_sorts">other_sorts.</a> |
-    <br/>
+    <header>
+    <nav>
+        <a href="/">index.</a>
+        <a href="/why">why the effort?</a>
+        <a href="/learning">the process of learning.</a>
+        <a href="/structure">structure.</a>
+        <a href="/open">open.</a>
+        <a href="/graph">graph.</a>
+        <a href="/scratch">scratch.</a>
+        <a href="/saves">saves.</a>
+        <a href="/other_sorts">other_sorts.</a>
+    </nav>
+    </header>
     {% block content %}{% endblock content %}
   </body>
 </html>

@@ -1,0 +1,45 @@
+{% extends "base" %}
+
+{% block title %}
+list.
+{% endblock title %}
+
+{% block content %}
+{% if statement %}
+    <h1>{{ statement.id }}</h1>
+    <blockquote>
+    {% for token in statement.description %}
+      {% if loop.index % 2 == 0 %}
+        <a href="/open/{{ token }}">{{ token }}</a>
+      {% else %}
+        {{ token }}
+      {% endif %}
+    {% endfor %}
+    </blockquote>
+    <p>{{ statement.significance }}</p>
+    <p>{{ statement.proof }}</p>
+    <table>
+      <tr>
+        <td>Parents:</td>
+        <td>({{ statement.parents | length }})</td>
+        {% for parent in statement.parents %}
+            <td><a href="/open/{{ parent }}">{{ parent }}</a></td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td>Children:</td>
+        <td>({{ statement.children | length }})</td>
+        {% for child in statement.children %}
+            <td><a href="/open/{{ child }}">{{ child }}</a></td>
+        {% endfor %}
+      </tr>
+    </table>
+{% else %}
+    <h1>select a statement to open it.</h1>
+{% endif %}
+<ol>
+    {% for id in list %}
+        <li><a href="/open/{{ id }}">{{ id }}</a></li>
+    {% endfor %}
+</ol>
+{% endblock content %}

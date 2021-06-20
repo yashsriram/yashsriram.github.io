@@ -10,7 +10,7 @@
   {
     "id": "identity",
     "description": [
-      "Two things A and B are identical $ \\biimpl $ $ \\forall context $ there is no distinction b/w them. Denoted by $ A \\equiv B $.\n\nTwo things A and B are non-identical $ \\biimpl $ $ \\forall context $ there is distinction b/w them. Denoted by $ A \\not\\equiv B $."
+      "Two things A and B are identical $ \\leftrightarrow $ $ \\forall context $ there is no distinction b/w them. Denoted by $ A \\equiv B $.\n\nTwo things A and B are non-identical $ \\leftrightarrow $ $ \\forall context $ there is distinction b/w them. Denoted by $ A \\not\\equiv B $."
     ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, a Volkswagen car and a BMW car can be considered identical when the analysis is about classifying objects as cars and kittens.\nBut they can be considered non-identical if we are analyzing the properties of different car brands.",
     "proof": "\\proofbydefinition"
@@ -18,7 +18,7 @@
   {
     "id": "equality",
     "description": [
-      "Two things A and B are equal at a context C $ \\biimpl $ there is no distinction b/w them at C. Denoted by $ A = B $.\n\nTwo things A and B are unequal at a context C $ \\biimpl $ there is distinction b/w them at C. Denoted by $ A \\ne B $."
+      "Two things A and B are equal at a context C $ \\leftrightarrow $ there is no distinction b/w them at C. Denoted by $ A = B $.\n\nTwo things A and B are unequal at a context C $ \\leftrightarrow $ there is distinction b/w them at C. Denoted by $ A \\ne B $."
     ],
     "significance": "Note that this operator is binary, i.e. it takes two operands and produces a boolean.\nThe definition itself is quite simple but I wanted to focus on the word context.\nFor example, if we are talking about the apparant positions of objects in sky to an observer, the sun and moon are equal when it is a complete solar eclipse for her.\nBut they can be considered unequal at all other times.",
     "proof": "\\proofbydefinition"
@@ -28,7 +28,7 @@
     "description": [
       "Two non-identical ",
       "identity",
-      " things are ordered $ \\biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $."
+      " things are ordered $ \\leftrightarrow $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $."
     ],
     "significance": "There need not be order in all non-identical pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.",
     "proof": "\\proofbydefinition"
@@ -86,9 +86,9 @@
     "description": [
       "An element $ \\lambda $ belongs to a ",
       "set",
-      " S $ \\biimpl $ $ \\exists! \\tau \\in S \\mid \\lambda \\equiv \\tau $ ",
+      " S $ \\leftrightarrow $ $ \\exists! \\tau \\in S \\mid \\lambda \\equiv \\tau $ ",
       "identity",
-      ".\nDenoted by $ \\lambda \\in S $.\n\nAn element $ \\lambda $ does not belong to a S $ \\biimpl $ $ \\nexists \\tau \\in S \\mid \\lambda \\equiv \\tau $.\nDenoted by $ \\lambda \\notin S $."
+      ".\nDenoted by $ \\lambda \\in S $.\n\nAn element $ \\lambda $ does not belong to a S $ \\leftrightarrow $ $ \\nexists \\tau \\in S \\mid \\lambda \\equiv \\tau $.\nDenoted by $ \\lambda \\notin S $."
     ],
     "significance": "To indicate whether an element belongs to a set or not.\nThere cannot be more than one element in S that is identical to $ \\lambda $ anyways due to the definition of a set.",
     "proof": "\\proofbydefinition"
@@ -98,7 +98,7 @@
     "description": [
       "A ",
       "set",
-      " E is a subset of set F $ \\biimpl $ $ \\forall e \\in E \\impl e \\in F $. Denoted by $ E \\subseteq F $ ",
+      " E is a subset of set F $ \\leftrightarrow $ $ \\forall e \\in E \\rightarrow e \\in F $. Denoted by $ E \\subseteq F $ ",
       "belongs_to",
       "."
     ],
@@ -110,7 +110,7 @@
     "description": [
       "A ",
       "set",
-      " E is a superset of set F $ \\biimpl $ $ F \\subseteq E $ ",
+      " E is a superset of set F $ \\leftrightarrow $ $ F \\subseteq E $ ",
       "subset",
       ". Denoted by $ E \\supseteq F $."
     ],
@@ -122,7 +122,7 @@
     "description": [
       "A ",
       "set",
-      " E is a proper subset of set F $ \\biimpl $  $ E \\subseteq F $ and $ E \\not\\equiv F $ ",
+      " E is a proper subset of set F $ \\leftrightarrow $  $ E \\subseteq F $ and $ E \\not\\equiv F $ ",
       "identity",
       ". Denoted by $ E \\subset F $."
     ],
@@ -134,7 +134,7 @@
     "description": [
       "A ",
       "set",
-      " E is a superset of set F $ \\biimpl $ $ F \\subset E $ ",
+      " E is a superset of set F $ \\leftrightarrow $ $ F \\subset E $ ",
       "subset",
       ". Denoted by $ E \\supset F $."
     ],
@@ -244,7 +244,7 @@
       "null_set",
       " ",
       "identity",
-      ".\n\\begin{enumerate}[nolistsep]\n  \\item $ A \\cup B \\equiv B \\cup A $ (Commutative)\n  \\item $ A \\cap B \\equiv B \\cap A $ (Commutative)\n  \\item $ (A \\cup B) \\cup C \\equiv A \\cup (B \\cup C) $ (Associative)\n  \\item $ (A \\cap B) \\cap C \\equiv A \\cap (B \\cap C) $ (Associative)\n  \\item $ A \\cup A \\equiv A$ (Idompotent)\n  \\item $ A \\cap A \\equiv A$ (Idompotent)\n  \\item $ A \\cup S \\equiv S \\cup A \\equiv S $\n  \\item $ A \\cap S \\equiv S \\cap A \\equiv A $\n  \\item $ A \\cup \\phi \\equiv \\phi \\cup A \\equiv A $\n  \\item $ A \\cap \\phi \\equiv \\phi \\cap A \\equiv \\phi $\n  \\item $ A \\cup \\overline{A} \\equiv S$ (Definition of universal set)\n  \\item $ A \\cap \\overline{A} \\equiv \\phi$\n  \\item $ A \\subseteq B \\biimpl A \\cup B \\equiv B $\n  \\item $ A \\subseteq B \\biimpl A \\cap B \\equiv A $\n  \\item $ A \\cap (B \\cup C) \\equiv (A \\cap B) \\cup (A \\cap C) $ (Distributive)\n  \\item $ A \\cup (B \\cap C) \\equiv (A \\cup B) \\cap (A \\cup C) $ (Distributive)\n\\end{enumerate}"
+      ".\n\\begin{enumerate}[nolistsep]\n  \\item $ A \\cup B \\equiv B \\cup A $ (Commutative)\n  \\item $ A \\cap B \\equiv B \\cap A $ (Commutative)\n  \\item $ (A \\cup B) \\cup C \\equiv A \\cup (B \\cup C) $ (Associative)\n  \\item $ (A \\cap B) \\cap C \\equiv A \\cap (B \\cap C) $ (Associative)\n  \\item $ A \\cup A \\equiv A$ (Idompotent)\n  \\item $ A \\cap A \\equiv A$ (Idompotent)\n  \\item $ A \\cup S \\equiv S \\cup A \\equiv S $\n  \\item $ A \\cap S \\equiv S \\cap A \\equiv A $\n  \\item $ A \\cup \\phi \\equiv \\phi \\cup A \\equiv A $\n  \\item $ A \\cap \\phi \\equiv \\phi \\cap A \\equiv \\phi $\n  \\item $ A \\cup \\overline{A} \\equiv S$ (Definition of universal set)\n  \\item $ A \\cap \\overline{A} \\equiv \\phi$\n  \\item $ A \\subseteq B \\leftrightarrow A \\cup B \\equiv B $\n  \\item $ A \\subseteq B \\leftrightarrow A \\cap B \\equiv A $\n  \\item $ A \\cap (B \\cup C) \\equiv (A \\cap B) \\cup (A \\cap C) $ (Distributive)\n  \\item $ A \\cup (B \\cap C) \\equiv (A \\cup B) \\cap (A \\cup C) $ (Distributive)\n\\end{enumerate}"
     ],
     "significance": "Some basic relations b/w sets so we can play with them.",
     "proof": "Proof by using definitions of parent statements."
@@ -550,7 +550,7 @@
     "description": [
       "Two N-dimensional ",
       "vector",
-      "s A and B are said to be perpendicular vectors $ \\biimpl $ the cosine of ",
+      "s A and B are said to be perpendicular vectors $ \\leftrightarrow $ the cosine of ",
       "angle_between_vectors",
       " $ \\equiv 0 $."
     ],
@@ -722,9 +722,9 @@
       "linear_transformation",
       " on a ",
       "space",
-      " G. If\n\\begin{enumerate}[nolistsep]\n  \\item $z^TMz > 0$ for any non-zero vector $z \\biimpl$ it (transformation) is called positive definite.\n  \\item $z^TMz < 0$ for any non-zero vector $z \\biimpl$ it is called negative definite.\n  \\item $z^TMz \\ge 0$ for any non-zero vector $z \\biimpl$ it is called postive semi-definite.\n  \\item $z^TMz \\le 0$ for any non-zero vector $z \\biimpl$ it is called negative semi-definite.\n  \\item else it is called indefinite.\n\\end{enumerate}"
+      " G. If\n\\begin{enumerate}[nolistsep]\n  \\item $z^TMz > 0$ for any non-zero vector $z \\leftrightarrow$ it (transformation) is called positive definite.\n  \\item $z^TMz < 0$ for any non-zero vector $z \\leftrightarrow$ it is called negative definite.\n  \\item $z^TMz \\ge 0$ for any non-zero vector $z \\leftrightarrow$ it is called postive semi-definite.\n  \\item $z^TMz \\le 0$ for any non-zero vector $z \\leftrightarrow$ it is called negative semi-definite.\n  \\item else it is called indefinite.\n\\end{enumerate}"
     ],
-    "significance": "A neat way to classify transformations.\nIn the expression $z^TMz$, $Mz$ is the transformed vector of $z$.\nTherefore the entire expression is the dot product of the vector to its transformed vector.\nHence a positive definite transformation $\\biimpl$ dot product of any vector with its transformed one $> 0$.\nSimilarly for others.",
+    "significance": "A neat way to classify transformations.\nIn the expression $z^TMz$, $Mz$ is the transformed vector of $z$.\nTherefore the entire expression is the dot product of the vector to its transformed vector.\nHence a positive definite transformation $\\leftrightarrow$ dot product of any vector with its transformed one $> 0$.\nSimilarly for others.",
     "proof": "\\proofbydefinition"
   },
   {
@@ -756,7 +756,7 @@
       "integral",
       "s.\n\nFor ",
       "function",
-      "s $g, f:D \\to C$ s.t. $\\forall \\alpha \\in D$,\n\\[\n  f(\\alpha) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n  \\impl\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\[\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n  \\impl\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n."
+      "s $g, f:D \\to C$ s.t. $\\forall \\alpha \\in D$,\n\\[\n  f(\\alpha) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n  \\rightarrow\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\[\n  \\frac{df(\\alpha)}{d\\alpha} \\equiv g(\\alpha)\n  \\rightarrow\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n."
     ],
     "significance": "Also provides a method to evaluate integrals.\nThere is no native method to evaluate integral other than to basically guess viz. guess a function which upon derivation gives the original function and get its value at required point.\n\nIt is almost hilarious.\nIt almost seems like the integrals are created like a hack.\nThis should be developed and we should make a way to natively evaluate integrals that does not involve guessing.",
     "proof": "The term `approximation' used here is more profound than you might think.\n\\\\\n\\textbf{First}\n\\\\\nIf $f$ is the integral function i.e. the area under the curve, consider a small finite change in the area $df$.\nThen\n\\[\n  df \\approx g(\\alpha) * d\\alpha\n\\]\n\\[\n  \\frac{df}{d\\alpha} \\approx g(\\alpha)\n\\]\nAs the $d\\alpha$ tends to 0\n\\begin{enumerate}[nolistsep]\n  \\item The limiting value of the LHS is derivative of $f$\n  \\item The limiting value of the RHS is $g(\\alpha)$\n  \\item The approximation becomes equivalence\n\\end{enumerate}\nTherefore,\n\\[\n  \\frac{df}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\textbf{Second}\n\\\\\nIf $g$ is the derivative of $f$\n\\[\n  g(\\beta) * d\\beta \\approx f(\\beta + d\\beta) - f(\\beta)\n\\]\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx \\sum_{0}^{n-1} f(\\alpha * \\frac{i + 1}{n}) - f(\\alpha * \\frac{i}{n})\n\\]\nExpanding and cancelling terms on RHS we have\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx f(\\alpha) - f(0)\n\\]\nAs $n$ tends to infinity\n\\begin{enumerate}[nolistsep]\n  \\item The limiting value of the LHS is derivative of $\\int_{0}^{\\alpha} g(\\beta) d\\beta$\n  \\item The limiting value of the RHS is $f(\\alpha) - f(0)$\n  \\item The approximation becomes equivalence\n\\end{enumerate}\nTherefore,\n\\[\n  f(\\alpha) - f(0) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n\\[\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]"
@@ -818,7 +818,7 @@
       "subset",
       " of ",
       "outcome_space",
-      ". An event is said to have occured $ \\biimpl $ $ \\exists $ outcome $ \\in E $ that occured."
+      ". An event is said to have occured $ \\leftrightarrow $ $ \\exists $ outcome $ \\in E $ that occured."
     ],
     "significance": "The naming here is bad.\nAn event is nothing but a set of outcomes.\nAn event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.\nThat's it.\nNothing more.\nThe number of elements in an event can be 0, 1 or even total number of possible outcomes.",
     "proof": "\\proofbydefinition"
@@ -830,7 +830,7 @@
       "event",
       "s A and B of an ",
       "experiment",
-      " are mutually exclusive events $ \\biimpl $ $ A \\cap B \\equiv \\phi $ ",
+      " are mutually exclusive events $ \\leftrightarrow $ $ A \\cap B \\equiv \\phi $ ",
       "null_set",
       "."
     ],
@@ -886,12 +886,12 @@
       "event",
       "s of a ",
       "stochastic_experiment",
-      " E. The following properties hold.\n\\begin{enumerate}[nolistsep]\n  \\item $P(A) \\ge 0 $\n  \\item $P(S) \\equiv 1 $\n  \\item $ A \\cap B \\equiv \\phi \\impl P(A \\cup B) \\equiv P(A) + P(B)$ ",
+      " E. The following properties hold.\n\\begin{enumerate}[nolistsep]\n  \\item $P(A) \\ge 0 $\n  \\item $P(S) \\equiv 1 $\n  \\item $ A \\cap B \\equiv \\phi \\rightarrow P(A \\cup B) \\equiv P(A) + P(B)$ ",
       "null_set",
       ".\n\\end{enumerate}"
     ],
     "significance": "Some tools to played around with to create new tools.",
-    "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\impl $ the ratio is always $ \\ge 0 $.\n\n$ \\impl $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\impl $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
+    "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\rightarrow $ the ratio is always $ \\ge 0 $.\n\n$ \\rightarrow $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\rightarrow $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
   },
   {
     "id": "independent_events",
@@ -900,7 +900,7 @@
       "event",
       "s A and B of a ",
       "stochastic_experiment",
-      " are independent $ \\biimpl $ $ P(A \\cap B) \\equiv P(A) * P(B) $ ",
+      " are independent $ \\leftrightarrow $ $ P(A \\cap B) \\equiv P(A) * P(B) $ ",
       "probability",
       "."
     ],
@@ -956,7 +956,7 @@
       "outcome_space",
       " of E, such that none of the $ A_i $ is a ",
       "null_set",
-      " $ \\impl $\n\\[\n  \\psi(B) = \\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )\n\\]"
+      " $ \\rightarrow $\n\\[\n  \\psi(B) = \\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )\n\\]"
     ],
     "significance": "Using this theorem we can split the probability of event B into conditional probabilities of B given $ A_i $s and proababilities of $ A_i $s.",
     "proof": ""
@@ -976,7 +976,7 @@
       "outcome_space",
       " of E, such that none of the $ A_i $ is a ",
       "null_set",
-      " $ \\impl $\n\\[\n  \\psi(A_i \\mid B) = \\frac{\\psi(B \\mid A_i ) \\psi( A_i )}{\\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )}\n\\]"
+      " $ \\rightarrow $\n\\[\n  \\psi(A_i \\mid B) = \\frac{\\psi(B \\mid A_i ) \\psi( A_i )}{\\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )}\n\\]"
     ],
     "significance": "Need for such a concept can be found at \\href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \\href{https://youtu.be/R13BD8qKeTg}{veritasium}.\n\nWhen you have a constant world but cannot be observed accurately and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem.",
     "proof": ""

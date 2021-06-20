@@ -40,13 +40,11 @@ list.
     </div>
     <div class="pure-u-1-5">
     {% if statement %}
-    <table>
+    <table class="pure-table pure-table-bordered">
         <tr><td><h4>Parents: ({{ statement.parents | length }})</h4></td></tr>
         {% for parent in statement.parents %}
         <tr><td><a href="/open/{{ parent }}">{{ parent }}</a></td></tr>
         {% endfor %}
-    <table>
-    <table>
         <tr><td><h4>Children: ({{ statement.children | length }})</h4></td></tr>
         {% for child in statement.children %}
         <tr><td><a href="/open/{{ child }}">{{ child }}</a></td></tr>

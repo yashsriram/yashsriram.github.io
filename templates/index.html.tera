@@ -5,5 +5,5 @@ index.
 {% endblock title %}
 
 {% block content %}
-this is the effortless project.
+an effort for effortless learning.
 {% endblock content %}

@@ -40,29 +40,21 @@
         - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
     - [x] Use stripped snake case for ids
     - [ ] Scratch
-        - [ ] Port todos and scratch from journal to scratch page.
-        - [ ] Saving versions.
-        - [ ] Solve Todos in journal.
-        - [ ] First class TODOs, partials support.
-        - [ ] Handle TODOs and scratch statements.
--  Make sure that design minimizes constructs. Minimize current content.
-    - [ ] Typed journal.
-    - [ ] More terse text.
-    - [ ] Other topological sorts.
-    - [ ] Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
-    - [ ] Design should be such that clumsy graph should be difficult to create.
-    - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
-    - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
+        - [x] Handle TODOs and scratch statements.
+        - [x] First class TODOs, partials support.
+        - [x] Port todos and scratch from journal to scratch page.
+        - [x] Making checkpoints.
+        - [ ] Update scratch.
 - Build a Server Client for browsing.
     - [ ] CRUD of statements.
     - [ ] Colors.
+    - [ ] Chapter seperators.
+    - [ ] Uploading to github.
     - [x] Left right to move across statements. Instead of that prev and next links at relatively same positions.
     - [x] Statement id list view/Statement complete view.
     - [x] Able to search in entire graph.
     - [x] Followable links to parents and children.
-    - [x] Saving version.
-    - [ ] Uploading to github.
-    - [ ] Chapter seperators.
+    - [x] Making checkpoints.
 - Graph representation.
     - [x] Graph page.
     - [x] DAG node mass caliberation.
@@ -73,3 +65,11 @@
     - [ ] DAG search.
     - [ ] DAG latex type set description.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
+-  Make sure that design minimizes constructs. Minimize current content.
+    - [ ] Typed journal.
+    - [ ] More terse text.
+    - [ ] Other topological sorts.
+    - [ ] Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
+    - [ ] Design should be such that clumsy graph should be difficult to create.
+    - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
+    - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...

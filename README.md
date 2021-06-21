@@ -1,27 +1,28 @@
-# journal
+# effortless
 
 ## description
-My perspective and understanding of mathematics.
+- An effort for effortless learning.
 
 ## code
-- All source code is in `main.py` `statement.py` `utils.py` and is written in `python3`.
-- `templatex/` contains mako template files. The content is written in them.
-- The structure of content is illustrated in the first few pages.
-- Incomplete things are marked with `TODO` for tracking purposes.
-- There is some content not part of dag in pdf.
-- The templates are parsed, processed and a latex and a html outputs are generated.
-    - All latex files are generated under `tex/`.
-    - Html file generated is `graph.html`.
+- Code is written in `rust`.
+- Uses `rocket` library to create a server.
+- `db/` contains all the content that is created.
+- `src/` contains the source code.
+- `static/` contains static files.
+- `templates/` contains the templates.
 
 ## documentation
 - The documentation of the code is itself.
 
 ## usage
-- Use `python3 main.py` to compile templatex files to latex files in `tex/` and to generate a html canvas graph in `graph.html`.
-- Use `cd tex && latexmk -pdf main.tex` to compile latex files into a pdf.
-- The pdf is designed for laptop/desktop screens in with dark mode enabled in pdf reader.
-- Each statement is on a new page to improve reading experience.
-- To search for a statement/TODOs use pdf reader search feature.
+- Install `nightly` version `rust`.
+- Use `cargo +nightly run --release` to start the server.
+- The server can then (generally be) accessed at `http://127.0.0.1:8000`.
+- The first few pages of the site explains the purpose, structure, ... The later pages contain some functionality.
+- Currently the main features are,
+    - Scratch page.
+    - DAG of statements.
+- Functionality should be self-explaining.
 
 ## roadmap
 - [ ] Simplify goal, design.
@@ -33,6 +34,8 @@ My perspective and understanding of mathematics.
         - [x] Every statement has a family tree. One can traverse using inline links to its parent statements.
     - [x] Use stripped snake case for ids
     - [ ] Scratch
+        - [ ] Port todos and scratch from journal to scratch page.
+        - [ ] Saving versions.
         - [ ] Solve Todos in journal.
         - [ ] First class TODOs, partials support.
         - [ ] Handle TODOs and scratch statements.
@@ -46,13 +49,14 @@ My perspective and understanding of mathematics.
     - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
 - Build a Server Client for browsing.
     - [ ] CRUD of statements.
+    - [ ] Colors.
     - [x] Left right to move across statements. Instead of that prev and next links at relatively same positions.
     - [x] Statement id list view/Statement complete view.
-    - [ ] Chapter seperators.
     - [x] Able to search in entire graph.
     - [x] Followable links to parents and children.
-    - [ ] Colors.
-    - [ ] Saving version and uploading to github.
+    - [x] Saving version.
+    - [ ] Uploading to github.
+    - [ ] Chapter seperators.
 - Graph representation.
     - [x] Graph page.
     - [x] DAG node mass caliberation.

@@ -5,13 +5,28 @@ db.
 {% endblock title %}
 
 {% block content %}
-<ol>
-    {% for file in files %}
-        {% if file == "db/latest.json" %}
-        <li><a href="/{{ file }}">{{ file }}</a> <a href="/duplicate_latest">[duplicate_latest]</a></li>
-        {% else %}
-        <li><a href="/{{ file }}">{{ file }}</a></li>
-        {% endif %}
-    {% endfor %}
-</ol>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+    <ol>
+        {% for file in json_files %}
+            {% if file == "db/latest.json" %}
+            <li><a href="/{{ file }}">{{ file }}</a> <a href="/checkpoint_latest_json">[checkpoint_latest_json]</a></li>
+            {% else %}
+            <li><a href="/{{ file }}">{{ file }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    </div>
+    <div class="pure-u-1-2">
+    <ol>
+        {% for file in txt_files %}
+            {% if file == "db/latest.txt" %}
+            <li><a href="/{{ file }}">{{ file }}</a> <a href="/checkpoint_latest_txt">[checkpoint_latest_txt]</a></li>
+            {% else %}
+            <li><a href="/{{ file }}">{{ file }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    </div>
+</div>
 {% endblock content %}

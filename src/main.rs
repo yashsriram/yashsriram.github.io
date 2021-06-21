@@ -118,7 +118,8 @@ fn _graph() -> Template {
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
 struct DbContext {
-    files: Vec<String>,
+    json_files: Vec<String>,
+    txt_files: Vec<String>,
 }
 
 #[get("/db/<path..>")]
@@ -133,42 +134,58 @@ async fn db_file(path: PathBuf) -> Option<NamedFile> {
 
 #[get("/db")]
 fn db_list() -> Template {
-    let mut files = glob(&format!("{}*", RELATIVE_DB_PATH))
-        .unwrap()
-        .into_iter()
-        .map(|entry| match entry {
-            Ok(pathbuf) => match pathbuf.to_str() {
-                Some(s) => String::from(s),
-                None => String::from("bad path, probably non UTF-8 stuff."),
-            },
-            Err(e) => format!("Error {} for path {:?}", e.error(), e.path()),
-        })
-        .collect::<Vec<_>>();
-    files.reverse();
-    Template::render("db", DbContext { files: files })
+    fn get_files(pattern: &str) -> Vec<String> {
+        let mut files = glob(pattern)
+            .unwrap()
+            .into_iter()
+            .map(|entry| match entry {
+                Ok(pathbuf) => match pathbuf.to_str() {
+                    Some(s) => String::from(s),
+                    None => String::from("bad path, probably non UTF-8 stuff."),
+                },
+                Err(e) => format!("error {} for path {:?}", e.error(), e.path()),
+            })
+            .collect::<Vec<_>>();
+        files.reverse();
+        files
+    }
+    let json_files = get_files(&format!("{}*.json", RELATIVE_DB_PATH));
+    let txt_files = get_files(&format!("{}*.txt", RELATIVE_DB_PATH));
+    Template::render(
+        "db",
+        DbContext {
+            json_files: json_files,
+            txt_files: txt_files,
+        },
+    )
 }
 
-#[get("/duplicate_latest")]
-fn duplicate_latest() -> Redirect {
-    let content = read_to_string(
-        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
-            .iter()
-            .collect::<PathBuf>(),
-    )
-    .unwrap();
+fn checkpoint_latest_file(filename: &str, dot_extension: &str) {
+    let content = read_to_string([RELATIVE_DB_PATH, filename].iter().collect::<PathBuf>()).unwrap();
     let dup_file_path = {
         let mut dup_file_name = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
             .as_secs()
             .to_string();
-        dup_file_name.push_str(".json");
+        dup_file_name.push_str(dot_extension);
         [RELATIVE_DB_PATH, dup_file_name.as_str()]
             .iter()
             .collect::<PathBuf>()
     };
     File::create(dup_file_path.clone()).unwrap();
     write(dup_file_path, content).unwrap();
+}
+
+#[get("/checkpoint_latest_json")]
+fn checkpoint_latest_json() -> Redirect {
+    checkpoint_latest_file(LATEST_DAG_NAME, ".json");
+    Redirect::to(uri!(db_list))
+}
+
+#[get("/checkpoint_latest_txt")]
+fn checkpoint_latest_txt() -> Redirect {
+    checkpoint_latest_file(LATEST_SCRATCH_NAME, ".txt");
     Redirect::to(uri!(db_list))
 }
 
@@ -190,7 +207,8 @@ fn rocket() -> _ {
                 _graph,
                 db_list,
                 db_file,
-                duplicate_latest,
+                checkpoint_latest_json,
+                checkpoint_latest_txt,
             ],
         )
         .register("/", catchers![not_found])

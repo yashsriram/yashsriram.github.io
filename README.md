@@ -23,6 +23,8 @@
     - Scratch page.
     - DAG of statements.
 - Functionality should be self-explaining.
+- There is not too rigourous testing or security check, though the `rust` and `rocket` takes care of most of it.
+    - To prevent unwanted data loss, make checkpoints of `db/` content (checkpoint files will not be touched by server) and back them up regularly in cloud (preferably github).
 
 ## roadmap
 - [ ] Simplify goal, design.

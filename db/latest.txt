@@ -1,0 +1,144 @@
+\todo
+\begin{enumerate}[nolistsep]
+  \item limits
+  \item the beauty of the phrase exact approximation
+  \item partial derivatives
+  \item derivative of vectors and matrices, jacobians, hessians, laplacians etc...
+\end{enumerate}
+
+\begin{enumerate}[nolistsep]
+  \item \todo
+  \item Cdf and pdf definitions
+  \item Expected value definitions
+  \item Joint probability definition
+  \item Joint vs Conditional probability
+  \item Functions of random variable
+  \item Random vectors
+  \item baysian networks, HMM, Markov, MDP, Q-learning ...
+  \item How to determine if an experiment is stochastic?
+  \item How to determine where the simple division conditional probability rule is not good?
+\end{enumerate}
+
+\todo
+\begin{enumerate}[nolistsep]
+  \item composition of linear transforms, composition as product of matrices, building matrix as tool
+  \item proof of composition of linear transform is a linear transform, algebraically and geometrically
+  \item misconceptions: \xcancel{animating vectors} vs \xcancel{animating coordinate frames} don't try to animate (lerp) anything
+  \item latest frame vs initial frame
+  \item representation of rotation: rot mat, quaternions, axis-angle, eular, roll pitch yaw, gimbal lock
+  \item determinant, descriminant whatever
+  \item cross product
+  \item inverses
+  \item column spaces, rank
+  \item null spaces
+  \item eigen stuff, eigen basis
+  \item orthogonal, orthonormal
+  \item diagnoal
+  \item quaternions
+  \item SVD, other easy useful decompositions
+  \item quadratic systems using matrices like $X^TAX$.
+  \item derivatives of matrices, matrix products like $X^T X$.
+\end{enumerate}
+
+\todo
+\begin{enumerate}[nolistsep]
+  \item multiplication of quaternions is not commutative
+  \item rot mat $<-`>$ eular angle $<->$ rpy
+  \item what is gimbal lock? not single solution with gimbal lock?
+  \item axis-angle $<->$ rotation matrix - eigen basis, null space finding
+  \item Code/Visualize/Animate the math
+  \item how to tell which system has how many and what type  of solutions? and what is a solution exactly?
+  \item sensing: hw1 p1 how is orientation not determinable?
+  \item $a^T * b = b^T$ * a iff a, b are vectors
+  \item what is determinant of transform matrix with only rotation and translation ? == 1
+  \item composition of linear transformations
+  \item rotation \& quaternions
+\end{enumerate}
+
+\todo
+\begin{enumerate}[nolistsep]
+  \item data is a plural and a pronoun.
+  \item accuracy vs precision
+  \item estimation = estimate + uncertainity
+  \item modelling uncertainity using stochasticity
+  \item given a parametrized "stochastically noisy" model with stimulus and response (vector) variable and some samples, the process of estimating parameters (a.k.a fitting model). Using optimization for this estimation. Other non-optimization ways of doing the same. The essence of ML.
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[nolistsep]
+  \item $(x_i - min) / (max - min)$ set of values vs normalizing set of values, show they are not equal in some instances and properties of each
+  \item emphasize diff b/w
+    \begin{enumerate}[nolistsep]
+        \item min(sum(abs(residual))) $\equiv$ min(Sum of Absolute Errors). The average of SAE is MAE
+        \item min(sum(residual * residual)) $\equiv$ min(Sum of Sqaured Errors). The average of SSE is MSE
+        \item min(sum(perpendicular distance)) $\equiv$ min(Sum of Perpendicular Errors). The average of SPE is MPE
+    \end{enumerate}
+  \item Thinking mean and variance visually, mean of a list of numbers plotted on a co-ordinate system is "the rough line passing through the center", take differences from the rough center line to actual values and square them. Each of these towers or inverted towers can be thought to represent "certain variation" from the mean. Average (/n-1) of all this is defined as "variance". Etymology of "variance". observed the sqaured fn to ignore signs and preserve differentiability. Mind blown!!!. And all this from visualizing the definitions.
+  \item R-squared = Explained variation / Total variation. what it means (capturing the variation for just the samples in context and does not say anything about predictablility of model), and especially what it does not mean (good/bad model (patterns in residual plots)). Is it scale invariant?
+  \item Shallow vs deep classifiers $\equiv$ seperate description and classification vs together description and classification.
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[nolistsep]
+  \item does uncertainity change during fitting process?
+  \item patterns in residual plots as a measure of good or bad model.
+  \item Compare MLE vs MAP vs Linear Regression on.
+    \begin{enumerate}[nolistsep]
+        \item fitting function
+        \item measure of accuracy, measure of uncertainity
+        \item covariance
+    \end{enumerate}
+  \item Determining uncertainity after fitting in linear regression (or other models). Using info about training datum (a.k.a. sample) error term?
+\end{enumerate}
+
+\todo : add some structure
+
+\section{Irony of thoughts}
+\begin{enumerate}[nolistsep]
+  \item There exist things which we don't know but can approximate (ex. integrals)
+\end{enumerate}
+
+\section{Long project lessons}
+\begin{enumerate}[nolistsep]
+  \item The best task management system until now is a white board and a marker
+  \item The best information note taking system is taking no notes at all
+  \item The best running notes are the ones that are forgotten shortly later
+  \item The best information gathering system until now is this journal
+\end{enumerate}
+
+\section{Fuzzily separated tree searches}
+\begin{enumerate}[nolistsep]
+  \item Ones that have no state
+  \item Ones that have a fixed size state (finding nearest vertex to a position)
+  \item Ones that have a per-vertex state (path from start to current vertex)
+\end{enumerate}
+
+\section{Misc}
+\begin{enumerate}[nolistsep]
+  \item Bitwise operations are much faster than arithmetic operations. So use them if possible. For ex in bit manipulation n, n - 1 bit manipulation trick
+  \item Linked list dummy initial node :P
+  \item Systemetic case expansion
+  \item Working with examples
+  \item Arrays that index main arrays to do things :P
+  \item Sometimes things to be done in second loop can be done directly in first
+\end{enumerate}
+
+\todo : add some structure
+
+\begin{enumerate}[nolistsep]
+    \item Statically typed vs Dynamically typed == Compile time vs Run time type inferrence.
+    \item Compiled vs Interpreted == Transforming code to target machine code before running vs No transformation before running. Compiled might be faster because
+        \begin{enumerate}[nolistsep]
+            \item It is not reading the code and transforming it for every line.
+            \item It can do global optimizations which might not be possible in interpreted as its field of view is local.
+        \end{enumerate}
+    \item Statically vs Dynamically typedness is property of language. Compilation vs Interpration is the property of implementation not language; saying python is an interpreted language is wrong. Any language can be compiled. Any language can be interpreted.
+    \item Define, map and visualize the terms: Memory safety, Memory containment and Type safety.
+\end{enumerate}
+
+\begin{enumerate}[nolistsep]
+  \item C/C++/Rust
+  \item Java/Kotlin/Go
+  \item Python
+  \item Shell
+\end{enumerate}

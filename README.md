@@ -7,6 +7,7 @@
 - Code is written in `rust`.
 - Uses `rocket` library to create a server.
 - `db/` contains all the content that is created.
+    - `db/latest.txt` and `db/latest.json` are used for scratch page and DAG statements respectively.
 - `src/` contains the source code.
 - `static/` contains static files.
 - `templates/` contains the templates.
@@ -25,6 +26,9 @@
 - Functionality should be self-explaining.
 - There is not too rigourous testing or security check, though the `rust` and `rocket` takes care of most of it.
     - To prevent unwanted data loss, make checkpoints of `db/` content (checkpoint files will not be touched by server) and back them up regularly in cloud (preferably github).
+- This was first implemented in `python`. That source code and data can be found in the repo history at commit `a50970a2951bd46f4fc46c3c082a01f1f88df243`.
+
+## demonstration
 
 ## roadmap
 - [ ] Simplify goal, design.

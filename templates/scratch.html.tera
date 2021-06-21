@@ -1,9 +1,9 @@
 {% extends "base" %}
 
 {% block title %}
-404.
+scratch.
 {% endblock title %}
 
 {% block content %}
-the requested resource was not found.
+    {{ scratch | trim | linebreaksbr | safe }}
 {% endblock content %}

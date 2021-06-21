@@ -1,7 +1,7 @@
 {% extends "base" %}
 
 {% block title %}
-structure.
+structure of statements.
 {% endblock title %}
 
 {% block content %}

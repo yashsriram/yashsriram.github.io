@@ -29,8 +29,10 @@
         <a href="/open">open.</a>
         <a href="/create">create.</a>
         <a href="/graph">graph.</a>
-        <a href="/db">db.</a>
         <a href="/other_sorts">other_sorts.</a>
+        |
+        <a href="/db">db.</a>
+        |
     </nav>
     </header>
     {% block content %}{% endblock content %}

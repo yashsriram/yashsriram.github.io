@@ -15,20 +15,11 @@ mod graph;
 const RELATIVE_DB_PATH: &str = "db/";
 const RELATIVE_STATIC_PATH: &str = "static/";
 const LATEST_DAG_NAME: &str = "latest.json";
+const LATEST_SCRATCH_NAME: &str = "latest.txt";
 
 #[get("/static/<path..>")]
 async fn _static(path: PathBuf) -> Option<NamedFile> {
     let mut path = Path::new(RELATIVE_STATIC_PATH).join(path);
-    if path.is_dir() {
-        path.push("index.html");
-    }
-
-    NamedFile::open(path).await.ok()
-}
-
-#[get("/db/<path..>")]
-async fn db_file(path: PathBuf) -> Option<NamedFile> {
-    let mut path = Path::new(RELATIVE_DB_PATH).join(path);
     if path.is_dir() {
         path.push("index.html");
     }
@@ -58,6 +49,23 @@ fn why() -> Template {
 #[get("/learning")]
 fn learning() -> Template {
     Template::render("learning", EmptyContext {})
+}
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct ScratchContext {
+    scratch: String,
+}
+
+#[get("/scratch")]
+fn scratch() -> Template {
+    let content = read_to_string(
+        [RELATIVE_DB_PATH, LATEST_SCRATCH_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
+    Template::render("scratch", ScratchContext { scratch: content })
 }
 
 #[get("/structure")]
@@ -113,6 +121,16 @@ struct DbContext {
     files: Vec<String>,
 }
 
+#[get("/db/<path..>")]
+async fn db_file(path: PathBuf) -> Option<NamedFile> {
+    let mut path = Path::new(RELATIVE_DB_PATH).join(path);
+    if path.is_dir() {
+        path.push("index.html");
+    }
+
+    NamedFile::open(path).await.ok()
+}
+
 #[get("/db")]
 fn db_list() -> Template {
     let mut files = glob(&format!("{}*", RELATIVE_DB_PATH))
@@ -164,6 +182,7 @@ fn rocket() -> _ {
                 index,
                 why,
                 learning,
+                scratch,
                 structure,
                 open_empty,
                 open_id,

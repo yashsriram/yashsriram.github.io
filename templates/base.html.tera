@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/jpg" href="/static/logo.png"/>
     <title>{% block title %}effortless.{% endblock title %}</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script>

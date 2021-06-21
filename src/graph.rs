@@ -1,7 +1,8 @@
 use rocket::serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::fs::File;
+use std::fs::{write, File};
 use std::io::BufReader;
+use std::path::PathBuf;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(crate = "rocket::serde")]
@@ -114,6 +115,80 @@ impl DirectedAcyclicGraph {
             adjacency_list: adjacency_list,
             id_to_idx_map: id_to_idx_map,
         })
+    }
+
+    pub fn create_vertex(
+        &mut self,
+        id: &str,
+        description: &str,
+        significance: &str,
+        proof: &str,
+    ) -> Result<(), String> {
+        // Validate non-empty id
+        if id.is_empty() {
+            return Err(String::from("empty id."));
+        }
+        // Validate stripped_snake_case id
+        if let Some(_) = id.find(|c: char| c.is_whitespace() || c.is_uppercase()) {
+            return Err(String::from("non stripped_snake_case id."));
+        }
+        // Validate unique id
+        if self.id_to_idx_map.contains_key(id) {
+            return Err(String::from("duplicate id."));
+        }
+        // Validate topological order
+        // Validate that all parents of current vertex are already exist
+        let tokens: Vec<&str> = description.split('@').collect();
+        if tokens.len() % 2 == 0 {
+            return Err(String::from("has invalid syntax for parent references."));
+        }
+        let mut adjacency = Adjacent {
+            parents: vec![],
+            children: vec![],
+        };
+        for parent in tokens
+            .iter()
+            .enumerate()
+            .filter(|&(i, _)| i % 2 == 1)
+            .map(|(_, &odd_token)| odd_token)
+        {
+            match self.id_to_idx_map.get(parent) {
+                Some(&parent_idx) => {
+                    if adjacency.parents.iter().any(|&i| i == parent_idx) {
+                        return Err(String::from("has reference a parent multiple times."));
+                    }
+                    adjacency.parents.push(parent_idx);
+                }
+                None => {
+                    return Err(String::from("has reference for an unknown parent."));
+                }
+            }
+        }
+        // Everything okay
+        let vertex = Vertex {
+            id: String::from(id),
+            description: tokens.iter().map(|&t| String::from(t)).collect(),
+            significance: String::from(significance),
+            proof: String::from(proof),
+        };
+        let vertex_idx = self.topological_list.len();
+        // Add to id_to_idx_map
+        self.id_to_idx_map.insert(vertex.id.clone(), vertex_idx);
+        // Add to topological_list
+        self.topological_list.push(vertex);
+        // Add to adjacency_list
+        for &parent_idx in adjacency.parents.iter() {
+            self.adjacency_list[parent_idx].children.push(vertex_idx);
+        }
+        self.adjacency_list.push(adjacency);
+        Ok(())
+    }
+
+    pub fn save(&self, path: PathBuf) -> Result<(), std::io::Error> {
+        write(
+            path,
+            serde_json::to_string_pretty(&self.topological_list).unwrap(),
+        )
     }
 }
 

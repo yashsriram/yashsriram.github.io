@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate rocket;
 use glob::glob;
+use rocket::form::{Form, Strict};
 use rocket::fs::NamedFile;
 use rocket::response::Redirect;
 use rocket::serde::Serialize;
@@ -96,9 +97,59 @@ fn open_id(id: String) -> Template {
     open(&id)
 }
 
+#[derive(Serialize, Default)]
+#[serde(crate = "rocket::serde")]
+struct CreateContext {
+    id: String,
+    description: String,
+    significance: String,
+    proof: String,
+    msg: String,
+}
+
 #[get("/create")]
-fn create() -> Template {
-    Template::render("create", EmptyContext {})
+fn create_get() -> Template {
+    Template::render("create", CreateContext::default())
+}
+
+#[derive(FromForm)]
+struct NewVertexForm<'r> {
+    id: &'r str,
+    description: &'r str,
+    significance: &'r str,
+    proof: &'r str,
+}
+
+#[post("/create", data = "<nv>")]
+fn create_post(nv: Form<Strict<NewVertexForm<'_>>>) -> Template {
+    let reader = BufReader::new(
+        File::open(
+            [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+                .iter()
+                .collect::<PathBuf>(),
+        )
+        .unwrap(),
+    );
+    let mut dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+    match dag.create_vertex(nv.id, nv.description, nv.significance, nv.proof) {
+        Ok(_) => {
+            let path = [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+                .iter()
+                .collect::<PathBuf>();
+            dag.save(path).unwrap();
+            open(nv.id)
+        }
+        Err(msg) => Template::render(
+            "create",
+            CreateContext {
+                id: String::from(nv.id),
+                description: String::from(nv.description),
+                significance: String::from(nv.significance),
+                proof: String::from(nv.proof),
+                msg: msg,
+            },
+        ),
+    }
 }
 
 #[get("/graph")]
@@ -203,7 +254,8 @@ fn rocket() -> _ {
                 structure,
                 open_empty,
                 open_id,
-                create,
+                create_get,
+                create_post,
                 _graph,
                 db_list,
                 db_file,

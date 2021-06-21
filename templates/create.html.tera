@@ -14,23 +14,25 @@ textarea {
 }
 </style>
 
+{{ msg }}
+
 <form class="pure-form pure-form-aligned" action="/create" method="post">
     <fieldset>
         <div class="pure-control-group">
             <label for="id">id.</label>
-            <input type="text" id="id" class="pure-input-1-2" placeholder="id." autofocus/>
+            <input type="text" id="id" name="id" class="pure-input-1-2" placeholder="id." autofocus value="{{ id }}"/>
         </div>
         <div class="pure-control-group">
             <label for="description">description.</label>
-            <textarea id="description" class="pure-input-1-2" placeholder="description."></textarea>
+            <textarea id="description" name="description" class="pure-input-1-2" placeholder="description.">{{ description }}</textarea>
         </div>
         <div class="pure-control-group">
             <label for="significance">significance.</label>
-            <textarea id="significance" class="pure-input-1-2" placeholder="significance."></textarea>
+            <textarea id="significance" name="significance" class="pure-input-1-2" placeholder="significance.">{{ significance }}</textarea>
         </div>
         <div class="pure-control-group">
             <label for="proof">proof.</label>
-            <textarea id="proof" class="pure-input-1-2" placeholder="proof."></textarea>
+            <textarea id="proof" name="proof" class="pure-input-1-2" placeholder="proof.">{{ proof }}</textarea>
         </div>
         <div class="pure-controls">
             <button type="submit" class="pure-button pure-button-primary">create.</button>

@@ -2,11 +2,13 @@
 extern crate rocket;
 use glob::glob;
 use rocket::fs::NamedFile;
+use rocket::response::Redirect;
 use rocket::serde::Serialize;
 use rocket_dyn_templates::Template;
-use std::fs::File;
+use std::fs::{read_to_string, write, File};
 use std::io::BufReader;
 use std::path::{Path, PathBuf};
+use std::time::{SystemTime, UNIX_EPOCH};
 
 mod graph;
 
@@ -105,15 +107,51 @@ fn _graph() -> Template {
     Template::render("graph", graph::context::GraphContext::from(dag))
 }
 
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct DbContext {
+    files: Vec<String>,
+}
+
 #[get("/db")]
 fn db_list() -> Template {
-    for entry in glob(&format!("{}*", RELATIVE_DB_PATH)).expect("could not open db path.") {
-        match entry {
-            Ok(path) => println!("p: {:?}", path.display()),
-            Err(e) => println!("p: {:?}", e),
-        }
-    }
-    Template::render("db", EmptyContext {})
+    let mut files = glob(&format!("{}*", RELATIVE_DB_PATH))
+        .unwrap()
+        .into_iter()
+        .map(|entry| match entry {
+            Ok(pathbuf) => match pathbuf.to_str() {
+                Some(s) => String::from(s),
+                None => String::from("bad path, probably non UTF-8 stuff."),
+            },
+            Err(e) => format!("Error {} for path {:?}", e.error(), e.path()),
+        })
+        .collect::<Vec<_>>();
+    files.reverse();
+    Template::render("db", DbContext { files: files })
+}
+
+#[get("/duplicate_latest")]
+fn duplicate_latest() -> Redirect {
+    let content = read_to_string(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
+    let dup_file_path = {
+        let mut dup_file_name = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs()
+            .to_string();
+        dup_file_name.push_str(".json");
+        [RELATIVE_DB_PATH, dup_file_name.as_str()]
+            .iter()
+            .collect::<PathBuf>()
+    };
+    File::create(dup_file_path.clone()).unwrap();
+    write(dup_file_path, content).unwrap();
+    Redirect::to(uri!(db_list))
 }
 
 #[launch]
@@ -122,8 +160,18 @@ fn rocket() -> _ {
         .mount(
             "/",
             routes![
-                _static, index, why, learning, structure, open_empty, open_id, create, _graph,
-                db_list, db_file
+                _static,
+                index,
+                why,
+                learning,
+                structure,
+                open_empty,
+                open_id,
+                create,
+                _graph,
+                db_list,
+                db_file,
+                duplicate_latest,
             ],
         )
         .register("/", catchers![not_found])

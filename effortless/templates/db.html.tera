@@ -5,5 +5,13 @@ db.
 {% endblock title %}
 
 {% block content %}
-
+<ol>
+    {% for file in files %}
+        {% if file == "db/latest.json" %}
+        <li><a href="/{{ file }}">{{ file }}</a> <a href="/duplicate_latest">[duplicate_latest]</a></li>
+        {% else %}
+        <li><a href="/{{ file }}">{{ file }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ol>
 {% endblock content %}

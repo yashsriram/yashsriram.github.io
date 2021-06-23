@@ -7,7 +7,6 @@ use rocket::response::Redirect;
 use rocket::serde::Serialize;
 use rocket_dyn_templates::Template;
 use std::fs::{read_to_string, write, File};
-use std::io::BufReader;
 use std::path::{Path, PathBuf};
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -75,15 +74,7 @@ fn structure() -> Template {
 }
 
 fn open(id: &str) -> Template {
-    let reader = BufReader::new(
-        File::open(
-            [RELATIVE_DB_PATH, LATEST_DAG_NAME]
-                .iter()
-                .collect::<PathBuf>(),
-        )
-        .unwrap(),
-    );
-    let dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
     Template::render("open", graph::context::OpenContext::from((dag, id)))
 }
 
@@ -105,15 +96,23 @@ struct CreateContext {
     significance: String,
     proof: String,
     msg: String,
+    list: Vec<String>,
 }
 
 #[get("/create")]
 fn create_get() -> Template {
-    Template::render("create", CreateContext::default())
+    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
+    Template::render(
+        "create",
+        CreateContext {
+            list: dag.list_ids(),
+            ..Default::default()
+        },
+    )
 }
 
 #[derive(FromForm)]
-struct NewVertexForm<'r> {
+struct CreateForm<'r> {
     id: &'r str,
     description: &'r str,
     significance: &'r str,
@@ -121,16 +120,9 @@ struct NewVertexForm<'r> {
 }
 
 #[post("/create", data = "<nv>")]
-fn create_post(nv: Form<Strict<NewVertexForm<'_>>>) -> Template {
-    let reader = BufReader::new(
-        File::open(
-            [RELATIVE_DB_PATH, LATEST_DAG_NAME]
-                .iter()
-                .collect::<PathBuf>(),
-        )
-        .unwrap(),
-    );
-    let mut dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
+    let mut dag =
+        graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
     match dag.create_vertex(nv.id, nv.description, nv.significance, nv.proof) {
         Ok(_) => {
             let path = [RELATIVE_DB_PATH, LATEST_DAG_NAME]
@@ -147,6 +139,7 @@ fn create_post(nv: Form<Strict<NewVertexForm<'_>>>) -> Template {
                 significance: String::from(nv.significance),
                 proof: String::from(nv.proof),
                 msg: msg,
+                list: dag.list_ids(),
             },
         ),
     }
@@ -154,15 +147,7 @@ fn create_post(nv: Form<Strict<NewVertexForm<'_>>>) -> Template {
 
 #[get("/graph")]
 fn _graph() -> Template {
-    let reader = BufReader::new(
-        File::open(
-            [RELATIVE_DB_PATH, LATEST_DAG_NAME]
-                .iter()
-                .collect::<PathBuf>(),
-        )
-        .unwrap(),
-    );
-    let dag = graph::DirectedAcyclicGraph::new(reader).unwrap();
+    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
     Template::render("graph", graph::context::GraphContext::from(dag))
 }
 

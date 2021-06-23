@@ -6,38 +6,47 @@ create.
 
 {% block content %}
 
-<h1 id="create">create</h1>
-
 <style>
 textarea {
     height: 200px;
 }
+
+form, fieldset, input, textarea {
+    width: 100%;
+}
+
 </style>
 
-{{ msg }}
-
-<form class="pure-form pure-form-aligned" action="/create" method="post">
-    <fieldset>
-        <div class="pure-control-group">
-            <label for="id">id.</label>
-            <input type="text" id="id" name="id" class="pure-input-1-2" placeholder="id." autofocus value="{{ id }}"/>
-        </div>
-        <div class="pure-control-group">
-            <label for="description">description.</label>
-            <textarea id="description" name="description" class="pure-input-1-2" placeholder="description.">{{ description }}</textarea>
-        </div>
-        <div class="pure-control-group">
-            <label for="significance">significance.</label>
-            <textarea id="significance" name="significance" class="pure-input-1-2" placeholder="significance.">{{ significance }}</textarea>
-        </div>
-        <div class="pure-control-group">
-            <label for="proof">proof.</label>
-            <textarea id="proof" name="proof" class="pure-input-1-2" placeholder="proof.">{{ proof }}</textarea>
-        </div>
-        <div class="pure-controls">
+<div class="pure-g">
+    <div class="pure-u-1-5">
+    <ol>
+        {% for id in list %}
+            <li><a href="/open/{{ id }}">{{ id }}</a></li>
+        {% endfor %}
+    </ol>
+    </div>
+    <div class="pure-u-3-5">
+    <h1>create</h1>
+    <b style="color: red">{{ msg }}</b>
+    <form class="pure-form pure-form-aligned" action="/create" method="post">
+        <fieldset>
+            <div class="pure-control-group">
+                <input type="text" id="id" name="id" placeholder="id." autofocus value="{{ id }}"/>
+            </div>
+            <div class="pure-control-group">
+                <textarea id="description" name="description" placeholder="description.">{{ description }}</textarea>
+            </div>
+            <div class="pure-control-group">
+                <textarea id="significance" name="significance" placeholder="significance.">{{ significance }}</textarea>
+            </div>
+            <div class="pure-control-group">
+                <textarea id="proof" name="proof" placeholder="proof.">{{ proof }}</textarea>
+            </div>
             <button type="submit" class="pure-button pure-button-primary">create.</button>
-        </div>
-    </fieldset>
-</form>
-
+        </fieldset>
+    </form>
+    </div>
+    <div class="pure-u-1-5">
+    </div>
+</div>
 {% endblock content %}

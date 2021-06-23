@@ -26,7 +26,10 @@ pub struct DirectedAcyclicGraph {
 }
 
 impl DirectedAcyclicGraph {
-    pub fn new(reader: BufReader<File>) -> Result<DirectedAcyclicGraph, String> {
+    pub fn from_file(db_path: &str, dag_file_name: &str) -> Result<DirectedAcyclicGraph, String> {
+        let reader = BufReader::new(
+            File::open([db_path, dag_file_name].iter().collect::<PathBuf>()).unwrap(),
+        );
         // Order of JSON array is preserved during serialization and deserialization
         // Validate proper json format
         let topological_list: Vec<Vertex> = match serde_json::from_reader(reader) {
@@ -190,6 +193,10 @@ impl DirectedAcyclicGraph {
             serde_json::to_string_pretty(&self.topological_list).unwrap(),
         )
     }
+
+    pub fn list_ids(&self) -> Vec<String> {
+        self.topological_list.iter().map(|v| v.id.clone()).collect()
+    }
 }
 
 pub mod context {
@@ -260,7 +267,7 @@ pub mod context {
                 Ok(v) => Some(v),
                 Err(_) => None,
             };
-            let list = dag.topological_list.iter().map(|v| v.id.clone()).collect();
+            let list = dag.list_ids();
             OpenContext {
                 statement: statement,
                 list: list,

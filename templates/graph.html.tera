@@ -11,9 +11,10 @@ graph.
 <style type="text/css">
     #mynetwork {
         width: 98%;
-        height: 96%;
+        height: 95%;
         background-color: #000000;
         margin: auto;
+        margin-top: 0.5%;
     }
     html, body {
         width: 100%;
@@ -49,7 +50,7 @@ graph.
                 },
                 "id": "{{ s.id }}",
                 "label": "{{ s.id }}",
-                "title": '{{ s.description | join(sep="@") | trim | linebreaksbr }}',
+                "title": 'P: ({{ s.parents | length }}), C: ({{ s.children | length }}), D: {{ s.description | join(sep="@") | trim | linebreaksbr | truncate(length = 100) }}',
                 "color": {
                   "background": "{{ s.color }}{{ s.opaqueness }}",
                   "border": "{{ s.color }}"

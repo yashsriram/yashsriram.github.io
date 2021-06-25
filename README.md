@@ -47,9 +47,22 @@
         - [ ] Update scratch.
 - Build a Server Client for browsing.
     - [ ] CRUD of statements.
+        - [x] R
+        - [x] C
+        - [ ] U
+        - [ ] D
+    - [ ] Open page navigations.
+        - [ ] URL.
+        - [ ] List.
+        - [ ] Parents/Children.
+        - [ ] Show ancestors and descendants graphs, which can open statements.
     - [ ] Colors.
     - [ ] Chapter seperators.
     - [ ] Uploading to github.
+        - [ ] The intended use of this system is to start server on localhost and use browser/client as a UI. Kind of like a native application. Not meant to be deployed on server.
+        - [ ] This way any additions/updates to content or code are nicely commited and pushed to gituhub.
+        - [ ] On any critical bug which erases content, you can get latest content from github.
+        - [ ] That is why it is important to commit regularly.
     - [x] Left right to move across statements. Instead of that prev and next links at relatively same positions.
     - [x] Statement id list view/Statement complete view.
     - [x] Able to search in entire graph.
@@ -66,10 +79,14 @@
     - [ ] DAG latex type set description.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
 -  Make sure that design minimizes constructs. Minimize current content.
-    - [ ] Typed journal.
-    - [ ] More terse text.
-    - [ ] Other topological sorts.
-    - [ ] Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
     - [ ] Design should be such that clumsy graph should be difficult to create.
-    - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
-    - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
+    - [ ] Graph level; Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
+        - [ ] Untangling/Unwebbing.
+        - [ ] Other topological sorts.
+        - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
+        - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
+    - [ ] Statement level; Measure of bigness of a statement. If too big indicate and split into multiple.
+        - [ ] More terse text.
+        - [ ] Limit/Soft limit on number of words in a description/significance/proof.
+        - [ ] Vis the badness of the statement using this.
+        - [ ] Typed/Syntaxed description.

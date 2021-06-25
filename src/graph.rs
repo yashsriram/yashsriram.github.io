@@ -305,7 +305,7 @@ pub mod context {
                     gray
                 };
                 let gray = gray as u8;
-                format!("{:X}", gray)
+                format!("{:02X}", gray)
             }
             GraphContext {
                 statements: dag
@@ -315,12 +315,12 @@ pub mod context {
                     .map(|(v, a)| VertexContext {
                         id: v.id.clone(),
                         color: String::from(format!(
-                            "#{:X}{:X}{:X}",
+                            "#{:02X}{:02X}{:02X}",
                             fastrand::u8(..),
                             fastrand::u8(..),
                             fastrand::u8(..)
                         )),
-                        opaqueness: heat_map(0.0, a.parents.len() as f32, 6.0),
+                        opaqueness: heat_map(0.0, a.parents.len() as f32, 5.0),
                         description: v.description.clone(),
                         parents: a
                             .parents

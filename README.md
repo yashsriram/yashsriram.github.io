@@ -52,9 +52,9 @@
         - [ ] U
         - [ ] D
     - [ ] Open page navigations.
-        - [ ] URL.
-        - [ ] List.
-        - [ ] Parents/Children.
+        - [x] URL.
+        - [x] List.
+        - [x] Parents/Children.
         - [ ] Show ancestors and descendants graphs, which can open statements.
     - [ ] Colors.
     - [ ] Chapter seperators.
@@ -82,7 +82,7 @@
     - [ ] Design should be such that clumsy graph should be difficult to create.
     - [ ] Graph level; Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
         - [ ] Untangling/Unwebbing.
-        - [ ] Other topological sorts.
+        - [ ] Other topological sorts. Ex. Least scope sort. Least distance b/w connected nodes sort.
         - [ ] Remove unnecessary redundancies. For example, in `Let P(A) denote @probability@ of some @event@ A of a @stochastic experiment@ E` probability already is defined for an event and experiment. Should not have to declare it again.
         - [ ] Solve problem: For every new statement, I have to traverse entire graph and check for duplicates, optimize graph ...
     - [ ] Statement level; Measure of bigness of a statement. If too big indicate and split into multiple.

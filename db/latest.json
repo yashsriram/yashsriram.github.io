@@ -74,11 +74,9 @@
     "description": [
       "A set $S$ is a collection of elements from which any two elements picked without replacement are non-identical ",
       "identity",
-      ". If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \\equiv \\{ e_1, e_2, e_3, ... e_n \\} $ ",
-      "enumerated_notation",
       "."
     ],
-    "significance": "To represent collection of differently colored balls in an urn, etc...",
+    "significance": "To represent collection of differently colored balls in an urn, natural numbers, real numbers etc...",
     "proof": ""
   },
   {
@@ -152,41 +150,15 @@
     "proof": ""
   },
   {
-    "id": "intersection",
-    "description": [
-      "An intersection of two ",
-      "set",
-      "s A and B is a set which contains every element that is common to A and B. Denoted by $ A \\cap B $."
-    ],
-    "significance": "A basic operator to combine sets.",
-    "proof": ""
-  },
-  {
-    "id": "complement",
-    "description": [
-      "A complement of a ",
-      "set",
-      " A is a set which contains all elements which do not ",
-      "belongs_to",
-      " the set A itself. Denoted by $ \\overline{A} $"
-    ],
-    "significance": "A basic unary operator on a set.",
-    "proof": ""
-  },
-  {
     "id": "universal_set",
     "description": [
-      "A universal set of a ",
+      "The universal set is a ",
       "set",
-      " A is a set which is identical to $ A \\cup \\overline{A} $ ",
-      "identity",
-      " ",
+      "which is ",
       "union",
-      " ",
-      "complement",
-      "."
+      " of all the sets in context."
     ],
-    "significance": "A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.\nA proper superset of universal set doesn't exist.\nOne can argue to just put some more elements to build a superset, but it makes things complicated.\nIf there is ever a real need for such a construct (dynamic universal set!!!???), we can build it then.",
+    "significance": "A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be all the sets.\nA proper superset of universal set doesn't exist.\nOne can argue to just put some more elements to build a superset, but then the new set comes into union and universal set contains the new elements too.",
     "proof": ""
   },
   {
@@ -762,65 +734,65 @@
     "proof": "The term `approximation' used here is more profound than you might think.\n\\\\\n\\textbf{First}\n\\\\\nIf $f$ is the integral function i.e. the area under the curve, consider a small finite change in the area $df$.\nThen\n\\[\n  df \\approx g(\\alpha) * d\\alpha\n\\]\n\\[\n  \\frac{df}{d\\alpha} \\approx g(\\alpha)\n\\]\nAs the $d\\alpha$ tends to 0\n- The limiting value of the LHS is derivative of $f$\n- The limiting value of the RHS is $g(\\alpha)$\n- The approximation becomes equivalence\n\nTherefore,\n\\[\n  \\frac{df}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\textbf{Second}\n\\\\\nIf $g$ is the derivative of $f$\n\\[\n  g(\\beta) * d\\beta \\approx f(\\beta + d\\beta) - f(\\beta)\n\\]\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx \\sum_{0}^{n-1} f(\\alpha * \\frac{i + 1}{n}) - f(\\alpha * \\frac{i}{n})\n\\]\nExpanding and cancelling terms on RHS we have\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx f(\\alpha) - f(0)\n\\]\nAs $n$ tends to infinity\n- The limiting value of the LHS is derivative of $\\int_{0}^{\\alpha} g(\\beta) d\\beta$\n- The limiting value of the RHS is $f(\\alpha) - f(0)$\n- The approximation becomes equivalence\n\nTherefore,\n\\[\n  f(\\alpha) - f(0) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n\\[\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]"
   },
   {
-    "id": "experiment",
+    "id": "randomness",
     "description": [
-      "A list of instructions which when followed produces an outcome."
+      "The notion of not knowing."
     ],
-    "significance": "Anything that has some non-zero number of outcomes is an experiment.\nThe meaning of this is not just limited to experiments which involve physics or chemistry.\nWe are only concerned with the outcomes and not the inputs.\nNote that, at a time only one of the several possible outcomes of an experiment can occur.",
+    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
     "proof": ""
   },
   {
-    "id": "deterministic_experiment",
+    "id": "certainity",
     "description": [
-      "Let $ O_k $ represent the final outcome when an ",
-      "experiment",
-      " is repeated k times, an experiment such that $ O_1, O_2, O_3, ... O_n $ are pairwise identical ",
-      "identity",
-      " $\\forall n \\in \\mathbb{N} $ ",
-      "natural_numbers",
-      " is called a deterministic experiment."
+      "The notion of knowing."
     ],
-    "significance": "Can be used to represent experiments like adding two numbers.",
+    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
     "proof": ""
   },
   {
-    "id": "non-deterministic_experiment",
+    "id": "outcome",
     "description": [
-      "Let $ O_k $ represent the final outcome when an ",
-      "experiment",
-      " is repeated k times, an experiment such that $ \\exists (i, j) \\mid O_i \\not\\equiv O_j $ ",
-      "identity",
-      " is called a non-deterministic experiment."
+      ""
     ],
-    "significance": "Note that outcome can remain same for some repetitions of the experiement.\nCan be used to represent experiments like rolling a dice.",
+    "significance": "",
     "proof": ""
   },
   {
     "id": "outcome_space",
     "description": [
-      "The outcome space of an ",
-      "experiment",
-      " is the ",
-      "set",
-      " of its all possible outcomes ",
+      "The outcome space is the ",
       "universal_set",
+      " of ",
+      "outcome",
+      "s, which is not a ",
+      "null_set",
       "."
     ],
-    "significance": "A term to refer to all possible outcomes collectively.",
+    "significance": "A term to refer to all possible outcomes collectively. If the number of outcomes is zero, outcome space is not defined.",
     "proof": ""
   },
   {
     "id": "event",
     "description": [
-      "An event $ E $ of an ",
-      "experiment",
-      " is a ",
+      "An event $ E $ is a ",
       "subset",
       " of ",
       "outcome_space",
-      ". An event is said to have occured $ \\leftrightarrow $ $ \\exists $ outcome $ \\in E $ that occured."
+      "."
     ],
-    "significance": "The naming here is bad.\nAn event is nothing but a set of outcomes.\nAn event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.\nThat's it.\nNothing more.\nThe number of elements in an event can be 0, 1 or even total number of possible outcomes.",
+    "significance": "An event Q occured is equivalent to saying that the experiement's outcome was one of outcomes in Q.\nThat's it.\nNothing more.\nThe number of elements in an event can be 0, 1 or even total number of possible outcomes.",
+    "proof": ""
+  },
+  {
+    "id": "event_space",
+    "description": [
+      "The event space is the ",
+      "universal_set",
+      " of ",
+      "event",
+      "s."
+    ],
+    "significance": "A term to refer to all possible events collectively",
     "proof": ""
   },
   {
@@ -828,31 +800,51 @@
     "description": [
       "Two ",
       "event",
-      "s A and B of an ",
-      "experiment",
-      " are mutually exclusive events $ \\leftrightarrow $ $ A \\cap B \\equiv \\phi $ ",
+      "s A and B; are mutually exclusive events $ \\leftrightarrow $ $ A \\cap B \\equiv \\phi $ ",
       "null_set",
       "."
     ],
-    "significance": "For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.\nNote that they are not independent events, even both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
+    "significance": "For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.\nNote that they are not independent events, even both words are eerily similar.\n\nMutually exclusive mean that at max one can occur at a given time.\nIndependent events can have an intersection and therefore can occur at the same time.",
     "proof": ""
   },
   {
-    "id": "event_space",
+    "id": "experiment",
     "description": [
-      "The event space of an ",
-      "experiment",
-      " is the ",
-      "set",
-      " of all possible ",
-      "event",
-      "s of the experiement."
+      "An experiment is something which picks an ",
+      "outcome",
+      " from an ",
+      "outcome_space",
+      "."
     ],
-    "significance": "A term to refer to all possible events collectively",
+    "significance": "The meaning of this is not just limited to experiments which involve physics or chemistry.",
     "proof": ""
   },
   {
-    "id": "stochastic_experiment",
+    "id": "deterministic_experiment",
+    "description": [
+      "A deterministic experiment is an",
+      "experiment",
+      " which picks with ",
+      "certainity",
+      "."
+    ],
+    "significance": "Need not even pick the same outcome everytime, but what it will pick each time is known.\nCan be used to represent experiments like adding two numbers.\nNote the lack of need for repetition in the definition.",
+    "proof": ""
+  },
+  {
+    "id": "non_deterministic_experiment",
+    "description": [
+      "A deterministic experiment is an",
+      "experiment",
+      " which picks with ",
+      "randomness",
+      "."
+    ],
+    "significance": "Can even pick the same outcome everytime, but what it will pick each time is not known. \nCan be used to represent experiments like rolling a dice.\nNote the lack of need for repetition in the definition.\nEven if there is a single outcome in outcome space, we can believe that there is randomness and belive that what experiment picks is not known.",
+    "proof": ""
+  },
+  {
+    "id": "limit_experiment",
     "description": [
       "An ",
       "experiment",
@@ -860,21 +852,21 @@
       "event",
       " $ \\lambda \\in $ ",
       "event_space",
-      " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a stochastic experiment."
+      " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a limit experiment."
     ],
-    "significance": "Useful to build the concept of probability.\nNote that by my definition of stochastic experiment  \n- All deterministic experiments are stochastic experiments with probability of the only outcome being 1.\n    \n- Some non-deterministic experiments are stochastic experiments.\n\n\\begin{center}\n    \\begin{tikzpicture}\n    \\setlength{\\parskip}{5mm}\n        \\draw[fill=blue!60]     (0, 0) -- (90:2.5) arc (90:270:2.5) -- cycle ;\n        \\draw[]                 (0, 0) circle (2.5) node {Non-deterministic};\n        \\draw[fill=blue!60]     (0: 5.1) circle (2.5) node {Deterministic};\n        \\node[anchor=south] at (current bounding box.north) {Stochastic (in blue)};\n    \\end{tikzpicture}\n\\end{center}",
+    "significance": "Useful to build the concept of limit probability.\nDo not blindly assume any relationship b/w deterministic, non deterministic and limit experiments.\nNotice the presence of repetition in this definition.",
     "proof": ""
   },
   {
-    "id": "probability",
+    "id": "limit_probability",
     "description": [
-      "The probability of an ",
+      "The limit probability of an ",
       "event",
       " $ \\lambda $ of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
     ],
-    "significance": "One might easily think that probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher probability does not mean it will occur next.\nEven an event with unimaginabily miniscule probability may happen (many times in a row) and an event with very high probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of probability, that arises from the definition of limit itself, should be digested well.\n\nA good way to remember this is to add meaning to notation.\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\lambda} {\\color{green} )}\n\\]\nHere  \n- {\\color{red} P} should remind that probability is a limit definition.\n    \n- {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \n- ${\\color{blue} \\lambda}$ represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n",
+    "significance": "One might easily think that limit probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher limit probability does not mean it will occur next.\nEven an event with unimaginabily miniscule limit probability may happen (many times in a row) and an event with very high limit probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of limit probability, that arises from the definition of limit itself, should be digested well.\nNote that  \n- This is a limit definition and hence involves the notion of repetition.\n - An implicit experiment is defined.\nThe experiment should be well understood.\nThis is the most ignored step while working with limit probability.\n",
     "proof": ""
   },
   {
@@ -885,7 +877,7 @@
       " and A, B be some ",
       "event",
       "s of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " E. The following properties hold.\n- $P(A) \\ge 0 $\n- $P(S) \\equiv 1 $\n- $ A \\cap B \\equiv \\phi \\rightarrow P(A \\cup B) \\equiv P(A) + P(B)$ ",
       "null_set",
       ".\n"
@@ -899,9 +891,9 @@
       "Two ",
       "event",
       "s A and B of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " are independent $ \\leftrightarrow $ $ P(A \\cap B) \\equiv P(A) * P(B) $ ",
-      "probability",
+      "limit_probability",
       "."
     ],
     "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
@@ -911,13 +903,13 @@
     "id": "conditional_probability",
     "description": [
       "Let P(B) denote ",
-      "probability",
+      "limit_probability",
       " of some non ",
       "null_set",
       " ",
       "event",
       " B of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " E.\nSay event B occured  \n- The probability that outcome a occured during the occurance of B is called conditional probability of a given B.\n    \\[\n      P(a \\mid B) \\equiv \\frac{P(a \\cap B)}{P(B)}\n    \\]\n    \n- The probability that event A = $\\{a_1, a_2, a_3 .. a_n\\}$ occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\sum_{i = 1}^{n}\\frac{P(a_i \\cap B)}{P(B)}\n    \\]\n"
     ],
     "significance": "All it is saying is that one of some outcomes a.k.a B occured, what is the probability that during that occurance an outcome a occured.\n\nSay the outcomes probabilities are $[a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4]$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(a_1 | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n- $ a \\cap B $ because if the outcome a is not in B, then it must definitely not have occured.\n    \n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- {\\color{red} P} should remind that probability is a limit definition.\n    \n- {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \n- ${\\color{blue} \\alpha}, {\\color{magenta} \\beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n    \n- $\\mid$ should remind us that ${\\color{magenta} \\beta}$ occured.\n",
@@ -927,13 +919,13 @@
     "id": "random_variable",
     "description": [
       "A random variable of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " E is a ",
       "function",
       " $ \\psi $ mapping from E's ",
       "event_space",
       " S to $ [0, 1] $ where  \n- $ \\forall \\lambda \\in S, \\psi(\\lambda) \\equiv $ the ",
-      "probability",
+      "limit_probability",
       " of the event $ \\lambda $.\n    \n- $ \\forall \\alpha, \\beta \\in S \\mid \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the ",
       "conditional_probability",
       " of $ \\alpha $ given $ \\beta $,.\n"
@@ -947,7 +939,7 @@
       "For a ",
       "random_variable",
       " $\\psi$ of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " E, let B be some ",
       "event",
       " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",
@@ -967,7 +959,7 @@
       "For a ",
       "random_variable",
       " $\\psi$ of a ",
-      "stochastic_experiment",
+      "limit_experiment",
       " E, let B be some ",
       "event",
       " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",

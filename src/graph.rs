@@ -75,7 +75,7 @@ impl DirectedAcyclicGraph {
             // Validate that all parents of current vertex are already exist
             if vertex.description.len() % 2 == 0 {
                 return Err(String::from(format!(
-                    "vertex \"{}\" at index {} has invalid syntax for parent references.",
+                    "vertex \"{}\" at index {} has invalid syntax for parent references. has even length description array.",
                     vertex.id, vertex_idx
                 )));
             }
@@ -143,7 +143,9 @@ impl DirectedAcyclicGraph {
         // Validate that all parents of current vertex are already exist
         let tokens: Vec<&str> = description.split('@').collect();
         if tokens.len() % 2 == 0 {
-            return Err(String::from("has invalid syntax for parent references."));
+            return Err(String::from(
+                "has invalid syntax for parent references. too many or too less splitting tokens.",
+            ));
         }
         let mut adjacency = Adjacent {
             parents: vec![],

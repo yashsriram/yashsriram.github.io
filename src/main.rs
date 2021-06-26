@@ -6,7 +6,6 @@ use rocket::fs::NamedFile;
 use rocket::response::Redirect;
 use rocket::serde::Serialize;
 use rocket_dyn_templates::Template;
-use std::fs::{read_to_string, write, File};
 use std::path::{Path, PathBuf};
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -59,7 +58,7 @@ struct ScratchContext {
 
 #[get("/scratch")]
 fn scratch() -> Template {
-    let content = read_to_string(
+    let content = std::fs::read_to_string(
         [RELATIVE_DB_PATH, LATEST_SCRATCH_NAME]
             .iter()
             .collect::<PathBuf>(),
@@ -74,7 +73,12 @@ fn structure() -> Template {
 }
 
 fn open(id: &str) -> Template {
-    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
+    let dag = graph::DirectedAcyclicGraph::from_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
     Template::render("open", graph::context::OpenContext::from((dag, id)))
 }
 
@@ -101,7 +105,12 @@ struct CreateContext {
 
 #[get("/create")]
 fn create_get() -> Template {
-    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
+    let dag = graph::DirectedAcyclicGraph::from_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
     Template::render(
         "create",
         CreateContext {
@@ -121,14 +130,18 @@ struct CreateForm<'r> {
 
 #[post("/create", data = "<nv>")]
 fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
-    let mut dag =
-        graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
-    match dag.create_vertex(nv.id, nv.description, nv.significance, nv.proof) {
+    let mut dag = graph::DirectedAcyclicGraph::from_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
+    match dag.add_vertex(nv.id, nv.description, nv.significance, nv.proof) {
         Ok(_) => {
             let path = [RELATIVE_DB_PATH, LATEST_DAG_NAME]
                 .iter()
                 .collect::<PathBuf>();
-            dag.save(path).unwrap();
+            dag.save_to_file(path).unwrap();
             open(nv.id)
         }
         Err(msg) => Template::render(
@@ -147,7 +160,12 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
 
 #[get("/graph")]
 fn _graph() -> Template {
-    let dag = graph::DirectedAcyclicGraph::from_file(RELATIVE_DB_PATH, LATEST_DAG_NAME).unwrap();
+    let dag = graph::DirectedAcyclicGraph::from_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
     Template::render("graph", graph::context::GraphContext::from(dag))
 }
 
@@ -197,7 +215,8 @@ fn db_list() -> Template {
 }
 
 fn checkpoint_latest_file(filename: &str, dot_extension: &str) {
-    let content = read_to_string([RELATIVE_DB_PATH, filename].iter().collect::<PathBuf>()).unwrap();
+    let content =
+        std::fs::read_to_string([RELATIVE_DB_PATH, filename].iter().collect::<PathBuf>()).unwrap();
     let dup_file_path = {
         let mut dup_file_name = SystemTime::now()
             .duration_since(UNIX_EPOCH)
@@ -209,8 +228,7 @@ fn checkpoint_latest_file(filename: &str, dot_extension: &str) {
             .iter()
             .collect::<PathBuf>()
     };
-    File::create(dup_file_path.clone()).unwrap();
-    write(dup_file_path, content).unwrap();
+    std::fs::write(dup_file_path, content).unwrap();
 }
 
 #[get("/checkpoint_latest_json")]

@@ -1,7 +1,5 @@
 use rocket::serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::fs::{write, File};
-use std::io::BufReader;
 use std::path::PathBuf;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -26,13 +24,11 @@ pub struct DirectedAcyclicGraph {
 }
 
 impl DirectedAcyclicGraph {
-    pub fn from_file(db_path: &str, dag_file_name: &str) -> Result<DirectedAcyclicGraph, String> {
-        let reader = BufReader::new(
-            File::open([db_path, dag_file_name].iter().collect::<PathBuf>()).unwrap(),
-        );
+    pub fn from_file(path: PathBuf) -> Result<DirectedAcyclicGraph, String> {
+        let content = std::fs::read_to_string(path).or_else(|e| Err(e.to_string()))?;
         // Order of JSON array is preserved during serialization and deserialization
         // Validate proper json format
-        let topological_list: Vec<Vertex> = match serde_json::from_reader(reader) {
+        let topological_list: Vec<Vertex> = match serde_json::from_str(&content) {
             Ok(r) => r,
             Err(_) => return Err(String::from("cannot parse vertices from given stream.")),
         };
@@ -120,7 +116,7 @@ impl DirectedAcyclicGraph {
         })
     }
 
-    pub fn create_vertex(
+    pub fn add_vertex(
         &mut self,
         id: &str,
         description: &str,
@@ -189,11 +185,10 @@ impl DirectedAcyclicGraph {
         Ok(())
     }
 
-    pub fn save(&self, path: PathBuf) -> Result<(), std::io::Error> {
-        write(
-            path,
-            serde_json::to_string_pretty(&self.topological_list).unwrap(),
-        )
+    pub fn save_to_file(&self, path: PathBuf) -> Result<(), String> {
+        let content_string =
+            serde_json::to_string_pretty(&self.topological_list).or_else(|e| Err(e.to_string()))?;
+        std::fs::write(path, content_string).or_else(|e| Err(e.to_string()))
     }
 
     pub fn list_ids(&self) -> Vec<String> {

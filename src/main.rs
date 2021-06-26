@@ -136,15 +136,8 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
             .collect::<PathBuf>(),
     )
     .unwrap();
-    match dag.add_vertex(nv.id, nv.description, nv.significance, nv.proof) {
-        Ok(_) => {
-            let path = [RELATIVE_DB_PATH, LATEST_DAG_NAME]
-                .iter()
-                .collect::<PathBuf>();
-            dag.save_to_file(path).unwrap();
-            open(nv.id)
-        }
-        Err(msg) => Template::render(
+    if let Err(msg) = dag.add_vertex(nv.id, nv.description, nv.significance, nv.proof) {
+        return Template::render(
             "create",
             CreateContext {
                 id: String::from(nv.id),
@@ -154,8 +147,26 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
                 msg: msg,
                 list: dag.list_ids(),
             },
-        ),
+        );
     }
+    if let Err(msg) = dag.save_to_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    ) {
+        return Template::render(
+            "create",
+            CreateContext {
+                id: String::from(nv.id),
+                description: String::from(nv.description),
+                significance: String::from(nv.significance),
+                proof: String::from(nv.proof),
+                msg: msg,
+                list: dag.list_ids(),
+            },
+        );
+    }
+    open(nv.id)
 }
 
 #[get("/graph")]

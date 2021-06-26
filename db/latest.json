@@ -248,22 +248,6 @@
     "proof": ""
   },
   {
-    "id": "injection",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
-    "id": "surjection",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
     "id": "bijection",
     "description": [
       ""
@@ -297,46 +281,6 @@
       " . It is denoted by $ \\mathbb{W}$."
     ],
     "significance": "The name whole is given because we are gonna define numbers that will represent non-whole entities.",
-    "proof": ""
-  },
-  {
-    "id": "additive_inverse",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
-    "id": "integers",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
-    "id": "multiplicative_inverse",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
-    "id": "rational_numbers",
-    "description": [
-      ""
-    ],
-    "significance": "",
-    "proof": ""
-  },
-  {
-    "id": "irrational_numbers",
-    "description": [
-      ""
-    ],
-    "significance": "",
     "proof": ""
   },
   {

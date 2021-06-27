@@ -92,15 +92,12 @@ fn open_id(id: String) -> Template {
     open(&id)
 }
 
-#[derive(Serialize, Default)]
-#[serde(crate = "rocket::serde")]
-struct CreateContext {
-    id: String,
-    description: String,
-    significance: String,
-    proof: String,
-    msg: String,
-    list: Vec<String>,
+#[derive(FromForm)]
+pub struct CreateForm<'r> {
+    id: &'r str,
+    description: &'r str,
+    significance: &'r str,
+    proof: &'r str,
 }
 
 #[get("/create")]
@@ -111,21 +108,7 @@ fn create_get() -> Template {
             .collect::<PathBuf>(),
     )
     .unwrap();
-    Template::render(
-        "create",
-        CreateContext {
-            list: dag.list_ids(),
-            ..Default::default()
-        },
-    )
-}
-
-#[derive(FromForm)]
-struct CreateForm<'r> {
-    id: &'r str,
-    description: &'r str,
-    significance: &'r str,
-    proof: &'r str,
+    Template::render("create", graph::context::CreateContext::from(dag))
 }
 
 #[post("/create", data = "<nv>")]
@@ -139,14 +122,7 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
     if let Err(msg) = dag.add_vertex(nv.id, nv.description, nv.significance, nv.proof) {
         return Template::render(
             "create",
-            CreateContext {
-                id: String::from(nv.id),
-                description: String::from(nv.description),
-                significance: String::from(nv.significance),
-                proof: String::from(nv.proof),
-                msg: msg,
-                list: dag.list_ids(),
-            },
+            graph::context::CreateContext::from((nv, msg, dag)),
         );
     }
     if let Err(msg) = dag.save_to_file(
@@ -156,14 +132,7 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
     ) {
         return Template::render(
             "create",
-            CreateContext {
-                id: String::from(nv.id),
-                description: String::from(nv.description),
-                significance: String::from(nv.significance),
-                proof: String::from(nv.proof),
-                msg: msg,
-                list: dag.list_ids(),
-            },
+            graph::context::CreateContext::from((nv, msg, dag)),
         );
     }
     open(nv.id)

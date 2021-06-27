@@ -198,6 +198,8 @@ impl DirectedAcyclicGraph {
 
 pub mod context {
     use super::DirectedAcyclicGraph;
+    use crate::CreateForm;
+    use rocket::form::{Form, Strict};
     use rocket::serde::Serialize;
     use std::convert::TryFrom;
 
@@ -268,6 +270,41 @@ pub mod context {
             OpenContext {
                 statement: statement,
                 list: list,
+            }
+        }
+    }
+
+    #[derive(Serialize, Default)]
+    #[serde(crate = "rocket::serde")]
+    pub struct CreateContext {
+        id: String,
+        description: String,
+        significance: String,
+        proof: String,
+        msg: String,
+        list: Vec<String>,
+    }
+
+    impl From<DirectedAcyclicGraph> for CreateContext {
+        fn from(dag: DirectedAcyclicGraph) -> Self {
+            CreateContext {
+                list: dag.list_ids(),
+                ..Default::default()
+            }
+        }
+    }
+
+    impl From<(Form<Strict<CreateForm<'_>>>, String, DirectedAcyclicGraph)> for CreateContext {
+        fn from(
+            (nv, msg, dag): (Form<Strict<CreateForm<'_>>>, String, DirectedAcyclicGraph),
+        ) -> Self {
+            CreateContext {
+                id: String::from(nv.id),
+                description: String::from(nv.description),
+                significance: String::from(nv.significance),
+                proof: String::from(nv.proof),
+                msg: msg,
+                list: dag.list_ids(),
             }
         }
     }

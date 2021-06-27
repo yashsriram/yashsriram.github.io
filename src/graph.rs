@@ -313,6 +313,43 @@ pub mod context {
         }
     }
 
+    #[derive(Serialize, Default)]
+    #[serde(crate = "rocket::serde")]
+    pub struct UpdateContext {
+        id: String,
+        description: Vec<String>,
+        significance: String,
+        proof: String,
+        msg: String,
+        list: Vec<String>,
+    }
+
+    impl From<(DirectedAcyclicGraph, &str)> for UpdateContext {
+        fn from((dag, id): (DirectedAcyclicGraph, &str)) -> Self {
+            match dag.id_to_idx_map.get(id) {
+                Some(&idx) => {
+                    let v = &dag.topological_list[idx];
+                    UpdateContext {
+                        id: v.id.clone(),
+                        description: v.description.clone(),
+                        significance: v.significance.clone(),
+                        proof: v.proof.clone(),
+                        msg: String::from(""),
+                        list: dag.list_ids(),
+                    }
+                }
+                None => UpdateContext {
+                    id: String::from(""),
+                    description: vec![String::from("")],
+                    significance: String::from(""),
+                    proof: String::from(""),
+                    msg: String::from(format!("cannot find statement with id {}.", id)),
+                    list: dag.list_ids(),
+                },
+            }
+        }
+    }
+
     #[derive(Serialize)]
     #[serde(crate = "rocket::serde")]
     struct VertexContext {

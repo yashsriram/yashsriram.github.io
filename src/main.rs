@@ -138,6 +138,20 @@ fn create_post(nv: Form<Strict<CreateForm<'_>>>) -> Template {
     open(nv.id)
 }
 
+#[get("/update/<id>")]
+fn update_get(id: String) -> Template {
+    let dag = graph::DirectedAcyclicGraph::from_file(
+        [RELATIVE_DB_PATH, LATEST_DAG_NAME]
+            .iter()
+            .collect::<PathBuf>(),
+    )
+    .unwrap();
+    Template::render(
+        "update",
+        graph::context::UpdateContext::from((dag, id.as_str())),
+    )
+}
+
 #[get("/graph")]
 fn _graph() -> Template {
     let dag = graph::DirectedAcyclicGraph::from_file(
@@ -239,6 +253,7 @@ fn rocket() -> _ {
                 open_id,
                 create_get,
                 create_post,
+                update_get,
                 _graph,
                 db_list,
                 db_file,

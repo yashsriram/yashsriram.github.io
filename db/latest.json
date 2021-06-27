@@ -238,13 +238,11 @@
   {
     "id": "function",
     "description": [
-      "A function $ \\Lambda $ on a ",
+      "A function $ \\Lambda $ is a mapping from a ",
       "set",
-      " called its domain $ D $ is a mapping from each element $ \\alpha $ that ",
-      "belongs_to",
-      " $ D $ to an element $ \\beta $ in a new set C called its co-domain.\nThis mapping exists for all elements in the domain and each element in domain is mapped to only one element in co-domain.\nFor each element $ \\alpha \\in D $ the mapping $ \\beta $ is called image of $ \\alpha $.\nThe set of images for all elements the domain is called range $ R $ of the function $ \\Lambda $.\nFunction is denoted by $ \\Lambda:D \\to C $. The image of $ \\alpha $ is denoted by $ \\Lambda(\\alpha) \\forall \\alpha \\in D $."
+      " called its domain $ D $ to a set $ C $ called its co-domain.\nEach element in the domain has exactly one mapping to an element in the co-domain.\n\nFor each element $ \\alpha \\in D $ the mapping $ \\beta $ is called image of $ \\alpha $.\nFunction is denoted by $ \\Lambda:D \\to C $. The image of $ \\alpha $ is denoted by $ \\Lambda(\\alpha) \\forall \\alpha \\in D $."
     ],
-    "significance": "A basic tool for moving b/w sets.\nNote that two elements on domain can be mapped to same element in co-domain.\nAlso range $ \\subseteq $ co-domain.",
+    "significance": "A basic tool for moving b/w sets.",
     "proof": ""
   },
   {
@@ -810,11 +808,11 @@
       "limit_experiment",
       " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
     ],
-    "significance": "One might easily think that limit probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher limit probability does not mean it will occur next.\nEven an event with unimaginabily miniscule limit probability may happen (many times in a row) and an event with very high limit probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of limit probability, that arises from the definition of limit itself, should be digested well.\nNote that  \n- This is a limit definition and hence involves the notion of repetition.\n - An implicit experiment is defined.\nThe experiment should be well understood.\nThis is the most ignored step while working with limit probability.\n",
+    "significance": "One might easily think that limit probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher limit probability does not mean it will occur next.\nEven an event with unimaginabily miniscule limit probability may happen (many times in a row) and an event with very high limit probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of limit probability, that arises from the definition of limit itself, should be digested well.\nNote that  \n- This is a limit definition and hence involves the notion of repetition.\n - An implicit experiment is defined.\nThe experiment should be well understood.\nThis is the most ignored step while working with limit probability.\n\nThe limit probability seems difficult to be used for more things.",
     "proof": ""
   },
   {
-    "id": "properties_of_probability",
+    "id": "properties_of_limit_probability",
     "description": [
       "Given S be the ",
       "outcome_space",
@@ -826,8 +824,26 @@
       "null_set",
       ".\n"
     ],
-    "significance": "Some tools to played around with to create new tools.",
+    "significance": "Just for fun.",
     "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\rightarrow $ the ratio is always $ \\ge 0 $.\n\n$ \\rightarrow $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\rightarrow $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
+  },
+  {
+    "id": "probability",
+    "description": [
+      "The probability is a ",
+      "function",
+      " mapping from an ",
+      "event_space",
+      " $ES$ to ",
+      "real_numbers",
+      " in the interval $ [0, 1] $ such that\n- Say $OS \\equiv$",
+      "outcome_space",
+      ".\n- $ \\forall o \\in OS; 0 \\le P(\\{o\\}) \\le 1$.\n- $ A \\cap B \\equiv \\phi $ ",
+      "null_set",
+      "$ \\rightarrow P(A \\cup B) \\equiv P(A) + P(B) $; i.e. P(any event) lies in b/w 0 and 1.\n- $ P(OS) = 1$."
+    ],
+    "significance": "Note that the probability is a function of an event not an outcome.\nNote that probability of an event is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.",
+    "proof": ""
   },
   {
     "id": "independent_events",

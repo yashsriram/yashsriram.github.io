@@ -90,3 +90,5 @@
         - [ ] Limit/Soft limit on number of words in a description/significance/proof.
         - [ ] Vis the badness of the statement using this.
         - [ ] Typed/Syntaxed description.
+    - [ ] A statement can have multiple references to a parent. That is not taken into account.
+    - [ ] A statement can have a parent but not referenced. That is not taken into account.

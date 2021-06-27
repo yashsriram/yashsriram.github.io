@@ -828,6 +828,22 @@
     "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\rightarrow $ the ratio is always $ \\ge 0 $.\n\n$ \\rightarrow $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\rightarrow $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
   },
   {
+    "id": "limit_conditional_probability",
+    "description": [
+      "Let P(B) denote ",
+      "limit_probability",
+      " of some non ",
+      "null_set",
+      " ",
+      "event",
+      " B of a ",
+      "limit_experiment",
+      " E.\nSay event B occured  \n- The probability that event A occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\frac{P(A \\cap B)}{P(B)}\n    \\]"
+    ],
+    "significance": "All it is saying is that one of events a.k.a B occured, what is the probability that during that occurance an event A occured.\n\nSay the outcomes probabilities are $\\{a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4\\}$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(\\{a_1 \\} | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n\n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- The probability is a limit definition.\n    \n- An implicit limit experiment is defined.\n  The experiment should be well understood.\n    This is the most ignored step while working with probability.\n\nThe limit conditional probability seems difficult to be used for more things.",
+    "proof": ""
+  },
+  {
     "id": "probability",
     "description": [
       "The probability is a ",
@@ -840,97 +856,45 @@
       "outcome_space",
       ".\n- $ \\forall o \\in OS; 0 \\le P(\\{o\\}) \\le 1$.\n- $ A \\cap B \\equiv \\phi $ ",
       "null_set",
-      "$ \\rightarrow P(A \\cup B) \\equiv P(A) + P(B) $; i.e. P(any event) lies in b/w 0 and 1.\n- $ P(OS) = 1$."
+      "$ \\rightarrow P(A \\cup B) \\equiv P(A) + P(B) $.\n- $ P(OS) = 1$.\n - i.e. $ o1, o2 \\in OS \\rightarrow P(\\{o1\\} \\cup \\{o2\\}) \\equiv P(\\{o1\\}) + P(\\{o2\\}) $ and P(any event) lies in b/w 0 and 1."
     ],
     "significance": "Note that the probability is a function of an event not an outcome.\nNote that probability of an event is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.",
     "proof": ""
   },
   {
-    "id": "independent_events",
-    "description": [
-      "Two ",
-      "event",
-      "s A and B of a ",
-      "limit_experiment",
-      " are independent $ \\leftrightarrow $ $ P(A \\cap B) \\equiv P(A) * P(B) $ ",
-      "limit_probability",
-      "."
-    ],
-    "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
-    "proof": ""
-  },
-  {
     "id": "conditional_probability",
     "description": [
-      "Let P(B) denote ",
-      "limit_probability",
-      " of some non ",
-      "null_set",
-      " ",
-      "event",
-      " B of a ",
-      "limit_experiment",
-      " E.\nSay event B occured  \n- The probability that outcome a occured during the occurance of B is called conditional probability of a given B.\n    \\[\n      P(a \\mid B) \\equiv \\frac{P(a \\cap B)}{P(B)}\n    \\]\n    \n- The probability that event A = $\\{a_1, a_2, a_3 .. a_n\\}$ occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\sum_{i = 1}^{n}\\frac{P(a_i \\cap B)}{P(B)}\n    \\]\n"
-    ],
-    "significance": "All it is saying is that one of some outcomes a.k.a B occured, what is the probability that during that occurance an outcome a occured.\n\nSay the outcomes probabilities are $[a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4]$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(a_1 | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n- $ a \\cap B $ because if the outcome a is not in B, then it must definitely not have occured.\n    \n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- {\\color{red} P} should remind that probability is a limit definition.\n    \n- {\\color{green}  (} {\\color{green} )} contains an event(s) therefore an implicit experiment is defined.\n    The experiment should be well understood.\n    This is the most ignored step while working with probability.\n    \n- ${\\color{blue} \\alpha}, {\\color{magenta} \\beta} $ each represents an event, which is a fancy name for a set of outcomes of the experiement in context. The event occurs iff any of the outcomes in it occur.\n    \n- $\\mid$ should remind us that ${\\color{magenta} \\beta}$ occured.\n",
-    "proof": ""
-  },
-  {
-    "id": "random_variable",
-    "description": [
-      "A random variable of a ",
-      "limit_experiment",
-      " E is a ",
+      "The conditional probability is a ",
       "function",
-      " $ \\psi $ mapping from E's ",
+      " mapping from a cartesian product of two",
       "event_space",
-      " S to $ [0, 1] $ where  \n- $ \\forall \\lambda \\in S, \\psi(\\lambda) \\equiv $ the ",
-      "limit_probability",
-      " of the event $ \\lambda $.\n    \n- $ \\forall \\alpha, \\beta \\in S \\mid \\beta \\not\\equiv \\phi, \\psi(\\alpha\\mid\\beta) \\equiv $ the ",
-      "conditional_probability",
-      " of $ \\alpha $ given $ \\beta $,.\n"
+      "s ($ES \\times ES$) to ",
+      "real_numbers",
+      " in the interval $ [0, 1]$ such that \\[ (A, B) \\in ES \\times ES \\rightarrow P(A | B) \\equiv \\frac{P(A \\cap B)}{P(B)} \\] This is not defined where $P(B) \\equiv 0$."
     ],
-    "significance": "A wrapper around the definitions of experiment, event space, probability, conditional probability.",
+    "significance": "Note that the conditional probability is a function of two events not two outcomes.\nNote that conditional probability of an event given another event, is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.\n\nThis definition assumes that relative probability of this event given another event remains the same.\n\n  Note that \\[ P(A | B) P(B) \\equiv P(B | A) P (A) \\]",
     "proof": ""
   },
   {
-    "id": "total_probability_theorem",
+    "id": "distorted_conditional_probability",
     "description": [
-      "For a ",
-      "random_variable",
-      " $\\psi$ of a ",
-      "limit_experiment",
-      " E, let B be some ",
-      "event",
-      " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",
-      "partition",
-      " of ",
-      "outcome_space",
-      " of E, such that none of the $ A_i $ is a ",
-      "null_set",
-      " $ \\rightarrow $\n\\[\n  \\psi(B) = \\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )\n\\]"
+      "The distorted conditional probability is a ",
+      "function",
+      " mapping from a cartesian product of two",
+      "event_space",
+      "s ($ES \\times ES$) to ",
+      "real_numbers",
+      " in the interval $ [0, 1]$ such that \\[ (A, B) \\in ES \\times ES \\rightarrow P(A \\gamma B) \\equiv \\text{anything} \\]"
     ],
-    "significance": "Using this theorem we can split the probability of event B into conditional probabilities of B given $ A_i $s and proababilities of $ A_i $s.",
+    "significance": "This definition is added as a reminder of rebellion against the assumption that given another event the relative probability of this event remains unchanged.",
     "proof": ""
   },
   {
-    "id": "bayes_theorem",
+    "id": "conditional_independence",
     "description": [
-      "For a ",
-      "random_variable",
-      " $\\psi$ of a ",
-      "limit_experiment",
-      " E, let B be some ",
-      "event",
-      " of E and $\\{A_1, A_2, ... A_n\\}$ be a ",
-      "partition",
-      " of ",
-      "outcome_space",
-      " of E, such that none of the $ A_i $ is a ",
-      "null_set",
-      " $ \\rightarrow $\n\\[\n  \\psi(A_i \\mid B) = \\frac{\\psi(B \\mid A_i ) \\psi( A_i )}{\\sum_{i=1}^{n} \\psi(B \\mid A_i ) \\psi ( A_i )}\n\\]"
+      ""
     ],
-    "significance": "Need for such a concept can be found at \\href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \\href{https://youtu.be/R13BD8qKeTg}{veritasium}.\n\nWhen you have a constant world but cannot be observed accurately and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem.",
+    "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
     "proof": ""
   },
   {

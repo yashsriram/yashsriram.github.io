@@ -858,7 +858,7 @@
       "null_set",
       "$ \\rightarrow P(A \\cup B) \\equiv P(A) + P(B) $.\n- $ P(OS) = 1$.\n - i.e. $ o1, o2 \\in OS \\rightarrow P(\\{o1\\} \\cup \\{o2\\}) \\equiv P(\\{o1\\}) + P(\\{o2\\}) $ and P(any event) lies in b/w 0 and 1."
     ],
-    "significance": "Note that the probability is a function of an event not an outcome.\nNote that probability of an event is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.",
+    "significance": "Note that the probability is a function of an event not an outcome.\nNote that probability of an event is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.\n\nSometimes $P(A \\cap B)$ is written as $P(A, B)$, do not mistake this for union.",
     "proof": ""
   },
   {
@@ -892,9 +892,13 @@
   {
     "id": "conditional_independence",
     "description": [
-      ""
+      "Two ",
+      "event",
+      "s A and B are said to be conditionally independent given another event C\r\n\\[\r\n\\leftrightarrow\r\nP(A | B, C) \\equiv P(A | C)\r\n\\leftrightarrow\r\nP(B | A, C) \\equiv P(B | C)\r\n\\leftrightarrow\r\nP(A, B | C) \\equiv P(A | C) P(B | C)\r\n\\]",
+          "conditional_probability",
+          "."
     ],
-    "significance": "Note that they are not mutually exclusive events, even though both words are eerily similar.\nMutually exclusive mean that at max one can occur at a given time.\nIndependent means both can occur at the same time.\nMutually exclusive events can occur in non-stochastic experiements too.\nIndependent events can not occur in non-stochastic experiements.",
+    "significance": "Mutually exclusive and independent events are different things.\r\nMutually exclusive mean that at max one can occur at a given time.\r\nIndependent events can have an intersection and therefore can occur at the same time.\n\nNote that when $C \\equiv OS$, the outcome space, A and B are conditionally independent given OS i.e. the above iffs become \\[\r\nP(A | B) \\equiv P(A)\r\n\\leftrightarrow\r\nP(B | A) \\equiv P(B)\r\n\\leftrightarrow\r\nP(A, B) \\equiv P(A) P(B)\r\n\\].\nNote the conditional independence is per specific event triple (A, B, C) basis only and not generalized by default.",
     "proof": ""
   },
   {

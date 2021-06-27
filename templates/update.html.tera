@@ -39,7 +39,7 @@ form, fieldset, input, textarea {
                   {%- if loop.index % 2 == 0 -%}
                     @{{ token }}@
                   {%- else -%}
-                    {{ token | trim | linebreaksbr | safe }}
+                    {{ token }}
                   {%- endif -%}
                 {%- endfor -%}
                 </textarea>

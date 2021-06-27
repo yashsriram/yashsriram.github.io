@@ -24,6 +24,7 @@ open.
         <br/>
         <a href="/open/{{ statement.next_id }}">next: [{{ statement.next_id }}]</a>
         <h1>{{ statement.id }}</h1>
+        <p><a href="/update/{{ statement.id }}">[update]</a></p>
         <h4>Description</h4>
         <p>
         {% for token in statement.description %}

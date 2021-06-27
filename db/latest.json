@@ -890,15 +890,27 @@
     "proof": ""
   },
   {
-    "id": "conditional_independence",
+    "id": "conditional_independence_of_events",
     "description": [
       "Two ",
       "event",
       "s A and B are said to be conditionally independent given another event C\r\n\\[\r\n\\leftrightarrow\r\nP(A | B, C) \\equiv P(A | C)\r\n\\leftrightarrow\r\nP(B | A, C) \\equiv P(B | C)\r\n\\leftrightarrow\r\nP(A, B | C) \\equiv P(A | C) P(B | C)\r\n\\]",
-          "conditional_probability",
-          "."
+      "conditional_probability",
+      "."
     ],
     "significance": "Mutually exclusive and independent events are different things.\r\nMutually exclusive mean that at max one can occur at a given time.\r\nIndependent events can have an intersection and therefore can occur at the same time.\n\nNote that when $C \\equiv OS$, the outcome space, A and B are conditionally independent given OS i.e. the above iffs become \\[\r\nP(A | B) \\equiv P(A)\r\n\\leftrightarrow\r\nP(B | A) \\equiv P(B)\r\n\\leftrightarrow\r\nP(A, B) \\equiv P(A) P(B)\r\n\\].\nNote the conditional independence is per specific event triple (A, B, C) basis only and not generalized by default.",
+    "proof": ""
+  },
+  {
+    "id": "axis_of_outcome_space",
+    "description": [
+      "If the ",
+      "outcome_space",
+      " is cartesian product of ",
+      "set",
+      "s A and B i.e. $A \\times B$, then each of these sets are called axis of the outcome space.\r\n\r\nIn that case, the following notation is used.\r\n\\[\r\nP(A = a) \\equiv P((A = a, : )) \\equiv \\sum_{B = b} P((A = a, B = b))\r\n\\]. This can be generalized."
+    ],
+    "significance": "In my view this is a better way of doing what \"random variable\" typically does in joint probabilities.\r\nThis way joint probability becomes a trivial thing.\r\n\r\nDue to this notation, one must always look out for the shape of outcome space when computing.",
     "proof": ""
   },
   {

@@ -24,6 +24,8 @@ pub struct DirectedAcyclicGraph {
 }
 
 impl DirectedAcyclicGraph {
+    const PARENT_DELIMITER: char = '@';
+
     pub fn from_file(path: PathBuf) -> Result<DirectedAcyclicGraph, String> {
         let content = std::fs::read_to_string(path).or_else(|e| Err(e.to_string()))?;
         // Order of JSON array is preserved during serialization and deserialization
@@ -137,7 +139,9 @@ impl DirectedAcyclicGraph {
         }
         // Validate topological order
         // Validate that all parents of current vertex are already exist
-        let tokens: Vec<&str> = description.split('@').collect();
+        let tokens: Vec<&str> = description
+            .split(DirectedAcyclicGraph::PARENT_DELIMITER)
+            .collect();
         if tokens.len() % 2 == 0 {
             return Err(String::from(
                 "has invalid syntax for parent references. too many or too less splitting tokens.",

@@ -230,7 +230,7 @@
       "subset",
       "s of S such that\n- Intersection of any two elements of $ \\Lambda \\equiv \\phi $ ",
       "null_set",
-      "\n- Union of all elements of $ \\Lambda \\equiv $ S\n"
+      ". \n- Union of all elements of $ \\Lambda \\equiv $ S."
     ],
     "significance": "A neat way to divide a set.",
     "proof": ""
@@ -872,7 +872,7 @@
       "real_numbers",
       " in the interval $ [0, 1]$ such that \\[ (A, B) \\in ES \\times ES \\rightarrow P(A | B) \\equiv \\frac{P(A \\cap B)}{P(B)} \\] This is not defined where $P(B) \\equiv 0$."
     ],
-    "significance": "Note that the conditional probability is a function of two events not two outcomes.\nNote that conditional probability of an event given another event, is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.\n\nThis definition assumes that relative probability of this event given another event remains the same.\n\n  Note that \\[ P(A | B) P(B) \\equiv P(B | A) P (A) \\]",
+    "significance": "Note that the conditional probability is a function of two events not two outcomes.\nNote that conditional probability of an event given another event, is just a number and no more meaning is associated to it, like belief or confidance for now. Maybe add some semantics later.\nNote the lack of experiment in the definition.\n\nThis definition assumes that relative probability of this event given another event remains the same.\n\n  Note that \\[ P(A | B) P(B) \\equiv P(B | A) P (A) \\]\n\nNeed for such a concept can be found at \\href{https://youtu.be/HZGCoVF3YvM}{3blue1brown} and \\href{https://youtu.be/R13BD8qKeTg}{veritasium}.\n\nWhen you have a constant world but cannot be observed accurately and you can have evidence which determines something about the world, then you can update what you believe about the world by using this theorem.",
     "proof": ""
   },
   {
@@ -899,6 +899,22 @@
       ". Denoted by $(A \\perp B) | C$."
     ],
     "significance": "Mutually exclusive and independent events are different things.\r\nMutually exclusive mean that at max one can occur at a given time.\r\nIndependent events can have an intersection and therefore can occur at the same time.\n\nNote that when $C \\equiv OS$, the outcome space, A and B are conditionally independent given OS i.e. the above iffs become \\[\r\nP(A | B) \\equiv P(A)\r\n\\leftrightarrow\r\nP(B | A) \\equiv P(B)\r\n\\leftrightarrow\r\nP(A, B) \\equiv P(A) P(B)\r\n\\].\nNote the conditional independence is per specific event triple (A, B, C) basis only and not generalized by default.",
+    "proof": ""
+  },
+  {
+    "id": "total_probability_theorem",
+    "description": [
+      "Let B be some ",
+      "event",
+      " and $\\\\{A_1, A_2, ... A_n\\\\}$ be a ",
+      "partition",
+      " of ",
+      "outcome_space",
+      " \r\n\\[ \\rightarrow P(B) = \\sum_{i=1}^{n} P(B \\mid A_i ) P( A_i )\r\n\\]",
+      "conditional_independence_of_events",
+      "."
+    ],
+    "significance": "Using this theorem we can split the probability of event B into conditional probabilities of B given $ A_i $s and probabilities of $ A_i $s.",
     "proof": ""
   },
   {

@@ -676,22 +676,6 @@
     "proof": "The term `approximation' used here is more profound than you might think.\n\\\\\n\\textbf{First}\n\\\\\nIf $f$ is the integral function i.e. the area under the curve, consider a small finite change in the area $df$.\nThen\n\\[\n  df \\approx g(\\alpha) * d\\alpha\n\\]\n\\[\n  \\frac{df}{d\\alpha} \\approx g(\\alpha)\n\\]\nAs the $d\\alpha$ tends to 0\n- The limiting value of the LHS is derivative of $f$\n- The limiting value of the RHS is $g(\\alpha)$\n- The approximation becomes equivalence\n\nTherefore,\n\\[\n  \\frac{df}{d\\alpha} \\equiv g(\\alpha)\n\\]\n\\textbf{Second}\n\\\\\nIf $g$ is the derivative of $f$\n\\[\n  g(\\beta) * d\\beta \\approx f(\\beta + d\\beta) - f(\\beta)\n\\]\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx \\sum_{0}^{n-1} f(\\alpha * \\frac{i + 1}{n}) - f(\\alpha * \\frac{i}{n})\n\\]\nExpanding and cancelling terms on RHS we have\n\\[\n  \\sum_{0}^{n-1} g(\\alpha * \\frac{i}{n}) * \\frac{\\alpha}{n} \\approx f(\\alpha) - f(0)\n\\]\nAs $n$ tends to infinity\n- The limiting value of the LHS is derivative of $\\int_{0}^{\\alpha} g(\\beta) d\\beta$\n- The limiting value of the RHS is $f(\\alpha) - f(0)$\n- The approximation becomes equivalence\n\nTherefore,\n\\[\n  f(\\alpha) - f(0) \\equiv \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]\n\\[\n  f(\\alpha) \\equiv f(0) + \\int_{0}^{\\alpha} g(\\beta) d\\beta\n\\]"
   },
   {
-    "id": "randomness",
-    "description": [
-      "The notion of not knowing."
-    ],
-    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
-    "proof": ""
-  },
-  {
-    "id": "certainity",
-    "description": [
-      "The notion of knowing."
-    ],
-    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
-    "proof": ""
-  },
-  {
     "id": "outcome",
     "description": [
       ""
@@ -747,100 +731,6 @@
       "."
     ],
     "significance": "For example in the experiement of throwing a dice the event of getting an even number and the event of getting an odd number are mutually exclusive events.\nNote that they are not independent events, even both words are eerily similar.\n\nMutually exclusive mean that at max one can occur at a given time.\nIndependent events can have an intersection and therefore can occur at the same time.",
-    "proof": ""
-  },
-  {
-    "id": "experiment",
-    "description": [
-      "An experiment is something which picks an ",
-      "outcome",
-      " from an ",
-      "outcome_space",
-      "."
-    ],
-    "significance": "The meaning of this is not just limited to experiments which involve physics or chemistry.",
-    "proof": ""
-  },
-  {
-    "id": "deterministic_experiment",
-    "description": [
-      "A deterministic experiment is an",
-      "experiment",
-      " which picks with ",
-      "certainity",
-      "."
-    ],
-    "significance": "Need not even pick the same outcome everytime, but what it will pick each time is known.\nCan be used to represent experiments like adding two numbers.\nNote the lack of need for repetition in the definition.",
-    "proof": ""
-  },
-  {
-    "id": "non_deterministic_experiment",
-    "description": [
-      "A deterministic experiment is an",
-      "experiment",
-      " which picks with ",
-      "randomness",
-      "."
-    ],
-    "significance": "Can even pick the same outcome everytime, but what it will pick each time is not known. \nCan be used to represent experiments like rolling a dice.\nNote the lack of need for repetition in the definition.\nEven if there is a single outcome in outcome space, we can believe that there is randomness and belive that what experiment picks is not known.",
-    "proof": ""
-  },
-  {
-    "id": "limit_experiment",
-    "description": [
-      "An ",
-      "experiment",
-      " such that $\\forall$ ",
-      "event",
-      " $ \\lambda \\in $ ",
-      "event_space",
-      " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a limit experiment."
-    ],
-    "significance": "Useful to build the concept of limit probability.\nDo not blindly assume any relationship b/w deterministic, non deterministic and limit experiments.\nNotice the presence of repetition in this definition.",
-    "proof": ""
-  },
-  {
-    "id": "limit_probability",
-    "description": [
-      "The limit probability of an ",
-      "event",
-      " $ \\lambda $ of a ",
-      "limit_experiment",
-      " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
-    ],
-    "significance": "One might easily think that limit probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher limit probability does not mean it will occur next.\nEven an event with unimaginabily miniscule limit probability may happen (many times in a row) and an event with very high limit probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of limit probability, that arises from the definition of limit itself, should be digested well.\nNote that  \n- This is a limit definition and hence involves the notion of repetition.\n - An implicit experiment is defined.\nThe experiment should be well understood.\nThis is the most ignored step while working with limit probability.\n\nThe limit probability seems difficult to be used for more things.",
-    "proof": ""
-  },
-  {
-    "id": "properties_of_limit_probability",
-    "description": [
-      "Given S be the ",
-      "outcome_space",
-      " and A, B be some ",
-      "event",
-      "s of a ",
-      "limit_experiment",
-      " E. The following properties hold.\n- $P(A) \\ge 0 $\n- $P(S) \\equiv 1 $\n- $ A \\cap B \\equiv \\phi \\rightarrow P(A \\cup B) \\equiv P(A) + P(B)$ ",
-      "null_set",
-      ".\n"
-    ],
-    "significance": "Just for fun.",
-    "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\rightarrow $ the ratio is always $ \\ge 0 $.\n\n$ \\rightarrow $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\rightarrow $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
-  },
-  {
-    "id": "limit_conditional_probability",
-    "description": [
-      "Let P(B) denote ",
-      "limit_probability",
-      " of some non ",
-      "null_set",
-      " ",
-      "event",
-      " B of a ",
-      "limit_experiment",
-      " E.\nSay event B occured  \n- The probability that event A occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\frac{P(A \\cap B)}{P(B)}\n    \\]"
-    ],
-    "significance": "All it is saying is that one of events a.k.a B occured, what is the probability that during that occurance an event A occured.\n\nSay the outcomes probabilities are $\\{a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4\\}$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(\\{a_1 \\} | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n\n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- The probability is a limit definition.\n    \n- An implicit limit experiment is defined.\n  The experiment should be well understood.\n    This is the most ignored step while working with probability.\n\nThe limit conditional probability seems difficult to be used for more things.",
     "proof": ""
   },
   {
@@ -949,6 +839,116 @@
       ",\n - $(A \\perp B) | C \\leftrightarrow (B \\perp A) | C$ (symmetry)\n - $(X \\perp A, B) | C \\rightarrow (X \\perp A) | C \\wedge (X \\perp B) | C$ (decomposition)\n - $(X \\perp A, B) | C \\rightarrow (X \\perp A) | B, C$ (weak union)"
     ],
     "significance": "",
+    "proof": ""
+  },
+  {
+    "id": "randomness",
+    "description": [
+      "The notion of not knowing."
+    ],
+    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
+    "proof": ""
+  },
+  {
+    "id": "certainity",
+    "description": [
+      "The notion of knowing."
+    ],
+    "significance": "Kind of like the notion of infinity; the notion of not stopping.",
+    "proof": ""
+  },
+  {
+    "id": "experiment",
+    "description": [
+      "An experiment is something which picks an ",
+      "outcome",
+      " from an ",
+      "outcome_space",
+      "."
+    ],
+    "significance": "The meaning of this is not just limited to experiments which involve physics or chemistry.",
+    "proof": ""
+  },
+  {
+    "id": "deterministic_experiment",
+    "description": [
+      "A deterministic experiment is an",
+      "experiment",
+      " which picks with ",
+      "certainity",
+      "."
+    ],
+    "significance": "Need not even pick the same outcome everytime, but what it will pick each time is known.\nCan be used to represent experiments like adding two numbers.\nNote the lack of need for repetition in the definition.",
+    "proof": ""
+  },
+  {
+    "id": "non_deterministic_experiment",
+    "description": [
+      "A deterministic experiment is an",
+      "experiment",
+      " which picks with ",
+      "randomness",
+      "."
+    ],
+    "significance": "Can even pick the same outcome everytime, but what it will pick each time is not known. \nCan be used to represent experiments like rolling a dice.\nNote the lack of need for repetition in the definition.\nEven if there is a single outcome in outcome space, we can believe that there is randomness and belive that what experiment picks is not known.",
+    "proof": ""
+  },
+  {
+    "id": "limit_experiment",
+    "description": [
+      "An ",
+      "experiment",
+      " such that $\\forall$ ",
+      "event",
+      " $ \\lambda \\in $ ",
+      "event_space",
+      " the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the number of repetitions tend to infinity, exists, is called a limit experiment."
+    ],
+    "significance": "Useful to build the concept of limit probability.\nDo not blindly assume any relationship b/w deterministic, non deterministic and limit experiments.\nNotice the presence of repetition in this definition.",
+    "proof": ""
+  },
+  {
+    "id": "limit_probability",
+    "description": [
+      "The limit probability of an ",
+      "event",
+      " $ \\lambda $ of a ",
+      "limit_experiment",
+      " is the limiting value of the ratio\n\\[\n\\frac{\\text{number-of-times-$\\lambda$-occured}}{\\text{number-of-repetitions}}\n\\]\nas the experiment is the repeated infinitely many times. Denoted by $ P(\\lambda) $."
+    ],
+    "significance": "One might easily think that limit probability gives a sense of power of an event when an experiment is conducted.\nAlthough this is quite easy to misinterpret.\nA higher limit probability does not mean it will occur next.\nEven an event with unimaginabily miniscule limit probability may happen (many times in a row) and an event with very high limit probability may not occur (many times in a row).\nSay an experiement has two outcomes $ \\alpha, \\beta $ with probabilities 0.999999999999 and 0.000000000001 respectively.\nBut we can never say with certainity that when an experiment is conducted only $ \\alpha $ shall occur.\nNor is the case when experiement is repeated say 100000000000 (any finite number) of times the corresponding ratios shall be 0.999999999999 and 0.000000000001, it can also happen that in all those repetitions $ \\alpha $ never occurs.\nThis subtle nature of limit probability, that arises from the definition of limit itself, should be digested well.\nNote that  \n- This is a limit definition and hence involves the notion of repetition.\n - An implicit experiment is defined.\nThe experiment should be well understood.\nThis is the most ignored step while working with limit probability.\n\nThe limit probability seems difficult to be used for more things.",
+    "proof": ""
+  },
+  {
+    "id": "properties_of_limit_probability",
+    "description": [
+      "Given S be the ",
+      "outcome_space",
+      " and A, B be some ",
+      "event",
+      "s of a ",
+      "limit_experiment",
+      " E. The following properties hold.\n- $P(A) \\ge 0 $\n- $P(S) \\equiv 1 $\n- $ A \\cap B \\equiv \\phi \\rightarrow P(A \\cup B) \\equiv P(A) + P(B)$ ",
+      "null_set",
+      ".\n"
+    ],
+    "significance": "Just for fun.",
+    "proof": "From the ratio in the definition of probability, wheneven an experiment is conducted the numerator (num. times event E occured until now) $ \\ge 1 $ and denominator (num. of repetitions done) $ > 0 $\n\n$ \\rightarrow $ the ratio is always $ \\ge 0 $.\n\n$ \\rightarrow $ the limiting value of the ratio P(A) is also $ \\ge 0 $.\nWhen the event is identical to outcome space the ratio is identical to one.\n\n$ \\rightarrow $ the limiting value of the ratio P(S) is also $ \\equiv 1 $.\nWhen the intersection b/w two events A and B is a null set, the number of occcurances of event $ A \\cup B $ $ \\equiv $ number of occurances of A $ + $ number of occurances of B. Therefore the ratios at every repetition and thus limiting values of ratios are equal i.e. $ P(A \\cup B) = P(A) + P(B) $."
+  },
+  {
+    "id": "limit_conditional_probability",
+    "description": [
+      "Let P(B) denote ",
+      "limit_probability",
+      " of some non ",
+      "null_set",
+      " ",
+      "event",
+      " B of a ",
+      "limit_experiment",
+      " E.\nSay event B occured  \n- The probability that event A occured during the occurance of B is called conditional probability of A given B.\n    \\[\n      P(A \\mid B) \\equiv \\frac{P(A \\cap B)}{P(B)}\n    \\]"
+    ],
+    "significance": "All it is saying is that one of events a.k.a B occured, what is the probability that during that occurance an event A occured.\n\nSay the outcomes probabilities are $\\{a_1=0.1, a_2=0.2, a_3=0.3, a_4=0.4\\}$ respectively.\nSay event B = $\\{a_1, a_2\\}$ occured n times.\nTo get $P(\\{a_1 \\} | B)$. We take the ratio\n\\[\n\\lim_{n\\to\\infty}\\frac{\\text{number-of-times-$a_1$-occured}}{\\text{n}}\n\\].\nThe belief here is that at limit, $a_1$ occurs at same relative frequency (with other outcomes in B) when B occurs, as it did (with all outcomes of experiment) when the experiment occurs.\n\n- $ \\frac{1}{P(B)} $ because it normalizes each outcome's probability such that their sum $\\equiv$ 1.\n\nConsider notation,\n\\[\n    {\\color{red} P} {\\color{green}  (} {\\color{blue} \\alpha} \\mid {\\color{magenta} \\beta} {\\color{green} )}\n\\]\nHere  \n- The probability is a limit definition.\n    \n- An implicit limit experiment is defined.\n  The experiment should be well understood.\n    This is the most ignored step while working with probability.\n\nThe limit conditional probability seems difficult to be used for more things.",
     "proof": ""
   },
   {

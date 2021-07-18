@@ -1,147 +1,152 @@
-\todo
-\begin{enumerate}[nolistsep]
-  - limits
-  - the beauty of the phrase exact approximation
-  - partial derivatives
-  - derivative of vectors and matrices, jacobians, hessians, laplacians etc...
-\end{enumerate}
+# calculus
+- limits
+- the beauty of the phrase exact approximation
+- partial derivatives
+- derivative of vectors and matrices, jacobians, hessians, laplacians etc...
 
-\begin{enumerate}[nolistsep]
-  - \todo
-  - Cdf and pdf definitions
-  - Expected value definitions
-  - Joint probability definition
-  - Joint vs Conditional probability
-  - Functions of random variable
-  - Random vectors
-  - baysian networks, HMM, Markov, MDP, Q-learning ...
-  - How to determine if an experiment is stochastic?
-  - How to determine where the simple division conditional probability rule is not good?
-\end{enumerate}
+# probability
+- Cdf and pdf definitions
+- Expected value definitions
+- Joint probability definition
+- Joint vs Conditional probability
+- Functions of random variable
+- Random vectors
+- baysian networks, HMM, Markov, MDP, Q-learning ...
+- How to determine if an experiment is stochastic?
+- How to determine where the simple division conditional probability rule is not good?
 
-\todo
-\begin{enumerate}[nolistsep]
-  - composition of linear transforms, composition as product of matrices, building matrix as tool
-  - proof of composition of linear transform is a linear transform, algebraically and geometrically
-  - misconceptions: \xcancel{animating vectors} vs \xcancel{animating coordinate frames} don't try to animate (lerp) anything
-  - latest frame vs initial frame
-  - representation of rotation: rot mat, quaternions, axis-angle, eular, roll pitch yaw, gimbal lock
-  - determinant, descriminant whatever
-  - cross product
-  - inverses
-  - column spaces, rank
-  - null spaces
-  - eigen stuff, eigen basis
-  - orthogonal, orthonormal
-  - diagnoal
-  - quaternions
-  - SVD, other easy useful decompositions
-  - quadratic systems using matrices like $X^TAX$.
-  - derivatives of matrices, matrix products like $X^T X$.
-\end{enumerate}
+# linear algebra
+- composition of linear transforms, composition as product of matrices, building matrix as tool
+- proof of composition of linear transform is a linear transform, algebraically and geometrically
+- misconceptions: \xcancel{animating vectors} vs \xcancel{animating coordinate frames} don't try to animate (lerp) anything
+- latest frame vs initial frame
+- representation of rotation: rot mat, quaternions, axis-angle, eular, roll pitch yaw, gimbal lock
+- determinant, descriminant whatever
+- cross product
+- inverses
+- column spaces, rank
+- null spaces
+- eigen stuff, eigen basis
+- orthogonal, orthonormal
+- diagnoal
+- quaternions
+- SVD, other easy useful decompositions
+- quadratic systems using matrices like $X^TAX$.
+- derivatives of matrices, matrix products like $X^T X$.
 
-\todo
-\begin{enumerate}[nolistsep]
-  - multiplication of quaternions is not commutative
-  - rot mat $<-`>$ eular angle $<->$ rpy
-  - what is gimbal lock? not single solution with gimbal lock?
-  - axis-angle $<->$ rotation matrix - eigen basis, null space finding
-  - Code/Visualize/Animate the math
-  - how to tell which system has how many and what type  of solutions? and what is a solution exactly?
-  - sensing: hw1 p1 how is orientation not determinable?
-  - $a^T * b = b^T$ * a iff a, b are vectors
-  - what is determinant of transform matrix with only rotation and translation ? == 1
-  - composition of linear transformations
-  - rotation \& quaternions
-\end{enumerate}
+# more linear algebra
+- multiplication of quaternions is not commutative
+- rot mat $<-`>$ eular angle $<->$ rpy
+- what is gimbal lock? not single solution with gimbal lock?
+- axis-angle $<->$ rotation matrix - eigen basis, null space finding
+- Code/Visualize/Animate the math
+- how to tell which system has how many and what type  of solutions? and what is a solution exactly?
+- sensing: hw1 p1 how is orientation not determinable?
+- $a^T * b = b^T$ * a iff a, b are vectors
+- what is determinant of transform matrix with only rotation and translation ? == 1
+- composition of linear transformations
+- rotation \& quaternions
 
-\todo
-\begin{enumerate}[nolistsep]
-  - data is a plural and a pronoun.
-  - accuracy vs precision
-  - estimation = estimate + uncertainity
-  - modelling uncertainity using stochasticity
-  - given a parametrized "stochastically noisy" model with stimulus and response (vector) variable and some samples, the process of estimating parameters (a.k.a fitting model). Using optimization for this estimation. Other non-optimization ways of doing the same. The essence of ML.
-\end{enumerate}
+# optimization and estimation 1
+- data is a plural and a pronoun.
+- accuracy vs precision
+- estimation = estimate + uncertainity
+- modelling uncertainity using stochasticity
+- given a parametrized "stochastically noisy" model with stimulus and response (vector) variable and some samples, the process of estimating parameters (a.k.a fitting model). Using optimization for this estimation. Other non-optimization ways of doing the same. The essence of ML.
 
-\section{}
-\begin{enumerate}[nolistsep]
-  - $(x_i - min) / (max - min)$ set of values vs normalizing set of values, show they are not equal in some instances and properties of each
-  - emphasize diff b/w
-    \begin{enumerate}[nolistsep]
-        - min(sum(abs(residual))) $\equiv$ min(Sum of Absolute Errors). The average of SAE is MAE
-        - min(sum(residual * residual)) $\equiv$ min(Sum of Sqaured Errors). The average of SSE is MSE
-        - min(sum(perpendicular distance)) $\equiv$ min(Sum of Perpendicular Errors). The average of SPE is MPE
-    \end{enumerate}
-  - Thinking mean and variance visually, mean of a list of numbers plotted on a co-ordinate system is "the rough line passing through the center", take differences from the rough center line to actual values and square them. Each of these towers or inverted towers can be thought to represent "certain variation" from the mean. Average (/n-1) of all this is defined as "variance". Etymology of "variance". observed the sqaured fn to ignore signs and preserve differentiability. Mind blown!!!. And all this from visualizing the definitions.
-  - R-squared = Explained variation / Total variation. what it means (capturing the variation for just the samples in context and does not say anything about predictablility of model), and especially what it does not mean (good/bad model (patterns in residual plots)). Is it scale invariant?
-  - Shallow vs deep classifiers $\equiv$ seperate description and classification vs together description and classification.
-\end{enumerate}
+# optimization and estimation 2
+- $(x_i - min) / (max - min)$ set of values vs normalizing set of values, show they are not equal in some instances and properties of each
+- emphasize diff b/w
+    - min(sum(abs(residual))) $\equiv$ min(Sum of Absolute Errors). The average of SAE is MAE
+    - min(sum(residual * residual)) $\equiv$ min(Sum of Sqaured Errors). The average of SSE is MSE
+    - min(sum(perpendicular distance)) $\equiv$ min(Sum of Perpendicular Errors). The average of SPE is MPE
+- Thinking mean and variance visually, mean of a list of numbers plotted on a co-ordinate system is "the rough line passing through the center", take differences from the rough center line to actual values and square them. Each of these towers or inverted towers can be thought to represent "certain variation" from the mean. Average (/n-1) of all this is defined as "variance". Etymology of "variance". observed the sqaured fn to ignore signs and preserve differentiability. Mind blown!!!. And all this from visualizing the definitions.
+- R-squared = Explained variation / Total variation. what it means (capturing the variation for just the samples in context and does not say anything about predictablility of model), and especially what it does not mean (good/bad model (patterns in residual plots)). Is it scale invariant?
+- Shallow vs deep classifiers $\equiv$ seperate description and classification vs together description and classification.
 
-\section{}
-\begin{enumerate}[nolistsep]
-  - does uncertainity change during fitting process?
-  - patterns in residual plots as a measure of good or bad model.
-  - Compare MLE vs MAP vs Linear Regression on.
-    \begin{enumerate}[nolistsep]
-        - fitting function
-        - measure of accuracy, measure of uncertainity
-        - covariance
-    \end{enumerate}
-  - Determining uncertainity after fitting in linear regression (or other models). Using info about training datum (a.k.a. sample) error term?
-\end{enumerate}
+# optimization and estimation 3
+- does uncertainity change during fitting process?
+- patterns in residual plots as a measure of good or bad model.
+- Compare MLE vs MAP vs Linear Regression on.
+    - fitting function
+    - measure of accuracy, measure of uncertainity
+    - covariance
+- Determining uncertainity after fitting in linear regression (or other models). Using info about training datum (a.k.a. sample) error term?
 
-\todo : add some structure
+# ironies
+- There exist things which we don't know but can approximate (ex. integrals)
 
-\section{Irony of thoughts}
-\begin{enumerate}[nolistsep]
-  - There exist things which we don't know but can approximate (ex. integrals)
-\end{enumerate}
+# long project lessons
+- The best task management system until now is a white board and a marker
+- The best information note taking system is taking no notes at all
+- The best running notes are the ones that are forgotten shortly later
+- The best information gathering system until now is this journal
 
-\section{Long project lessons}
-\begin{enumerate}[nolistsep]
-  - The best task management system until now is a white board and a marker
-  - The best information note taking system is taking no notes at all
-  - The best running notes are the ones that are forgotten shortly later
-  - The best information gathering system until now is this journal
-\end{enumerate}
+# fuzzily separated tree searches
+- Ones that have no state
+- Ones that have a fixed size state (finding nearest vertex to a position)
+- Ones that have a per-vertex state (path from start to current vertex)
 
-\section{Fuzzily separated tree searches}
-\begin{enumerate}[nolistsep]
-  - Ones that have no state
-  - Ones that have a fixed size state (finding nearest vertex to a position)
-  - Ones that have a per-vertex state (path from start to current vertex)
-\end{enumerate}
+# misc
+- Bitwise operations are much faster than arithmetic operations. So use them if possible. For ex in bit manipulation n, n - 1 bit manipulation trick
+- Linked list dummy initial node :P
+- Systemetic case expansion
+- Working with examples
+- Arrays that index main arrays to do things :P
+- Sometimes things to be done in second loop can be done directly in first
 
-\section{Misc}
-\begin{enumerate}[nolistsep]
-  - Bitwise operations are much faster than arithmetic operations. So use them if possible. For ex in bit manipulation n, n - 1 bit manipulation trick
-  - Linked list dummy initial node :P
-  - Systemetic case expansion
-  - Working with examples
-  - Arrays that index main arrays to do things :P
-  - Sometimes things to be done in second loop can be done directly in first
-\end{enumerate}
+# languages 1
+- Statically typed vs Dynamically typed == Compile time vs Run time type inferrence.
+- Compiled vs Interpreted == Transforming code to target machine code before running vs No transformation before running. Compiled might be faster because
+    - It is not reading the code and transforming it for every line.
+    - It can do global optimizations which might not be possible in interpreted as its field of view is local.
+- Statically vs Dynamically typedness is property of language. Compilation vs Interpration is the property of implementation not language; saying python is an interpreted language is wrong. Any language can be compiled. Any language can be interpreted.
+- Define, map and visualize the terms: Memory safety, Memory containment and Type safety.
 
-\todo : add some structure
+# languages 2
+- C/C++/Rust
+- Java/Kotlin/Go
+- Python
+- Shell
 
-\begin{enumerate}[nolistsep]
-    - Statically typed vs Dynamically typed == Compile time vs Run time type inferrence.
-    - Compiled vs Interpreted == Transforming code to target machine code before running vs No transformation before running. Compiled might be faster because
-        \begin{enumerate}[nolistsep]
-            - It is not reading the code and transforming it for every line.
-            - It can do global optimizations which might not be possible in interpreted as its field of view is local.
-        \end{enumerate}
-    - Statically vs Dynamically typedness is property of language. Compilation vs Interpration is the property of implementation not language; saying python is an interpreted language is wrong. Any language can be compiled. Any language can be interpreted.
-    - Define, map and visualize the terms: Memory safety, Memory containment and Type safety.
-\end{enumerate}
+# ideas
+1. Combining classical, ML, and DL {sensing, planning, RL}.
+1. Dynamic obstacles.
+1. Multi-robot coordination.
 
-\begin{enumerate}[nolistsep]
-  - C/C++/Rust
-  - Java/Kotlin/Go
-  - Python
-  - Shell
-\end{enumerate}
+# dp problems
+-
+    1. Largest Subarray Sum.
+    1. Largest Subarray Absolute Sum.
+    1. Largest Absolute Subarray Sum.
+-
+    1. Range Sum Query.
+    1. Best time to buy and sell stock.
+    1. Min Cost Climbing stairs.
+    1. Number of ways of climbing stairs.
+    1. Min falling path sum (adjacent).
+    1. Min falling path sum (non-zero shift).
+-
+    1. Is subsequence.
+    1. Longest common subsequence.
+    1. Longest palindrome subsequence.
+    1. Longest increasing subsequence.
+        1. sort + dedup + lcs
+        1. lis-to
+        1. binary search?
+-
+    1. Min elements to remove to make a mountain array. == largest mountain array.
+-
+    1. DP computation strategies.
+        1. Iterative Table filling O(mn).
+        1. Recursive Table filling O(mn) can prune space.
+        1. Recursive without table O(m^n).
+-
+    1. Count number of ones in bin representation.
+    1. Number of unique paths.
+    1. Uniform cost search with,
+        1. All non-negative weights.
+        1. Some negative weights too.
 
 # school bag stuff
 
@@ -173,10 +178,10 @@ Server:
 
 ## disk_cleanup
 
-#. see in /var/cache/apt/archives/ and sudo apt-get clean
-#. clear chrome cache
-#. intellij product previous version .configs
-#. android studio gradles
+1. see in /var/cache/apt/archives/ and sudo apt-get clean
+1. clear chrome cache
+1. intellij product previous version .configs
+1. android studio gradles
 
 ## things_that_matter_while_buying_a_new_laptop
 
@@ -198,28 +203,25 @@ enough number of required ports
 
 ### android
 
-#. reduce boiler plate code - android annotations, butterknife, lombok
-#. modular restapi calls - retrofit
-#. not necessary for ids to be different, but RECOMMENDED - first one in the tree gets called
-#. SQLite is a lone wolf- self-contained, serverless, zero conf, out of the box
+1. reduce boiler plate code - android annotations, butterknife, lombok
+1. modular restapi calls - retrofit
+1. not necessary for ids to be different, but RECOMMENDED - first one in the tree gets called
+1. SQLite is a lone wolf- self-contained, serverless, zero conf, out of the box
 
 ### js-events-listeners
 
-#. JS event
-#. JS listener(s) on DOM nodes
-
-#. Javascript event propagation
-    Event Capture Phase
-    Event Target Phase
-    Event Bubbling Phase
-
-#. Propagation is done statically and stack decided at the point in time when event occurs
-
-#. e.target vs e.currentTarget
-#. e.stopPropogation() vs e.stopImmediatePropogation()
-#. e.preventDefault()
-#. e.eventPhase
-#. e.bubbles
+1. JS event
+1. JS listener(s) on DOM nodes
+1. Javascript event propagation
+    1. Event Capture Phase
+    1. Event Target Phase
+    1. Event Bubbling Phase
+1. Propagation is done statically and stack decided at the point in time when event occurs
+1. e.target vs e.currentTarget
+1. e.stopPropogation() vs e.stopImmediatePropogation()
+1. e.preventDefault()
+1. e.eventPhase
+1. e.bubbles
 
 ### arithmetic-operators
 
@@ -235,8 +237,7 @@ A function has to be commutative and associative so that it can be performed par
 
 ### listofunivs
 
-US
-==
+#### US
 MIT
 Stanford University
 University of California—Berkeley
@@ -260,12 +261,12 @@ I'm not sure how useful this info will be, but it should give you an idea that t
 
 ### processes
 
-# a program in execution, an execution entity to consume CPU, an instance of a program
-# generally one core of a CPU executes one instruction at a time
-# running multiple processes or threads -> CPU switching or time slicing
-# fork -> duplicate (copy on write method)
-# exec -> replace current process
-# hence child before parent is good as memory need not be reproduced
+1. a program in execution, an execution entity to consume CPU, an instance of a program
+1. generally one core of a CPU executes one instruction at a time
+1. running multiple processes or threads -> CPU switching or time slicing
+1. fork -> duplicate (copy on write method)
+1. exec -> replace current process
+1. hence child before parent is good as memory need not be reproduced
 
 ## diary
 

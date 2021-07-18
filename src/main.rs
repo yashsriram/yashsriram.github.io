@@ -1,5 +1,6 @@
 #[macro_use]
 extern crate rocket;
+use comrak::{markdown_to_html, ComrakOptions};
 use glob::glob;
 use rocket::form::{Form, Strict};
 use rocket::fs::NamedFile;
@@ -64,6 +65,7 @@ fn scratch() -> Template {
             .collect::<PathBuf>(),
     )
     .unwrap();
+    let content = markdown_to_html(&content, &ComrakOptions::default());
     Template::render("scratch", ScratchContext { scratch: content })
 }
 

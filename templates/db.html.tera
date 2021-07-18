@@ -19,9 +19,9 @@ db.
     </div>
     <div class="pure-u-1-2">
     <ol>
-        {% for file in txt_files %}
-            {% if file == "db/latest.txt" %}
-            <li><a href="/{{ file }}">{{ file }}</a> <a href="/checkpoint_latest_txt">[checkpoint_latest_txt]</a></li>
+        {% for file in md_files %}
+            {% if file == "db/latest.md" %}
+            <li><a href="/{{ file }}">{{ file }}</a> <a href="/checkpoint_latest_md">[checkpoint_latest_md]</a></li>
             {% else %}
             <li><a href="/{{ file }}">{{ file }}</a></li>
             {% endif %}

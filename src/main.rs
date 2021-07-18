@@ -15,7 +15,7 @@ mod graph;
 const RELATIVE_DB_PATH: &str = "db/";
 const RELATIVE_STATIC_PATH: &str = "static/";
 const LATEST_DAG_NAME: &str = "latest.json";
-const LATEST_SCRATCH_NAME: &str = "latest.txt";
+const LATEST_SCRATCH_NAME: &str = "latest.md";
 
 #[get("/static/<path..>")]
 async fn _static(path: PathBuf) -> Option<NamedFile> {
@@ -169,7 +169,7 @@ fn _graph() -> Template {
 #[serde(crate = "rocket::serde")]
 struct DbContext {
     json_files: Vec<String>,
-    txt_files: Vec<String>,
+    md_files: Vec<String>,
 }
 
 #[get("/db/<path..>")]
@@ -200,12 +200,12 @@ fn db_list() -> Template {
         files
     }
     let json_files = get_files(&format!("{}*.json", RELATIVE_DB_PATH));
-    let txt_files = get_files(&format!("{}*.txt", RELATIVE_DB_PATH));
+    let md_files = get_files(&format!("{}*.md", RELATIVE_DB_PATH));
     Template::render(
         "db",
         DbContext {
             json_files: json_files,
-            txt_files: txt_files,
+            md_files: md_files,
         },
     )
 }
@@ -233,9 +233,9 @@ fn checkpoint_latest_json() -> Redirect {
     Redirect::to(uri!(db_list))
 }
 
-#[get("/checkpoint_latest_txt")]
-fn checkpoint_latest_txt() -> Redirect {
-    checkpoint_latest_file(LATEST_SCRATCH_NAME, ".txt");
+#[get("/checkpoint_latest_md")]
+fn checkpoint_latest_md() -> Redirect {
+    checkpoint_latest_file(LATEST_SCRATCH_NAME, ".md");
     Redirect::to(uri!(db_list))
 }
 
@@ -260,7 +260,7 @@ fn rocket() -> _ {
                 db_list,
                 db_file,
                 checkpoint_latest_json,
-                checkpoint_latest_txt,
+                checkpoint_latest_md,
             ],
         )
         .register("/", catchers![not_found])

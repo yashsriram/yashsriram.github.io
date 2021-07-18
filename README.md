@@ -7,7 +7,7 @@
 - Code is written in `rust`.
 - Uses `rocket` library to create a server.
 - `db/` contains all the content that is created.
-    - `db/latest.txt` and `db/latest.json` are used for scratch page and DAG statements respectively.
+    - `db/latest.md` and `db/latest.json` are used for scratch page and DAG statements respectively.
 - `src/` contains the source code.
 - `static/` contains static files.
 - `templates/` contains the templates.

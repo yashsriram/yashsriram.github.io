@@ -120,12 +120,46 @@
 - Shell
 
 # ideas
-1. Combining classical, ML, and DL {sensing, planning, RL}.
-1. Dynamic obstacles.
-1. Multi-robot coordination.
-1. Lidar object detection.
-1. Camera object detection.
-1. Lane detection using camera and lidar.
+-
+    1. Structures and algorithms
+    1. Code/Visualize/Animate the math
+-
+    1. Combining classical, ML, and DL {sensing, planning, RL}.
+    1. Dynamic obstacles.
+    1. Multi-robot coordination.
+    1. Lidar object detection.
+    1. Camera object detection.
+    1. Lane detection using camera and lidar.
+-
+    1. Smart docs, create docs from code directly.
+    1. Enhanced Odometry using an android phone.
+    1. Online Multiplayer game
+    1. Music Buttons
+    1. reliable resilient gallery manager
+    1. Haptic music
+    1. FabX expressive ink cloth
+    1. Holotalk
+    1. Real roadrash
+    1. Live slides
+
+# outdoor list
+1. Sleep cycle/Fitness/Summer breezes
+1. Climbing
+1. Driving
+1. Archery
+1. Film making
+1. Longboard tricks
+1. Camping
+1. Hammock/Frisbee
+1. Rafting
+1. Gaming
+1. Canoeing
+1. Hiking
+1. Kayaking
+1. Skydiving license
+1. Surfing, Windsurfing, Kitesurfing
+1. SUP
+1. Snowboarding
 
 # dp problems
 -
@@ -206,18 +240,10 @@ enough number of required ports
 
 ## ideas
 
-1. Smart docs, create docs from code directly.
-2. Enhanced Odometry using an android phone.
-3. Online Multiplayer game
-4. Music Buttons
-5. reliable resilient gallery manager
-
 ## coding-tips
 
 ### android
 
-1. reduce boiler plate code - android annotations, butterknife, lombok
-1. modular restapi calls - retrofit
 1. not necessary for ids to be different, but RECOMMENDED - first one in the tree gets called
 1. SQLite is a lone wolf- self-contained, serverless, zero conf, out of the box
 

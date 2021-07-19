@@ -46,7 +46,7 @@
 
 # more linear algebra
 - multiplication of quaternions is not commutative
-- rot mat $<-`>$ eular angle $<->$ rpy
+- rot mat $<-\`>$ eular angle $<->$ rpy
 - what is gimbal lock? not single solution with gimbal lock?
 - axis-angle $<->$ rotation matrix - eigen basis, null space finding
 - Code/Visualize/Animate the math
@@ -223,13 +223,6 @@ Server:
 	* title
 	password
 
-## disk_cleanup
-
-1. see in /var/cache/apt/archives/ and sudo apt-get clean
-1. clear chrome cache
-1. intellij product previous version .configs
-1. android studio gradles
-
 ## things_that_matter_while_buying_a_new_laptop
 
 build quality
@@ -238,29 +231,12 @@ keyboard experience
 trackpad and dedicated mouse keys
 enough number of required ports
 
-## ideas
-
 ## coding-tips
 
 ### android
 
 1. not necessary for ids to be different, but RECOMMENDED - first one in the tree gets called
 1. SQLite is a lone wolf- self-contained, serverless, zero conf, out of the box
-
-### js-events-listeners
-
-1. JS event
-1. JS listener(s) on DOM nodes
-1. Javascript event propagation
-    1. Event Capture Phase
-    1. Event Target Phase
-    1. Event Bubbling Phase
-1. Propagation is done statically and stack decided at the point in time when event occurs
-1. e.target vs e.currentTarget
-1. e.stopPropogation() vs e.stopImmediatePropogation()
-1. e.preventDefault()
-1. e.eventPhase
-1. e.bubbles
 
 ### arithmetic-operators
 
@@ -271,6 +247,17 @@ enough number of required ports
 ### ||computing
 
 A function has to be commutative and associative so that it can be performed parallelly
+
+## OS
+
+### processes
+
+1. a program in execution, an execution entity to consume CPU, an instance of a program
+1. generally one core of a CPU executes one instruction at a time
+1. running multiple processes or threads -> CPU switching or time slicing
+1. fork -> duplicate (copy on write method)
+1. exec -> replace current process
+1. hence child before parent is good as memory need not be reproduced
 
 ## apping
 
@@ -295,14 +282,3 @@ Companies(Apping): Fractal Analytics, KPMG
 Winter:
 Companies(PT Cell): Edelweiss, Cityflo, Zupp, Creative Concepts, Genext, Zoomot Services, Novanet, NextGen PMS, Tavaga, Darwin Inc, Mia Mia, Zouk, HolaMed, Toppr, PS Takecare<>, Greendzine, Plus Capital, Gupshup Technology
 I'm not sure how useful this info will be, but it should give you an idea that there are some options available to you people.
-
-## OS
-
-### processes
-
-1. a program in execution, an execution entity to consume CPU, an instance of a program
-1. generally one core of a CPU executes one instruction at a time
-1. running multiple processes or threads -> CPU switching or time slicing
-1. fork -> duplicate (copy on write method)
-1. exec -> replace current process
-1. hence child before parent is good as memory need not be reproduced

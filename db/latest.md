@@ -14,6 +14,16 @@
 - baysian networks, HMM, Markov, MDP, Q-learning ...
 - How to determine if an experiment is stochastic?
 - How to determine where the simple division conditional probability rule is not good?
+- P(A, B, C, D) (prob of cartesian product of axes) as chain rule which itself is a DAG.
+    - use cond prob to represent, use conditional independence.
+    - Space saving with chain form and conditional independence. Assume two values for each axis,
+        - O($2^m$) vs O($2^m (1/2 + 1/2^2 + ... + 1/2^m) $) with conditional independence the 1/2^i terms decrease.
+
+# graphs
+- DAG terms.
+    - children, parents, descendants, ancestors, non-descendants, non-ancestors (defs using reachability using parent and child edges).
+    - how do c, p, d, a of a node appear in a topo sort?
+    - do all nodes before a node in a topo sort are ancestors? (need not be). similarly after/descendants.
 
 # linear algebra
 - composition of linear transforms, composition as product of matrices, building matrix as tool
@@ -113,6 +123,9 @@
 1. Combining classical, ML, and DL {sensing, planning, RL}.
 1. Dynamic obstacles.
 1. Multi-robot coordination.
+1. Lidar object detection.
+1. Camera object detection.
+1. Lane detection using camera and lidar.
 
 # dp problems
 -

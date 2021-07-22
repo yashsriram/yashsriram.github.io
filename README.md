@@ -32,6 +32,7 @@
 
 ## roadmap
 - [ ] Simplify goal, design.
+    - [ ] Automatic theorem proving.
     - [x] Improve name.
     - [x] Use only axioms and theorems, remove definitions.
     - [x] Use only statements, remove axioms and theorems.

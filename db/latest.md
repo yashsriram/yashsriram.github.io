@@ -112,6 +112,7 @@
     - It can do global optimizations which might not be possible in interpreted as its field of view is local.
 - Statically vs Dynamically typedness is property of language. Compilation vs Interpration is the property of implementation not language; saying python is an interpreted language is wrong. Any language can be compiled. Any language can be interpreted.
 - Define, map and visualize the terms: Memory safety, Memory containment and Type safety.
+- Concurrency vs parallel.
 
 # languages 2
 - C/C++/Rust
@@ -160,6 +161,9 @@
 1. Surfing, Windsurfing, Kitesurfing
 1. SUP
 1. Snowboarding
+
+# UMN papers proxy
+http://login.ezproxy.lib.umn.edu/login?url=
 
 # dp problems
 -

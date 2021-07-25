@@ -83,6 +83,52 @@
     - covariance
 - Determining uncertainity after fitting in linear regression (or other models). Using info about training datum (a.k.a. sample) error term?
 
+# opt problems
+- math opt = non-lin opt (convex + concave) + lin opt.
+
+# substructure based opt problems
+- dp = dynamic programming (misnomer). dynamic = time based (uses solutions of prev time steps i.e. sub structures), programming = optimization.
+- From Richard Bellman autobiography,
+    `The 1950s were not good years for mathematical research. We had a very interesting gentleman in Washington named Wilson. He was secretary of Defense, and he actually had a pathological fear and hatred of the word ‘research’. I'm not using the term lightly; I'm using it precisely. His face would suffuse, he would turn red, and he would get violent if people used the term ‘research’ in his presence. You can imagine how he felt, then, about the term ‘mathematical’. The RAND Corporation was employed by the Air Force, and the Air Force had Wilson as its boss, essentially. Hence, I felt I had to do something to shield Wilson and the Air Force from the fact that I was really doing mathematics inside the RAND Corporation.
+
+    What title, what name, could I choose? In the first place I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word ‘programming’. I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying—I thought, let’s kill two birds with one stone. Let’s take a word that has an absolutely precise meaning, namely ‘dynamic’, in the classical physical sense. It also has a very interesting property as an adjective, and that is it’s impossible to use the word ‘dynamic’ in a pejorative sense. Try thinking of some combination that will possibly give it a pejorative meaning. It’s impossible. Thus, I thought “dynamic programming’ was a good name. It was something not even a Congressman could object to. So I used it as an umbrella for my activities.`
+- both substructure based and greedy want to optimize globally only.
+    -  substructure based general charecteristics = non-lin optimization + optimal substructure + overlapping subproblems.
+    - greedy general charecteristics = lin optimization; so local opt becomes global opt.
+    - divide and conquer = lacks overlapping subproblems.
+- This partition of problems is vague, non-exhaustive and sometimes really annoying.
+-
+    1. Largest Subarray Absolute Sum.
+    1. Largest Absolute Subarray Sum.
+-
+    1. Range Sum Query.
+    1. Best time to buy and sell stock.
+    1. Min Cost Climbing stairs.
+    1. Number of ways of climbing stairs.
+    1. Min falling path sum (adjacent).
+    1. Min falling path sum (non-zero shift).
+-
+    1. Is subsequence.
+    1. Longest common subsequence.
+    1. Longest palindrome subsequence.
+    1. Longest increasing subsequence.
+        1. sort + dedup + lcs
+        1. lis-to
+        1. binary search?
+-
+    1. Min elements to remove to make a mountain array. == largest mountain array.
+-
+    1. DP computation strategies.
+        1. Iterative Table filling O(mn) (sometimes called tabulation).
+        1. Recursive Table filling O(mn) can prune space (sometimes called memoization).
+        1. Recursive without table O(m^n).
+-
+    1. Count number of ones in bin representation.
+    1. Uniform cost search with,
+        1. All non-negative weights.
+        1. Some negative weights too.
+
+
 # ironies
 - There exist things which we don't know but can approximate (ex. integrals)
 
@@ -164,40 +210,6 @@
 
 # UMN papers proxy
 http://login.ezproxy.lib.umn.edu/login?url=
-
-# dp problems
--
-    1. Largest Subarray Sum.
-    1. Largest Subarray Absolute Sum.
-    1. Largest Absolute Subarray Sum.
--
-    1. Range Sum Query.
-    1. Best time to buy and sell stock.
-    1. Min Cost Climbing stairs.
-    1. Number of ways of climbing stairs.
-    1. Min falling path sum (adjacent).
-    1. Min falling path sum (non-zero shift).
--
-    1. Is subsequence.
-    1. Longest common subsequence.
-    1. Longest palindrome subsequence.
-    1. Longest increasing subsequence.
-        1. sort + dedup + lcs
-        1. lis-to
-        1. binary search?
--
-    1. Min elements to remove to make a mountain array. == largest mountain array.
--
-    1. DP computation strategies.
-        1. Iterative Table filling O(mn).
-        1. Recursive Table filling O(mn) can prune space.
-        1. Recursive without table O(m^n).
--
-    1. Count number of ones in bin representation.
-    1. Number of unique paths.
-    1. Uniform cost search with,
-        1. All non-negative weights.
-        1. Some negative weights too.
 
 # school bag stuff
 

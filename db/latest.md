@@ -1,3 +1,104 @@
+# Direction
+- Where I am.
+  - Math.
+  - Sensing & estimation (localization, mapping).
+  - Planning (simple hand tuned agents).
+
+- What I want to go.
+  - Math.
+  - Sensing & estimation (localization, mapping).
+  - Planning (simple hand tuned agents).
+  - Rigourously understood pattern recognition (classical, deep).
+  - Reenforcement learning.
+  - Planning (optimization based agents, bio-inspired agents).
+  - Acting (dynamic models).
+  - Useful Bio-inspired agents.
+
+# Problem statement sanity check
+- [ ] Implement it in Rust (really avoid C++).
+- [ ] Few small independent problems rather than a big problem.
+- [ ] Increment problem as we go.
+- [ ] Starting should consist mostly of what I already know. (already postponed 1 semester for that).
+- [ ] Crisp problem statement.
+    - [ ] Fixed.
+    - [ ] Not too ambitious.
+    - [ ] Towards target topics.
+    - [ ] Be carefully ambitious.
+- [ ] Rigourously understand solution.  (unlike some deep neural networks).
+- [ ] Would like if it has some physical manifestation.
+- [ ] Would like to provide some theoretical guarantees.
+- [ ] Try to take dynamics/planning/sensing from nature.
+
+# Problem statements
+- Try to avoid "natural looking" motion generation problems.
+- Planning & Sensing
+    1. Bio-agents. Improving climbing agents/ Co-operating climbing agents like naruto. Use RL for stick solo.
+    1. Space X landing agent. Interplanetary travelling agent.
+    1. Agents for games. Exploratory Horror Ghosts. Road crossing game.
+    1. Non-holonomic systems. Parallel parking. Autonomous driving agent. Improved Wall-e, sensing wise, planning wise, dynamics wise. Use simple and effective methods from research papers.
+    1. Autonomous navigation of robot using visual signs. Plan a path in human environment without full knowledge (limited range sensing). Unknown external forces like wind. Sense entities that move like humans while localizing and mapping.
+    1. Hawkeye\*
+
+- Misc
+    1. SPH
+    1. Fourier bots
+    1. Freeflow solver
+    1. Simulations
+        1. Visualizing love or love languages
+        1. Visualizing/Simulating life
+        1. Pandemic simulation
+
+## Nd space search
+  - Locomotion tasks (dynamics-wise)
+  - Kinematic chain (serial manipulator)
+  - Rocket (gravity wells + orbits + transfers)
+  - Ship (non-holonomic + water sim + replanning)
+  - Submarine (non-holonomic 3d)
+  - Car (non-holonomic 3d + road)
+  - Airplane/Drone (fluid dynamics)
+
+# ideas
+-
+    1. Structures and algorithms
+    1. Code/Visualize/Animate the math
+-
+    1. Combining classical, ML, and DL {sensing, planning, RL}.
+    1. Dynamic obstacles.
+    1. Multi-robot coordination.
+    1. Lidar object detection.
+    1. Camera object detection.
+    1. Lane detection using camera and lidar.
+-
+    1. Smart docs, create docs from code directly.
+    1. Enhanced Odometry using an android phone.
+    1. Online Multiplayer game
+    1. Music Buttons
+    1. reliable resilient gallery manager
+    1. Haptic music
+    1. FabX expressive ink cloth
+    1. Holotalk
+    1. Real roadrash
+    1. Live slides
+
+# outdoor list
+1. Sleep cycle/Fitness/Summer breezes
+1. Climbing
+1. Driving
+1. Archery
+1. Film making
+1. Longboard tricks
+1. Camping
+1. Hammock/Frisbee
+1. Rafting
+1. Gaming
+1. Canoeing
+1. Hiking
+1. Kayaking
+1. Skydiving license
+1. Surfing, Windsurfing, Kitesurfing
+1. SUP
+1. Snowboarding
+
 # calculus
 - limits
 - the beauty of the phrase exact approximation
@@ -5,6 +106,11 @@
 - derivative of vectors and matrices, jacobians, hessians, laplacians etc...
 
 # probability
+- Relating probability to real world. Is there any law like newton's laws?
+- Is probability a belief (just a function) or limit of experiment?
+    - If it is a belief how do you perceive it?
+    - If it is a limit of experiement how to you make simple arithemetic out of it?
+- For now assuming probability is just a function with no semantics (kind of makes it hard to develop it since there is no meaning or use).
 - Cdf and pdf definitions
 - Expected value definitions
 - Joint probability definition
@@ -165,48 +271,6 @@
 - Java/Kotlin/Go
 - Python
 - Shell
-
-# ideas
--
-    1. Structures and algorithms
-    1. Code/Visualize/Animate the math
--
-    1. Combining classical, ML, and DL {sensing, planning, RL}.
-    1. Dynamic obstacles.
-    1. Multi-robot coordination.
-    1. Lidar object detection.
-    1. Camera object detection.
-    1. Lane detection using camera and lidar.
--
-    1. Smart docs, create docs from code directly.
-    1. Enhanced Odometry using an android phone.
-    1. Online Multiplayer game
-    1. Music Buttons
-    1. reliable resilient gallery manager
-    1. Haptic music
-    1. FabX expressive ink cloth
-    1. Holotalk
-    1. Real roadrash
-    1. Live slides
-
-# outdoor list
-1. Sleep cycle/Fitness/Summer breezes
-1. Climbing
-1. Driving
-1. Archery
-1. Film making
-1. Longboard tricks
-1. Camping
-1. Hammock/Frisbee
-1. Rafting
-1. Gaming
-1. Canoeing
-1. Hiking
-1. Kayaking
-1. Skydiving license
-1. Surfing, Windsurfing, Kitesurfing
-1. SUP
-1. Snowboarding
 
 # UMN papers proxy
 http://login.ezproxy.lib.umn.edu/login?url=

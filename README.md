@@ -11,6 +11,7 @@
 - `src/` contains the source code.
 - `static/` contains static files.
 - `templates/` contains the templates.
+- This was first implemented in `python`. That source code and data can be found in the repo history at commit `a50970a2951bd46f4fc46c3c082a01f1f88df243`.
 
 ## documentation
 - The documentation of the code is itself.
@@ -26,13 +27,11 @@
 - Functionality should be self-explaining.
 - There is not too rigourous testing or security check, though the `rust` and `rocket` takes care of most of it.
     - To prevent unwanted data loss, make checkpoints of `db/` content (checkpoint files will not be touched by server) and back them up regularly in cloud (preferably github).
-- This was first implemented in `python`. That source code and data can be found in the repo history at commit `a50970a2951bd46f4fc46c3c082a01f1f88df243`.
 
 ## demonstration
 
 ## roadmap
 - [ ] Simplify goal, design.
-    - [ ] Automatic theorem proving.
     - [x] Improve name.
     - [x] Use only axioms and theorems, remove definitions.
     - [x] Use only statements, remove axioms and theorems.
@@ -79,7 +78,8 @@
     - [ ] DAG search.
     - [ ] DAG latex type set description.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).
--  Make sure that design minimizes constructs. Minimize current content.
+- Make sure that design minimizes constructs. Minimize current content.
+    - [ ] Use nom or regex to create a syntax.
     - [ ] Design should be such that clumsy graph should be difficult to create.
     - [ ] Graph level; Measure of clumsiness and cleaning the graph. Detect clumsy additions on create. Suggest cleaning graph.
         - [ ] Untangling/Unwebbing.
@@ -93,3 +93,4 @@
         - [ ] Typed/Syntaxed description.
     - [ ] A statement can have multiple references to a parent. That is not taken into account.
     - [ ] A statement can have a parent but not referenced. That is not taken into account.
+    - [ ] Automatic theorem proving.

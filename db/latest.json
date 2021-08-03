@@ -58,18 +58,6 @@
     "proof": ""
   },
   {
-    "id": "enumerated_notation",
-    "description": [
-      "To name each element in a collection such that each elements name is non-identical ",
-      "identity",
-      " to all others, we arrange each element in some way and use the position ",
-      "number",
-      " as the subscript of that element. This is called enumerated notation.\nFor a collection having n elements the enumerated notation would be $ \\{ e_1, e_2, e_3, ... e_n \\} $.\n\n- If n = 0, it expands to $\\{\\}$.\n- If n = 1, it expands to $\\{ e_1 \\}$\n- If n = 2, it expands to $\\{ e_1, e_2 \\}$\n- ...\n- If n = n, it expands to $\\{ e_1, e_2, ... e_n \\}$\n"
-    ],
-    "significance": "This way we can refer to each element uniquely.\nThis comes in handy all the time.",
-    "proof": ""
-  },
-  {
     "id": "set",
     "description": [
       "A set $S$ is a collection of elements from which any two elements picked without replacement are non-identical ",

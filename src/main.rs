@@ -41,16 +41,6 @@ fn index() -> Template {
     Template::render("index", EmptyContext {})
 }
 
-#[get("/why")]
-fn why() -> Template {
-    Template::render("why", EmptyContext {})
-}
-
-#[get("/learning")]
-fn learning() -> Template {
-    Template::render("learning", EmptyContext {})
-}
-
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
 struct ScratchContext {
@@ -247,8 +237,6 @@ fn rocket() -> _ {
             routes![
                 _static,
                 index,
-                why,
-                learning,
                 scratch,
                 structure,
                 open_empty,

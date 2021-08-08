@@ -77,17 +77,24 @@
             1. Uniform cost search with,
                 1. All non-negative weights.
                 1. Some negative weights too.
-    - Code/Visualize/Animate the math.
+    - Code/Visualize/Animate the math (name: math in action).
+        1. Small interesting problems.
+            1. Polynomial project improvement using (lin + non-lin) opts.
+            1. Tesselation based vis of 3d functions.
+            1. Use 2d vis to illustrate diff randomness.
         1. Freeflow
         1. FK, IK (backward kineamtics) animation.
         1. Fourier bots
         1. SPH
+        1. Parallelization.
         1. Simulations
             1. Visualizing love or love languages
             1. Visualizing/Simulating life
             1. Pandemic simulation
 - Sensing Obstacle (static, dynamic), localization, mapping.
-    1. CV course and geometric CV course problems.
+    1. Matrix theory as a tool.
+    1. Sensing, Probability and estimation as seperate legos.
+    1. CV course and geometric CV and graphics course problems.
         - Camera Intrinsic (sensor and lens) and Extrinsic parameters, Single camera calibration, keypoint detectors, descriptors
         - Rolling shutter measurement models, plane-projective geometry, fundamental/essential matrix, epipolar constraints , multi camera calibration, tracking
         - Depth parameterizations and their linearity properties; Levenberg Marquadt, Visual SLAM, SFM

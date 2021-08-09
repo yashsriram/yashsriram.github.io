@@ -31,6 +31,13 @@
 ## demonstration
 
 ## roadmap
+
+### hard earned wisdom
+- The best task management system until now is a white board and a marker.
+- The best information note taking system is taking no notes at all.
+- The best running notes are the ones that are forgotten shortly later.
+- The best information gathering system until now is this.
+
 - Make sure that design minimizes constructs. Minimize current content.
     ```html
     <h2 id="why-this-effort">why this effort?</h2>

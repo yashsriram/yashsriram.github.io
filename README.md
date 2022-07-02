@@ -40,7 +40,6 @@
 
 ### vision for this
 - Make sure that design minimizes constructs. Minimize current content.
-    - The notion of independent starts, infinity and measure theory, saaga deyyali ante entayna saaga deyyochu 0-1 lopala, but you want to get to 1, you are already at 1. Kind of like a belief, can be used in effortless, in addition to small degree parent dependency.
     - [ ] Design should be such that clumsy graph should be difficult to create.
     - [ ] Statement level; Measure of bigness of a statement. If too big indicate and split into multiple.
         - [ ] More terse text.
@@ -76,12 +75,7 @@
         - [x] Port todos and scratch from journal to scratch page.
         - [x] Making checkpoints.
         - [ ] Update scratch.
-- Build a Server Client for browsing.
-    - [ ] CRUD of statements.
-        - [x] R
-        - [x] C
-        - [ ] U
-        - [ ] D
+- Build a Server Client for browsing. Create & Read.
     - [ ] Open page navigations.
         - [x] URL.
         - [x] List.
@@ -99,13 +93,7 @@
     - [x] Able to search in entire graph.
     - [x] Followable links to parents and children.
     - [x] Making checkpoints.
-- Graph representation.
-    - [x] Graph page.
-    - [x] DAG node mass caliberation.
-    - [x] DAG node size caliberation.
-    - [x] DAG statement heatmap.
-    - [x] btn to reset.
-    - [x] Click to go to statement.
+- [x] Graph representation. Graph page. DAG node mass caliberation. DAG node size caliberation. DAG statement heatmap. Btn to reset. Click to go to statement.
     - [ ] DAG search.
     - [ ] DAG latex type set description.
     - [ ] More control on rendering and ui (need force directed layout implementation i.e. spring-mass simulation).

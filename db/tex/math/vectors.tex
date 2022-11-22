@@ -1,0 +1,348 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\bvectwo}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+\newcommand{\bvecn}[1]{\begin{bmatrix} #1_1 \\ #1_2 \\ ... \\ #1_n \end{bmatrix}}
+\newcommand{\bvecnsum}[2]{\begin{bmatrix} #1_1 + #2_1 \\ #1_2 + #2_2 \\ ... \\ #1_n + #2_n \end{bmatrix}}
+\newcommand{\bvecnscale}[2]{\begin{bmatrix} #1 * #2_1 \\ #1 * #2_2 \\ ... \\ #1 * #2_n \end{bmatrix}}
+
+\begin{document}
+
+\chapter{vectors}
+
+
+\addcontentsline{toc}{section}{Vector}
+\begin{statement}[\textbf{Vector}]
+\label{statement:Vector}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+  A vector can be defined as a collection of [\hyperref[statement:Real Numbers]{real numbers}] (also called elements) where the arrangement in which elements appear matters.
+  For n elements a vector can be written as \[ V \equiv \bvecn{e} \]
+\par
+{\color{magenta} \textbf{Significance}:
+  The motivation behind vectors is to view a group of entities as a single entity.
+  By viewing group of multiple entities as a single entity, a more abstract concept can be created, where instead of applying the same operation to each and every element, again and again, we apply the same operation to the whole group entity at once i.e. vector.
+  A simple use case would be say when you need to update marks of all students to a 100 scale from a 10 scale.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Real Numbers]{Real Numbers}, 
+\paragraph{15 children} \hyperref[statement:Vector Dimension]{Vector Dimension}, \hyperref[statement:Vector Addition]{Vector Addition}, \hyperref[statement:Vector Scaling]{Vector Scaling}, \hyperref[statement:Linear Combination]{Linear Combination}, \hyperref[statement:Linearly Independent Set]{Linearly Independent Set}, \hyperref[statement:Span]{Span}, \hyperref[statement:Basis]{Basis}, \hyperref[statement:Standard Vector]{Standard Vector}, \hyperref[statement:Standard basis]{Standard basis}, \hyperref[statement:L2 Norm]{L2 Norm}, \hyperref[statement:Dot Product]{Dot Product}, \hyperref[statement:Angle between Vectors]{Angle between Vectors}, \hyperref[statement:Perpendicular Vectors]{Perpendicular Vectors}, \hyperref[statement:State Vector]{State Vector}, \hyperref[statement:Linear Transformation]{Linear Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{Vector Dimension}
+\begin{statement}[\textbf{Vector Dimension}]
+\label{statement:Vector Dimension}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+  The dimension of a [\hyperref[statement:Vector]{vector}] is just the count of elements in it.
+  A vector with dimension N can be called N dimensional vector, written as ND vector.
+\par
+{\color{magenta} \textbf{Significance}:
+  A name for size of vector.
+  Note that we are not considering collections with zero elements as vectors as it does not seem to be useful.
+  The concept is illustrated in the table \ref{tab:dim}.
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{ c  c  c }
+      Vector name & Value & Dimension\\
+      $ V_1 $ & (1) & 1\\
+      $ V_2 $ & ($\sqrt{2}$) & 1\\
+      $ V_3 $ & (-100, $\sqrt{3}$) & 2\\
+      $ V_4 $ & (0, 0.1) & 2\\
+      $ V_5 $ & (0, 0, 0) & 3\\
+      $ V_6 $ & (0, 1, 2, 3) & 4\\
+    \end{tabular}
+  \caption{Dimensions of Vectors}
+  \label{tab:dim}
+  \end{table}
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Vector]{Vector}, 
+\paragraph{3 children} \hyperref[statement:Vector Addition]{Vector Addition}, \hyperref[statement:Vector Scaling]{Vector Scaling}, \hyperref[statement:Linear Combination]{Linear Combination}, 
+
+
+
+\addcontentsline{toc}{section}{Vector Addition}
+\begin{statement}[\textbf{Vector Addition}]
+\label{statement:Vector Addition}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+  The addition of two ND [\hyperref[statement:Vector]{vector}]s \[ A \equiv \bvecn{a} \] and \[ B \equiv \bvecn{b} \] is a new ND vector with each element as sum of corresponding elements in $A$ and $B$.
+   [\hyperref[statement:Vector Dimension]{vector dimension}]. Denoted by \[ A + B \equiv \bvecnsum{a}{b} \].
+\par
+{\color{magenta} \textbf{Significance}:
+  This is to re-enforce the notion of applying operation to the group entity rather than each and every element repeatedly.
+  Otherwise there is no reason not to define the addition rule as something arbitrary like
+  \[
+    \bvectwo{x}{y} + \bvectwo{a}{b} \equiv \bvectwo{xa + yb^2}{\frac{b - y}{x + a}}
+  .\]
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Vector Dimension]{Vector Dimension}, 
+\paragraph{1 children} \hyperref[statement:Linear Combination]{Linear Combination}, 
+
+
+
+\addcontentsline{toc}{section}{Vector Scaling}
+\begin{statement}[\textbf{Vector Scaling}]
+\label{statement:Vector Scaling}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+  The scaling of an ND [\hyperref[statement:Vector]{vector}] \[ A \equiv \bvecn{a} \] [\hyperref[statement:Vector Dimension]{vector dimension}] with a real number [\hyperref[statement:Real Numbers]{real numbers}] $\lambda$ produces a new ND vector with each element as product of corresponding elements in $A$ and $\lambda$. Denoted by \[ \lambda * A \equiv \bvecnscale{\lambda}{a} \].
+\par
+{\color{magenta} \textbf{Significance}:
+  Same story. Here $\lambda$ is called (surprise surprise) a scalar, a mysterious word that crept in the subject of vectors suddenly becomes not so mysterious after knowing its name is given to it by the work it does.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Vector Dimension]{Vector Dimension}, \hyperref[statement:Real Numbers]{Real Numbers}, 
+\paragraph{2 children} \hyperref[statement:Linear Combination]{Linear Combination}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, 
+
+
+
+\addcontentsline{toc}{section}{Linear Combination}
+\begin{statement}[\textbf{Linear Combination}]
+\label{statement:Linear Combination}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+  Linearly combination two vectors ND [\hyperref[statement:Vector]{vector}]s A and B [\hyperref[statement:Vector Dimension]{vector dimension}] means first scaling each vector with a real number [\hyperref[statement:Real Numbers]{real numbers}] and adding resultant vectors [\hyperref[statement:Vector Scaling]{vector scaling}] [\hyperref[statement:Vector Addition]{vector addition}].
+  The produced vector is also N dimensional.
+  Denoted by $ \alpha * A + \beta * B $, where $\alpha$ and $\beta$ are real numbers.
+\par
+{\color{magenta} \textbf{Significance}:
+  This is nothing new, just a word to combine one scaling and one adding operations.
+  A higher level construct to play with.
+  What is so linear about it?
+  Well the word linear is given because there can exist other types of combinations like quadratic combination where before scaling the entities are squared, polynomial combination, exponential combination, logarithmic combination ...
+  The most simplest of them all seems to be linear combination.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{5 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Vector Dimension]{Vector Dimension}, \hyperref[statement:Real Numbers]{Real Numbers}, \hyperref[statement:Vector Scaling]{Vector Scaling}, \hyperref[statement:Vector Addition]{Vector Addition}, 
+\paragraph{4 children} \hyperref[statement:Linearly Independent Set]{Linearly Independent Set}, \hyperref[statement:Span]{Span}, \hyperref[statement:Basis]{Basis}, \hyperref[statement:Linear Transformation]{Linear Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{Linearly Independent Set}
+\begin{statement}[\textbf{Linearly Independent Set}]
+\label{statement:Linearly Independent Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A linearly independent set is a [\hyperref[statement:Set]{set}] of [\hyperref[statement:Vector]{vector}]s B of cardinality $>$ 1, such that $ \forall b_i \in B, b_i \not\equiv $ [\hyperref[statement:Linear Combination]{linear combination}] of all other vectors in B.
+
+A set of vectors in which at least one element $ \equiv $ a linear combination of all other elements is called a linearly dependent set of vectors.
+\par
+{\color{magenta} \textbf{Significance}:
+Vectors in a set with this property are sort of independent from others as in they cannot be built by other vectors using any simple operation available for vectors.
+Yes! addition and scaling are all the available simple operations for vectors. Mind blown!
+Well you might scream matrices. But matrices were created just for that purpose, to build a vector that is otherwise not constructable using addition and scaling.
+
+Note that there cannot be a set of vectors in which one element $ b_d \equiv $ linear combination of all other elements and another element $ b_i \not\equiv $ linear combination of all other elements.
+This is because given the first identity, we can rearrange terms to get second identity.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Vector]{Vector}, \hyperref[statement:Linear Combination]{Linear Combination}, 
+\paragraph{1 children} \hyperref[statement:Basis]{Basis}, 
+
+
+
+\addcontentsline{toc}{section}{Span}
+\begin{statement}[\textbf{Span}]
+\label{statement:Span}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The span of a [\hyperref[statement:Set]{set}] of [\hyperref[statement:Vector]{vector}]s B is a set of vectors S in which each vector $ \equiv $ [\hyperref[statement:Linear Combination]{linear combination}] of all vectors in B.
+\par
+{\color{magenta} \textbf{Significance}:
+A tool to give a sense of spread/cover of a set of vectors.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Vector]{Vector}, \hyperref[statement:Linear Combination]{Linear Combination}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Basis}
+\begin{statement}[\textbf{Basis}]
+\label{statement:Basis}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A basis of a [\hyperref[statement:Set]{set}] of [\hyperref[statement:Vector]{vector}]s S is a [\hyperref[statement:Linearly Independent Set]{linearly independent set}] of vectors B, such that each vector in S $ \equiv $ [\hyperref[statement:Linear Combination]{linear combination}] of all vectors in B.
+\par
+{\color{magenta} \textbf{Significance}:
+Sort of an inverse of span.
+Note that for a given set of vectors there can be multiple basis sets.
+For instance the set of all 2D vectors has the following sets as basis sets.
+\[
+  \{ \bvectwo{1}{0}, \bvectwo{0}{1} \}, \{ \bvectwo{2}{0}, \bvectwo{0}{2} \}, \{ \bvectwo{2}{0}, \bvectwo{1}{2} \}
+\]
+By using the word linearly independent we are sort of putting a restriction on number of vectors in the set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{4 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Vector]{Vector}, \hyperref[statement:Linearly Independent Set]{Linearly Independent Set}, \hyperref[statement:Linear Combination]{Linear Combination}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Standard Vector}
+\begin{statement}[\textbf{Standard Vector}]
+\label{statement:Standard Vector}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A standard vector is a [\hyperref[statement:Vector]{vector}] in which value of one and only one element is one. If any elements are remaining their value is [\hyperref[statement:Zero]{zero}].
+\par
+{\color{magenta} \textbf{Significance}:
+An standard vector is a simple unit vector.
+For example
+\[
+  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 1 \end{bmatrix}
+\]
+are instances of standard vector.
+It can be used as a building block for creating useful tools.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Zero]{Zero}, 
+\paragraph{2 children} \hyperref[statement:Standard basis]{Standard basis}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, 
+
+
+
+\addcontentsline{toc}{section}{Standard basis}
+\begin{statement}[\textbf{Standard basis}]
+\label{statement:Standard basis}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The standard basis of a [\hyperref[statement:Set]{set}] of N-dimensional [\hyperref[statement:Vector]{vector}]s V is the set of all [\hyperref[statement:Standard Vector]{standard vector}]s of dimension N.
+\par
+{\color{magenta} \textbf{Significance}:
+Can be used to construct coordinate axes and thus coordinate system.
+As each vector in standard basis belongs to one and only one coordinate axis, any point in the state vector space $ \equiv $ linear combination of all vectors in standard basis.
+For example a set of 4D vectors have a standard basis as the following
+\[
+  \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
+  \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Vector]{Vector}, \hyperref[statement:Standard Vector]{Standard Vector}, 
+\paragraph{2 children} \hyperref[statement:Linear Transformation]{Linear Transformation}, \hyperref[statement:Rotation Transformation]{Rotation Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{L2 Norm}
+\begin{statement}[\textbf{L2 Norm}]
+\label{statement:L2 Norm}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The L2 norm of a [\hyperref[statement:Vector]{vector}] \[ V \equiv \bvecn{e} \] is defined as the square root of sum of squares of elements of V. Denoted by \[ \norm{V}_2 \equiv \sqrt{ \sum_{i = 1}^{n} e_i^2 } \].
+\par
+{\color{magenta} \textbf{Significance}:
+A simple and natural way to get a sense of size of vector.
+This norm is also called Euclidean norm.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Vector]{Vector}, 
+\paragraph{2 children} \hyperref[statement:Angle between Vectors]{Angle between Vectors}, \hyperref[statement:Rotation Transformation]{Rotation Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{Dot Product}
+\begin{statement}[\textbf{Dot Product}]
+\label{statement:Dot Product}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The dot product of N-dimensional two [\hyperref[statement:Vector]{vector}]s
+\[
+  A \equiv \bvecn{a}
+  B \equiv \bvecn{b}
+\]
+is a real number [\hyperref[statement:Real Numbers]{real numbers}] $ \eta \equiv $ sum of element-wise products of A and B.
+Denoted by
+\[
+  A . B \equiv \sum_{i = 1}^{n} (a_i * b_i)
+\]
+\par
+{\color{magenta} \textbf{Significance}:
+A tool to give a sense of similarity of vectors.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Real Numbers]{Real Numbers}, 
+\paragraph{1 children} \hyperref[statement:Angle between Vectors]{Angle between Vectors}, 
+
+
+
+\addcontentsline{toc}{section}{Angle between Vectors}
+\begin{statement}[\textbf{Angle between Vectors}]
+\label{statement:Angle between Vectors}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The angle between two N-dimensional [\hyperref[statement:Vector]{vector}]s A and B is a real number $ \theta \equiv $ arc cosine of [\hyperref[statement:Dot Product]{dot product}] of vectors divided by [\hyperref[statement:L2 Norm]{L2 norm}] of both A and B. Denoted by
+\[
+  \angle(A,B) \equiv arccos(\frac{A.B}{\norm{A}_2 * \norm{B}_2})
+\]
+\par
+{\color{magenta} \textbf{Significance}:
+A tool give a sense of orientation difference b/w the vectors.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Dot Product]{Dot Product}, \hyperref[statement:L2 Norm]{L2 Norm}, 
+\paragraph{1 children} \hyperref[statement:Perpendicular Vectors]{Perpendicular Vectors}, 
+
+
+
+\addcontentsline{toc}{section}{Perpendicular Vectors}
+\begin{statement}[\textbf{Perpendicular Vectors}]
+\label{statement:Perpendicular Vectors}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+Two N-dimensional [\hyperref[statement:Vector]{vector}]s A and B are said to be perpendicular vectors $ \biimpl $ the cosine of [\hyperref[statement:Angle between Vectors]{angle between vectors}] $ \equiv 0 $.
+\par
+{\color{magenta} \textbf{Significance}:
+Gives a sense of independence b/w two vectors.
+
+In vectors of dimensions 2 and 3, we visualize this by drawing what we usually draw for coordinate systems.
+This visualization is just a choice.
+We choose that because the independence is visualized in the sense of projections.
+In 1D there are only one axis and in 4D and more there is no easy, simple and useful way to visualize perpendicular axes yet.
+So there is no need to visualize them in 4D or more dimensional spaces.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Angle between Vectors]{Angle between Vectors}, 
+\paragraph{1 children} \hyperref[statement:Rotation Transformation]{Rotation Transformation}, 
+
+
+
+
+\end{document}
+

@@ -1,0 +1,192 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{coordinate system}
+
+
+\addcontentsline{toc}{section}{Point}
+\begin{statement}[\textbf{Point}]
+\label{statement:Point}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A point represents state of an object.
+A point does not change, so there is no notion of moving a point.
+Objects can change states and hence can go from one point to another.
+\par
+{\color{magenta} \textbf{Significance}:
+A basic tool for representing state of objects.
+For instance a point can represent position, temperature, velocity, pressure etc...
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{6 children} \hyperref[statement:Space]{Space}, \hyperref[statement:State Vector]{State Vector}, \hyperref[statement:Coordinate System]{Coordinate System}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, \hyperref[statement:Straight Space]{Straight Space}, \hyperref[statement:Position Space]{Position Space}, 
+
+
+
+\addcontentsline{toc}{section}{Space}
+\begin{statement}[\textbf{Space}]
+\label{statement:Space}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A space is a [\hyperref[statement:Set]{set}] of [\hyperref[statement:Point]{point}]s.
+\par
+{\color{magenta} \textbf{Significance}:
+A tool to group all states considered in the context.
+As point does not change, space does not change.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Point]{Point}, 
+\paragraph{7 children} \hyperref[statement:Coordinate System]{Coordinate System}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, \hyperref[statement:Straight Space]{Straight Space}, \hyperref[statement:Position Space]{Position Space}, \hyperref[statement:Linear Transformation]{Linear Transformation}, \hyperref[statement:Rotation Transformation]{Rotation Transformation}, \hyperref[statement:Definiteness]{Definiteness}, 
+
+
+
+\addcontentsline{toc}{section}{State Vector}
+\begin{statement}[\textbf{State Vector}]
+\label{statement:State Vector}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A state vector is a [\hyperref[statement:Vector]{vector}] that represents a [\hyperref[statement:Point]{point}].
+\par
+{\color{magenta} \textbf{Significance}:
+This is not a redundant definition (with point).
+Although a point never changes, the representation of that point can change.
+That is why we define both point and state vector.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Vector]{Vector}, \hyperref[statement:Point]{Point}, 
+\paragraph{3 children} \hyperref[statement:State Vector Space]{State Vector Space}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, \hyperref[statement:Straight Space]{Straight Space}, 
+
+
+
+\addcontentsline{toc}{section}{State Vector Space}
+\begin{statement}[\textbf{State Vector Space}]
+\label{statement:State Vector Space}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A state vector space is a [\hyperref[statement:Set]{set}] of all possible N-dimensional [\hyperref[statement:State Vector]{state vector}]s.
+\par
+{\color{magenta} \textbf{Significance}:
+Used to represent a collection of state vectors.
+Mainly created for constructing coordinate system.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:State Vector]{State Vector}, 
+\paragraph{3 children} \hyperref[statement:Coordinate System]{Coordinate System}, \hyperref[statement:Linear Transformation]{Linear Transformation}, \hyperref[statement:Rotation Transformation]{Rotation Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{Coordinate System}
+\begin{statement}[\textbf{Coordinate System}]
+\label{statement:Coordinate System}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A coordinate system $ \Lambda $ is a [\hyperref[statement:Bijection]{bijection}] mapping from [\hyperref[statement:Space]{space}] G to an N-dimensional [\hyperref[statement:State Vector Space]{state vector space}] V.
+
+Denoted by $ \Lambda: G \to V $. $\forall g \in G, \Lambda(g) $ (i.e. the image of [\hyperref[statement:Point]{point}] g under coordinate system $ \Lambda $) can be denoted by $P^{\Lambda}_{g}$.
+\par
+{\color{magenta} \textbf{Significance}:
+We choose state vector space to represent a space G because, by definition any v $\in V \equiv $ linear combination of all vectors of standard basis.
+Therefore we only need standard basis to describe any vector in V, nothing else.
+
+Sets up a representation for every point in space uniquely i.e. such that any point's representation is different from all others.
+Defining it like this removes all untagible invisible evil chains that are otherwise tied to the concept, thus providing a clean, elegant and concrete description.
+
+Here we make sort of a first proper connection from points and spaces to vectors.
+Note that when we talk about dimensionality here, it is the property of vectors not the space itself.
+Thus space and dimensionality are decoupled, this means a space can be represented by different dimensional vectors.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{4 parents} \hyperref[statement:Bijection]{Bijection}, \hyperref[statement:Space]{Space}, \hyperref[statement:State Vector Space]{State Vector Space}, \hyperref[statement:Point]{Point}, 
+\paragraph{4 children} \hyperref[statement:Coordinate Axis]{Coordinate Axis}, \hyperref[statement:Straight Space]{Straight Space}, \hyperref[statement:Linear Transformation]{Linear Transformation}, \hyperref[statement:Rotation Transformation]{Rotation Transformation}, 
+
+
+
+\addcontentsline{toc}{section}{Coordinate Axis}
+\begin{statement}[\textbf{Coordinate Axis}]
+\label{statement:Coordinate Axis}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A coordinate axis of a [\hyperref[statement:Coordinate System]{coordinate system}] $ \Lambda $ acting on a [\hyperref[statement:Space]{space}] G is a [\hyperref[statement:Subset]{subset}] of G, say A such that the [\hyperref[statement:State Vector]{state vector}] of any [\hyperref[statement:Point]{point}] in A $ \equiv $ a scaled version of an [\hyperref[statement:Standard Vector]{standard vector}] B [\hyperref[statement:Vector Scaling]{vector scaling}].
+\par
+{\color{magenta} \textbf{Significance}:
+For a coordinate system mapping to an N-dimensional state vector set, there are N coordinate axes.
+Due to the virtue of state vectors on coordinate axis being scaled standard vectors, any linear combination of two vectors on a coordinate axis lies on the same coordinate axis.
+It has no connection with other coordinate axes.
+This is a good thing because it makes things simple, decoupled and non-clumsy.
+
+A coordinate axis is a simple way to disassemble a coordinate system.
+Any point in the state vector space $ \equiv $ linear combination of some point on each coordinate axis.
+
+Misconception busting:
+\begin{enumerate}[nolistsep]
+  \item There is no need to name the axes X, Y ...
+  \item There is no need for the axes to be perpendicular.
+  \item No need for 1 unit along first axis to be same as 1 unit along second axis.
+  \item No need for units of first axis to be same as the second one
+\end{enumerate}
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{7 parents} \hyperref[statement:Coordinate System]{Coordinate System}, \hyperref[statement:Space]{Space}, \hyperref[statement:Subset]{Subset}, \hyperref[statement:State Vector]{State Vector}, \hyperref[statement:Point]{Point}, \hyperref[statement:Standard Vector]{Standard Vector}, \hyperref[statement:Vector Scaling]{Vector Scaling}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Straight Space}
+\begin{statement}[\textbf{Straight Space}]
+\label{statement:Straight Space}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A straight space under a [\hyperref[statement:Coordinate System]{coordinate system}] $\Lambda$ acting on a [\hyperref[statement:Space]{space}] G is a [\hyperref[statement:Subset]{subset}] of G, say S such that the [\hyperref[statement:State Vector]{state vector}] of any [\hyperref[statement:Point]{point}] in S $ \equiv $ $ o + t * d $ where $ o, d \in G $ and t $ \in $ [\hyperref[statement:Real Numbers]{real numbers}].
+\par
+{\color{magenta} \textbf{Significance}:
+If the space is finite, it is called a line segement otherwise a line.
+We can see the importance of the operation of linear combination here, as it is the defining operation for lines and line segments.
+Generally denoted by drawing $\overleftrightarrow{}$ on paper.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{6 parents} \hyperref[statement:Coordinate System]{Coordinate System}, \hyperref[statement:Space]{Space}, \hyperref[statement:Subset]{Subset}, \hyperref[statement:State Vector]{State Vector}, \hyperref[statement:Point]{Point}, \hyperref[statement:Real Numbers]{Real Numbers}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Position Space}
+\begin{statement}[\textbf{Position Space}]
+\label{statement:Position Space}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A [\hyperref[statement:Space]{space}] where each [\hyperref[statement:Point]{point}] represents a position of an object is called a position space.
+The coordinate system that acts on it is called position coordinate system.
+\par
+{\color{magenta} \textbf{Significance}:
+Used to denote positions of objects in the real world.
+Positions in real world are generally mapped to a 3D vector set.
+This mapping is just based on the belief that the real world is in 3D.
+But as we believe, beliefs are not final and should be challanged constantly and consciously.
+
+For example positions can be mapped to 4D vector set, the new dimension being the time.
+Similarly more dimensions can represent more information.
+Or the real world might contain something more that we have not yet observed properly which cannot be represented using a 3D vector set.
+
+Whatever the real world might be, we can always imagine a space represented by 3D vector set and do operations on it.
+
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Space]{Space}, \hyperref[statement:Point]{Point}, 
+\paragraph{0 children} 
+
+
+\end{document}

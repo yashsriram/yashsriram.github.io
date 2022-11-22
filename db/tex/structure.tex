@@ -1,0 +1,72 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+\chapter*{structure}
+\section*{what?}
+This is not a re-write of any book.
+This is the written form of my perspective and understanding of mathematics.
+
+In big picture this text describes a directed acyclic graph (DAG).
+
+Any node of the DAG has a \textbf{statement}.
+A statment is a sentence that is either true or false.
+
+Every statement is associated with a \textbf{proof}.
+All edges from a statement to its parents are associated with the same proof.
+Given all its parents are true, A statement is true $\biimpl$ A proof is true.
+It is illustrated in the figure \ref{fig:structure_of_text}.
+
+As the DAG is constructed manually, the statements are by default in a topological sort.
+Viz, a statement can not have any statement defined after it as parent, therefore what it states is independent of all such statements.
+
+\begin{figure}[ht]
+	\centering
+  \begin{tikzpicture}[
+      > = stealth, % arrow head style
+      shorten > = 1pt, % don't touch arrow head to node
+      auto,
+      node distance = 3cm, % distance between nodes
+      semithick % line style
+  ]
+
+  \tikzstyle{every state}=[
+      draw = black,
+      thick,
+      fill = white,
+      minimum size = 4mm
+  ]
+
+  \node[state] (a1) {$x = 4$};
+  \node[state] (a2) [right of=a1] {$y = 5$};
+  \node[state] (t1) [below of=a1] {$ x + y = 9 $};
+  \node[state] (t2) [right of=t1] {$ x * y = 20 $};
+  \node[state] (t3) [below of=t1] {$ y + x = 9 $};
+
+  \path[->] (a1) edge node {substitution} (t1);
+  \path[->] (a2) edge node {} (t1);
+  \path[->] (a1) edge node {} (t2);
+  \path[->] (a2) edge node {} (t2);
+  \path[->] (t1) edge node {addition is commutative} (t3);
+
+  \end{tikzpicture}
+	\caption{Illustration of structure of this text}
+	\label{fig:structure_of_text}
+\end{figure}
+
+\section*{why?}
+\textbf{Graph} because, the hope is that by seeing the bigger picture with connections neatly lay-ed out we might be able to find new things.
+
+\textbf{Directed} because, it is the way mathematics is developed traditionally. Also this way, given a statement, we can get all statements that should be true for the subject statement to be true.
+
+\textbf{Acyclic} because, if there are circles in the statement graph then there is a circular dependency among statements to be true.
+This makes not much sense to me and therefore acyclic.
+
+\section*{also}
+Statements always have a significance viz. there is a reasonable answer to the question `why the hell are we even spending time on this?'.
+I write this for every statement.
+I avoid purposeless statements.
+
+All definitions in this text are just my convention, which will mostly be same as the general consensus.
+
+\end{document}
+

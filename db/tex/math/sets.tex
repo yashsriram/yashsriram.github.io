@@ -1,0 +1,329 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{sets}
+
+
+\addcontentsline{toc}{section}{Set}
+\begin{statement}[\textbf{Set}]
+\label{statement:Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A set $S$ is a collection of elements from which any two elements picked without replacement are non-identical [\hyperref[statement:Identity]{identity}]. If the elements are denoted by $ e_1, e_2, e_3, ... e_n $ the set is denoted by $ S \equiv \{ e_1, e_2, e_3, ... e_n \} $ [\hyperref[statement:Enumerated Notation]{enumerated notation}].
+\par
+{\color{magenta} \textbf{Significance}:
+To represent collection of differently colored balls in an urn, etc...
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Identity]{Identity}, \hyperref[statement:Enumerated Notation]{Enumerated Notation}, 
+\paragraph{23 children} \hyperref[statement:Belongs To]{Belongs To}, \hyperref[statement:Subset]{Subset}, \hyperref[statement:Superset]{Superset}, \hyperref[statement:Proper Subset]{Proper Subset}, \hyperref[statement:Proper Superset]{Proper Superset}, \hyperref[statement:Union]{Union}, \hyperref[statement:Intersection]{Intersection}, \hyperref[statement:Complement]{Complement}, \hyperref[statement:Universal Set]{Universal Set}, \hyperref[statement:Null Set]{Null Set}, \hyperref[statement:Ordered Set]{Ordered Set}, \hyperref[statement:Properties of sets]{Properties of sets}, \hyperref[statement:Partition]{Partition}, \hyperref[statement:Function]{Function}, \hyperref[statement:Whole Numbers]{Whole Numbers}, \hyperref[statement:Linearly Independent Set]{Linearly Independent Set}, \hyperref[statement:Span]{Span}, \hyperref[statement:Basis]{Basis}, \hyperref[statement:Standard basis]{Standard basis}, \hyperref[statement:Space]{Space}, \hyperref[statement:State Vector Space]{State Vector Space}, \hyperref[statement:Outcome Space]{Outcome Space}, \hyperref[statement:Event Space]{Event Space}, 
+
+
+
+\addcontentsline{toc}{section}{Belongs To}
+\begin{statement}[\textbf{Belongs To}]
+\label{statement:Belongs To}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+An element $ \lambda $ belongs to a [\hyperref[statement:Set]{set}] S $ \biimpl $ $ \exists! \tau \in S \mid \lambda \equiv \tau $ [\hyperref[statement:Identity]{identity}].
+Denoted by $ \lambda \in S $.
+
+An element $ \lambda $ does not belong to a S $ \biimpl $ $ \nexists \tau \in S \mid \lambda \equiv \tau $.
+Denoted by $ \lambda \notin S $.
+\par
+{\color{magenta} \textbf{Significance}:
+To indicate whether an element belongs to a set or not.
+There cannot be more than one element in S that is identical to $ \lambda $ anyways due to the definition of a set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Identity]{Identity}, 
+\paragraph{3 children} \hyperref[statement:Subset]{Subset}, \hyperref[statement:Complement]{Complement}, \hyperref[statement:Function]{Function}, 
+
+
+
+\addcontentsline{toc}{section}{Subset}
+\begin{statement}[\textbf{Subset}]
+\label{statement:Subset}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A [\hyperref[statement:Set]{set}] E is a subset of set F $ \biimpl $ $ \forall e \in E \impl e \in F $. Denoted by $ E \subseteq F $ [\hyperref[statement:Belongs To]{belongs to}].
+\par
+{\color{magenta} \textbf{Significance}:
+Can be used to represent useful pieces of a set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Belongs To]{Belongs To}, 
+\paragraph{6 children} \hyperref[statement:Superset]{Superset}, \hyperref[statement:Proper Superset]{Proper Superset}, \hyperref[statement:Partition]{Partition}, \hyperref[statement:Coordinate Axis]{Coordinate Axis}, \hyperref[statement:Straight Space]{Straight Space}, \hyperref[statement:Event]{Event}, 
+
+
+
+\addcontentsline{toc}{section}{Superset}
+\begin{statement}[\textbf{Superset}]
+\label{statement:Superset}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A [\hyperref[statement:Set]{set}] E is a superset of set F $ \biimpl $ $ F \subseteq E $ [\hyperref[statement:Subset]{subset}]. Denoted by $ E \supseteq F $.
+\par
+{\color{magenta} \textbf{Significance}:
+The inverse of subset.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Subset]{Subset}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Proper Subset}
+\begin{statement}[\textbf{Proper Subset}]
+\label{statement:Proper Subset}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A [\hyperref[statement:Set]{set}] E is a proper subset of set F $ \biimpl $  $ E \subseteq F $ and $ E \not\equiv F $ [\hyperref[statement:Identity]{identity}]. Denoted by $ E \subset F $.
+\par
+{\color{magenta} \textbf{Significance}:
+Can be used to represent useful pieces of a set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Identity]{Identity}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Proper Superset}
+\begin{statement}[\textbf{Proper Superset}]
+\label{statement:Proper Superset}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A [\hyperref[statement:Set]{set}] E is a superset of set F $ \biimpl $ $ F \subset E $ [\hyperref[statement:Subset]{subset}]. Denoted by $ E \supset F $.
+\par
+{\color{magenta} \textbf{Significance}:
+The inverse of subset.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Subset]{Subset}, 
+\paragraph{0 children} 
+
+
+\addcontentsline{toc}{section}{Union}
+\begin{statement}[\textbf{Union}]
+\label{statement:Union}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A union of two [\hyperref[statement:Set]{set}]s A and B is a set which contains every element in A, every element in B, with repetitions removed, if any. Denoted by $ A \cup B $.
+\par
+{\color{magenta} \textbf{Significance}:
+A basic operator to combine sets.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Set]{Set}, 
+\paragraph{2 children} \hyperref[statement:Universal Set]{Universal Set}, \hyperref[statement:Whole Numbers]{Whole Numbers}, 
+
+
+
+\addcontentsline{toc}{section}{Intersection}
+\begin{statement}[\textbf{Intersection}]
+\label{statement:Intersection}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+An intersection of two [\hyperref[statement:Set]{set}]s A and B is a set which contains every element that is common to A and B. Denoted by $ A \cap B $.
+\par
+{\color{magenta} \textbf{Significance}:
+A basic operator to combine sets.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Set]{Set}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Complement}
+\begin{statement}[\textbf{Complement}]
+\label{statement:Complement}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A complement of a [\hyperref[statement:Set]{set}] A is a set which contains all elements which do not [\hyperref[statement:Belongs To]{belongs to}] the set A itself. Denoted by $ \overline{A} $
+\par
+{\color{magenta} \textbf{Significance}:
+A basic unary operator on a set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Belongs To]{Belongs To}, 
+\paragraph{1 children} \hyperref[statement:Universal Set]{Universal Set}, 
+
+
+
+\addcontentsline{toc}{section}{Universal Set}
+\begin{statement}[\textbf{Universal Set}]
+\label{statement:Universal Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A universal set of a [\hyperref[statement:Set]{set}] A is a set which is identical to $ A \cup \overline{A} $ [\hyperref[statement:Identity]{identity}] [\hyperref[statement:Union]{union}] [\hyperref[statement:Complement]{complement}].
+\par
+{\color{magenta} \textbf{Significance}:
+A representation of a whole. This is highly context dependent i.e. it depends on what one believes to be in the complement.
+A proper superset of universal set doesn't exist.
+One can argue to just put some more elements to build a superset, but it makes things complicated.
+If there is ever a real need for such a construct (dynamic universal set!!!???), we can build it then.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{4 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Identity]{Identity}, \hyperref[statement:Union]{Union}, \hyperref[statement:Complement]{Complement}, 
+\paragraph{2 children} \hyperref[statement:Properties of sets]{Properties of sets}, \hyperref[statement:Outcome Space]{Outcome Space}, 
+
+
+
+\addcontentsline{toc}{section}{Null Set}
+\begin{statement}[\textbf{Null Set}]
+\label{statement:Null Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A null set is a [\hyperref[statement:Set]{set}] which has [\hyperref[statement:Zero]{zero}] elements in it. Denoted by $ \phi $.
+\par
+{\color{magenta} \textbf{Significance}:
+A representation for nothingness.
+The reason for my take is because even null set is just a mathematical tool.
+There is a great debate whether there is a single null set or many null sets.
+My take on it is that it depends on the context.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Zero]{Zero}, 
+\paragraph{7 children} \hyperref[statement:Properties of sets]{Properties of sets}, \hyperref[statement:Partition]{Partition}, \hyperref[statement:Mutually Exclusive Events]{Mutually Exclusive Events}, \hyperref[statement:Properties of probability]{Properties of probability}, \hyperref[statement:Conditional Probability]{Conditional Probability}, \hyperref[statement:Total Probability Theorem]{Total Probability Theorem}, \hyperref[statement:Bayes Theorem]{Bayes Theorem}, 
+
+
+
+
+
+\addcontentsline{toc}{section}{Ordered Set}
+\begin{statement}[\textbf{Ordered Set}]
+\label{statement:Ordered Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+An ordered set is a [\hyperref[statement:Set]{set}] where there exists an [\hyperref[statement:Order]{order}] b/w every pair of elements in it.
+\par
+{\color{magenta} \textbf{Significance}:
+Useful to represent set of heights of students in a class, etc...
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Order]{Order}, 
+\paragraph{3 children} \hyperref[statement:Continuous Set]{Continuous Set}, \hyperref[statement:Contiguous Set]{Contiguous Set}, \hyperref[statement:Natural Numbers]{Natural Numbers}, 
+
+
+
+\addcontentsline{toc}{section}{Continuous Set}
+\begin{statement}[\textbf{Continuous Set}]
+\label{statement:Continuous Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+An [\hyperref[statement:Ordered Set]{ordered set}] which has no discrete separation b/w any two of its elements is a continuous set.
+\par
+{\color{magenta} \textbf{Significance}:
+To represent sets like the set of all wavelengths in the visible spectrum of light
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Ordered Set]{Ordered Set}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Contiguous Set}
+\begin{statement}[\textbf{Contiguous Set}]
+\label{statement:Contiguous Set}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+An [\hyperref[statement:Ordered Set]{ordered set}] which has a discrete separation b/w any two of its elements is a contiguous set.
+\par
+{\color{magenta} \textbf{Significance}:
+To represent colors in the rainbow in order [Violet, Indigo, Blue, Green, Yellow, Orange, Red]
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Ordered Set]{Ordered Set}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Properties of sets}
+\begin{statement}[\textbf{Properties of sets}]
+\label{statement:Properties of sets}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The following list enumerates some properties of [\hyperref[statement:Set]{set}]s. Here $S$ denotes [\hyperref[statement:Universal Set]{universal set}] and $\phi$ denotes [\hyperref[statement:Null Set]{null set}] [\hyperref[statement:Identity]{identity}].
+\begin{enumerate}[nolistsep]
+  \item $ A \cup B \equiv B \cup A $ (Commutative)
+  \item $ A \cap B \equiv B \cap A $ (Commutative)
+  \item $ (A \cup B) \cup C \equiv A \cup (B \cup C) $ (Associative)
+  \item $ (A \cap B) \cap C \equiv A \cap (B \cap C) $ (Associative)
+  \item $ A \cup A \equiv A$ (Idompotent)
+  \item $ A \cap A \equiv A$ (Idompotent)
+  \item $ A \cup S \equiv S \cup A \equiv S $
+  \item $ A \cap S \equiv S \cap A \equiv A $
+  \item $ A \cup \phi \equiv \phi \cup A \equiv A $
+  \item $ A \cap \phi \equiv \phi \cap A \equiv \phi $
+  \item $ A \cup \overline{A} \equiv S$ (Definition of universal set)
+  \item $ A \cap \overline{A} \equiv \phi$
+  \item $ A \subseteq B \biimpl A \cup B \equiv B $
+  \item $ A \subseteq B \biimpl A \cap B \equiv A $
+  \item $ A \cap (B \cup C) \equiv (A \cap B) \cup (A \cap C) $ (Distributive)
+  \item $ A \cup (B \cap C) \equiv (A \cup B) \cap (A \cup C) $ (Distributive)
+\end{enumerate}
+\par
+{\color{magenta} \textbf{Significance}:
+Some basic relations b/w sets so we can play with them.
+\par}
+\begin{proof}
+Proof by using definitions of parent statements.
+\end{proof}\par
+\paragraph{4 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Universal Set]{Universal Set}, \hyperref[statement:Null Set]{Null Set}, \hyperref[statement:Identity]{Identity}, 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Partition}
+\begin{statement}[\textbf{Partition}]
+\label{statement:Partition}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A partition of a [\hyperref[statement:Set]{set}] S is a set $ \Lambda $ of [\hyperref[statement:Subset]{subset}]s of S such that
+\begin{enumerate}[nolistsep]
+  \item Intersection of any two elements of $ \Lambda \equiv \phi $ [\hyperref[statement:Null Set]{null set}]
+  \item Union of all elements of $ \Lambda \equiv $ S
+\end{enumerate}
+
+\par
+{\color{magenta} \textbf{Significance}:
+A neat way to divide a set.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{3 parents} \hyperref[statement:Set]{Set}, \hyperref[statement:Subset]{Subset}, \hyperref[statement:Null Set]{Null Set}, 
+\paragraph{2 children} \hyperref[statement:Total Probability Theorem]{Total Probability Theorem}, \hyperref[statement:Bayes Theorem]{Bayes Theorem}, 
+
+
+\end{document}

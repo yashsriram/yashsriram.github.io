@@ -1,0 +1,152 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{basics}
+
+
+\addcontentsline{toc}{section}{Identity}
+\begin{statement}[\textbf{Identity}]
+\label{statement:Identity}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+Two things A and B are identical $ \biimpl $ $ \forall context $ there is no distinction b/w them. Denoted by $ A \equiv B $.
+
+Two things A and B are non-identical $ \biimpl $ $ \forall context $ there is distinction b/w them. Denoted by $ A \not\equiv B $.
+\par
+{\color{magenta} \textbf{Significance}:
+Note that this operator is binary, i.e. it takes two operands and produces a boolean.
+The definition itself is quite simple but I wanted to focus on the word context.
+For example, a Volkswagen car and a BMW car can be considered identical when the analysis is about classifying objects as cars and kittens.
+But they can be considered non-identical if we are analyzing the properties of different car brands.
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{9 children} \hyperref[statement:Order]{Order}, \hyperref[statement:Enumerated Notation]{Enumerated Notation}, \hyperref[statement:Set]{Set}, \hyperref[statement:Belongs To]{Belongs To}, \hyperref[statement:Proper Subset]{Proper Subset}, \hyperref[statement:Universal Set]{Universal Set}, \hyperref[statement:Properties of sets]{Properties of sets}, \hyperref[statement:Deterministic Experiment]{Deterministic Experiment}, \hyperref[statement:Non-deterministic Experiment]{Non-deterministic Experiment}, 
+
+
+
+\addcontentsline{toc}{section}{Equality}
+\begin{statement}[\textbf{Equality}]
+\label{statement:Equality}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+Two things A and B are equal at a context C $ \biimpl $ there is no distinction b/w them at C. Denoted by $ A = B $.
+
+Two things A and B are unequal at a context C $ \biimpl $ there is distinction b/w them at C. Denoted by $ A \ne B $.
+\par
+{\color{magenta} \textbf{Significance}:
+Note that this operator is binary, i.e. it takes two operands and produces a boolean.
+The definition itself is quite simple but I wanted to focus on the word context.
+For example, if we are talking about the apparant positions of objects in sky to an observer, the sun and moon are equal when it is a complete solar eclipse for her.
+But they can be considered unequal at all other times.
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Order}
+\begin{statement}[\textbf{Order}]
+\label{statement:Order}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+Two non-identical [\hyperref[statement:Identity]{identity}] things are ordered $ \biimpl $ there exists an notion that one thing comes before another. If A comes before B then we write $ A < B $ or $ B > A $.
+\par
+{\color{magenta} \textbf{Significance}:
+There need not be order in all non-identical pairs of things. For example there is no inherent order b/w a rabbit and a horse when listing out all animals. But there is an order when we consider the heights of two students when listing out heights of students in a class.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{1 parents} \hyperref[statement:Identity]{Identity}, 
+\paragraph{1 children} \hyperref[statement:Ordered Set]{Ordered Set}, 
+
+
+
+\addcontentsline{toc}{section}{Zero}
+\begin{statement}[\textbf{Zero}]
+\label{statement:Zero}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+The notion of absence.
+Symbolically written as 0.
+Can be considered as a number.
+\par
+{\color{magenta} \textbf{Significance}:
+For example in case of counting it can represent the case when there is no balls left in an urn.
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{3 children} \hyperref[statement:Null Set]{Null Set}, \hyperref[statement:Whole Numbers]{Whole Numbers}, \hyperref[statement:Standard Vector]{Standard Vector}, 
+
+
+
+\addcontentsline{toc}{section}{Number}
+\begin{statement}[\textbf{Number}]
+\label{statement:Number}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A number is a notion to count or to label or measure things.
+\par
+{\color{magenta} \textbf{Significance}:
+Some uses of numbers are
+\begin{enumerate}[noitemsep,topsep=0pt]
+  \item Count number of apples in a bag - There are 37 apples in a bag
+  \item Measure the length of a pencil - The length of the pencil is 3.1468 cm
+  \item Label each participant in a marathon - The participant number 10714 won the marathon
+\end{enumerate}
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{2 children} \hyperref[statement:Enumerated Notation]{Enumerated Notation}, \hyperref[statement:Natural Numbers]{Natural Numbers}, 
+
+
+
+\addcontentsline{toc}{section}{Notation}
+\begin{statement}[\textbf{Notation}]
+\label{statement:Notation}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+A shortform representation of a tool or idea.
+The representation is short doesn't mean that information is omitted, rather it motivates to present information in a more concise and simplified manner.
+A good notation has complete information, is transparent in meaning, readable and un-ambiguous.
+\par
+{\color{magenta} \textbf{Significance}:
+For instance, when writing a vector of a position $g$, writing $ P_{g} $ is a bad notation as it has no information about the coordiante system used.
+$ P^{\Lambda}_{g} $ where $ \Lambda $ is the coordinate system is a good notation.
+\par}
+\begin{proof}Axiom.\end{proof}\par
+\paragraph{0 parents} 
+\paragraph{0 children} 
+
+
+
+\addcontentsline{toc}{section}{Enumerated Notation}
+\begin{statement}[\textbf{Enumerated Notation}]
+\label{statement:Enumerated Notation}\hspace*{0pt}\par
+\end{statement}
+\textbf{Description}:
+To name each element in a collection such that each elements name is non-identical [\hyperref[statement:Identity]{identity}] to all others, we arrange each element in some way and use the position [\hyperref[statement:Number]{number}] as the subscript of that element. This is called enumerated notation.
+For a collection having n elements the enumerated notation would be $ \{ e_1, e_2, e_3, ... e_n \} $.
+\begin{itemize}[noitemsep,topsep=0pt]
+  \item If n = 0, it expands to $\{\}$.
+  \item If n = 1, it expands to $\{ e_1 \}$
+  \item If n = 2, it expands to $\{ e_1, e_2 \}$
+  \item ...
+  \item If n = n, it expands to $\{ e_1, e_2, ... e_n \}$
+\end{itemize}
+\par
+{\color{magenta} \textbf{Significance}:
+This way we can refer to each element uniquely.
+This comes in handy all the time.
+\par}
+\begin{proof}
+\proofbydefinition
+\end{proof}\par
+\paragraph{2 parents} \hyperref[statement:Identity]{Identity}, \hyperref[statement:Number]{Number}, 
+\paragraph{1 children} \hyperref[statement:Set]{Set}, 
+
+
+\end{document}
+

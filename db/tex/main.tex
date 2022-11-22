@@ -1,0 +1,66 @@
+%% class
+\documentclass[12pt, a4paper]{report}
+
+% packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsthm, amsfonts, amsmath, amssymb}
+\usepackage{pgf, tikz}
+\usetikzlibrary{arrows, automata}
+\usepackage{titlesec}
+\usepackage[titles]{tocloft}
+\usepackage{hyperref}
+\usepackage{subfiles} % best loaded last in the preamble
+
+% global settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+\setlength{\cftbeforechapskip}{1pt}
+\setcounter{secnumdepth}{0}
+
+% new commands
+\newtheorem{statement}{Statement}
+\newcommand{\proofbydefinition}{Proof by definition}
+\newcommand{\todo}{{\color{red} \textbf{TODO}}}
+\newcommand{\biimpl}{\longleftrightarrow}
+\newcommand{\impl}{\implies}
+\newcommand{\st}{\mid}
+
+\title{journal}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subfile{why_this_effort.tex}
+\subfile{the_process_of_learning.tex}
+\subfile{structure.tex}
+
+\tableofcontents
+
+\subfile{math/math.tex}
+\subfile{math/basics.tex}
+\subfile{math/sets.tex}
+\subfile{math/functions.tex}
+\subfile{math/numbers.tex}
+\subfile{math/vectors.tex}
+\subfile{math/coordinate_system.tex}
+\subfile{math/linear_algebra.tex}
+\subfile{math/calculus.tex}
+\subfile{math/probability.tex}
+\subfile{math/fourier_analysis.tex}
+\subfile{math/data_analysis.tex}
+\subfile{math/terminology.tex}
+
+\subfile{coding/languages.tex}
+\subfile{coding/nursery.tex}
+\subfile{coding/language.tex}
+
+\end{document}

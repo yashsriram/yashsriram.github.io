@@ -37,6 +37,7 @@
 - The best information note taking system is taking no notes at all.
 - The best running notes are the ones that are forgotten shortly later.
 - The best information gathering system until now is this.
+- Learning by example and by answering questions is good.
 
 ### vision for this
 - Make sure that design minimizes constructs. Minimize current content.

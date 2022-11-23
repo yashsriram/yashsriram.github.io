@@ -1,3 +1,6 @@
 +++
-template = "section.html"
 +++
+
+- [Stick Solo](stick-solo)
+- [Sixth Sense](sixth-sense)
+- [Hawkeye](hawkeye)

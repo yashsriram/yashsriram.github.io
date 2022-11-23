@@ -1,9 +1,0 @@
-{% extends "base" %}
-
-{% block title %}
-scratch.
-{% endblock title %}
-
-{% block content %}
-    {{ scratch | trim | linebreaksbr | safe }}
-{% endblock content %}

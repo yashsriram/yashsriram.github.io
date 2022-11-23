@@ -1,9 +1,0 @@
-{% extends "base" %}
-
-{% block title %}
-404.
-{% endblock title %}
-
-{% block content %}
-the requested resource was not found.
-{% endblock content %}

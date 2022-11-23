@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if page.extra.wasm_example %}
+    <script type="module">
+      import init from '/stick-solo/wasm-bindgen/{{ page.extra.wasm_example }}.js'
+      init()
+    </script>
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    {{ page.content | safe }}
+{% endblock content %}
+

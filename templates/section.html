@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for page in section.pages %}
+    <h1><a href="{{ page.permalink }}">{{ page.slug }}</a></h1>
+    {% endfor %}
+{% endblock content %}
+
+<html>
+  <body>
+  </body>
+</html>

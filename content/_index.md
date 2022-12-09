@@ -15,7 +15,7 @@ It incorporates center of mass term in inverse kinematics to generate a natural 
 It illustrates the need and versetality of using a learning based method for a particular situation.
 It shows a deep RL method to predict optimal neck position for hold to hold movement.
 
-[[Website]](https://yashsriram.github.io/stick-solo) [[Report]](https://yashsriram.github.io/stick-solo/report.pdf)
+[[Website]](https://yashsriram.github.io/stick-solo) [[Report]](https://yashsriram.github.io/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
 
 ---
 
@@ -26,7 +26,8 @@ It shows a deep RL method to predict optimal neck position for hold to hold move
 Ground up SLAM andplanning stack.
 Uses [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for EKF-SLAM.
 
-[[Website]](https://yashsriram.github.io/sixth-sense) [[Report]](https://yashsriram.github.io/sixth-sense/report.pdf)
+[[Website]](https://yashsriram.github.io/sixth-sense) [[Report]](https://yashsriram.github.io/sixth-sense/report.pdf) [[Code]](https://github.com/yashsriram/sixth-sense)
+
 
 ---
 
@@ -36,7 +37,8 @@ Uses [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93D
 
 A 2D localization method using point cloud matching on mobile phone hardware.
 
-[[Website]](https://yashsriram.github.io/hawkeye) [[Report]](https://yashsriram.github.io/hawkeye/report.pdf)
+[[Website]](https://yashsriram.github.io/hawkeye) [[Report]](https://yashsriram.github.io/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
+
 
 
 ---

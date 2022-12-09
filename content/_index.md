@@ -7,7 +7,8 @@
 
 <img width="50%" src="stick-figure-agent-sending-a-route.gif" alt="Stick figure agent sending a route" style="float:right;">
 
-Stick-figure agents that climb in free-solo style.
+
+[Stick figure](https://en.wikipedia.org/wiki/Stick_Figure) agents perform [free solo climbing](https://en.wikipedia.org/wiki/Free_solo_climbing).
 This project models climbing agents using arm manipulators.
 It illustrates the inverse kinematics of manipulators using closed-form, open-form, sample-based methods.
 It incorporates center of mass term in inverse kinematics to generate a natural looking motion.

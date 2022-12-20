@@ -3,39 +3,38 @@
 
 # Research Projects
 
-## stick-solo 🧗
-
-<img width="50%" src="stick-figure-agent-sending-a-route.gif" alt="Stick figure agent sending a route" style="float:right;">
+## Motion planning for Wall Climbing 🧗
 
 
-[Stick figure](https://en.wikipedia.org/wiki/Stick_Figure) agents perform [free solo climbing](https://en.wikipedia.org/wiki/Free_solo_climbing).
-This project models climbing agents using arm manipulators.
-It illustrates the inverse kinematics of manipulators using closed-form, open-form, sample-based methods.
-It incorporates center of mass term in inverse kinematics to generate a natural looking motion.
-It illustrates the need and versetality of using a learning based method for a particular situation.
-It shows a deep RL method to predict optimal neck position for hold to hold movement.
+<img width="50%" src="stick-figure-agent-sending-a-route.gif" alt="Stick figure agent sending a route">
+
+In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
 [[Website]](https://yashsriram.github.io/stick-solo) [[Report]](https://yashsriram.github.io/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
 
 ---
 
-## sixth-sense 📍
+## Noisy Lidar-equipped differential drive Robot Navigation🚏
 
-<img width="50%" src="iep.png" alt="Stick figure agent sending a route" style="float: right;">
+<img width="50%" src="iep.png" alt="Stick figure agent sending a route">
 
-Ground up SLAM andplanning stack.
-Uses [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for EKF-SLAM.
+For a differential drive robot with noisy lidar and control, we use Extended Kalman Filter to perform simultaneous localization and mapping (SLAM).
+Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for SLAM state.
 
 [[Website]](https://yashsriram.github.io/sixth-sense) [[Report]](https://yashsriram.github.io/sixth-sense/report.pdf) [[Code]](https://github.com/yashsriram/sixth-sense)
 
 
 ---
 
-## hawkeye 👁️
+## Real-time vision-based 2D localization on mobile phone 👁️
 
-<img width="20%" src="drawing-star-with-mobile.gif" alt="Drawing a star using a mobile" style="float: right;">
+<img width="20%" src="drawing-star-with-mobile.gif" alt="Drawing a star using a mobile">
 
-A 2D localization method using point cloud matching on mobile phone hardware.
+We use a mobile phone's front camera to detect feature points using AKAZE feature detector.
+We compare the set of features incoming to that of the first frame.
+We then estimate the euclidean transform between these two sets to localize the phone.
+We always assume motion in 2D plane.
+We peform all computation on the device itself.
 
 [[Website]](https://yashsriram.github.io/hawkeye) [[Report]](https://yashsriram.github.io/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
 

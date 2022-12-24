@@ -1,6 +1,14 @@
 +++
 +++
 
+I am a software engineer at [Braincorp](https://braincorp.com/). I mainly work on the software that runs on our autonomous floor cleaners and shelf scanners.
+
+I am interested in the problems at the intersection of Robotics, Computational Bio-mechanics, and Physics-based simulation.
+
+I completed a Master of Science in Computer Science program with a focus on Robotics courses at University of Minnesota, Twin Cities (2021). Before that I completed a Bachelor of Technology in Computer Science and Engineering program at Indian Institute of Technology, Bombay (2019).
+
+# Research
+
 ## Motion planning for Wall Climbing 🧗
 
 <div style="display: flex;">

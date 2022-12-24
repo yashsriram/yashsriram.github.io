@@ -1,11 +1,11 @@
 +++
 +++
 
-I am a software engineer at [Braincorp](https://braincorp.com/). I mainly work on the software that runs on our autonomous floor cleaners and shelf scanners.
+I am a software engineer at [Braincorp](https://braincorp.com/). I mainly work on on-the-robot software for our autonomous floor cleaners and shelf scanners.
 
 I am interested in the problems at the intersection of Robotics, Computational Bio-mechanics, and Physics-based simulation.
 
-I completed a Master of Science in Computer Science program with a focus on Robotics courses at University of Minnesota, Twin Cities (2021). Before that I completed a Bachelor of Technology in Computer Science and Engineering program at Indian Institute of Technology, Bombay (2019).
+I completed a M.S. program in Computer Science with a focus on Robotics at University of Minnesota, Twin Cities (2021) where I was fortunate to work with [Prof. Stephen Guy](https://www-users.cse.umn.edu/~sjguy/). Before that I completed a B.Tech program in Computer Science and Engineering at Indian Institute of Technology, Bombay (2019), where I closely worked with [Prof. Vinayak Naik](https://www.vinayaknaik.info/) and [Prof. Mythili Vutukuru](https://www.cse.iitb.ac.in/~mythili/).
 
 # Research
 
@@ -22,7 +22,7 @@ I completed a Master of Science in Computer Science program with a focus on Robo
 
 In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
-[[Website]](https://yashsriram.github.io/stick-solo) [[Report]](https://yashsriram.github.io/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
+[[Website]](/stick-solo) [[Report]](/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
 </div>
 </div>
 
@@ -40,7 +40,7 @@ In wall climbing, an agent starts with an initial pose and then uses protrusions
 For a differential drive robot with noisy lidar and control, we use Extended Kalman Filter to perform simultaneous localization and mapping (SLAM).
 Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for SLAM state.
 
-[[Website]](https://yashsriram.github.io/sixth-sense) [[Report]](https://yashsriram.github.io/sixth-sense/report.pdf) [[Code]](https://github.com/yashsriram/sixth-sense)
+[[Website]](/sixth-sense) [[Report]](/sixth-sense/report.pdf) [[Code]](https://github.com/yashsriram/sixth-sense)
 </div>
 </div>
 
@@ -61,6 +61,6 @@ We then estimate the euclidean transform between these two sets to localize the 
 We always assume motion in 2D plane.
 We peform all computation on the device itself.
 
-[[Website]](https://yashsriram.github.io/hawkeye) [[Report]](https://yashsriram.github.io/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
+[[Website]](/hawkeye) [[Report]](/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
 </div>
 </div>

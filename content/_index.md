@@ -6,11 +6,12 @@
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
+<img width="500px" height="500px" src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
 <figcaption>A stick figure agent sending a route</figcaption>
 </figure>
 </div>
 <div style="flex-grow: 1; flex-shrink: 1">
+
 In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
 [[Website]](https://yashsriram.github.io/stick-solo) [[Report]](https://yashsriram.github.io/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
@@ -22,7 +23,7 @@ In wall climbing, an agent starts with an initial pose and then uses protrusions
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img src="research/landmark-refinement-using-iep.gif" alt="Landmark refinement using iterative endpoint method">
+<img width="500px" height="500px" src="research/landmark-refinement-using-iep.gif" alt="Landmark refinement using iterative endpoint method">
 <figcaption>Landmark refinement using iterative endpoint method</figcaption>
 </figure>
 </div>
@@ -40,11 +41,12 @@ Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
+<img width="500px" height="500px" src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
 <figcaption>Drawing with mobile phone</figcaption>
 </figure>
 </div>
 <div style="flex-grow: 1; flex-shrink: 1">
+
 We use a mobile phone's front camera to detect feature points using AKAZE feature detector.
 We compare the set of features incoming to that of the first frame.
 We then estimate the euclidean transform between these two sets to localize the phone.

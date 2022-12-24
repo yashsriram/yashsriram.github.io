@@ -1,13 +1,15 @@
 +++
 +++
 
-# Research Projects
-
 ## Motion planning for Wall Climbing 🧗
 
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
-<img width="100%" src="stick-figure-agent-sending-a-route.gif" alt="Stick figure agent sending a route"></div>
+<figure>
+<img src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
+<figcaption>A stick figure agent sending a route</figcaption>
+</figure>
+</div>
 <div style="flex-grow: 1; flex-shrink: 1">
 In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
@@ -15,13 +17,14 @@ In wall climbing, an agent starts with an initial pose and then uses protrusions
 </div>
 </div>
 
----
-
 ## Noisy Lidar-equipped differential drive Robot Navigation🚏
 
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
-<img width="100%" src="iep.png" alt="Stick figure agent sending a route">
+<figure>
+<img width="100%" src="research/landmark-refinement-using-iep.png" alt="Landmark refinement using iterative endpoint method">
+<figcaption>Landmark refinement using iterative endpoint method</figcaption>
+</figure>
 </div>
 <div style="flex-grow: 1; flex-shrink: 1">
 For a differential drive robot with noisy lidar and control, we use Extended Kalman Filter to perform simultaneous localization and mapping (SLAM).
@@ -31,13 +34,14 @@ Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer
 </div>
 </div>
 
----
-
 ## Real-time vision-based 2D localization on mobile phone 👁️
 
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
-<img width="20%" src="drawing-star-with-mobile.gif" alt="Drawing a star using a mobile">
+<figure>
+<img src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
+<figcaption>Drawing with mobile phone</figcaption>
+</figure>
 </div>
 <div style="flex-grow: 1; flex-shrink: 1">
 We use a mobile phone's front camera to detect feature points using AKAZE feature detector.
@@ -49,5 +53,3 @@ We peform all computation on the device itself.
 [[Website]](https://yashsriram.github.io/hawkeye) [[Report]](https://yashsriram.github.io/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
 </div>
 </div>
-
----

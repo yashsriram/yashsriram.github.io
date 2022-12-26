@@ -14,7 +14,7 @@ I completed a M.S. program in Computer Science with a focus on Robotics at Unive
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
+<img width="200px" height="200px" src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
 <figcaption>A stick figure agent sending a route</figcaption>
 </figure>
 </div>
@@ -31,7 +31,7 @@ In wall climbing, an agent starts with an initial pose and then uses protrusions
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/landmark-refinement-using-iep.gif" alt="Landmark refinement using iterative endpoint method">
+<img width="200px" height="200px" src="research/landmark-refinement-using-iep.gif" alt="Landmark refinement using iterative endpoint method">
 <figcaption>Landmark refinement using iterative endpoint method</figcaption>
 </figure>
 </div>
@@ -49,7 +49,7 @@ Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
+<img width="200px" height="200px" src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
 <figcaption>Drawing with mobile phone</figcaption>
 </figure>
 </div>

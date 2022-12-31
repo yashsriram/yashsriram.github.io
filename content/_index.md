@@ -82,3 +82,20 @@ We peform all computation on the device itself.
 [[Website]](/drive) [[Report]](/drive/report.pdf) [[Code]](https://github.com/yashsriram/drive)
 </div>
 </div>
+
+# Physics
+
+## Archer: 2D light reflectons
+
+<div style="display: flex;">
+<div style="flex-grow: 1; flex-shrink: 1">
+<figure>
+<a href="/archer"><img width="100%" height="100%" src="physics/archer.gif" alt="Light reflections on plane and circular walls"></a>
+<figcaption>Light reflections on plane and circular walls</figcaption>
+</figure>
+</div>
+<div style="flex-grow: 1; flex-shrink: 1">
+
+[[Website]](/archer) [[Code]](https://github.com/yashsriram/archer)
+</div>
+</div>

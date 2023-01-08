@@ -14,11 +14,11 @@ I completed a M.S. program in Computer Science with a focus on Robotics at Unive
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/stick-figure-agent-sending-a-route.gif" alt="A stick figure agent sending a route">
+<img width="100%" src="research/stick-solo.gif" alt="A stick figure agent sending a route">
 <figcaption>A stick figure agent sending a route</figcaption>
 </figure>
 </div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<div style="flex-grow: 2; flex-shrink: 2">
 
 In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
@@ -31,11 +31,11 @@ In wall climbing, an agent starts with an initial pose and then uses protrusions
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/landmark-refinement-using-iep.gif" alt="Landmark refinement using iterative endpoint method">
+<img width="100%" height="100%" src="research/sixth-sense.gif" alt="Landmark refinement using iterative endpoint method">
 <figcaption>Landmark refinement using iterative endpoint method</figcaption>
 </figure>
 </div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<div style="flex-grow: 2; flex-shrink: 2">
 
 For a differential drive robot with noisy lidar and control, we use Extended Kalman Filter to perform simultaneous localization and mapping (SLAM).
 Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for SLAM state.
@@ -49,11 +49,11 @@ Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/drawing-star-with-mobile.gif" alt="Drawing with mobile phone">
+<img width="100%" height="100%" src="research/hawkeye.gif" alt="Drawing with mobile phone">
 <figcaption>Drawing with mobile phone</figcaption>
 </figure>
 </div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<div style="flex-grow: 2; flex-shrink: 2">
 
 We use a mobile phone's front camera to detect feature points using AKAZE feature detector.
 We compare the set of features incoming to that of the first frame.
@@ -70,11 +70,11 @@ We peform all computation on the device itself.
 <div style="display: flex;">
 <div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="500px" height="500px" src="research/orrt-vis-sideview.gif" alt="Real-time safety-guaranteed path following">
+<img width="100%" height="100%" src="research/drive.gif" alt="Real-time safety-guaranteed path following">
 <figcaption>Real-time safety-guaranteed path following</figcaption>
 </figure>
 </div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<div style="flex-grow: 2; flex-shrink: 2">
 
 - Real-time algorithms for following a given path while avoiding initially unknown static obstacles.
 - Uses RRT\* and Visibility graph along with padding obstacles.
@@ -84,6 +84,21 @@ We peform all computation on the device itself.
 </div>
 
 # Physics
+
+## Yet another Ray Tracer
+
+<div style="display: flex;">
+<div style="flex-grow: 1; flex-shrink: 1">
+<figure>
+<a href="/yart"><img width="100%" height="100%" src="physics/yart.gif" alt="Ray tracer based on Blinn-Phong model"></a>
+<figcaption>Ray tracer based on Blinn-Phong model</figcaption>
+</figure>
+</div>
+<div style="flex-grow: 1; flex-shrink: 1">
+
+[[Website]](/yart) [[Code]](https://github.com/yashsriram/yart)
+</div>
+</div>
 
 ## Archer: 2D light reflectons
 

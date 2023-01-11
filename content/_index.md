@@ -11,49 +11,36 @@ I completed a M.S. program in Computer Science with a focus on Robotics at Unive
 
 ## Motion planning for Wall Climbing 🧗
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="100%" src="research/stick-solo.gif" alt="A stick figure agent sending a route">
-<figcaption>A stick figure agent sending a route</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 2; flex-shrink: 2">
-
+<img height="100%" src="research/stick-solo.gif" alt="A stick figure agent sending a route">
+<figcaption>
 In wall climbing, an agent starts with an initial pose and then uses protrusions on the wall (called holds) to lock onto and climbs to the finish hold at the top. In this project, we achieved reliable climbing with natural looking motion for a two arm agent. We use random sampling in conjunction with gradient descent for inverse kinemetics computation and arm level control. We use a neural network, trained using cross-entropy optimization, as a predictor for optimal neck positioning.
 
 [[Website]](/stick-solo) [[Report]](/stick-solo/report.pdf) [[Code]](https://github.com/yashsriram/stick-solo)
-</div>
-</div>
+
+</figcaption>
+</figure>
+
 
 ## Douglas–Peucker algorithm for landmark refinement 🚏
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="100%" height="100%" src="research/sixth-sense.gif" alt="Landmark refinement using iterative endpoint method">
-<figcaption>Landmark refinement using iterative endpoint method</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 2; flex-shrink: 2">
+<img height="100%" src="research/sixth-sense.gif" alt="Landmark refinement using iterative endpoint method">
+<figcaption>
 
 For a differential drive robot with noisy lidar and control, we use Extended Kalman Filter to perform simultaneous localization and mapping (SLAM).
 Notably we use [Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) to refine landmarks used for SLAM state.
 
 [[Website]](/sixth-sense) [[Report]](/sixth-sense/report.pdf) [[Code]](https://github.com/yashsriram/sixth-sense)
-</div>
-</div>
+
+</figcaption>
+</figure>
 
 ## Real-time vision-based 2D localization on mobile phone 👁️
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<img width="100%" height="100%" src="research/hawkeye.gif" alt="Drawing with mobile phone">
-<figcaption>Drawing with mobile phone</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 2; flex-shrink: 2">
+<img height="100%" src="research/hawkeye.gif" alt="Drawing with mobile phone">
+<figcaption>
 
 We use a mobile phone's front camera to detect feature points using AKAZE feature detector.
 We compare the set of features incoming to that of the first frame.
@@ -62,55 +49,48 @@ We always assume motion in 2D plane.
 We peform all computation on the device itself.
 
 [[Website]](/hawkeye) [[Report]](/hawkeye/report.pdf) [[Code]](https://github.com/yashsriram/hawkeye)
-</div>
-</div>
+
+</figcaption>
+</figure>
+
 
 ## Real-time safety-guaranteed path following
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
+
 <figure>
-<img width="100%" height="100%" src="research/drive.gif" alt="Real-time safety-guaranteed path following">
-<figcaption>Real-time safety-guaranteed path following</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 2; flex-shrink: 2">
+<img height="100%" src="research/drive.gif" alt="Real-time safety-guaranteed path following">
+<figcaption>
 
 - Real-time algorithms for following a given path while avoiding initially unknown static obstacles.
 - Uses RRT\* and Visibility graph along with padding obstacles.
 
 [[Website]](/drive) [[Report]](/drive/report.pdf) [[Code]](https://github.com/yashsriram/drive)
-</div>
-</div>
+
+</figcaption>
+</figure>
 
 # Physics
 
 ## Yet another Ray Tracer
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<a href="/yart"><img width="100%" height="100%" src="physics/yart.gif" alt="Ray tracer based on Blinn-Phong model"></a>
-<figcaption>Ray tracer based on Blinn-Phong model</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<a href="/yart"><img height="100%" src="physics/yart.gif" alt="Ray tracer based on Blinn-Phong model"></a>
+<figcaption>Ray tracer based on Blinn-Phong model 
 
 [[Website]](/yart) [[Code]](https://github.com/yashsriram/yart)
-</div>
-</div>
+
+</figcaption>
+</figure>
 
 ## Archer: 2D light reflectons
 
-<div style="display: flex;">
-<div style="flex-grow: 1; flex-shrink: 1">
 <figure>
-<a href="/archer"><img width="100%" height="100%" src="physics/archer.gif" alt="Light reflections on plane and circular walls"></a>
-<figcaption>Light reflections on plane and circular walls</figcaption>
-</figure>
-</div>
-<div style="flex-grow: 1; flex-shrink: 1">
+<a href="/archer"><img height="100%" width="50%" src="physics/archer.gif" alt="Light reflections on plane and circular walls"></a>
+<figcaption>
+
+Light reflections on plane and circular walls
 
 [[Website]](/archer) [[Code]](https://github.com/yashsriram/archer)
-</div>
-</div>
+
+</figcaption>
+</figure>

@@ -1,5 +1,36 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashasvi Sriram</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
 
-{% block content %}
-    {{ section.content | safe }}
-{% endblock content %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        processEnvironments: false,
+      },
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <header>
+        <nav>
+            <a href="/">Yashasvi Sriram Patkuri</a> |
+            <a href="/">Homepage</a> |
+            <a href="/journal.pdf">Journal</a> |
+            <a href="/journal.html">Math DAG</a> |
+            <a href="https://github.com/yashsriram/">Github</a>
+        </nav>
+    </header>
+  <main>
+    {% block content %}
+        {{ section.content | safe }}
+    {% endblock content %}
+  </main>
+  </body>
+</html>

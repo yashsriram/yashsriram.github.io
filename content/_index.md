@@ -41,6 +41,6 @@ I completed a M.S. program in Computer Science with a focus on Robotics at Unive
 
 {{ project(
     github_id="archer",
-    title="Archer: 2D light reflectons",
+    title="2D light reflectons",
     image_alt="Light reflections on plane and circular walls"
 ) }}

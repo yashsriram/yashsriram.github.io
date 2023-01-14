@@ -1,15 +1,13 @@
 <div>
-    <table>
-    <tr>
-    <td>
-        <figure><img width="500vw" src="project_thumbnails/{{ github_id }}.gif" alt="{{ image_alt }}"></figure>
-    </td>
-    <td>
-        <h2>{{ title }}</h2>
-        <a href="/{{ github_id }}">[Website]</a>
-        <a href="/{{ github_id }}/report.pdf">[Report]</a>
-        <a href="https://github.com/yashsriram/{{ github_id }}">[Code]</a>
-    </td>
-    </tr>
-    </table>
+    <a href="/{{ github_id }}">
+    <figure>
+        <img src="project_thumbnails/{{ github_id }}.gif" alt="{{ image_alt }}">
+        <figcaption>
+            {{ title }}
+            <a href="/{{ github_id }}">[Website]</a>
+            <a href="/{{ github_id }}/report.pdf">[Report]</a>
+            <a href="https://github.com/yashsriram/{{ github_id }}">[Code]</a>
+        </figcaption>
+    </figure>
+    </a>
 </div>

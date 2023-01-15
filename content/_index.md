@@ -44,3 +44,9 @@ I completed a M.S. program in Computer Science with a focus on Robotics at Unive
     title="2D light reflectons",
     image_alt="Light reflections on plane and circular walls"
 ) }}
+
+{{ project(
+    github_id="tom-and-jerry",
+    title="Shoot and escape game; long-term strategy",
+    image_alt="Shoot and escape game; long-term strategy"
+) }}

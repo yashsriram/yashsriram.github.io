@@ -38,7 +38,7 @@ jobs:
       - name: Bindgen
         run: |
          cargo install wasm-bindgen-cli
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/convex_hull.wasm
+         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/convex_hull.wasm
       - name: Zola build
         uses: shalzz/zola-deploy-action@v0.16.1
         env:

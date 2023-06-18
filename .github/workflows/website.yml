@@ -40,7 +40,7 @@ jobs:
          cargo install wasm-bindgen-cli
          wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/convex_hull.wasm
       - name: Zola build
-        uses: shalzz/zola-deploy-action@v0.16.1
+        uses: shalzz/zola-deploy-action@v0.17.2
         env:
           BUILD_DIR: '.'
           BUILD_ONLY: true

@@ -1,0 +1,8 @@
+[package]
+name = "yashsriram"
+version = "0.0.0"
+edition = "2021"
+authors = ["Yashasvi Sriram Patkuri <yash.3997@gmail.com>"]
+
+[dependencies]
+bevy = "0.10.1"

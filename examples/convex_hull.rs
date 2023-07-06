@@ -1,10 +1,10 @@
-use bevy::prelude::*;
+use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 
 fn main() {
     let mut app = App::new();
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            resolution: (700., 500.).into(),
+            resolution: (400., 200.).into(),
             fit_canvas_to_parent: true,
             canvas: Some("#interactive".to_string()),
             ..default()
@@ -30,16 +30,16 @@ fn game(
 ) {
     if mouse_button_input.just_pressed(MouseButton::Left) {
         let window = windows.single();
-        if let Some(cursor) = window.physical_cursor_position() {
-            let cursor = Vec2::new(cursor.x, cursor.y);
-            let semi_viewport_axes = Vec2::new(
-                window.physical_width() as f32 / 2.,
-                window.physical_height() as f32 / 2.,
-            );
-            let unscaled_click = cursor - semi_viewport_axes;
-            let scale_factor = window.scale_factor() as f32;
-            let click = unscaled_click / scale_factor;
+        if let Some(cursor) = window.cursor_position() {
+            let semi_viewport_axes = Vec2::new(window.width() / 2., window.height() / 2.);
+            let click = cursor - semi_viewport_axes;
             info!("click = {:?}", click);
+            commands.spawn(MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(1.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
+                ..default()
+            });
         }
     }
 }

@@ -1,7 +1,6 @@
 +++
 +++
-<canvas id="interactive"></canvas>
-<script type="module">
-    import init from '../wasm-bindgen/convex_hull.js'
-    init()
-</script>
+
+The following interactive example illustrates finding convex hull of a set of points.
+
+{{ example(name="convex_hull") }}

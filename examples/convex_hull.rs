@@ -5,7 +5,6 @@ fn main() {
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
             resolution: (400., 200.).into(),
-            fit_canvas_to_parent: true,
             canvas: Some("#interactive".to_string()),
             ..default()
         }),

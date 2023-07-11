@@ -12,7 +12,9 @@ fn main() {
     }))
     .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
-    .add_system(game)
+    .add_system(reset)
+    .add_system(add_vertex)
+    .add_system(convex_hull)
     .run();
 }
 
@@ -20,7 +22,20 @@ fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 }
 
-fn game(
+fn reset(
+    mut commands: Commands,
+    query: Query<Entity, &Handle<ColorMaterial>>,
+    keyboard_input: Res<Input<KeyCode>>,
+) {
+    if keyboard_input.just_pressed(KeyCode::R) {
+        info!("Reset");
+        for entity in &query {
+            commands.entity(entity).despawn();
+        }
+    }
+}
+
+fn add_vertex(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
@@ -40,5 +55,15 @@ fn game(
                 ..default()
             });
         }
+    }
+}
+
+fn convex_hull(
+    mut commands: Commands,
+    query: Query<Entity, &Handle<ColorMaterial>>,
+    keyboard_input: Res<Input<KeyCode>>,
+) {
+    if keyboard_input.just_pressed(KeyCode::C) {
+        info!("Convex hull");
     }
 }

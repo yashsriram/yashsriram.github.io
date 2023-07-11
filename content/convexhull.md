@@ -3,4 +3,4 @@
 
 The following interactive example illustrates finding convex hull of a set of points.
 
-{{ example(name="convex_hull") }}
+{{ example(name="convexhull") }}

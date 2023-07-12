@@ -1,10 +1,11 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
+use yashsriram::*;
 
 fn main() {
     let mut app = App::new();
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            resolution: (400., 200.).into(),
+            resolution: (500., 400.).into(),
             canvas: Some("#interactive".to_string()),
             ..default()
         }),
@@ -18,18 +19,20 @@ fn main() {
     .run();
 }
 
+#[derive(Component)]
+struct VertexMarker;
+
 fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 }
 
 fn reset(
     mut commands: Commands,
-    query: Query<Entity, &Handle<ColorMaterial>>,
+    all_elements: Query<Entity, &Handle<ColorMaterial>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::R) {
-        info!("Reset");
-        for entity in &query {
+        for entity in &all_elements {
             commands.entity(entity).despawn();
         }
     }
@@ -47,23 +50,37 @@ fn add_vertex(
         if let Some(cursor) = window.cursor_position() {
             let semi_viewport_axes = Vec2::new(window.width() / 2., window.height() / 2.);
             let click = cursor - semi_viewport_axes;
-            info!("click = {:?}", click);
-            commands.spawn(MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(1.).into()).into(),
-                material: materials.add(ColorMaterial::from(Color::WHITE)),
-                transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
-                ..default()
-            });
+            commands
+                .spawn(MaterialMesh2dBundle {
+                    mesh: meshes.add(shape::Circle::new(1.).into()).into(),
+                    material: materials.add(ColorMaterial::from(Color::WHITE)),
+                    transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
+                    ..default()
+                })
+                .insert(VertexMarker);
         }
     }
 }
 
 fn convex_hull(
     mut commands: Commands,
-    query: Query<Entity, &Handle<ColorMaterial>>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    vertices: Query<&Transform, &VertexMarker>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::C) {
-        info!("Convex hull");
+        commands.spawn(MaterialMesh2dBundle {
+            mesh: meshes
+                .add(
+                    Scribble {
+                        points: vertices.iter().map(|v| v.translation).collect(),
+                    }
+                    .into(),
+                )
+                .into(),
+            material: materials.add(ColorMaterial::from(Color::WHITE)),
+            ..default()
+        });
     }
 }

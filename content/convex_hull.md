@@ -1,6 +1,10 @@
 +++
 +++
 
-The following interactive example illustrates finding convex hull of a set of points.
+{% example(name="convex_hull") %}
 
-{{ example(name="convex_hull") }}
+This interactive example illustrates a convex hull.
+leftmouseclick = place a vertex,
+r = reset,
+c = make convex hull of vertices,
+{% end %}

@@ -1,5 +1,3 @@
-use std::cmp::Ordering;
-
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 use yashsriram::*;
 
@@ -22,7 +20,7 @@ fn main() {
 }
 
 #[derive(Component)]
-struct VertexMarker;
+struct Vertex;
 
 fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
@@ -59,7 +57,7 @@ fn add_vertex(
                     transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
                     ..default()
                 })
-                .insert(VertexMarker);
+                .insert(Vertex);
         }
     }
 }
@@ -68,36 +66,48 @@ fn convex_hull(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
-    vertices: Query<&Transform, &VertexMarker>,
+    vertices: Query<&Transform, With<Vertex>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::C) {
-        let mut points: Vec<_> = vertices
+        // let user_input = vertices.iter().map(|v| v.translation).collect();
+        // commands.spawn(MaterialMesh2dBundle {
+        //     mesh: meshes.add(TurtleWalk(user_input).into()).into(),
+        //     material: materials.add(ColorMaterial::from(Color::CYAN)),
+        //     ..default()
+        // });
+        let seed = vertices
             .iter()
-            .map(|v| Vec2::new(v.translation.x, v.translation.y))
-            .collect();
-        if points.len() == 0 {
-            return;
+            .map(|v| v.translation)
+            .reduce(|left_most, v| if v.x < left_most.x { v } else { left_most })
+            .unwrap_or(Vec3::ZERO);
+        let mut hull = vec![seed];
+        for _ in 0..50 {
+            let seed2 = vertices
+                .iter()
+                .map(|v| v.translation)
+                .filter(|v| !hull.contains(v))
+                .reduce(|all_on_right, v| {
+                    let last = *hull.last().unwrap();
+                    let cross = (all_on_right - last).cross(v - last);
+                    if cross.z > 0. {
+                        v
+                    } else {
+                        all_on_right
+                    }
+                })
+                .unwrap_or(Vec3::ZERO);
+            hull.push(seed2);
         }
-        points.sort_by(|a, b| a.x.partial_cmp(&b.x).unwrap_or(Ordering::Equal));
         commands.spawn(MaterialMesh2dBundle {
             mesh: meshes.add(shape::Circle::new(10.).into()).into(),
             material: materials.add(ColorMaterial::from(Color::YELLOW)),
-            transform: Transform::from_translation(Vec3::new(points[0].x, points[0].y, 0.)),
+            transform: Transform::from_translation(seed),
             ..default()
         });
-        let mut hull: Vec<Vec2> = vec![];
-        // TODO: impl here
-        let hull = hull.into_iter().map(|v| Vec3::new(v.x, v.y, 0.)).collect();
         commands.spawn(MaterialMesh2dBundle {
             mesh: meshes.add(TurtleWalk(hull).into()).into(),
-            material: materials.add(ColorMaterial::from(Color::MAROON)),
-            ..default()
-        });
-        let user_input = vertices.iter().map(|v| v.translation).collect();
-        commands.spawn(MaterialMesh2dBundle {
-            mesh: meshes.add(TurtleWalk(user_input).into()).into(),
-            material: materials.add(ColorMaterial::from(Color::CYAN)),
+            material: materials.add(ColorMaterial::from(Color::GREEN)),
             ..default()
         });
     }

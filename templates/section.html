@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="examples/">examples/</a>
-    <a href="posts/">posts/</a>
+    <a href="../">../</a>
     {% for post in section.pages %}
       <a href="{{ post.permalink }}">./{{ post.slug }}</a>
     {% endfor %}

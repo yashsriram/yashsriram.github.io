@@ -1,14 +1,6 @@
 +++
 +++
 
-I am a software engineer at [Braincorp](https://braincorp.com/). I mainly work on on-the-robot software for our autonomous floor cleaners and shelf scanners.
-
-I am interested in the problems at the intersection of Robotics, Computational Bio-mechanics, and Physics-based simulation.
-
-I completed a M.S. program in Computer Science with a focus on Robotics at University of Minnesota, Twin Cities (2021) where I was fortunate to work with [Prof. Stephen Guy](https://www-users.cse.umn.edu/~sjguy/). Before that I completed a B.Tech program in Computer Science and Engineering at Indian Institute of Technology, Bombay (2019), where I closely worked with [Prof. Vinayak Naik](https://www.vinayaknaik.info/) and [Prof. Mythili Vutukuru](https://www.cse.iitb.ac.in/~mythili/).
-
-# Projects
-
 {{ project(
     github_id="stick-solo",
     title="Motion planning for Wall Climbing 🧗",

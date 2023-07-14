@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 use yashsriram::*;
 
@@ -5,7 +7,7 @@ fn main() {
     let mut app = App::new();
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            resolution: (500., 400.).into(),
+            resolution: (500., 300.).into(),
             canvas: Some("#interactive".to_string()),
             ..default()
         }),
@@ -52,7 +54,7 @@ fn add_vertex(
             let click = cursor - semi_viewport_axes;
             commands
                 .spawn(MaterialMesh2dBundle {
-                    mesh: meshes.add(shape::Circle::new(1.).into()).into(),
+                    mesh: meshes.add(shape::Circle::new(5.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
                     transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
                     ..default()
@@ -70,16 +72,32 @@ fn convex_hull(
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::C) {
+        let mut points: Vec<_> = vertices
+            .iter()
+            .map(|v| Vec2::new(v.translation.x, v.translation.y))
+            .collect();
+        if points.len() == 0 {
+            return;
+        }
+        points.sort_by(|a, b| a.x.partial_cmp(&b.x).unwrap_or(Ordering::Equal));
         commands.spawn(MaterialMesh2dBundle {
-            mesh: meshes
-                .add(
-                    Scribble {
-                        points: vertices.iter().map(|v| v.translation).collect(),
-                    }
-                    .into(),
-                )
-                .into(),
-            material: materials.add(ColorMaterial::from(Color::WHITE)),
+            mesh: meshes.add(shape::Circle::new(10.).into()).into(),
+            material: materials.add(ColorMaterial::from(Color::YELLOW)),
+            transform: Transform::from_translation(Vec3::new(points[0].x, points[0].y, 0.)),
+            ..default()
+        });
+        let mut hull: Vec<Vec2> = vec![];
+        // TODO: impl here
+        let hull = hull.into_iter().map(|v| Vec3::new(v.x, v.y, 0.)).collect();
+        commands.spawn(MaterialMesh2dBundle {
+            mesh: meshes.add(TurtleWalk(hull).into()).into(),
+            material: materials.add(ColorMaterial::from(Color::MAROON)),
+            ..default()
+        });
+        let user_input = vertices.iter().map(|v| v.translation).collect();
+        commands.spawn(MaterialMesh2dBundle {
+            mesh: meshes.add(TurtleWalk(user_input).into()).into(),
+            material: materials.add(ColorMaterial::from(Color::CYAN)),
             ..default()
         });
     }

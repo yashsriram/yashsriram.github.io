@@ -6,3 +6,4 @@ authors = ["Yashasvi Sriram Patkuri <yash.3997@gmail.com>"]
 
 [dependencies]
 bevy = "0.10.1"
+rand = "0.8.5"

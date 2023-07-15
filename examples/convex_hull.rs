@@ -1,4 +1,5 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
+use rand::{distributions::Uniform, prelude::*};
 use yashsriram::*;
 
 fn main() {
@@ -17,6 +18,7 @@ fn main() {
     .add_startup_system(init)
     .add_system(reset)
     .add_system(add_vertex)
+    .add_system(add_random_vertices)
     .add_system(convex_hull)
     .run();
 }
@@ -26,8 +28,31 @@ struct Vertex;
 #[derive(Component)]
 struct Output;
 
-fn init(mut commands: Commands) {
+fn init(
+    mut commands: Commands,
+    windows: Query<&Window>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+) {
     commands.spawn(Camera2dBundle::default());
+    let window = windows.single();
+    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
+    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
+    let mut rng = rand::thread_rng();
+    for _ in 0..20 {
+        commands
+            .spawn(MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(5.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_translation(Vec3::new(
+                    x_range.sample(&mut rng),
+                    y_range.sample(&mut rng),
+                    0.,
+                )),
+                ..default()
+            })
+            .insert(Vertex);
+    }
 }
 
 fn reset(
@@ -66,6 +91,35 @@ fn add_vertex(
     }
 }
 
+fn add_random_vertices(
+    mut commands: Commands,
+    windows: Query<&Window>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    keyboard_input: Res<Input<KeyCode>>,
+) {
+    if keyboard_input.just_pressed(KeyCode::S) {
+        let window = windows.single();
+        let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
+        let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
+        let mut rng = rand::thread_rng();
+        for _ in 0..20 {
+            commands
+                .spawn(MaterialMesh2dBundle {
+                    mesh: meshes.add(shape::Circle::new(5.).into()).into(),
+                    material: materials.add(ColorMaterial::from(Color::WHITE)),
+                    transform: Transform::from_translation(Vec3::new(
+                        x_range.sample(&mut rng),
+                        y_range.sample(&mut rng),
+                        0.,
+                    )),
+                    ..default()
+                })
+                .insert(Vertex);
+        }
+    }
+}
+
 fn convex_hull(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -96,14 +150,15 @@ fn convex_hull(
                 }
             })
             .unwrap_or(Vec3::ZERO);
-        let mut hull = vec![start];
+        let mut hull: Vec<_> = vec![start];
+        let mut rem: Vec<_> = vertices.iter().map(|v| v.translation).collect();
         loop {
-            let next = vertices
-                .iter()
-                .map(|v| v.translation)
-                .filter(|v| !hull.contains(v))
+            let last = *hull.last().unwrap();
+            rem = rem.into_iter().filter(|v| *v != last).collect();
+            let next = rem
+                .clone()
+                .into_iter()
                 .reduce(|all_on_right, v| {
-                    let last = *hull.last().unwrap();
                     let cross = (all_on_right - last).cross(v - last);
                     if cross.z > 0. {
                         v

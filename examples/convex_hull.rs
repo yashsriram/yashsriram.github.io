@@ -5,7 +5,7 @@ fn main() {
     let mut app = App::new();
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            resolution: (500., 300.).into(),
+            resolution: (600., 600.).into(),
             canvas: Some("#interactive".to_string()),
             ..default()
         }),
@@ -21,6 +21,8 @@ fn main() {
 
 #[derive(Component)]
 struct Vertex;
+#[derive(Component)]
+struct Output;
 
 fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
@@ -28,11 +30,11 @@ fn init(mut commands: Commands) {
 
 fn reset(
     mut commands: Commands,
-    all_elements: Query<Entity, &Handle<ColorMaterial>>,
+    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::R) {
-        for entity in &all_elements {
+        for entity in &color_materials {
             commands.entity(entity).despawn();
         }
     }
@@ -67,23 +69,34 @@ fn convex_hull(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     vertices: Query<&Transform, With<Vertex>>,
+    outputs: Query<Entity, With<Output>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
     if keyboard_input.just_pressed(KeyCode::C) {
-        // let user_input = vertices.iter().map(|v| v.translation).collect();
-        // commands.spawn(MaterialMesh2dBundle {
-        //     mesh: meshes.add(TurtleWalk(user_input).into()).into(),
-        //     material: materials.add(ColorMaterial::from(Color::CYAN)),
-        //     ..default()
-        // });
-        let seed = vertices
+        for entity in &outputs {
+            commands.entity(entity).despawn();
+        }
+        let start = vertices
             .iter()
             .map(|v| v.translation)
             .reduce(|left_most, v| if v.x < left_most.x { v } else { left_most })
             .unwrap_or(Vec3::ZERO);
-        let mut hull = vec![seed];
-        for _ in 0..50 {
-            let seed2 = vertices
+        let finish = vertices
+            .iter()
+            .map(|v| v.translation)
+            .filter(|v| *v != start)
+            .reduce(|all_on_left, v| {
+                let cross = (all_on_left - start).cross(v - start);
+                if cross.z < 0. {
+                    v
+                } else {
+                    all_on_left
+                }
+            })
+            .unwrap_or(Vec3::ZERO);
+        let mut hull = vec![start];
+        loop {
+            let next = vertices
                 .iter()
                 .map(|v| v.translation)
                 .filter(|v| !hull.contains(v))
@@ -97,18 +110,34 @@ fn convex_hull(
                     }
                 })
                 .unwrap_or(Vec3::ZERO);
-            hull.push(seed2);
+            hull.push(next);
+            if next == finish {
+                hull.push(start);
+                break;
+            }
         }
-        commands.spawn(MaterialMesh2dBundle {
-            mesh: meshes.add(shape::Circle::new(10.).into()).into(),
-            material: materials.add(ColorMaterial::from(Color::YELLOW)),
-            transform: Transform::from_translation(seed),
-            ..default()
-        });
-        commands.spawn(MaterialMesh2dBundle {
-            mesh: meshes.add(TurtleWalk(hull).into()).into(),
-            material: materials.add(ColorMaterial::from(Color::GREEN)),
-            ..default()
-        });
+        commands
+            .spawn(MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(10.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::BLUE)),
+                transform: Transform::from_translation(start),
+                ..default()
+            })
+            .insert(Output);
+        commands
+            .spawn(MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(10.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::RED)),
+                transform: Transform::from_translation(finish),
+                ..default()
+            })
+            .insert(Output);
+        commands
+            .spawn(MaterialMesh2dBundle {
+                mesh: meshes.add(TurtleWalk(hull).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::GREEN)),
+                ..default()
+            })
+            .insert(Output);
     }
 }

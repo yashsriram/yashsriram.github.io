@@ -16,10 +16,10 @@ fn main() {
     }))
     .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
-    .add_system(reset)
     .add_system(add_vertex)
     .add_system(add_random_vertices)
     .add_system(convex_hull)
+    .add_system(reset)
     .run();
 }
 
@@ -33,6 +33,7 @@ fn init(
     windows: Query<&Window>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
+    asset_server: Res<AssetServer>,
 ) {
     commands.spawn(Camera2dBundle::default());
     let window = windows.single();
@@ -40,8 +41,9 @@ fn init(
     let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
     let mut rng = rand::thread_rng();
     for _ in 0..20 {
-        commands
-            .spawn(MaterialMesh2dBundle {
+        commands.spawn((
+            Vertex,
+            MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(5.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::WHITE)),
                 transform: Transform::from_translation(Vec3::new(
@@ -50,21 +52,19 @@ fn init(
                     0.,
                 )),
                 ..default()
-            })
-            .insert(Vertex);
+            },
+        ));
     }
-}
-
-fn reset(
-    mut commands: Commands,
-    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
-    keyboard_input: Res<Input<KeyCode>>,
-) {
-    if keyboard_input.just_pressed(KeyCode::R) {
-        for entity in &color_materials {
-            commands.entity(entity).despawn();
-        }
-    }
+    commands.spawn(
+        TextBundle::from_section(
+            "Convex hull: click: add point, s: sample points, c: create a convex hull, r: remove everything",
+            TextStyle {
+                font: asset_server.load("fonts/FiraSans-Bold.ttf"),
+                font_size: 20.0,
+                color: Color::rgba(1., 1., 1., 0.3),
+            },
+        )
+    );
 }
 
 fn add_vertex(
@@ -79,14 +79,15 @@ fn add_vertex(
         if let Some(cursor) = window.cursor_position() {
             let semi_viewport_axes = Vec2::new(window.width() / 2., window.height() / 2.);
             let click = cursor - semi_viewport_axes;
-            commands
-                .spawn(MaterialMesh2dBundle {
+            commands.spawn((
+                Vertex,
+                MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(5.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
                     transform: Transform::from_translation(Vec3::new(click.x, click.y, 0.)),
                     ..default()
-                })
-                .insert(Vertex);
+                },
+            ));
         }
     }
 }
@@ -104,8 +105,9 @@ fn add_random_vertices(
         let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
         let mut rng = rand::thread_rng();
         for _ in 0..20 {
-            commands
-                .spawn(MaterialMesh2dBundle {
+            commands.spawn((
+                Vertex,
+                MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(5.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
                     transform: Transform::from_translation(Vec3::new(
@@ -114,8 +116,8 @@ fn add_random_vertices(
                         0.,
                     )),
                     ..default()
-                })
-                .insert(Vertex);
+                },
+            ));
         }
     }
 }
@@ -173,28 +175,44 @@ fn convex_hull(
                 break;
             }
         }
-        commands
-            .spawn(MaterialMesh2dBundle {
+        commands.spawn((
+            Output,
+            MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(10.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::BLUE)),
                 transform: Transform::from_translation(start),
                 ..default()
-            })
-            .insert(Output);
-        commands
-            .spawn(MaterialMesh2dBundle {
+            },
+        ));
+        commands.spawn((
+            Output,
+            MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(10.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::RED)),
                 transform: Transform::from_translation(finish),
                 ..default()
-            })
-            .insert(Output);
-        commands
-            .spawn(MaterialMesh2dBundle {
+            },
+        ));
+        commands.spawn((
+            Output,
+            MaterialMesh2dBundle {
                 mesh: meshes.add(TurtleWalk(hull).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
                 ..default()
-            })
-            .insert(Output);
+            },
+        ));
     }
 }
+
+fn reset(
+    mut commands: Commands,
+    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
+    keyboard_input: Res<Input<KeyCode>>,
+) {
+    if keyboard_input.just_pressed(KeyCode::R) {
+        for entity in &color_materials {
+            commands.entity(entity).despawn();
+        }
+    }
+}
+

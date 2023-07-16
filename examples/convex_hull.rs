@@ -3,17 +3,29 @@ use rand::{distributions::Uniform, prelude::*};
 use yashsriram::*;
 
 fn main() {
+    let assets_folder = if cfg!(target_arch = "wasm32") {
+        "/assets/"
+    } else {
+        "static/assets/"
+    };
     let mut app = App::new();
-    app.add_plugins(DefaultPlugins.set(WindowPlugin {
-        primary_window: Some(Window {
-            resolution: (600., 600.).into(),
-            canvas: Some("#interactive".to_string()),
-            fit_canvas_to_parent: true,
-            prevent_default_event_handling: false,
-            ..default()
-        }),
-        ..default()
-    }))
+    app.add_plugins(
+        DefaultPlugins
+            .set(WindowPlugin {
+                primary_window: Some(Window {
+                    resolution: (600., 600.).into(),
+                    canvas: Some("#interactive".to_string()),
+                    fit_canvas_to_parent: true,
+                    prevent_default_event_handling: false,
+                    ..default()
+                }),
+                ..default()
+            })
+            .set(AssetPlugin {
+                asset_folder: assets_folder.to_string(),
+                ..default()
+            }),
+    )
     .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
     .add_system(add_vertex)
@@ -215,4 +227,3 @@ fn reset(
         }
     }
 }
-

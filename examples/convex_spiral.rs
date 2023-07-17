@@ -24,7 +24,7 @@ fn main() {
     .add_startup_system(init)
     .add_system(add_vertex)
     .add_system(add_random_vertices)
-    .add_system(convex_hull)
+    .add_system(convex_spiral)
     .add_system(reset)
     .run();
 }
@@ -117,7 +117,7 @@ fn add_random_vertices(
     }
 }
 
-fn convex_hull(
+fn convex_spiral(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
@@ -125,7 +125,7 @@ fn convex_hull(
     outputs: Query<Entity, With<Output>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
-    if keyboard_input.just_pressed(KeyCode::C) {
+    if keyboard_input.just_pressed(KeyCode::S) {
         for entity in &outputs {
             commands.entity(entity).despawn();
         }
@@ -134,24 +134,14 @@ fn convex_hull(
             .map(|v| v.translation)
             .reduce(|left_most, v| if v.x < left_most.x { v } else { left_most })
             .unwrap_or(Vec3::ZERO);
-        let finish = vertices
-            .iter()
-            .map(|v| v.translation)
-            .filter(|v| *v != start)
-            .reduce(|all_on_left, v| {
-                let cross = (all_on_left - start).cross(v - start);
-                if cross.z < 0. {
-                    v
-                } else {
-                    all_on_left
-                }
-            })
-            .unwrap_or(Vec3::ZERO);
-        let mut hull: Vec<_> = vec![start];
+        let mut spiral: Vec<_> = vec![start];
         let mut rem: Vec<_> = vertices.iter().map(|v| v.translation).collect();
         loop {
-            let last = *hull.last().unwrap();
+            let last = *spiral.last().unwrap();
             rem = rem.into_iter().filter(|v| *v != last).collect();
+            if rem.len() == 0 {
+                break;
+            }
             let next = rem
                 .clone()
                 .into_iter()
@@ -164,11 +154,7 @@ fn convex_hull(
                     }
                 })
                 .unwrap_or(Vec3::ZERO);
-            hull.push(next);
-            if next == finish {
-                hull.push(start);
-                break;
-            }
+            spiral.push(next);
         }
         commands.spawn((
             Output,
@@ -182,16 +168,7 @@ fn convex_hull(
         commands.spawn((
             Output,
             MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(10.).into()).into(),
-                material: materials.add(ColorMaterial::from(Color::RED)),
-                transform: Transform::from_translation(finish),
-                ..default()
-            },
-        ));
-        commands.spawn((
-            Output,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(TurtleWalk(hull).into()).into(),
+                mesh: meshes.add(TurtleWalk(spiral).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
                 ..default()
             },

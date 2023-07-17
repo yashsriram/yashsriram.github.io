@@ -125,7 +125,7 @@ fn convex_hull(
     outputs: Query<Entity, With<Output>>,
     keyboard_input: Res<Input<KeyCode>>,
 ) {
-    if keyboard_input.just_pressed(KeyCode::C) {
+    if keyboard_input.just_pressed(KeyCode::H) {
         for entity in &outputs {
             commands.entity(entity).despawn();
         }

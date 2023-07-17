@@ -1,31 +1,25 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 use rand::{distributions::Uniform, prelude::*};
+use std::path::Path;
 use yashsriram::*;
 
 fn main() {
-    let assets_folder = if cfg!(target_arch = "wasm32") {
-        "/assets/"
-    } else {
-        "static/assets/"
-    };
     let mut app = App::new();
-    app.add_plugins(
-        DefaultPlugins
-            .set(WindowPlugin {
-                primary_window: Some(Window {
-                    resolution: (600., 600.).into(),
-                    canvas: Some("#interactive".to_string()),
-                    fit_canvas_to_parent: true,
-                    prevent_default_event_handling: false,
-                    ..default()
-                }),
-                ..default()
-            })
-            .set(AssetPlugin {
-                asset_folder: assets_folder.to_string(),
-                ..default()
-            }),
-    )
+    let canvas_id = Path::new(file!())
+        .file_stem()
+        .and_then(|stem| stem.to_str())
+        .and_then(|stem| Some("#".to_string() + stem));
+    let window_size = (600., 600.);
+    app.add_plugins(DefaultPlugins.set(WindowPlugin {
+        primary_window: Some(Window {
+            resolution: window_size.into(),
+            canvas: canvas_id,
+            fit_canvas_to_parent: true,
+            prevent_default_event_handling: false,
+            ..default()
+        }),
+        ..default()
+    }))
     .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
     .add_system(add_vertex)
@@ -45,7 +39,6 @@ fn init(
     windows: Query<&Window>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
-    asset_server: Res<AssetServer>,
 ) {
     commands.spawn(Camera2dBundle::default());
     let window = windows.single();
@@ -67,16 +60,6 @@ fn init(
             },
         ));
     }
-    commands.spawn(
-        TextBundle::from_section(
-            "Convex hull: click: add point, s: sample points, c: create a convex hull, r: remove everything",
-            TextStyle {
-                font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-                font_size: 20.0,
-                color: Color::rgba(1., 1., 1., 0.3),
-            },
-        )
-    );
 }
 
 fn add_vertex(

@@ -1,5 +1,4 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
-use rand::{distributions::Uniform, prelude::*};
 use std::path::Path;
 use yashsriram::*;
 
@@ -21,10 +20,10 @@ fn main() {
         ..default()
     }))
     .add_plugin(AddVertexPlugin)
+    .add_plugin(AddRandomVerticesPlugin)
     .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
     .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
-    .add_system(add_random_vertices)
     .add_system(convex_spiral)
     .run();
 }
@@ -32,62 +31,8 @@ fn main() {
 #[derive(Component)]
 struct Output;
 
-fn init(
-    mut commands: Commands,
-    windows: Query<&Window>,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-) {
+fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
-    let window = windows.single();
-    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-    let mut rng = rand::thread_rng();
-    for _ in 0..20 {
-        commands.spawn((
-            Vertex,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(5.).into()).into(),
-                material: materials.add(ColorMaterial::from(Color::WHITE)),
-                transform: Transform::from_translation(Vec3::new(
-                    x_range.sample(&mut rng),
-                    y_range.sample(&mut rng),
-                    0.,
-                )),
-                ..default()
-            },
-        ));
-    }
-}
-
-fn add_random_vertices(
-    mut commands: Commands,
-    windows: Query<&Window>,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-    keyboard_input: Res<Input<KeyCode>>,
-) {
-    if keyboard_input.just_pressed(KeyCode::F) {
-        let window = windows.single();
-        let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-        let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-        let mut rng = rand::thread_rng();
-        for _ in 0..20 {
-            commands.spawn((
-                Vertex,
-                MaterialMesh2dBundle {
-                    mesh: meshes.add(shape::Circle::new(5.).into()).into(),
-                    material: materials.add(ColorMaterial::from(Color::WHITE)),
-                    transform: Transform::from_translation(Vec3::new(
-                        x_range.sample(&mut rng),
-                        y_range.sample(&mut rng),
-                        0.,
-                    )),
-                    ..default()
-                },
-            ));
-        }
-    }
 }
 
 fn convex_spiral(

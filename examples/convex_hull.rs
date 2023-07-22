@@ -21,10 +21,11 @@ fn main() {
         ..default()
     }))
     .insert_resource(ClearColor(Color::BLACK))
+    .add_plugin(AddVertexPlugin)
+    .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
     .add_startup_system(init)
     .add_system(add_random_vertices)
     .add_system(convex_hull)
-    .add_system(reset)
     .run();
 }
 
@@ -168,17 +169,5 @@ fn convex_hull(
                 ..default()
             },
         ));
-    }
-}
-
-fn reset(
-    mut commands: Commands,
-    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
-    keyboard_input: Res<Input<KeyCode>>,
-) {
-    if keyboard_input.just_pressed(KeyCode::R) {
-        for entity in &color_materials {
-            commands.entity(entity).despawn();
-        }
     }
 }

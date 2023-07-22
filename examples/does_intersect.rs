@@ -20,10 +20,10 @@ fn main() {
         ..default()
     }))
     .insert_resource(ClearColor(Color::BLACK))
-    .add_startup_system(init)
     .add_plugin(AddVertexPlugin)
+    .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
+    .add_startup_system(init)
     .add_system(does_intersect)
-    .add_system(reset)
     .run();
 }
 
@@ -86,19 +86,5 @@ fn does_intersect(
                 *clear_color = ClearColor(Color::BLACK);
             }
         }
-    }
-}
-
-fn reset(
-    mut commands: Commands,
-    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
-    keyboard_input: Res<Input<KeyCode>>,
-    mut clear_color: ResMut<ClearColor>,
-) {
-    if keyboard_input.just_pressed(KeyCode::R) {
-        for entity in &color_materials {
-            commands.entity(entity).despawn();
-        }
-        *clear_color = ClearColor(Color::BLACK);
     }
 }

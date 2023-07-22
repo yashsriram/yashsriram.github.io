@@ -3,9 +3,9 @@ use bevy::{
     render::mesh::{Indices, PrimitiveTopology},
 };
 
-pub struct TurtleWalk(pub Vec<Vec3>);
+pub struct TurtleWalk<'a>(pub &'a [Vec3]);
 
-impl From<TurtleWalk> for Mesh {
+impl From<TurtleWalk<'_>> for Mesh {
     fn from(turtle_walk: TurtleWalk) -> Mesh {
         let vertices: Vec<_> = turtle_walk
             .0

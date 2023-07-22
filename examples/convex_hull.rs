@@ -19,7 +19,6 @@ fn main() {
         }),
         ..default()
     }))
-    .insert_resource(ClearColor(Color::BLACK))
     .add_plugin(AddRandomVerticesPlugin)
     .add_plugin(AddVertexPlugin)
     .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
@@ -109,7 +108,7 @@ fn convex_hull(
         commands.spawn((
             Output,
             MaterialMesh2dBundle {
-                mesh: meshes.add(TurtleWalk(hull).into()).into(),
+                mesh: meshes.add(TurtleWalk(&hull).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
                 ..default()
             },

@@ -22,7 +22,6 @@ fn main() {
     .add_plugin(AddVertexPlugin)
     .add_plugin(AddRandomVerticesPlugin)
     .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
-    .insert_resource(ClearColor(Color::BLACK))
     .add_startup_system(init)
     .add_system(convex_spiral)
     .run();
@@ -86,7 +85,7 @@ fn convex_spiral(
         commands.spawn((
             Output,
             MaterialMesh2dBundle {
-                mesh: meshes.add(TurtleWalk(spiral).into()).into(),
+                mesh: meshes.add(TurtleWalk(&spiral).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
                 ..default()
             },

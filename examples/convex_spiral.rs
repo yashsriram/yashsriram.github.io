@@ -27,9 +27,6 @@ fn main() {
     .run();
 }
 
-#[derive(Component)]
-struct Output;
-
 fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 }

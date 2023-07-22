@@ -4,24 +4,25 @@ use yashsriram::*;
 
 fn main() {
     let mut app = App::new();
-    let canvas_id = Path::new(file!())
-        .file_stem()
-        .and_then(|stem| stem.to_str())
-        .and_then(|stem| Some("#".to_string() + stem));
-    let window_size = (600., 300.);
-    app.add_plugins(DefaultPlugins.set(WindowPlugin {
-        primary_window: Some(Window {
-            resolution: window_size.into(),
-            canvas: canvas_id,
-            fit_canvas_to_parent: true,
-            prevent_default_event_handling: false,
+    app.add_plugins(
+        DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (600., 300.).into(),
+                canvas: Path::new(file!())
+                    .file_stem()
+                    .and_then(|stem| stem.to_str())
+                    .and_then(|stem| Some("#".to_string() + stem)),
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
+                ..default()
+            }),
             ..default()
         }),
-        ..default()
-    }))
-    .add_plugin(AddVertexPlugin)
-    .add_plugin(AddRandomVerticesPlugin)
-    .add_plugin(DespawnOnKeyRPlugin::<Handle<ColorMaterial>>::default())
+    )
+    .add_system(add_vertex_on_click.pipe(error))
+    .add_startup_system(start_with_random_vertices)
+    .add_system(add_random_vertices)
+    .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
     .add_startup_system(init)
     .add_system(convex_spiral)
     .run();

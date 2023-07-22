@@ -1,5 +1,8 @@
-use bevy::prelude::*;
-use bevy::render::mesh::{Indices, PrimitiveTopology};
+use bevy::{
+    prelude::*,
+    render::mesh::{Indices, PrimitiveTopology},
+    sprite::MaterialMesh2dBundle,
+};
 
 pub struct TurtleWalk(pub Vec<Vec3>);
 
@@ -20,5 +23,42 @@ impl From<TurtleWalk> for Mesh {
         mesh.insert_attribute(Mesh::ATTRIBUTE_NORMAL, normals);
         mesh.insert_attribute(Mesh::ATTRIBUTE_UV_0, uvs);
         mesh
+    }
+}
+
+#[derive(Component)]
+pub struct Vertex;
+
+pub struct AddVertexPlugin;
+
+impl Plugin for AddVertexPlugin {
+    fn build(&self, app: &mut App) {
+        app.add_system(add_vertex);
+    }
+}
+
+fn add_vertex(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    windows: Query<&Window>,
+    mouse_button_input: Res<Input<MouseButton>>,
+) {
+    if mouse_button_input.just_pressed(MouseButton::Left) {
+        let window = windows.single();
+        if let Some(cursor) = window.cursor_position() {
+            let semi_viewport_axes = Vec2::new(window.width() / 2., window.height() / 2.);
+            let click = cursor - semi_viewport_axes;
+            let new_vertex_position = Vec3::new(click.x, click.y, 0.);
+            commands.spawn((
+                Vertex,
+                MaterialMesh2dBundle {
+                    mesh: meshes.add(shape::Circle::new(5.).into()).into(),
+                    material: materials.add(ColorMaterial::from(Color::WHITE)),
+                    transform: Transform::from_translation(new_vertex_position),
+                    ..default()
+                },
+            ));
+        }
     }
 }

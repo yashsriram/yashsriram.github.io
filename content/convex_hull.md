@@ -9,5 +9,3 @@ Given a set of points on a plane, find the convex hull.
 | `left mouse click` | to place a new point |
 | `f` | sample a few points |
 | `r` | remove everything |
-
-{{ example(name="convex_hull") }}

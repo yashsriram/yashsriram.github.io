@@ -2,14 +2,4 @@
 
 {% block content %}
     {{ page.content | safe }}
-
-    <hr/>
-    <div style="text-align: center">
-        <canvas id="{{ name }}"></canvas>
-    </div>
-    <hr/>
-    <script type="module">
-        import init from '/wasm-bindgen/{{ page. }}.js'
-        init()
-    </script>
 {% endblock content %}

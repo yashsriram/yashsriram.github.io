@@ -36,7 +36,7 @@ fn update(
     windows: Query<&Window>,
     mouse: Res<Input<MouseButton>>,
     outputs: Query<Entity, With<SomeOutput>>,
-    vertices: Query<&Transform, With<Vertex>>,
+    vertices: Query<&Transform, With<PointInput>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
     if keyboard.just_pressed(KeyCode::S) {
@@ -90,7 +90,7 @@ fn update(
         let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
         let click = cursor - semi_viewport_axes;
         commands.spawn((
-            Vertex,
+            PointInput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                 material: materials.add(Color::WHITE.into()),

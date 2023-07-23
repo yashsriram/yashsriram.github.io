@@ -39,7 +39,7 @@ fn init(
     let mut rng = rand::thread_rng();
     for _ in 0..20 {
         commands.spawn((
-            Vertex,
+            PointInput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                 material: materials.add(Color::WHITE.into()),
@@ -59,7 +59,7 @@ fn update(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     windows: Query<&Window>,
-    vertices: Query<&Transform, With<Vertex>>,
+    vertices: Query<&Transform, With<PointInput>>,
     outputs: Query<Entity, With<SomeOutput>>,
     keyboard: Res<Input<KeyCode>>,
     mouse: Res<Input<MouseButton>>,
@@ -120,7 +120,7 @@ fn update(
         let mut rng = rand::thread_rng();
         for _ in 0..20 {
             commands.spawn((
-                Vertex,
+                PointInput,
                 MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
@@ -140,7 +140,7 @@ fn update(
         let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
         let click = cursor - semi_viewport_axes;
         commands.spawn((
-            Vertex,
+            PointInput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                 material: materials.add(Color::WHITE.into()),

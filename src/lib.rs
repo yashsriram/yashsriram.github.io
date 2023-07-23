@@ -1,12 +1,13 @@
 use bevy::{
     prelude::*,
     render::mesh::{Indices, PrimitiveTopology},
-    sprite::MaterialMesh2dBundle,
 };
-use rand::{distributions::Uniform, prelude::*};
 
 #[derive(Component)]
 pub struct Output;
+
+#[derive(Component)]
+pub struct Vertex;
 
 pub struct Walk<'a>(pub &'a [Vec3]);
 
@@ -39,91 +40,5 @@ pub fn despawn_on_key_r<S: Component>(
         for entity in &color_materials {
             commands.entity(entity).despawn();
         }
-    }
-}
-
-#[derive(Component)]
-pub struct Vertex;
-
-pub fn add_vertex_on_click(
-    mut commands: Commands,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-    windows: Query<&Window>,
-    mouse: Res<Input<MouseButton>>,
-) {
-    if !mouse.just_pressed(MouseButton::Left) {
-        return;
-    }
-    let window = windows.single();
-    let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
-    let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
-    let click = cursor - semi_viewport_axes;
-    commands.spawn((
-        Vertex,
-        MaterialMesh2dBundle {
-            mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-            material: materials.add(Color::WHITE.into()),
-            transform: Transform::from_translation(click.extend(0.)),
-            ..default()
-        },
-    ));
-}
-
-pub fn start_with_random_vertices(
-    mut commands: Commands,
-    windows: Query<&Window>,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-) {
-    let window = windows.single();
-    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-    let mut rng = rand::thread_rng();
-    for _ in 0..20 {
-        commands.spawn((
-            Vertex,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(Color::WHITE.into()),
-                transform: Transform::from_translation(Vec3::new(
-                    x_range.sample(&mut rng),
-                    y_range.sample(&mut rng),
-                    0.,
-                )),
-                ..default()
-            },
-        ));
-    }
-}
-
-pub fn add_random_vertices(
-    mut commands: Commands,
-    windows: Query<&Window>,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-    keyboard: Res<Input<KeyCode>>,
-) {
-    if !keyboard.just_pressed(KeyCode::F) {
-        return;
-    }
-    let window = windows.single();
-    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-    let mut rng = rand::thread_rng();
-    for _ in 0..20 {
-        commands.spawn((
-            Vertex,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(ColorMaterial::from(Color::WHITE)),
-                transform: Transform::from_translation(Vec3::new(
-                    x_range.sample(&mut rng),
-                    y_range.sample(&mut rng),
-                    0.,
-                )),
-                ..default()
-            },
-        ));
     }
 }

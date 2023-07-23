@@ -8,10 +8,10 @@ use rand::{distributions::Uniform, prelude::*};
 #[derive(Component)]
 pub struct Output;
 
-pub struct TurtleWalk<'a>(pub &'a [Vec3]);
+pub struct Walk<'a>(pub &'a [Vec3]);
 
-impl From<TurtleWalk<'_>> for Mesh {
-    fn from(turtle_walk: TurtleWalk) -> Mesh {
+impl From<Walk<'_>> for Mesh {
+    fn from(turtle_walk: Walk) -> Mesh {
         let vertices: Vec<_> = turtle_walk
             .0
             .iter()
@@ -51,25 +51,23 @@ pub fn add_vertex_on_click(
     mut materials: ResMut<Assets<ColorMaterial>>,
     windows: Query<&Window>,
     mouse: Res<Input<MouseButton>>,
-) -> Result<(), &'static str> {
-    if mouse.just_pressed(MouseButton::Left) {
-        let window = windows.single();
-        let cursor = window
-            .cursor_position()
-            .ok_or("Cursor not found on window")?;
-        let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
-        let click = cursor - semi_viewport_axes;
-        commands.spawn((
-            Vertex,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(Color::WHITE.into()),
-                transform: Transform::from_translation(click.extend(0.)),
-                ..default()
-            },
-        ));
+) {
+    if !mouse.just_pressed(MouseButton::Left) {
+        return;
     }
-    Ok(())
+    let window = windows.single();
+    let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
+    let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
+    let click = cursor - semi_viewport_axes;
+    commands.spawn((
+        Vertex,
+        MaterialMesh2dBundle {
+            mesh: meshes.add(shape::Circle::new(2.).into()).into(),
+            material: materials.add(Color::WHITE.into()),
+            transform: Transform::from_translation(click.extend(0.)),
+            ..default()
+        },
+    ));
 }
 
 pub fn start_with_random_vertices(
@@ -106,25 +104,26 @@ pub fn add_random_vertices(
     mut materials: ResMut<Assets<ColorMaterial>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
-    if keyboard.just_pressed(KeyCode::F) {
-        let window = windows.single();
-        let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-        let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-        let mut rng = rand::thread_rng();
-        for _ in 0..20 {
-            commands.spawn((
-                Vertex,
-                MaterialMesh2dBundle {
-                    mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                    material: materials.add(ColorMaterial::from(Color::WHITE)),
-                    transform: Transform::from_translation(Vec3::new(
-                        x_range.sample(&mut rng),
-                        y_range.sample(&mut rng),
-                        0.,
-                    )),
-                    ..default()
-                },
-            ));
-        }
+    if !keyboard.just_pressed(KeyCode::F) {
+        return;
+    }
+    let window = windows.single();
+    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
+    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
+    let mut rng = rand::thread_rng();
+    for _ in 0..20 {
+        commands.spawn((
+            Vertex,
+            MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_translation(Vec3::new(
+                    x_range.sample(&mut rng),
+                    y_range.sample(&mut rng),
+                    0.,
+                )),
+                ..default()
+            },
+        ));
     }
 }

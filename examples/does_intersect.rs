@@ -21,7 +21,7 @@ fn main() {
         )
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
         .add_startup_system(init)
-        .add_system(does_intersect)
+        .add_system(update)
         .run();
 }
 
@@ -29,13 +29,13 @@ fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 }
 
-fn does_intersect(
+fn update(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     windows: Query<&Window>,
     mouse: Res<Input<MouseButton>>,
-    outputs: Query<Entity, With<Output>>,
+    outputs: Query<Entity, With<SomeOutput>>,
     vertices: Query<&Transform, With<Vertex>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
@@ -75,7 +75,7 @@ fn does_intersect(
             .chunks(2)
         {
             commands.spawn((
-                Output,
+                SomeOutput,
                 MaterialMesh2dBundle {
                     mesh: meshes.add(Walk(line_segment).into()).into(),
                     material: materials.add(line_color.into()),

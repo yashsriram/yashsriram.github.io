@@ -4,10 +4,10 @@ use bevy::{
 };
 
 #[derive(Component)]
-pub struct Output;
+pub struct SomeOutput;
 
 #[derive(Component)]
-pub struct Vertex;
+pub struct PointInput;
 
 pub struct Walk<'a>(pub &'a [Vec3]);
 

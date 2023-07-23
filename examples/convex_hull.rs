@@ -22,7 +22,7 @@ fn main() {
         )
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
         .add_startup_system(init)
-        .add_system(convex_hull)
+        .add_system(update)
         .run();
 }
 
@@ -39,7 +39,7 @@ fn init(
     let mut rng = rand::thread_rng();
     for _ in 0..20 {
         commands.spawn((
-            Vertex,
+            PointInput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                 material: materials.add(Color::WHITE.into()),
@@ -54,13 +54,13 @@ fn init(
     }
 }
 
-fn convex_hull(
+fn update(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     windows: Query<&Window>,
-    vertices: Query<&Transform, With<Vertex>>,
-    outputs: Query<Entity, With<Output>>,
+    vertices: Query<&Transform, With<PointInput>>,
+    outputs: Query<Entity, With<SomeOutput>>,
     keyboard: Res<Input<KeyCode>>,
     mouse: Res<Input<MouseButton>>,
 ) {
@@ -110,7 +110,7 @@ fn convex_hull(
             }
         }
         commands.spawn((
-            Output,
+            SomeOutput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(10.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::BLUE)),
@@ -119,7 +119,7 @@ fn convex_hull(
             },
         ));
         commands.spawn((
-            Output,
+            SomeOutput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(10.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::RED)),
@@ -128,7 +128,7 @@ fn convex_hull(
             },
         ));
         commands.spawn((
-            Output,
+            SomeOutput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(Walk(&hull).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
@@ -143,7 +143,7 @@ fn convex_hull(
         let mut rng = rand::thread_rng();
         for _ in 0..20 {
             commands.spawn((
-                Vertex,
+                PointInput,
                 MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
@@ -163,7 +163,7 @@ fn convex_hull(
         let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
         let click = cursor - semi_viewport_axes;
         commands.spawn((
-            Vertex,
+            PointInput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                 material: materials.add(Color::WHITE.into()),

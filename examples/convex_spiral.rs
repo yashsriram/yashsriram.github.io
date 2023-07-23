@@ -22,7 +22,7 @@ fn main() {
         )
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
         .add_startup_system(init)
-        .add_system(convex_spiral)
+        .add_system(update)
         .run();
 }
 
@@ -54,13 +54,13 @@ fn init(
     }
 }
 
-fn convex_spiral(
+fn update(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     windows: Query<&Window>,
     vertices: Query<&Transform, With<Vertex>>,
-    outputs: Query<Entity, With<Output>>,
+    outputs: Query<Entity, With<SomeOutput>>,
     keyboard: Res<Input<KeyCode>>,
     mouse: Res<Input<MouseButton>>,
 ) {
@@ -96,7 +96,7 @@ fn convex_spiral(
             spiral.push(next);
         }
         commands.spawn((
-            Output,
+            SomeOutput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(shape::Circle::new(10.).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::BLUE)),
@@ -105,7 +105,7 @@ fn convex_spiral(
             },
         ));
         commands.spawn((
-            Output,
+            SomeOutput,
             MaterialMesh2dBundle {
                 mesh: meshes.add(Walk(&spiral).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),

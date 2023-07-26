@@ -20,6 +20,7 @@ fn main() {
             }),
         )
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
+        .add_system(spawn_single_point_input_on_xy)
         .add_startup_system(init)
         .add_system(update)
         .run();
@@ -33,8 +34,6 @@ fn update(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
-    windows: Query<&Window>,
-    mouse: Res<Input<MouseButton>>,
     outputs: Query<Entity, With<SomeOutput>>,
     vertices: Query<&Transform, With<PointInput>>,
     keyboard: Res<Input<KeyCode>>,
@@ -83,20 +82,5 @@ fn update(
                 },
             ));
         }
-    }
-    if mouse.just_pressed(MouseButton::Left) {
-        let window = windows.single();
-        let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
-        let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
-        let click = cursor - semi_viewport_axes;
-        commands.spawn((
-            PointInput,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(Color::WHITE.into()),
-                transform: Transform::from_translation(click.extend(0.)),
-                ..default()
-            },
-        ));
     }
 }

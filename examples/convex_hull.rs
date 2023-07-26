@@ -1,5 +1,4 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
-use rand::distributions::{Distribution, Uniform};
 use std::path::Path;
 use yashsriram::*;
 
@@ -21,48 +20,28 @@ fn main() {
             }),
         )
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
+        .add_startup_system((|| (0.66, 20, true)).pipe(spawn_point_inputs_on_xy))
+        .add_system(
+            (|keyboard: Res<Input<KeyCode>>| (0.66, 50, keyboard.just_pressed(KeyCode::F)))
+                .pipe(spawn_point_inputs_on_xy),
+        )
+        .add_system(spawn_single_point_input_on_xy)
         .add_startup_system(init)
         .add_system(update)
         .run();
 }
 
-fn init(
-    mut commands: Commands,
-    windows: Query<&Window>,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-) {
+fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
-    let window = windows.single();
-    let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-    let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-    let mut rng = rand::thread_rng();
-    for _ in 0..20 {
-        commands.spawn((
-            PointInput,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(Color::WHITE.into()),
-                transform: Transform::from_translation(Vec3::new(
-                    x_range.sample(&mut rng),
-                    y_range.sample(&mut rng),
-                    0.,
-                )),
-                ..default()
-            },
-        ));
-    }
 }
 
 fn update(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
-    windows: Query<&Window>,
     vertices: Query<&Transform, With<PointInput>>,
     outputs: Query<Entity, With<SomeOutput>>,
     keyboard: Res<Input<KeyCode>>,
-    mouse: Res<Input<MouseButton>>,
 ) {
     if keyboard.just_pressed(KeyCode::S) {
         for entity in &outputs {
@@ -132,42 +111,6 @@ fn update(
             MaterialMesh2dBundle {
                 mesh: meshes.add(Walk(&hull).into()).into(),
                 material: materials.add(ColorMaterial::from(Color::GREEN)),
-                ..default()
-            },
-        ));
-    }
-    if keyboard.just_pressed(KeyCode::F) {
-        let window = windows.single();
-        let x_range = Uniform::new(-window.width() / 3., window.width() / 3.);
-        let y_range = Uniform::new(-window.height() / 3., window.height() / 3.);
-        let mut rng = rand::thread_rng();
-        for _ in 0..20 {
-            commands.spawn((
-                PointInput,
-                MaterialMesh2dBundle {
-                    mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                    material: materials.add(ColorMaterial::from(Color::WHITE)),
-                    transform: Transform::from_translation(Vec3::new(
-                        x_range.sample(&mut rng),
-                        y_range.sample(&mut rng),
-                        0.,
-                    )),
-                    ..default()
-                },
-            ));
-        }
-    }
-    if mouse.just_pressed(MouseButton::Left) {
-        let window = windows.single();
-        let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
-        let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
-        let click = cursor - semi_viewport_axes;
-        commands.spawn((
-            PointInput,
-            MaterialMesh2dBundle {
-                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
-                material: materials.add(Color::WHITE.into()),
-                transform: Transform::from_translation(click.extend(0.)),
                 ..default()
             },
         ));

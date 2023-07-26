@@ -1,44 +1,16 @@
 +++
 +++
 
-{{ project(
-    github_id="stick-solo",
-    title="Motion planning for Wall Climbing 🧗",
-    image_alt="A stick figure agent sending a route"
-) }}
+[Motion planning for Wall Climbing 🧗](/stick-solo)
 
-{{ project(
-    github_id="sixth-sense",
-    title="Douglas–Peucker algorithm for landmark refinement 🚏",
-    image_alt="Landmark refinement using iterative endpoint method"
-) }}
+[Douglas–Peucker algorithm for landmark refinement 🚏](sixth-sense)
 
-{{ project(
-    github_id="hawkeye",
-    title="Real-time vision-based 2D localization on mobile phone 👁️",
-    image_alt="Drawing with mobile phone"
-) }}
+[Real-time vision-based 2D localization on mobile phone 👁️](hawkeye)
 
-{{ project(
-    github_id="drive",
-    title="Real-time safety-guaranteed path following",
-    image_alt=""
-) }}
+[Real-time safety-guaranteed path following](drive)
 
-{{ project(
-    github_id="yart",
-    title="Ray tracer based on Blinn-Phong model",
-    image_alt="Ray tracer based on Blinn-Phong model"
-) }}
+[Ray tracer based on Blinn-Phong model](yart)
 
-{{ project(
-    github_id="archer",
-    title="2D light reflectons",
-    image_alt="Light reflections on plane and circular walls"
-) }}
+[2D light reflectons](archer)
 
-{{ project(
-    github_id="tom-and-jerry",
-    title="Shoot and escape game; long-term strategy",
-    image_alt="Shoot and escape game; long-term strategy"
-) }}
+[Shoot and escape game; long-term strategy](tom-and-jerry)

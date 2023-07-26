@@ -69,3 +69,5 @@ fn simple() {
     );
     assert_eq!(merge(vec![vec![1, 4], vec![4, 5]]), vec![vec![1, 5]]);
 }
+
+fn main() {}

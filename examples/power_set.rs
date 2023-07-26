@@ -48,3 +48,5 @@ fn simple() {
         ]
     );
 }
+
+fn main() {}

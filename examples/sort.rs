@@ -153,3 +153,5 @@ mod iterative {
         assert_eq!(sort(vec![7, 5, 3, 2]), [2, 3, 5, 7]);
     }
 }
+
+fn main() {}

@@ -2,7 +2,9 @@
 
 {% block content %}
     {% for post in section.pages %}
+    <p>
       <a href="{{ post.permalink }}">./{{ post.slug }}</a>
+    </p>
     {% endfor %}
 
     {{ section.content | safe }}

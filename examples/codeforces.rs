@@ -1,5 +1,3 @@
-#![cfg(test)]
-
 /// https://codeforces.com/problemset/problem/1352/A
 fn decompose_as_round_numbers(num: u32) -> Vec<u32> {
     let mut rem = num;
@@ -296,3 +294,5 @@ mod neighbour_grid {
         assert_eq!(test_using_macro(1, 2, vec![1, 2]), None);
     }
 }
+
+fn main() {}

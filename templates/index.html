@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for post in section.pages %}
-    <p>
-      <a href="{{ post.permalink }}">./{{ post.slug }}</a>
-    </p>
-    {% endfor %}
-
     {{ section.content | safe }}
+
+    <ol>
+    {% for post in section.pages %}
+    <li>
+      <a href="{{ post.permalink }}">{{ post.slug }}</a>
+    </li>
+    {% endfor %}
+    </ol>
 {% endblock content %}

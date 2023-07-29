@@ -1,0 +1,21 @@
+- `Vis`
+- `State`, `StateSpace`
+- `Graph` on a `StateSpace`; Vertex = (`StateSpace::State`,  `Set<VertexIdx>`)
+- `TreeSearch` on `Graph`
+    - [x] start, stop, goal, max idxs
+    - [x] handle stop not reached -> reachable subgraph explored
+    - [x] Tree Search = Open least cost on fringe + Propagate to unexplored adjacencies and add them to fringe
+    - [x] Propagate trait = search state + cost priority + common search fn
+    - [x] CostPriorityWithIndex = Ord on cost + open min cost first
+        - Default impl use : NaN cost is INF + NAN cost = NAN cost
+    - [x] Searching for a stop = may finds path to stop + may some other vertices => so same search can be used to find paths to multiple vertices
+    - [x] Multiple searches on a graph = State per search = No resetting of state
+    - [x] Parallelizable searches
+    - [x] Large graph - small area search is inexpensive - uses sparse seach state using hashmaps (Control initial alloc size of tree and fringe)
+    - [x] Get path to a goal, get path to stop, store start, stop, max idxs
+    - [x] Remove Clone trait bound on vertex search state by merging Propagate and CostPriority => Get reference of underlying graph
+- `PRM` on `StateSpace`
+    - [x] Create a `Graph<StateSpace>`
+    - [x] Sampling from `StateSpace`
+    - [x] Connecting `Vertices<State>` using dist() trait fn and edge len
+    - [x] Multi (agent) searchable from `Graph`

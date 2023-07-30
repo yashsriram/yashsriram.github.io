@@ -1,2 +1,3 @@
 +++
+template = "home.html"
 +++

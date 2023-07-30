@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {{ page.content | safe }}
-
-    <hr/>
     <div style="text-align: center">
-        <canvas id="{{ page.slug }}"></canvas>
+        <canvas id="interactive"></canvas>
     </div>
-    <hr/>
     <script type="module">
         import init from '/wasm-bindgen/{{ page.slug }}.js'
         init()
     </script>
 {% endblock content %}
+

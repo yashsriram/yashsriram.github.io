@@ -1,5 +1,10 @@
 +++
+template = "reading.html"
 +++
+
+# the process of human learning
+
+<image src="/learning.png" alt="learning cycle" width=400/>
 
 # structure of knowledge
 

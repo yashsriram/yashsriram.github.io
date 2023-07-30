@@ -1,24 +1,18 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
-use std::path::Path;
 use yashsriram::*;
 
 fn main() {
     App::new()
-        .add_plugins(
-            DefaultPlugins.set(WindowPlugin {
-                primary_window: Some(Window {
-                    resolution: (600., 300.).into(),
-                    canvas: Path::new(file!())
-                        .file_stem()
-                        .and_then(|stem| stem.to_str())
-                        .and_then(|stem| Some("#".to_string() + stem)),
-                    fit_canvas_to_parent: true,
-                    prevent_default_event_handling: false,
-                    ..default()
-                }),
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (600., 300.).into(),
+                canvas: Some("#interactive".into()),
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
                 ..default()
             }),
-        )
+            ..default()
+        }))
         .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
         .add_startup_system((|| (0.66, 20, true)).pipe(spawn_point_inputs_on_xy))
         .add_system(

@@ -1,4 +1,5 @@
 +++
+template = "reading.html"
 +++
 
 # Space Sum

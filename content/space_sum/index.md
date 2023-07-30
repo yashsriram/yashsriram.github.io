@@ -1,12 +1,12 @@
 +++
 +++
 
-# Minkowski Sum
+# Space Sum
 
-P = Convex Polygon.
-Q = Convex Polygon.
+## Obstacle padding
 
-- minkowski\_sum(P, -Q) can give the center friendly obstacle.
+<img src="./obstacle_padding.jpg" height="500px"/>
+
 - minkowski\_sum(P, -Q) can give the minimum distance b/w polygons.
 - minkowski\_sum(P, -Q) can say if the polygons intersect.
 

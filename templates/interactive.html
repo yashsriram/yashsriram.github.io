@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div style="text-align: center">
-        <canvas id="interactive"></canvas>
-    </div>
+    <canvas id="interactive" tabindex=0></canvas>
     <script type="module">
-        import init from '/wasm-bindgen/{{ page.slug }}.js'
-        init()
+        import init from "/wasm-bindgen/{{ page.slug }}.js"
+        init();
+        window.onload = function() {
+            var canvasElm = document.getElementById("interactive");
+            canvasElm.focus();
+        }
     </script>
 {% endblock content %}
 

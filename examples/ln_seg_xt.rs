@@ -20,7 +20,7 @@ fn update(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
-    if keyboard.just_pressed(KeyCode::F) {
+    if keyboard.just_pressed(KeyCode::Space) {
         for entity in &inputs {
             commands.entity(entity).despawn();
         }

@@ -135,7 +135,7 @@ pub fn spawn_few(
     mut materials: ResMut<Assets<ColorMaterial>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
-    if keyboard.just_pressed(KeyCode::F) {
+    if keyboard.just_pressed(KeyCode::Space) {
         let window = windows.single();
         let mut rng = rand::thread_rng();
         let points: [Vec2; 20] = core::array::from_fn(|_| {

@@ -43,7 +43,7 @@ fn algo(
     outputs: Query<Entity, With<SomeOutput>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
-    if keyboard.just_pressed(KeyCode::S) {
+    if keyboard.just_pressed(KeyCode::Space) {
         for entity in &outputs {
             commands.entity(entity).despawn();
         }
@@ -135,7 +135,7 @@ pub fn spawn_few(
     mut materials: ResMut<Assets<ColorMaterial>>,
     keyboard: Res<Input<KeyCode>>,
 ) {
-    if keyboard.just_pressed(KeyCode::Space) {
+    if keyboard.just_pressed(KeyCode::F) {
         let window = windows.single();
         let mut rng = rand::thread_rng();
         let points: [Vec2; 20] = core::array::from_fn(|_| {

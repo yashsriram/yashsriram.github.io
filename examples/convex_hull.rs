@@ -1,45 +1,41 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
+use rand::prelude::*;
 use yashsriram::*;
 
-fn main() {
-    App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            primary_window: Some(Window {
-                resolution: (600., 300.).into(),
-                canvas: Some("#interactive".into()),
-                fit_canvas_to_parent: true,
-                prevent_default_event_handling: false,
-                ..default()
-            }),
-            ..default()
-        }))
-        .add_system(
-            |mut commands: Commands,
-             entities_with_s: Query<Entity, With<Handle<ColorMaterial>>>,
-             keyboard: Res<Input<KeyCode>>| {
-                if keyboard.just_pressed(KeyCode::R) {
-                    for entity in &entities_with_s {
-                        commands.entity(entity).despawn();
-                    }
-                }
-            },
-        )
-        .add_startup_system((|| (0.66, 20, true)).pipe(spawn_point_inputs_on_xy))
-        .add_system(
-            (|keyboard: Res<Input<KeyCode>>| (0.66, 50, keyboard.just_pressed(KeyCode::F)))
-                .pipe(spawn_point_inputs_on_xy),
-        )
-        .add_system(spawn_single_point_input_on_xy)
-        .add_startup_system(init)
-        .add_system(update)
-        .run();
-}
+#[derive(Component)]
+pub struct SomeOutput;
+#[derive(Component)]
+pub struct PointInput;
 
-fn init(mut commands: Commands) {
+fn init(
+    mut commands: Commands,
+    windows: Query<&Window>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+) {
     commands.spawn(Camera2dBundle::default());
+    let window = windows.single();
+    let mut rng = rand::thread_rng();
+    let points: [Vec2; 4] = core::array::from_fn(|_| {
+        Vec2::new(
+            window.width() * (rng.gen::<f32>() - 0.5),
+            window.height() * (rng.gen::<f32>() - 0.5),
+        )
+    });
+    for point in points {
+        commands.spawn((
+            PointInput,
+            MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_translation(point.extend(0.)),
+                ..default()
+            },
+        ));
+    }
 }
 
-fn update(
+fn algo(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
@@ -119,4 +115,89 @@ fn update(
             },
         ));
     }
+}
+fn clear(
+    mut commands: Commands,
+    color_materials: Query<Entity, With<Handle<ColorMaterial>>>,
+    keyboard: Res<Input<KeyCode>>,
+) {
+    if keyboard.just_pressed(KeyCode::R) {
+        for entity in &color_materials {
+            commands.entity(entity).despawn();
+        }
+    }
+}
+
+pub fn spawn_few(
+    mut commands: Commands,
+    windows: Query<&Window>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    keyboard: Res<Input<KeyCode>>,
+) {
+    if keyboard.just_pressed(KeyCode::F) {
+        let window = windows.single();
+        let mut rng = rand::thread_rng();
+        let points: [Vec2; 20] = core::array::from_fn(|_| {
+            Vec2::new(
+                window.width() * (rng.gen::<f32>() - 0.5),
+                window.height() * (rng.gen::<f32>() - 0.5),
+            )
+        });
+        for point in points {
+            commands.spawn((
+                PointInput,
+                MaterialMesh2dBundle {
+                    mesh: meshes.add(shape::Circle::new(2.).into()).into(),
+                    material: materials.add(ColorMaterial::from(Color::WHITE)),
+                    transform: Transform::from_translation(point.extend(0.)),
+                    ..default()
+                },
+            ));
+        }
+    }
+}
+
+pub fn spawn_one(
+    mut commands: Commands,
+    windows: Query<&Window>,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    mouse: Res<Input<MouseButton>>,
+) {
+    if mouse.just_pressed(MouseButton::Left) {
+        let window = windows.single();
+        let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
+        let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;
+        let click = cursor - semi_viewport_axes;
+        commands.spawn((
+            PointInput,
+            MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(2.).into()).into(),
+                material: materials.add(Color::WHITE.into()),
+                transform: Transform::from_translation(click.extend(0.)),
+                ..default()
+            },
+        ));
+    }
+}
+
+fn main() {
+    App::new()
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (600., 300.).into(),
+                canvas: Some("#interactive".into()),
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
+                ..default()
+            }),
+            ..default()
+        }))
+        .add_startup_system(init)
+        .add_system(clear)
+        .add_system(spawn_few)
+        .add_system(spawn_one)
+        .add_system(algo)
+        .run();
 }

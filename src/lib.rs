@@ -1,5 +1,4 @@
 use bevy::{
-    prelude::*,
     render::mesh::{Indices, PrimitiveTopology},
     sprite::MaterialMesh2dBundle,
 };
@@ -30,18 +29,6 @@ impl From<Walk<'_>> for Mesh {
         mesh.insert_attribute(Mesh::ATTRIBUTE_NORMAL, normals);
         mesh.insert_attribute(Mesh::ATTRIBUTE_UV_0, uvs);
         mesh
-    }
-}
-
-pub fn despawn_on_key_r<S: Component>(
-    mut commands: Commands,
-    entities_with_s: Query<Entity, With<S>>,
-    keyboard: Res<Input<KeyCode>>,
-) {
-    if keyboard.just_pressed(KeyCode::R) {
-        for entity in &entities_with_s {
-            commands.entity(entity).despawn();
-        }
     }
 }
 

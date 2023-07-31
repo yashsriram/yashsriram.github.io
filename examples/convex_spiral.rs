@@ -13,7 +13,17 @@ fn main() {
             }),
             ..default()
         }))
-        .add_system(despawn_on_key_r::<Handle<ColorMaterial>>)
+        .add_system(
+            |mut commands: Commands,
+             entities_with_s: Query<Entity, With<Handle<ColorMaterial>>>,
+             keyboard: Res<Input<KeyCode>>| {
+                if keyboard.just_pressed(KeyCode::R) {
+                    for entity in &entities_with_s {
+                        commands.entity(entity).despawn();
+                    }
+                }
+            },
+        )
         .add_startup_system((|| (0.66, 20, true)).pipe(spawn_point_inputs_on_xy))
         .add_system(
             (|keyboard: Res<Input<KeyCode>>| (0.66, 50, keyboard.just_pressed(KeyCode::F)))

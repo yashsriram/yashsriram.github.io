@@ -5,7 +5,7 @@ use yashsriram::*;
 #[derive(Component)]
 pub struct LineSegment;
 #[derive(Component)]
-pub struct LineSegmentEnd;
+pub struct InputPoint;
 
 fn init(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
@@ -13,7 +13,7 @@ fn init(mut commands: Commands) {
 
 fn update(
     mut commands: Commands,
-    inputs: Query<Entity, With<LineSegmentEnd>>,
+    inputs: Query<Entity, With<InputPoint>>,
     outputs: Query<Entity, With<LineSegment>>,
     keyboard: Res<Input<KeyCode>>,
     windows: Query<&Window>,
@@ -44,7 +44,7 @@ fn update(
         let does_intersect = p_opp_q && r_opp_s;
         for point in points {
             commands.spawn((
-                LineSegmentEnd,
+                InputPoint,
                 MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),

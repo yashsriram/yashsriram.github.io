@@ -3,12 +3,15 @@
 {% block content %}
     <canvas id="interactive" tabindex=0></canvas>
     <script type="module">
-        import init from "/wasm-bindgen/{{ page.slug }}.js"
-        init();
         window.onload = function() {
             var canvasElm = document.getElementById("interactive");
             canvasElm.focus();
         }
+        const params = new URLSearchParams(document.location.search);
+        const name = params.get("name");
+        const binding = `/wasm-bindgen/${name}.js`
+        const wasm = await import(binding)
+        wasm.default()
     </script>
 {% endblock content %}
 

@@ -6,7 +6,7 @@ template = "reading.html"
 
 ## Hull
 
-[Interactive Demo ~20Mb wasm](/interactive/convex_hull)
+[Interactive Demo ~20Mb wasm](/wasm?name=convex_hull)
 
 <video controls autoplay loop>
   <source src="convex_hull.mp4" type="video/mp4">
@@ -15,7 +15,7 @@ template = "reading.html"
 
 ## Spiral
 
-[Interactive Demo ~20Mb wasm](/interactive/convex_spiral)
+[Interactive Demo ~20Mb wasm](/wasm?name=convex_spiral)
 
 <video controls autoplay loop>
   <source src="convex_spiral.mp4" type="video/mp4">

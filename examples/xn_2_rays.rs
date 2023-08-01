@@ -29,26 +29,29 @@ fn update(
         }
         let window = windows.single();
         let mut rng = rand::thread_rng();
-        let points: [Vec2; 4] = core::array::from_fn(|_| {
-            Vec2::new(
+        let points: [Vec3; 4] = core::array::from_fn(|_| {
+            Vec3::new(
                 window.width() * (rng.gen::<f32>() - 0.5),
                 window.height() * (rng.gen::<f32>() - 0.5),
+                0.,
             )
         });
-        let [p, q, r, s] = points;
-        fn sign(p: Vec2, q: Vec2, a: Vec2) -> f32 {
-            (a.x - p.x) * (q.y - p.y) - (a.y - p.y) * (q.x - p.x)
-        }
-        let p_opp_q = sign(r, s, p) * sign(r, s, q) < 0.;
-        let r_opp_s = sign(p, q, r) * sign(p, q, s) < 0.;
-        let does_intersect = p_opp_q && r_opp_s;
+        let [p1, p2, q1, q2] = points;
+        let r1 = (p2 - p1).normalize();
+        let r2 = (q2 - q1).normalize();
+        let base = (q1 - p1).normalize();
+        let ray1_towards_ray2 = r1.dot(base);
+        let ray2_towards_ray1 = r2.dot(-base);
+        let towards_each_other = ray1_towards_ray2 + ray2_towards_ray1 > 0.;
+        let same_side_of_base = r1.cross(base).z * r2.cross(-base).z < 0.;
+        let does_intersect = towards_each_other && same_side_of_base;
         for ray in points.chunks(2) {
             commands.spawn((
                 InputPoint,
                 MaterialMesh2dBundle {
                     mesh: meshes.add(shape::Circle::new(2.).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
-                    transform: Transform::from_translation(ray[0].extend(0.)),
+                    transform: Transform::from_translation(ray[0]),
                     ..default()
                 },
             ));
@@ -58,16 +61,16 @@ fn update(
                     mesh: meshes.add(shape::RegularPolygon::new(8., 3).into()).into(),
                     material: materials.add(ColorMaterial::from(Color::WHITE)),
                     transform: Transform::default()
-                        .with_rotation(Quat::from_rotation_arc_2d(
-                            Vec2::Y,
-                            (ray[1] - ray[0]).try_normalize().unwrap_or(Vec2::Y),
+                        .with_rotation(Quat::from_rotation_arc(
+                            Vec3::Y,
+                            (ray[1] - ray[0]).try_normalize().unwrap_or(Vec3::Y),
                         ))
-                        .with_translation(ray[1].extend(0.)),
+                        .with_translation(ray[1]),
                     ..default()
                 },
             ));
         }
-        for ray in points.map(|v| v.extend(0.)).chunks(2) {
+        for ray in points.chunks(2) {
             commands.spawn((
                 Ray,
                 MaterialMesh2dBundle {

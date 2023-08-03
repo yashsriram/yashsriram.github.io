@@ -2,6 +2,9 @@
 template = "reading.html"
 +++
 
+# 2D intersections
+
+## 2 line segments
 What is the necessary condition for two line segments PQ and RS to intersect?
 
 - [ ] P, Q should be on opposite sides of line RS
@@ -10,9 +13,12 @@ What is the necessary condition for two line segments PQ and RS to intersect?
 
 [2 line segments; Interactive Demo](/wasm?name=xn_2_lnsegs)
 
+## 2 rays
 What is the necessary condition for two rays to intersect?
 
 - [x] They should move towards each other cumulatively.
 - [x] They should be on the same side of their base.
 
 [2 rays; Interactive Demo](/wasm?name=xn_2_rays)
+
+## line segment and ray

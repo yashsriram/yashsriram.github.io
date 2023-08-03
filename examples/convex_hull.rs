@@ -164,8 +164,9 @@ pub fn spawn_one(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
     mouse: Res<Input<MouseButton>>,
+    touches: Res<Touches>,
 ) {
-    if mouse.just_pressed(MouseButton::Left) {
+    if mouse.just_pressed(MouseButton::Left) || touches.any_just_pressed() {
         let window = windows.single();
         let cursor = window.cursor_position().unwrap_or(Vec2::ZERO);
         let semi_viewport_axes = Vec2::new(window.width(), window.height()) / 2.;

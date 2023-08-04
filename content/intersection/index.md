@@ -7,25 +7,23 @@ template = "reading.html"
 
 ## linesegment, linesegment
 
-- $\ddot{PQ}$ and $\ddot{RS}$ are line segments.
-- $\bar{PQ}$ and $\bar{RS}$ are lines.
-- $P \nmid \bar{RS} \nmid Q$ means points P and Q are on opposite sides of line RS.
+<details>
+<summary>
+segments PR and RS intersect $\rightarrow$ line RS divides points P, Q and line PQ divides points R, S
+</summary>
+<blockquote>
+<img src="lineseg_lineseg1.jpg" height="100px"/>
+</blockquote>
+</details>
 
-1. $\ddot{PQ}$ and $\ddot{RS}$ intersect
-$\rightarrow$
-$P \nmid \bar{RS} \nmid Q$
-and
-$R \nmid \bar{PQ} \nmid S$
-1. $P \nmid \bar{RS} \nmid Q$
-and
-$R \nmid \bar{PQ} \nmid S$
-$\rightarrow$
-$\ddot{PQ}$ and $\ddot{RS}$ intersect
-1. $P \nmid \bar{RS} \nmid Q$
-and
-$R \nmid \bar{PQ} \nmid S$
-$\leftrightarrow$
-$\ddot{PQ}$ and $\ddot{RS}$ intersect
+<details>
+<summary>
+line RS divides points P, Q and line PQ divides points R, S $\rightarrow$ segments PR and RS intersect
+</summary>
+<blockquote>
+<img src="lineseg_lineseg2.jpg" height="100px"/>
+</blockquote>
+</details>
 
 What is the necessary condition for two line segments PQ and RS to intersect?
 - [ ] P, Q should be on opposite sides of line RS

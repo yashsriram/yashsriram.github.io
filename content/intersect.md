@@ -6,18 +6,37 @@ template = "reading.html"
 
 
 ## linesegment, linesegment
+
+- $\ddot{PQ}$ and $\ddot{RS}$ are line segments.
+- $\bar{PQ}$ and $\bar{RS}$ are lines.
+- $P \nmid \bar{RS} \nmid Q$ means points P and Q are on opposite sides of line RS.
+
+1. $\ddot{PQ}$ and $\ddot{RS}$ intersect
+$\rightarrow$
+$P \nmid \bar{RS} \nmid Q$
+and
+$R \nmid \bar{PQ} \nmid S$
+1. $P \nmid \bar{RS} \nmid Q$
+and
+$R \nmid \bar{PQ} \nmid S$
+$\rightarrow$
+$\ddot{PQ}$ and $\ddot{RS}$ intersect
+1. $P \nmid \bar{RS} \nmid Q$
+and
+$R \nmid \bar{PQ} \nmid S$
+$\leftrightarrow$
+$\ddot{PQ}$ and $\ddot{RS}$ intersect
+
 What is the necessary condition for two line segments PQ and RS to intersect?
 - [ ] P, Q should be on opposite sides of line RS
 - [ ] R, S should be on opposite sides of line PQ
-- [ ] P, Q should be on opposite sides of line RS and R, S should be on opposite sides of line PQ
 
 <details>
 <summary>Answer</summary>
 <blockquote>
 
- - [ ] P, Q should be on opposite sides of line RS
- - [ ] R, S should be on opposite sides of line PQ
- - [x] P, Q should be on opposite sides of line RS and R, S should be on opposite sides of line PQ
+ - [x] P, Q should be on opposite sides of line RS
+ - [x] R, S should be on opposite sides of line PQ
 
 </blockquote>
 </details>

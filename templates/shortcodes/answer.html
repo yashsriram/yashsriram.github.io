@@ -4,7 +4,21 @@
 <br>
 {% endfor %}
 
-<details>
+<details onclick="{
+    const expected = [
+        {% for option in options %}
+        document.getElementById('{{ nth }}checkbox{{ loop.index }}truth').checked,
+        {% endfor %}
+    ];
+    const obtained = [
+        {% for option in options %}
+        document.getElementById('{{ nth }}checkbox{{ loop.index }}').checked,
+        {% endfor %}
+    ];
+    console.log(expected);
+    console.log(obtained);
+    console.log(expected === obtained);
+}">
 <summary>Answer</summary>
 <blockquote>
 

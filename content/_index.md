@@ -11,11 +11,12 @@ The claim is that a cylinder with radius 1 and height PI placed on x-z plane spa
 A [diff drive robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot) has a orientation unit vector __c__.
 We want to align it with orientation unit vector __t__.
 How should robot turn to do this the fastest?
-{% mcq() %}
+{% mc() %}
 - [ ] Always turn left
 - [ ] Always turn right
-- [x] Direction of $+\frac{(c \times t)}{|c| . |t|}
-- [ ] Direction of $-\frac{(c \times t)}{|c| . |t|}
+- [x] Direction of $+\frac{(c \times t)}{|c| . |t|}$
+Because cross product.
+- [ ] Direction of $-\frac{(c \times t)}{|c| . |t|}$
 {% end %}
 
 Consider
@@ -23,13 +24,13 @@ Consider
 - $L_2 \equiv (3, 4, -12) + t (4, 1, 8)$
 
 Select true statements.
-{% mcq() %}
+{% mc() %}
 - [ ] $L_1$ and $L_2$ are parallel
 - [x] $L_1$ and $L_2$ are not parallel
 {% end %}
 
 Which of the following is unit normal vector to the plane made by these $L_1$ and $L_2$?
-{% mcq() %}
+{% mc() %}
 - [ ] $(1, -1, 2)$
 - [x] $(-2/\sqrt{5}, 0, 1/\sqrt{5})$
 - [ ] $(-10, 0, 5)$
@@ -38,13 +39,13 @@ Which of the following is unit normal vector to the plane made by these $L_1$ an
 
 
 What is the necessary condition for two line segments PQ and RS to intersect?
-{% mcq() %}
+{% mc() %}
 - [x] P, Q should be on opposite sides of line RS"
 - [x] R, S should be on opposite sides of line PQ"
 {% end %}
 
 What is the necessary condition for two rays to intersect?
-{% mcq() %}
+{% mc() %}
 - [x] They should move towards each other cumulatively.
 - [x] They should be on the same side of their base.
 {% end %}

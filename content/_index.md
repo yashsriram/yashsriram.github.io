@@ -8,8 +8,8 @@ It can be visualized as a cylinder axis aligned with y-axis.
 The claim is that a cylinder with radius 1 and height PI placed on x-z plane spans a cone in terms of physical object rotation. Make an interactive program with this cylinder and corresponding rotation visualized. False claim.
 
 
-A [diff drive robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot) has a orientation unit vector __c__.
-We want to align it with orientation unit vector __t__.
+A diff drive robot has orientation $\bar{c}$.
+We want to align it $\bar{v}$.
 How should robot turn to do this the fastest?
 {% mc() %}
 - [ ] Always turn left

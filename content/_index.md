@@ -54,7 +54,7 @@ What is the necessary condition for two rays to intersect?
 segments PR and RS intersect $\rightarrow$ line RS divides points P, Q and line PQ divides points R, S
 </summary>
 <blockquote>
-<img src="lineseg_lineseg1.jpg" height="100px"/>
+<img src="./lineseg_lineseg1.jpg" height="100px"/>
 </blockquote>
 </details>
 
@@ -63,7 +63,7 @@ segments PR and RS intersect $\rightarrow$ line RS divides points P, Q and line 
 line RS divides points P, Q and line PQ divides points R, S $\rightarrow$ segments PR and RS intersect
 </summary>
 <blockquote>
-<img src="lineseg_lineseg2.jpg" height="100px"/>
+<img src="./lineseg_lineseg2.jpg" height="100px"/>
 </blockquote>
 </details>
 
@@ -78,7 +78,7 @@ line RS divides points P, Q and line PQ divides points R, S $\rightarrow$ segmen
 [Interactive Demo ~20Mb wasm](/wasm?name=convex_hull)
 
 <video controls autoplay loop>
-  <source src="convex_hull.mp4" type="video/mp4">
+  <source src="./convex_hull.mp4" type="video/mp4">
 </video>
 
 
@@ -87,7 +87,7 @@ line RS divides points P, Q and line PQ divides points R, S $\rightarrow$ segmen
 [Interactive Demo ~20Mb wasm](/wasm?name=convex_spiral)
 
 <video controls autoplay loop>
-  <source src="convex_spiral.mp4" type="video/mp4">
+  <source src="./convex_spiral.mp4" type="video/mp4">
 </video>
 
 # Space Sum

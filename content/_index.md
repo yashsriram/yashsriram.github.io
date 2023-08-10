@@ -10,7 +10,7 @@ The claim is that a cylinder with radius 1 and height PI placed on x-z plane spa
 There are a few points on the plane. Can you draw a triangle with them that contains all points always?
 {% mc() %}
 - [ ] Yes.
-- [ ] No.
+- [x] No.
 Just imagine 4 points making a square. There are $C_3^4 = 4$ triangles possible. None of them contains all points.
 {% end %}
 

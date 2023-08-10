@@ -7,6 +7,12 @@ x-coordinate and z-coordinate of axis of rotation and the angle of rotation.
 It can be visualized as a cylinder axis aligned with y-axis.
 The claim is that a cylinder with radius 1 and height PI placed on x-z plane spans a cone in terms of physical object rotation. Make an interactive program with this cylinder and corresponding rotation visualized. False claim.
 
+There are a few points on the plane. Can you draw a triangle with them that contains all points always?
+{% mc() %}
+- [ ] Yes.
+- [ ] No.
+Just imagine 4 points making a square. There are $C_3^4 = 4$ triangles possible. None of them contains all points.
+{% end %}
 
 A diff drive robot has orientation $\bar{c}$.
 We want to align it $\bar{v}$.
@@ -15,7 +21,7 @@ How should robot turn to do this the fastest?
 - [ ] Always turn left
 - [ ] Always turn right
 - [x] Direction of $+\frac{(c \times t)}{|c| . |t|}$
-Because cross product.
+The direction of cross product gives the fastest alignment direction.
 - [ ] Direction of $-\frac{(c \times t)}{|c| . |t|}$
 {% end %}
 

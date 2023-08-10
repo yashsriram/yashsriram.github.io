@@ -63,9 +63,7 @@
         </label>
         <br>
     {% else %}
-        <p>
-        {{ line }}
-        </p>
+        {{ line | safe }}<br/>
     {% endif %}
 {% endfor %}
 

@@ -1,9 +1,22 @@
+use bevy::render::mesh::Mesh;
+use bevy::render::mesh::VertexAttributeValues;
+use bevy::{prelude::*, reflect::TypeUuid, render::render_resource::AsBindGroup};
 use bevy::{
     prelude::{shape::Cube, *},
     render::{mesh::Indices, render_resource::PrimitiveTopology},
 };
 use bevy_flycam::PlayerPlugin;
 use yashsriram::*;
+
+#[derive(Default, AsBindGroup, TypeUuid, Debug, Clone)]
+#[uuid = "ebf24026-f0c7-4e86-8a4a-96a40101d1b5"]
+pub struct SimpleMaterial {}
+
+impl Material for SimpleMaterial {
+    fn alpha_mode(&self) -> AlphaMode {
+        AlphaMode::Blend
+    }
+}
 
 #[derive(Component)]
 struct ConfigSpacePoint;

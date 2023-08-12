@@ -1,9 +1,9 @@
-use bevy_flycam::PlayerPlugin;
-use rand::{thread_rng, Rng};
+use bevy::render::mesh::Mesh;
+use bevy::render::mesh::VertexAttributeValues;
 use bevy::render::mesh::{Indices, PrimitiveTopology};
 use bevy::{prelude::*, reflect::TypeUuid, render::render_resource::AsBindGroup};
-use bevy::render::mesh::VertexAttributeValues;
-use bevy::render::mesh::Mesh;
+use bevy_flycam::PlayerPlugin;
+use rand::{thread_rng, Rng};
 
 #[derive(Default, AsBindGroup, TypeUuid, Debug, Clone)]
 #[uuid = "ebf24026-f0c7-4e86-8a4a-96a40101d1b5"]
@@ -14,7 +14,6 @@ impl Material for SimpleMaterial {
         AlphaMode::Blend
     }
 }
-
 
 #[derive(Debug, Component)]
 pub struct DiffDrive {
@@ -98,7 +97,16 @@ impl From<&DrawPath> for Mesh {
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (600., 300.).into(),
+                canvas: Some("#interactive".into()),
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
+                ..default()
+            }),
+            ..default()
+        }))
         .add_plugin(MaterialPlugin::<SimpleMaterial>::default())
         .insert_resource(ClearColor(Color::BLACK))
         .add_plugin(PlayerPlugin)

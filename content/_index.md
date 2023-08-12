@@ -2,6 +2,12 @@
 template = "reading.html"
 +++
 
+__Wasm interactive example, ~20Mb binary download, not mobile friendly__
+- [2 line segement intersection](/wasm?name=xn_2_lnsegs)
+- [2 rays intersection](/wasm?name=xn_2_rays)
+- [convex hull](/wasm?name=convex_hull)
+- [convex spiral](/wasm?name=convex_spiral)
+
 A robot has orientation $\bar{r}$.
 We want to align it $\bar{t}$.
 How should robot turn to do this the fastest?
@@ -53,15 +59,6 @@ There are a few points on the plane. Can you draw a triangle with them that cont
 - [x] No.
 Just imagine 4 points making a square. There are $C_3^4 = 4$ triangles possible. None of them contains all points.
 {% end %}
-
-[Interactive example](/wasm?name=xn_2_lnsegs)
-
-[Interactive example](/wasm?name=xn_2_rays)
-
-[Interactive Demo ~20Mb wasm](/wasm?name=convex_hull)
-
-[Interactive Demo ~20Mb wasm](/wasm?name=convex_spiral)
-
 
 <video controls autoplay loop>
   <source src="./convex_hull.mp4" type="video/mp4">

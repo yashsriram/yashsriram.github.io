@@ -521,7 +521,16 @@ impl From<&Path> for Mesh {
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (600., 300.).into(),
+                canvas: Some("#interactive".into()),
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
+                ..default()
+            }),
+            ..default()
+        }))
         .add_plugin(MaterialPlugin::<SimpleMaterial>::default())
         .insert_resource(ClearColor(Color::BLACK))
         .add_plugin(PlayerPlugin)

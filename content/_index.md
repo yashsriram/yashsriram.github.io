@@ -2,11 +2,19 @@
 template = "reading.html"
 +++
 
-__Wasm interactive example, ~20Mb binary download, not mobile friendly__
+# Interactive examples
+These are interactive examples (not mobile friendly yet). They are compiled to wasm format. Each example needs ~20Mb binary download.
 - [2 line segement intersection](/wasm?name=xn_2_lnsegs)
 - [2 rays intersection](/wasm?name=xn_2_rays)
 - [convex hull](/wasm?name=convex_hull)
 - [convex spiral](/wasm?name=convex_spiral)
+
+# Questions
+Conside a triangle ABC. A point I is inside the triangle. Then C will always be outside circumcirlce made by ABI.
+{% mc() %}
+- [x] True.
+- [ ] False.
+{% end %}
 
 A robot has orientation $\bar{r}$.
 We want to align it $\bar{t}$.
@@ -77,5 +85,3 @@ A quaternion can be described by 3 numbers.
 x-coordinate and z-coordinate of axis of rotation and the angle of rotation.
 It can be visualized as a cylinder axis aligned with y-axis.
 The claim is that a cylinder with radius 1 and height PI placed on x-z plane spans a cone in terms of physical object rotation. Make an interactive program with this cylinder and corresponding rotation visualized. False claim.
-
-

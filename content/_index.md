@@ -11,6 +11,9 @@ These are interactive examples (not mobile friendly yet). They are compiled to w
 
 # Questions
 Conside a triangle ABC. A point I is inside the triangle. Then C will always be outside circumcirlce made by ABI.
+![1](https://github.com/yashsriram/yashsriram.github.io/assets/18350119/880aec0f-a940-40c7-9a26-fb62646324c3)
+
+
 {% mc() %}
 - [x] True.
 - [ ] False.

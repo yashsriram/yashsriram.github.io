@@ -41,12 +41,12 @@
     const correct = obtained.length == expected.length && obtained.every(function(value, idx) { return value === expected[idx]});
     console.log(correct);
     if (correct) {
-        document.getElementById('{{ nth }}evaluate').innerHTML = '✅';
+        document.getElementById('{{ nth }}evaluate').innerHTML = 'Correct answer ✅';
     } else {
-        document.getElementById('{{ nth }}evaluate').innerHTML = '🚫';
+        document.getElementById('{{ nth }}evaluate').innerHTML = 'Incorrect answer 🚫';
     }
 }">
-    <summary>Evaluate <span id="{{ nth }}evaluate">🤔</span></summary>
+    <summary id="{{ nth }}evaluate">Evaluate 🤔</summary>
 <blockquote>
 
 {% for line in lines %}

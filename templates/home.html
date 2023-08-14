@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>pages</h1>
-    <ul>
-        {% for post in section.pages %}
-            <li><a href="{{ post.permalink }}">{{ post.description }}</a></li>
-        {% endfor %}
-    </ul>
     {{ section.content | safe }}
 {% endblock content %}
 

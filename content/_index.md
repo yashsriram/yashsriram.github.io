@@ -7,10 +7,10 @@ template = "home.html"
 # will these two intersect
 
 These are interactive examples (not mobile friendly yet). They are compiled to wasm format. Each example needs ~20Mb binary download.
-- [2 line segement intersection](/bricks?name=xn_2_lnsegs)
-- [2 rays intersection](/bricks?name=xn_2_rays)
-- [convex hull](/bricks?name=convex_hull)
-- [convex spiral](/bricks?name=convex_spiral)
+- [2 line segement intersection](/wasm.html?name=xn_2_lnsegs)
+- [2 rays intersection](/wasm.html?name=xn_2_rays)
+- [convex hull](/wasm.html?name=convex_hull)
+- [convex spiral](/wasm.html?name=convex_spiral)
 
 Consider
 - $L_1 \equiv (1, 2, 3) + t (1, -1, 2)$

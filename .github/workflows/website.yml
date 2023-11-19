@@ -22,20 +22,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: *
         uses: actions/checkout@v3
-      - name: Zola build
+      - name: *
         uses: shalzz/zola-deploy-action@v0.17.2
         env:
           BUILD_DIR: '.'
           BUILD_ONLY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup pages action
+      - name: *
         uses: actions/configure-pages@v2
-      - name: Upload ./public to GitHub Pages
+      - name: *
         uses: actions/upload-pages-artifact@v1
         with:
           path: './public'
-      - name: Deploy to GitHub Pages
+      - name: *
         id: deployment
         uses: actions/deploy-pages@v1

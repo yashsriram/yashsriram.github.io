@@ -26,35 +26,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: wasm32-unknown-unknown
-      - uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --release --target=wasm32-unknown-unknown --examples
-      - name: Bindgen
-        run: |
-         cargo install wasm-bindgen-cli
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/convex_hull.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/convex_spiral.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/xn_2_lnsegs.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/xn_2_rays.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/prm_search.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/diff_drive.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/look_towards_me.wasm
-         wasm-bindgen --no-typescript --target web --out-dir static/wasm-bindgen target/wasm32-unknown-unknown/release/examples/quat_rot.wasm
       - name: Zola build
         uses: shalzz/zola-deploy-action@v0.17.2
         env:
           BUILD_DIR: '.'
           BUILD_ONLY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup Pages
+      - name: Setup pages action
         uses: actions/configure-pages@v2
-      - name: Upload artifact
+      - name: Upload ./public to pages
         uses: actions/upload-pages-artifact@v1
         with:
           path: './public'

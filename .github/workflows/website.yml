@@ -18,6 +18,7 @@ concurrency:
 jobs:
   deploy:
     environment:
+      name:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:

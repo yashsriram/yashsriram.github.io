@@ -2,6 +2,8 @@
 template = "home.html"
 +++
 
+[edit](https://github.com/yashsriram/yashsriram.github.io/edit/master/content/_index.md)
+
 # will these two intersect
 
 These are interactive examples (not mobile friendly yet). They are compiled to wasm format. Each example needs ~20Mb binary download.

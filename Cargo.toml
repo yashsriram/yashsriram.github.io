@@ -1,0 +1,9 @@
+[package]
+name = "bricks"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+ordered-float = "2.8.0"
+bevy = "0.12.1"

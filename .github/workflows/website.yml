@@ -27,6 +27,23 @@ jobs:
           BUILD_DIR: '.'
           BUILD_ONLY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+      - uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --release --target=wasm32-unknown-unknown --examples
+      - name: 🌊
+        run: cargo install -f wasm-bindgen-cli --version 0.2.87
+      - name: 🌊
+        run: |
+         for example in examples/*.rs; do
+             example_name=$(basename "$example" .rs)
+             wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir public --target web
+         done
       - name: 🌊
         uses: actions/configure-pages@v2
       - name: 🌊

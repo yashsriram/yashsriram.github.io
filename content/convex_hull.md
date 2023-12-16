@@ -1,5 +1,4 @@
 +++
-template = "brick.html"
 +++
 
 Consider a set of points.

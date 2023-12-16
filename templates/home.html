@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% for brick in section.pages %}
+    <a href="{{ brick.slug }}">{{ brick.slug }}</a>
+    {% endfor %}
     {{ section.content | safe }}
 {% endblock content %}
 

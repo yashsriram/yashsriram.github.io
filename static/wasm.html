@@ -17,7 +17,6 @@
             );
             background-repeat: repeat;
             background-size: 20px 20px;
-            height: 90vh !important;
         }
     </style>
   </head>
@@ -31,7 +30,7 @@
         }
         const params = new URLSearchParams(document.location.search);
         const name = params.get("name");
-        const binding = `/bricks/${name}.js`
+        const binding = `/wasm-bindgen/${name}.js`
         const wasm = await import(binding)
         wasm.default()
     </script>

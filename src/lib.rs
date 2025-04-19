@@ -21,6 +21,7 @@ macro_rules! register_resources {
 #[macro_export]
 macro_rules! visualize {
     ($bodies:tt) => {
+        use bevy::input::common_conditions::input_just_pressed;
         use bevy::prelude::*;
 
         fn main() {
@@ -36,14 +37,14 @@ macro_rules! visualize {
                 ..default()
             }))
             .add_systems(Startup, init)
-            .add_systems(Update, (add_point_on_left_click))
-            .add_systems(Update, (algo));
+            .add_systems(Update, (add_point_at_mouse_click))
+            .add_systems(Update, (algo.run_if(input_just_pressed(KeyCode::Space))));
             register_resources!(app, $bodies);
             app.run();
         }
 
         fn init(mut commands: Commands) {
-            commands.spawn(Camera2dBundle::default());
+            commands.spawn(Camera2d::default());
         }
     };
 }

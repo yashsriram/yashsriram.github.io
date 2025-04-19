@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bricks::*;
 
 #[derive(Resource, Default)]
 struct Inp {
@@ -10,35 +11,16 @@ struct Outp {
     line: Vec<Vec2>,
 }
 
-fn main() {
-    App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            primary_window: Some(Window {
-                resolution: (500., 400.).into(),
-                canvas: Some("#interactive".into()),
-                fit_canvas_to_parent: true,
-                prevent_default_event_handling: false,
-                ..default()
-            }),
-            ..default()
-        }))
-        .init_resource::<Inp>()
-        .init_resource::<Outp>()
-        .add_systems(Startup, setup)
-        .add_systems(Update, (draw, add_point_on_left_click, algo))
-        .run();
-}
-
-fn setup(mut commands: Commands) {
-    commands.spawn(Camera2dBundle::default());
-}
-
-fn draw(mut gizmos: Gizmos, inp: Res<Inp>, output: Res<Outp>) {
-    for point in &inp.points {
-        gizmos.rect_2d(*point, 0.0, 3.0 * Vec2::ONE, Color::WHITE);
-    }
-    gizmos.linestrip_2d(output.line.clone(), Color::CYAN);
-}
+bricks::visualize!({
+    Inp(gizmos, inp) => {
+        for point in &inp.points {
+            gizmos.rect_2d(*point, 0.0, 3.0 * Vec2::ONE, Color::WHITE);
+        }
+    },
+    Outp(gizmos, outp) => {
+        gizmos.linestrip_2d(outp.line.clone(), Color::CYAN);
+    },
+});
 
 fn add_point_on_left_click(
     camera_query: Query<(&Camera, &GlobalTransform)>,

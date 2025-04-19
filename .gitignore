@@ -1,2 +1,3 @@
 target/
 static/wasm-bindgen
+Cargo.lock

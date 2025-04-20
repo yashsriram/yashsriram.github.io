@@ -24,6 +24,26 @@ bricks::vis_2d!(
     }
 );
 
+fn init(window: Single<&Window>, mut inp: ResMut<Inp>) {
+    let mut rng = rand::thread_rng();
+    for _ in 0..10 {
+        let sample = Vec2::new(rng.gen::<f32>() - 0.5, rng.gen::<f32>() - 0.5)
+            * Vec2::new(
+                window.resolution.physical_width() as f32 - 200.0,
+                window.resolution.physical_height() as f32 - 200.0,
+            )
+            * (1.0 / window.resolution.scale_factor());
+        inp.points.push(sample);
+    }
+}
+
+fn on_mouse_click(In(point): In<Result<Vec2, ()>>, mut inp: ResMut<Inp>) {
+    let Ok(point) = point else {
+        return;
+    };
+    inp.points.push(point);
+}
+
 fn on_spacebar_press(inp: Res<Inp>, mut output: ResMut<Outp>) {
     let start = inp
         .points
@@ -72,11 +92,4 @@ fn on_spacebar_press(inp: Res<Inp>, mut output: ResMut<Outp>) {
         }
     }
     output.line = hull;
-}
-
-fn on_mouse_click(In(point): In<Result<Vec2, ()>>, mut inp: ResMut<Inp>) {
-    let Ok(point) = point else {
-        return;
-    };
-    inp.points.push(point);
 }

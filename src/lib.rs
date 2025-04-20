@@ -1,5 +1,5 @@
 #[macro_export]
-macro_rules! register_resources {
+macro_rules! register_and_draw_bodies {
     (
         $app:ident,
         {
@@ -13,14 +13,14 @@ macro_rules! register_resources {
                 |mut $gizmos: Gizmos, $resource_name: Res<$resource>| $drawing
             ),
         );
-        register_resources!($app, { $($next_resource($next_gizmos, $next_resource_name) => $next_drawing,)* })
+        register_and_draw_bodies!($app, { $($next_resource($next_gizmos, $next_resource_name) => $next_drawing,)* })
     };
     ($app:ident, {}) => {};
 }
 
 #[macro_export]
-macro_rules! visualize {
-    ($bodies:tt) => {
+macro_rules! vis_2d {
+    ($title:literal, $bodies:tt) => {
         use bevy::input::common_conditions::input_just_pressed;
         use bevy::prelude::*;
 
@@ -37,14 +37,37 @@ macro_rules! visualize {
                 ..default()
             }))
             .add_systems(Startup, init)
-            .add_systems(Update, (add_point_at_mouse_click))
-            .add_systems(Update, (algo.run_if(input_just_pressed(KeyCode::Space))));
-            register_resources!(app, $bodies);
+            .add_systems(Update, (mouse_click_on_screen.pipe(on_mouse_click)))
+            .add_systems(
+                Update,
+                (on_spacebar_press.run_if(input_just_pressed(KeyCode::Space))),
+            );
+            register_and_draw_bodies!(app, $bodies);
             app.run();
         }
 
         fn init(mut commands: Commands) {
             commands.spawn(Camera2d::default());
+            commands.spawn(Text::new($title));
+        }
+
+        fn mouse_click_on_screen(
+            camera_query: Single<(&Camera, &GlobalTransform)>,
+            windows: Single<&Window>,
+            mouse: Res<ButtonInput<MouseButton>>,
+        ) -> Result<Vec2, ()> {
+            if mouse.just_pressed(MouseButton::Left) {
+                let (camera, camera_transform) = *camera_query;
+                let Some(cursor_position) = windows.cursor_position() else {
+                    return Err(());
+                };
+                let Ok(point) = camera.viewport_to_world_2d(camera_transform, cursor_position)
+                else {
+                    return Err(());
+                };
+                return Ok(point);
+            }
+            return Err(())
         }
     };
 }

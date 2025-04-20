@@ -1,4 +1,3 @@
-use bevy::prelude::*;
 use bricks::*;
 
 #[derive(Resource, Default)]
@@ -11,18 +10,21 @@ struct Outp {
     line: Vec<Vec2>,
 }
 
-bricks::visualize!({
-    Inp(gizmos, inp) => {
-        for point in &inp.points {
-            gizmos.rect_2d(Isometry2d::from_translation(*point), 3.0 * Vec2::ONE, Color::WHITE);
-        }
-    },
-    Outp(gizmos, outp) => {
-        gizmos.linestrip_2d(outp.line.clone(), Color::linear_rgb(1.0, 0.0, 0.0));
-    },
-});
+bricks::vis_2d!(
+    "convex spiral",
+    {
+        Inp(gizmos, inp) => {
+            for point in &inp.points {
+                gizmos.circle_2d(Isometry2d::from_translation(*point), 3.0, Color::WHITE);
+            }
+        },
+        Outp(gizmos, outp) => {
+            gizmos.linestrip_2d(outp.line.clone(), Color::linear_rgb(1.0, 0.0, 0.0));
+        },
+    }
+);
 
-fn algo(inp: Res<Inp>, mut output: ResMut<Outp>) {
+fn on_spacebar_press(inp: Res<Inp>, mut output: ResMut<Outp>) {
     let start = inp
         .points
         .iter()
@@ -55,20 +57,9 @@ fn algo(inp: Res<Inp>, mut output: ResMut<Outp>) {
     output.line = spiral;
 }
 
-fn add_point_at_mouse_click(
-    camera_query: Single<(&Camera, &GlobalTransform)>,
-    windows: Single<&Window>,
-    mouse: Res<ButtonInput<MouseButton>>,
-    mut inp: ResMut<Inp>,
-) {
-    if mouse.just_pressed(MouseButton::Left) {
-        let (camera, camera_transform) = *camera_query;
-        let Some(cursor_position) = windows.cursor_position() else {
-            return;
-        };
-        let Ok(point) = camera.viewport_to_world_2d(camera_transform, cursor_position) else {
-            return;
-        };
-        inp.points.push(point);
-    }
+fn on_mouse_click(In(point): In<Result<Vec2, ()>>, mut inp: ResMut<Inp>) {
+    let Ok(point) = point else {
+        return;
+    };
+    inp.points.push(point);
 }

@@ -3,7 +3,6 @@
 /// - `Graph` on a `StateSpace`; Vertex = (`StateSpace::State`,  `Set<VertexIdx>`)
 /// - `TreeSearch` on `Graph`
 ///     - [x] start, stop, goal, max idxs
-///     - [x] handle stop not reached -> reachable subgraph explored
 ///     - [x] Tree Search = Open least cost on fringe + Propagate to unexplored adjacencies and add them to fringe
 ///     - [x] Propagate trait = search state + cost priority + common search fn
 ///     - [x] CostPriorityWithIndex = Ord on cost + open min cost first
@@ -19,19 +18,12 @@
 ///     - [x] Sampling from `StateSpace`
 ///     - [x] Connecting `Vertices<State>` using dist() trait fn and edge len
 ///     - [x] Multi (agent) searchable from `Graph`
-use bricks::*;
+use simple_vis::*;
 
-mod graph;
-use graph::*;
-
-mod spaces;
-use spaces::*;
-
-mod search;
-use search::*;
-
-mod path;
-use path::*;
+use search::graph::*;
+use search::path::*;
+use search::search::*;
+use search::spaces::*;
 
 #[derive(Resource, Default)]
 struct Searches {
@@ -43,8 +35,8 @@ struct Paths {
     paths: Vec<Path>,
 }
 
-bricks::simple_vis!(
-    "prm search",
+simple_vis::simple_vis!(
+    "bfs, dfs, ucs, A*, 2.0 weighted A*, 100.0 weighted A*",
     {
         CuboidWithHoldSpace -> draw_space,
         Graph -> draw_graph,
@@ -56,7 +48,7 @@ bricks::simple_vis!(
 fn init(mut commands: Commands) {
     commands.spawn((
         Camera3d::default(),
-        Transform::from_xyz(0., 0., 15.).looking_at(Vec3::ZERO, Vec3::Y),
+        Transform::from_xyz(19.5, 6., 35.).looking_to(-Vec3::Z, Vec3::Y),
         CameraController::default(),
     ));
 }
@@ -69,17 +61,20 @@ fn on_spacebar_press(
     mut searches: ResMut<Searches>,
     mut paths: ResMut<Paths>,
 ) {
-    space.size = Vec3::new(2.1, 2.1, 2.);
-    space.hole_radius = 1.;
-    graph.sample(&space, 5000, 0.22);
-    let [a, b] = graph.add([Vec3::new(0.3, 0.7, 0.5), Vec3::new(-0.5, -1.0, -0.4)], 0.2);
+    space.size = Vec3::new(6.0, 12.0, 0.5);
+    space.hole_radius = space.size.x / 2.1;
+    graph.generate_samples(&space, 20000, 0.3);
+    let [a, b] = [
+        graph.choose_random_vertex_idx(),
+        graph.choose_random_vertex_idx(),
+    ];
     searches.searches = vec![
         DFS::try_on(&graph, a, b),
         BFS::try_on(&graph, a, b),
         UCS::try_on(&graph, a, b),
         AStar::try_on(&graph, a, b),
-        WeightableAStar::<11, 10>::try_on(&graph, a, b),
         AStarWeighted2::try_on(&graph, a, b),
+        WeightableAStar::<1000, 10>::try_on(&graph, a, b),
     ];
     paths.paths.clear();
     for search in searches.searches.iter() {
@@ -96,8 +91,8 @@ fn draw_space(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>) {
 fn draw_graph(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>, graph: Res<Graph>) {
     for vertex in &graph.vertices {
         for adj in &vertex.adjacencies {
-            let self_position = vertex.state;
-            let adj_position = graph.vertices[*adj].state;
+            let self_position = vertex.pos;
+            let adj_position = graph.vertices[*adj].pos;
             gizmos.line(
                 // Draw graph above space
                 self_position,
@@ -126,24 +121,29 @@ fn draw_searches(
             };
             gizmos.line(
                 // Draw search above space and graph
-                graph.vertices[child_idx].state + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
-                graph.vertices[parent_idx].state
-                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
+                graph.vertices[child_idx].pos
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.)
+                    + Vec3::Y * (space.size.y + 1.),
+                graph.vertices[parent_idx].pos
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.)
+                    + Vec3::Y * (space.size.y + 1.),
                 color,
             );
         }
         gizmos.cuboid(
             Transform::from_translation(
-                graph.vertices[search.start_idx].state
-                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
+                graph.vertices[search.start_idx].pos
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.)
+                    + Vec3::Y * (space.size.y + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
             Color::srgb(1., 0., 0.),
         );
         gizmos.cuboid(
             Transform::from_translation(
-                graph.vertices[search.stop_idx].state
-                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
+                graph.vertices[search.stop_idx].pos
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.)
+                    + Vec3::Y * (space.size.y + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
             Color::srgb(0., 1., 0.),
@@ -154,10 +154,26 @@ fn draw_searches(
 fn draw_paths(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>, paths: Res<Paths>) {
     for (idx, path) in paths.paths.iter().enumerate() {
         gizmos.linestrip(
-            path.vertices.iter().map(|pt| {
-                pt + Vec3::Y * space.size.y + Vec3::X * (idx as f32 + 1.) * (space.size.x + 1.)
-            }),
+            path.vertices
+                .iter()
+                .map(|pt| pt + Vec3::X * (idx as f32 + 1.) * (space.size.x + 1.)),
             Color::srgb(0.902, 0.843, 0.114),
+        );
+        gizmos.cuboid(
+            Transform::from_translation(
+                path.vertices.first().unwrap_or(&Vec3::ZERO)
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
+            )
+            .with_scale(Vec3::ONE * 0.05),
+            Color::srgb(1., 0., 0.),
+        );
+        gizmos.cuboid(
+            Transform::from_translation(
+                path.vertices.last().unwrap_or(&Vec3::ZERO)
+                    + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
+            )
+            .with_scale(Vec3::ONE * 0.05),
+            Color::srgb(0., 1., 0.),
         );
     }
 }

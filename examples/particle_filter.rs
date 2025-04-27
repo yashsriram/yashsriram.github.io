@@ -1,4 +1,4 @@
-use bricks::*;
+use simple_vis::*;
 
 #[derive(Resource, Default)]
 struct Terrain {
@@ -13,7 +13,7 @@ impl Terrain {
     }
 }
 
-bricks::simple_vis! {
+simple_vis::simple_vis! {
     "particle filter",
     {
         Terrain -> draw_terrain,

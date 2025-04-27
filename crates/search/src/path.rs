@@ -4,7 +4,7 @@ use bevy::prelude::*;
 
 #[derive(Resource, Default)]
 pub struct Path {
-    pub(crate) vertices: Vec<Vec3>,
+    pub vertices: Vec<Vec3>,
 }
 
 impl Path {
@@ -13,7 +13,7 @@ impl Path {
             None => vec![],
             Some(path) => path
                 .into_iter()
-                .map(|idx| graph.vertices[idx].state)
+                .map(|idx| graph.vertices[idx].pos)
                 .collect(),
         };
         self.vertices = vertices;

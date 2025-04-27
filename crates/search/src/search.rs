@@ -56,10 +56,8 @@ pub trait CostGuidedWaveTreeSearch<Cost: Ord>: Sized {
     ) -> CostGuidedTreeSearchResult {
         assert!(start_idx < graph.vertices.len());
         assert!(stop_idx < graph.vertices.len());
-        let start_search_state = Self::as_start(
-            graph.vertices[start_idx].state,
-            graph.vertices[stop_idx].state,
-        );
+        let start_search_state =
+            Self::as_start(graph.vertices[start_idx].pos, graph.vertices[stop_idx].pos);
         let collec_alloc_size = graph.vertices.len() as usize;
         let mut parent_map = HashMap::with_capacity(collec_alloc_size);
         parent_map.insert(start_idx, None);
@@ -114,9 +112,9 @@ pub trait CostGuidedWaveTreeSearch<Cost: Ord>: Sized {
             for &adj_idx in graph.vertices[curr_idx].adjacencies.iter() {
                 if let None = tree.get(&adj_idx) {
                     let adj_search_state = Self::as_adj(
-                        graph.vertices[curr_idx].state,
-                        graph.vertices[adj_idx].state,
-                        graph.vertices[stop_idx].state,
+                        graph.vertices[curr_idx].pos,
+                        graph.vertices[adj_idx].pos,
+                        graph.vertices[stop_idx].pos,
                         &tree[&curr_idx],
                     );
                     parent_map.insert(adj_idx, Some(curr_idx));

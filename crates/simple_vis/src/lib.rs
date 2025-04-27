@@ -25,7 +25,6 @@ macro_rules! simple_vis {
     ($title:literal, $bodies:tt) => {
         use bevy::input::common_conditions::input_just_pressed;
         use bevy::prelude::*;
-        use rand::prelude::*;
 
         fn main() {
             let mut app = App::new();

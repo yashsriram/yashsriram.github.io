@@ -6,17 +6,22 @@ use std::collections::HashSet;
 
 #[derive(Default)]
 pub struct Vertex {
-    pub(crate) state: Vec3,
-    pub(crate) adjacencies: HashSet<usize>,
+    pub pos: Vec3,
+    pub adjacencies: HashSet<usize>,
 }
 
 #[derive(Resource, Default)]
 pub struct Graph {
-    pub(crate) vertices: Vec<Vertex>,
+    pub vertices: Vec<Vertex>,
 }
 
 impl Graph {
-    pub fn sample(&mut self, space: &CuboidWithHoldSpace, num_samples: usize, edge_len: f32) {
+    pub fn generate_samples(
+        &mut self,
+        space: &CuboidWithHoldSpace,
+        num_samples: usize,
+        edge_len: f32,
+    ) {
         let mut rng = thread_rng();
         let state_samples: Vec<Vec3> = (&mut rng)
             .sample_iter(Standard)
@@ -40,30 +45,15 @@ impl Graph {
         self.vertices = state_samples
             .into_iter()
             .zip(adjacencies.into_iter())
-            .map(|(state, adjacencies)| Vertex { state, adjacencies })
+            .map(|(state, adjacencies)| Vertex {
+                pos: state,
+                adjacencies,
+            })
             .collect();
     }
 
-    pub fn add<const N: usize>(&mut self, states: [Vec3; N], edge_len: f32) -> [usize; N] {
-        let prev_graph_size = self.vertices.len();
-        for state in IntoIterator::into_iter(states) {
-            self.vertices.push(Vertex {
-                state,
-                adjacencies: HashSet::new(),
-            });
-        }
-        for i in (prev_graph_size..self.vertices.len()).rev() {
-            for j in 0..(i - 1) {
-                if (self.vertices[i].state - self.vertices[j].state).length() <= edge_len {
-                    self.vertices[i].adjacencies.insert(j);
-                    self.vertices[j].adjacencies.insert(i);
-                }
-            }
-        }
-        let mut idxes = [0; N];
-        for (i, idx) in (prev_graph_size..self.vertices.len()).enumerate() {
-            idxes[i] = idx;
-        }
-        idxes
+    pub fn choose_random_vertex_idx(&self) -> usize {
+        let mut rng = thread_rng();
+        rng.gen_range(0..self.vertices.len())
     }
 }

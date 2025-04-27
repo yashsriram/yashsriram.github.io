@@ -1,8 +1,6 @@
 use super::graph::*;
 use bevy::prelude::*;
 use ordered_float::OrderedFloat;
-use rand::distributions::Standard;
-use rand::{thread_rng, Rng};
 use std::{
     cmp::{Ordering, Reverse},
     collections::{BinaryHeap, HashMap, HashSet},

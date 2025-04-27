@@ -9,14 +9,10 @@ use bricks::search::spaces::CuboidWithHoldSpace;
 use bricks::*;
 
 #[derive(Resource, Default)]
-struct Searches {
-    searches: Vec<CostGuidedTreeSearchResult>,
-}
+struct Searches(Vec<CostGuidedTreeSearchResult>);
 
 #[derive(Resource, Default)]
-struct Paths {
-    paths: Vec<Path>,
-}
+struct Paths(Vec<Path>);
 
 bricks::game_3d!(
     "bfs, dfs, ucs, A*, 2.0 weighted A*, 100.0 weighted A*",
@@ -49,7 +45,7 @@ fn on_spacebar_press(
         graph.choose_random_vertex_idx(),
         graph.choose_random_vertex_idx(),
     ];
-    searches.searches = vec![
+    searches.0 = vec![
         DFS::try_on(&graph, a, b),
         BFS::try_on(&graph, a, b),
         UCS::try_on(&graph, a, b),
@@ -57,11 +53,11 @@ fn on_spacebar_press(
         AStarWeighted2::try_on(&graph, a, b),
         WeightableAStar::<100, 1>::try_on(&graph, a, b),
     ];
-    paths.paths.clear();
-    for search in searches.searches.iter() {
+    paths.0.clear();
+    for search in searches.0.iter() {
         let mut path = Path::default();
         path.generate_for(&graph, &search);
-        paths.paths.push(path);
+        paths.0.push(path);
     }
 }
 
@@ -90,7 +86,7 @@ fn draw_searches(
     graph: Res<Graph>,
     searches: Res<Searches>,
 ) {
-    for (idx, search) in searches.searches.iter().enumerate() {
+    for (idx, search) in searches.0.iter().enumerate() {
         for (&child_idx, parent_idx) in search.parent_map.iter() {
             let parent_idx = parent_idx.unwrap_or(child_idx);
             let color = if search.start_idx == parent_idx {
@@ -133,7 +129,7 @@ fn draw_searches(
 }
 
 fn draw_paths(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>, paths: Res<Paths>) {
-    for (idx, path) in paths.paths.iter().enumerate() {
+    for (idx, path) in paths.0.iter().enumerate() {
         gizmos.linestrip(
             path.vertices
                 .iter()

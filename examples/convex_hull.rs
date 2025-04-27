@@ -10,21 +10,16 @@ struct Outp {
     line: Vec<Vec2>,
 }
 
-bricks::vis_2d!(
+bricks::simple_vis!(
     "convex hull",
     {
-        Inp(gizmos, inp) => {
-            for point in &inp.points {
-                gizmos.circle_2d(Isometry2d::from_translation(*point), 3.0, Color::WHITE);
-            }
-        },
-        Outp(gizmos, outp) => {
-            gizmos.linestrip_2d(outp.line.clone(), Color::linear_rgb(1.0, 0.0, 0.0));
-        },
+        Inp -> draw_inp,
+        Outp -> draw_outp,
     }
 );
 
-fn init(window: Single<&Window>, mut inp: ResMut<Inp>) {
+fn init(mut commands: Commands, window: Single<&Window>, mut inp: ResMut<Inp>) {
+    commands.spawn(Camera2d::default());
     let mut rng = rand::thread_rng();
     for _ in 0..10 {
         let sample = Vec2::new(rng.gen::<f32>() - 0.5, rng.gen::<f32>() - 0.5)
@@ -92,4 +87,14 @@ fn on_spacebar_press(inp: Res<Inp>, mut output: ResMut<Outp>) {
         }
     }
     output.line = hull;
+}
+
+fn draw_inp(mut gizmos: Gizmos, inp: Res<Inp>) {
+    for point in &inp.points {
+        gizmos.circle_2d(Isometry2d::from_translation(*point), 3.0, Color::WHITE);
+    }
+}
+
+fn draw_outp(mut gizmos: Gizmos, outp: Res<Outp>) {
+    gizmos.linestrip_2d(outp.line.clone(), Color::linear_rgb(1.0, 0.0, 0.0));
 }

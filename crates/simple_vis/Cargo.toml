@@ -1,7 +1,0 @@
-[package]
-name = "simple_vis"
-version = "0.0.0"
-edition = "2021"
-
-[dependencies]
-bevy = { version = "0.15.3", features = ["dynamic_linking"] }

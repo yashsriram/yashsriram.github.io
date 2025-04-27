@@ -1,27 +1,5 @@
-mod camera_controller;
-pub use camera_controller::CameraController;
-pub use camera_controller::CameraControllerPlugin;
-
 #[macro_export]
-macro_rules! register_and_draw_bodies {
-    (
-        $app:ident,
-        {
-            $resource:ident -> $drawing:ident,
-            $($next_resource:ident -> $next_drawing:ident,)*
-        } ) => {
-        $app.init_resource::<$resource>();
-        $app.add_systems(
-            Update,
-            $drawing,
-        );
-        register_and_draw_bodies!($app, { $($next_resource -> $next_drawing,)* })
-    };
-    ($app:ident, {}) => {};
-}
-
-#[macro_export]
-macro_rules! simple_vis {
+macro_rules! game_2d {
     ($title:literal, $bodies:tt) => {
         use bevy::input::common_conditions::input_just_pressed;
         use bevy::prelude::*;
@@ -39,7 +17,6 @@ macro_rules! simple_vis {
                 }),
                 ..default()
             }))
-            .add_plugins(CameraControllerPlugin)
             .add_systems(Startup, title)
             .add_systems(Startup, init)
             .add_systems(Update, mouse_click_on_screen.pipe(on_mouse_click))

@@ -170,7 +170,6 @@ fn run_camera_controller(
             cursor_grab_change = true;
         }
         let cursor_grab = *mouse_cursor_grab || *toggle_cursor_grab;
-        let cursor_grab = true;
 
         // Apply movement update
         if axis_input != Vec3::ZERO {

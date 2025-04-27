@@ -1,29 +1,12 @@
-/// - `Vis`
-/// - `State`, `StateSpace`
-/// - `Graph` on a `StateSpace`; Vertex = (`StateSpace::State`,  `Set<VertexIdx>`)
-/// - `TreeSearch` on `Graph`
-///     - [x] start, stop, goal, max idxs
-///     - [x] Tree Search = Open least cost on fringe + Propagate to unexplored adjacencies and add them to fringe
-///     - [x] Propagate trait = search state + cost priority + common search fn
-///     - [x] CostPriorityWithIndex = Ord on cost + open min cost first
-///         - Default impl use : NaN cost is INF + NAN cost = NAN cost
-///     - [x] Searching for a stop = may finds path to stop + may some other vertices => so same search can be used to find paths to multiple vertices
-///     - [x] Multiple searches on a graph = State per search = No resetting of state
-///     - [x] Parallelizable searches
-///     - [x] Large graph - small area search is inexpensive - uses sparse seach state using hashmaps (Control initial alloc size of tree and fringe)
-///     - [x] Get path to a goal, get path to stop, store start, stop, max idxs
-///     - [x] Remove Clone trait bound on vertex search state by merging Propagate and CostPriority => Get reference of underlying graph
-/// - `PRM` on `StateSpace`
-///     - [x] Create a `Graph<StateSpace>`
-///     - [x] Sampling from `StateSpace`
-///     - [x] Connecting `Vertices<State>` using dist() trait fn and edge len
-///     - [x] Multi (agent) searchable from `Graph`
-use simple_vis::*;
-
-use search::graph::*;
-use search::path::*;
-use search::search::*;
-use search::spaces::*;
+use bricks::game::threed::camera_controller::CameraController;
+use bricks::search::graph::Graph;
+use bricks::search::path::Path;
+use bricks::search::search::{
+    AStar, AStarWeighted2, CostGuidedTreeSearchResult, CostGuidedWaveTreeSearch, WeightableAStar,
+    BFS, DFS, UCS,
+};
+use bricks::search::spaces::CuboidWithHoldSpace;
+use bricks::*;
 
 #[derive(Resource, Default)]
 struct Searches {
@@ -35,7 +18,7 @@ struct Paths {
     paths: Vec<Path>,
 }
 
-simple_vis::simple_vis!(
+bricks::game_3d!(
     "bfs, dfs, ucs, A*, 2.0 weighted A*, 100.0 weighted A*",
     {
         CuboidWithHoldSpace -> draw_space,
@@ -48,12 +31,10 @@ simple_vis::simple_vis!(
 fn init(mut commands: Commands) {
     commands.spawn((
         Camera3d::default(),
-        Transform::from_xyz(19.5, 6., 35.).looking_to(-Vec3::Z, Vec3::Y),
+        Transform::from_xyz(19.5, 7., 35.).looking_to(-Vec3::Z, Vec3::Y),
         CameraController::default(),
     ));
 }
-
-fn on_mouse_click(In(point): In<Result<Vec2, ()>>) {}
 
 fn on_spacebar_press(
     mut space: ResMut<CuboidWithHoldSpace>,
@@ -74,7 +55,7 @@ fn on_spacebar_press(
         UCS::try_on(&graph, a, b),
         AStar::try_on(&graph, a, b),
         AStarWeighted2::try_on(&graph, a, b),
-        WeightableAStar::<1000, 10>::try_on(&graph, a, b),
+        WeightableAStar::<100, 1>::try_on(&graph, a, b),
     ];
     paths.paths.clear();
     for search in searches.searches.iter() {
@@ -137,7 +118,7 @@ fn draw_searches(
                     + Vec3::Y * (space.size.y + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
-            Color::srgb(1., 0., 0.),
+            Color::srgb(0., 1., 0.),
         );
         gizmos.cuboid(
             Transform::from_translation(
@@ -146,7 +127,7 @@ fn draw_searches(
                     + Vec3::Y * (space.size.y + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
-            Color::srgb(0., 1., 0.),
+            Color::srgb(1., 0., 0.),
         );
     }
 }
@@ -165,7 +146,7 @@ fn draw_paths(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>, paths: Res<Pa
                     + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
-            Color::srgb(1., 0., 0.),
+            Color::srgb(0., 1., 0.),
         );
         gizmos.cuboid(
             Transform::from_translation(
@@ -173,7 +154,7 @@ fn draw_paths(mut gizmos: Gizmos, space: Res<CuboidWithHoldSpace>, paths: Res<Pa
                     + (idx as f32 + 1.) * Vec3::X * (space.size.x + 1.),
             )
             .with_scale(Vec3::ONE * 0.05),
-            Color::srgb(0., 1., 0.),
+            Color::srgb(1., 0., 0.),
         );
     }
 }

@@ -102,7 +102,7 @@ impl Particles {
             use std::f32::consts::PI;
             let std = 1.;
             *weight =
-                1. / (2. * PI).sqrt() * std * (-0.5 * (diff_in_measurement / std).powi(2)).exp();
+                1. / ((2. * PI).sqrt() * std) * (-0.5 * (diff_in_measurement / std).powi(2)).exp();
         }
     }
 

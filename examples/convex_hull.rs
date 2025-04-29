@@ -1,3 +1,17 @@
+//! This example illustrates `convex hull`.
+//!
+//! [Here is a link!](https://www.rust-lang.org)
+//! ## Example
+//!
+//! ```rust
+//! fn foo() -> i32 {
+//!     1 + 1
+//! }
+//! ```
+//! In this you can
+//! - randomly place points on screen
+//! - add point by click
+//! - create a convex hull
 use bricks::*;
 use rand::*;
 

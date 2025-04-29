@@ -37,13 +37,14 @@ jobs:
           command: build
           args: --release --target=wasm32-unknown-unknown --examples
       - name: 🌊
-        run: cargo install -f wasm-bindgen-cli --version 0.2.87
+        run: cargo install -f wasm-bindgen-cli
       - name: 🌊
         run: |
-         for example in examples/*.rs; do
-             example_name=$(basename "$example" .rs)
-             wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir public --target web
-         done
+for example in examples/*.rs; do
+example_name=$(basename "$example" .rs)
+echo "${example_name}"
+wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir static/wasm-bindgen --target web
+done
       - name: 🌊
         uses: actions/configure-pages@v2
       - name: 🌊

@@ -32,7 +32,7 @@ macro_rules! game_3d {
         }
 
         fn title(mut commands: Commands) {
-            commands.spawn(Text::new($title));
+            // commands.spawn(Text::new($title));
         }
     };
 }

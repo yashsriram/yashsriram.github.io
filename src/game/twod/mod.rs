@@ -29,7 +29,7 @@ macro_rules! game_2d {
         }
 
         fn title(mut commands: Commands) {
-            commands.spawn(Text::new($title));
+            // commands.spawn(Text::new($title));
         }
 
         fn mouse_click_on_screen(

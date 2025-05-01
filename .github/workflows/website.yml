@@ -20,31 +20,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🌊
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 🌊
         uses: shalzz/zola-deploy-action@v0.17.2
         env:
           BUILD_DIR: '.'
           BUILD_ONLY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: wasm32-unknown-unknown
-      - uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --release --target=wasm32-unknown-unknown --examples
-      - name: 🌊
-        run: cargo install -f wasm-bindgen-cli
-      - name: 🌊
-        run: |
-for example in examples/*.rs; do
-example_name=$(basename "$example" .rs)
-echo "${example_name}"
-wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir static/wasm-bindgen --target web
-done
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     target: wasm32-unknown-unknown
+      # - uses: actions-rs/cargo@v1
+      #   with:
+      #     use-cross: true
+      #     command: build
+      #     args: --release --target=wasm32-unknown-unknown --examples
+      # - name: 🌊
+      #   run: cargo install -f wasm-bindgen-cli
+      # - name: 🌊
+      #   run: |
+# for example in examples/*.rs; do
+# example_name=$(basename "$example" .rs)
+# echo "${example_name}"
+# wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir static/wasm-bindgen --target web
+# done
       - name: 🌊
         uses: actions/configure-pages@v2
       - name: 🌊

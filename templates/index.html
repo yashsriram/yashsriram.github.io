@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for brick in section.pages %}
-    <a href="{{ brick.slug }}">{{ brick.slug }}</a>
+    <a href="{{ brick.slug }}">{{ brick.slug }}</a><br/>
     {% endfor %}
     {{ section.content | safe }}
 {% endblock content %}

@@ -19,10 +19,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🌊
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: 🌊
-        uses: shalzz/zola-deploy-action@v0.17.2
+      - name: Zola build
+        uses: shalzz/zola-deploy-action@v0.20.0
         env:
           BUILD_DIR: '.'
           BUILD_ONLY: true
@@ -45,11 +45,11 @@ jobs:
 # echo "${example_name}"
 # wasm-bindgen "target/wasm32-unknown-unknown/release/examples/${example_name}.wasm" --out-dir static/wasm-bindgen --target web
 # done
-      - name: 🌊
-        uses: actions/configure-pages@v2
-      - name: 🌊
-        uses: actions/upload-pages-artifact@v1
+      - name: Configure pages
+        uses: actions/configure-pages@v5
+      - name: Upload pages
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './public'
-      - name: 🌊
-        uses: actions/deploy-pages@v1
+      - name: Deploy pages
+        uses: actions/deploy-pages@v4

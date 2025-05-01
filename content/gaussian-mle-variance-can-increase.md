@@ -2,7 +2,7 @@
 +++
 
 <video width="50%" controls autoplay>
-  <source src="./gaussian-mle-variance-can-increase.mp4">
+  <source src="/gaussian-mle-variance-can-increase.mp4">
 </video>
 
 In maximum likelihood estimate __mle__ where

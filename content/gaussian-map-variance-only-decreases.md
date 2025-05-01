@@ -2,7 +2,7 @@
 +++
 
 <video width="50%" controls autoplay>
-  <source src="./gaussian-map-variance-only-decreases.mp4">
+  <source src="/gaussian-map-variance-only-decreases.mp4">
 </video>
 
 In max a-posteriori estimate __map__

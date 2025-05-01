@@ -1,7 +1,7 @@
 +++
 +++
 
-<video width="50%" controls autoplay>
+<video height="500vh" controls autoplay>
   <source src="/gaussian-mle-variance-can-increase.mp4">
 </video>
 

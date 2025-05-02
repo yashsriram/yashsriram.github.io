@@ -2,10 +2,6 @@
 title = "Variance of MLE estimate can increase or decrease"
 +++
 
-<video height="500vh" controls autoplay>
-  <source src="/gaussian-mle-variance-can-increase.mp4">
-</video>
-
 In maximum likelihood estimate __mle__ where
 
 __input__ $x_i$ -> yellow circles + lines

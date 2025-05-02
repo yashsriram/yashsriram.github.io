@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {{ page.content | safe }}
+
+{{ page.content | safe }}
+
+<video width="50%" controls autoplay>
+    <source src="{{ page.slug }}/rec.mp4">
+</video>
+
 {% endblock content %}
 

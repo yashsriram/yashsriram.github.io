@@ -1,4 +1,5 @@
 +++
+title = "Bizzarely the variance of MAP estimate can only increase"
 +++
 
 <video width="50%" controls autoplay>

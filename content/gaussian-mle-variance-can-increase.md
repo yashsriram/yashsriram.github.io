@@ -1,4 +1,5 @@
 +++
+title = "Variance of MLE estimate can increase or decrease"
 +++
 
 <video height="500vh" controls autoplay>

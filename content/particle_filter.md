@@ -1,6 +1,8 @@
 +++
-title = "Estimate plane position using particle filter"
 +++
+
+Estimate plane position using particle filter.
+<!-- more -->
 
 A airplane (green circle) is moving right on line (green line).
 

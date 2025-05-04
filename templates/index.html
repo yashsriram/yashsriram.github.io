@@ -3,8 +3,8 @@
 {% block content %}
 
 <ol>
-    {% for brick in section.pages %}
-    <li><a href="{{ brick.slug }}">{{ brick.title }}</a><br/></li>
+    {% for page in section.pages %}
+    <li><a href="{{ page.slug }}">{{ page.summary | safe }}</a></li>
     {% endfor %}
     {{ section.content | safe }}
 </ol>
